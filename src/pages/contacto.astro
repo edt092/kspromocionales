@@ -1,0 +1,53 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+
+const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+---
+
+<BaseLayout
+  title="Contacto | KS Promocionales Colombia"
+  description={`Contáctanos por WhatsApp al ${SITE.whatsappDisplay} para cotizar productos promocionales en ${SITE.primaryCity} y toda Colombia.`}
+>
+  <section class="section-navy-deep relative pt-32 pb-24">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10 max-w-2xl text-center mx-auto">
+      <span class="section-label justify-center mb-4"><Icon name="message-circle" size={15} /> Contacto</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
+        Hablemos por WhatsApp
+      </h1>
+      <p class="text-white/70 text-lg mb-10">
+        Es el canal más rápido para cotizar: cuéntanos el producto, la cantidad aproximada y tu
+        ciudad, y te respondemos con una propuesta.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg mx-auto">
+        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="glass-card p-6 text-left hover:!border-ks-orange/40">
+          <Icon name="message-circle" size={22} class="text-ks-orange mb-3" />
+          <p class="font-heading font-bold text-white text-sm mb-1">WhatsApp</p>
+          <p class="text-white/60 text-xs">{SITE.whatsappDisplay}</p>
+        </a>
+        <a href={`tel:+${SITE.whatsappNumber}`} class="glass-card p-6 text-left hover:!border-ks-orange/40">
+          <Icon name="phone" size={22} class="text-ks-orange mb-3" />
+          <p class="font-heading font-bold text-white text-sm mb-1">Llamada</p>
+          <p class="text-white/60 text-xs">{SITE.whatsappDisplay}</p>
+        </a>
+      </div>
+
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-hero-primary mt-10">
+        <Icon name="message-circle" size={18} /> Cotizar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="container-ks max-w-2xl mx-auto text-center">
+      <div class="flex items-center justify-center gap-2 text-gray-600">
+        <Icon name="map-pin" size={18} class="text-ks-navy" />
+        <span>{SITE.primaryCity}, Colombia — envíos a todo el país</span>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

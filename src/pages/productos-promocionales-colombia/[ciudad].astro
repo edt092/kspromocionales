@@ -1,0 +1,120 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { colombia, getCiudadBySlug } from '@/data/geo-data';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+import categories from '@data/categories.json';
+
+export function getStaticPaths() {
+  return colombia.ciudades.map((ciudad) => ({ params: { ciudad: ciudad.slug } }));
+}
+
+const { ciudad: slug } = Astro.params;
+const ciudad = getCiudadBySlug(slug!)!;
+const otrasCiudades = colombia.ciudades.filter((c) => c.slug !== slug);
+const ctaUrl = cityWhatsappUrl(ciudad.nombre);
+const featuredCategories = (categories as any[]).slice(0, 8);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: `${SITE.name} ${ciudad.nombre}`,
+  description: ciudad.seoDescription,
+  url: `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/`,
+  areaServed: { '@type': 'City', name: ciudad.nombre, containedInPlace: { '@type': 'Country', name: 'Colombia' } },
+  parentOrganization: { '@type': 'Organization', name: SITE.legalName, url: SITE.url },
+};
+---
+
+<BaseLayout title={ciudad.seoTitle} description={ciudad.seoDescription} jsonLd={jsonLd}>
+  <div class="bg-gray-50 pt-28 pb-4">
+    <div class="container-ks">
+      <nav class="flex items-center gap-2 text-sm text-gray-600">
+        <a href="/" class="hover:text-ks-navy transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/productos-promocionales-colombia/" class="hover:text-ks-navy transition-colors">Colombia</a>
+        <span>/</span>
+        <span class="text-ks-navy font-medium">{ciudad.nombre}</span>
+      </nav>
+    </div>
+  </div>
+
+  <section class="section-navy relative overflow-hidden py-16 lg:py-24">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="bg-white/15 backdrop-blur-sm p-2 rounded-lg"><Icon name="map-pin" size={22} /></div>
+        <span class="text-lg text-white/90">Colombia</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight max-w-3xl text-balance">{ciudad.h1}</h1>
+      <p class="text-xl text-white/80 max-w-3xl mb-9">{ciudad.intro}</p>
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp pulse-whatsapp">
+        <Icon name="message-circle" size={18} /> Cotizar Ahora en {ciudad.nombre}
+      </a>
+    </div>
+  </section>
+
+  <section class="py-12 bg-midnight text-white">
+    <div class="container-ks grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {ciudad.caracteristicas.map((c) => (
+        <div class="flex items-start gap-3">
+          <Icon name="check-circle" size={20} class="text-ks-orange shrink-0 mt-0.5" />
+          <span class="text-gray-300 text-sm">{c}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24">
+    <div class="container-ks">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-[#0A0A23] mb-4">
+          Productos Promocionales Disponibles en {ciudad.nombre}
+        </h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Explora nuestra selección de artículos publicitarios con personalización de tu logo y envío directo a {ciudad.nombre}.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        {featuredCategories.map((cat: any) => (
+          <a href={`/categorias/${cat.slug}/`} class="group bg-gray-50 hover:bg-ks-navy-wash border border-gray-200 hover:border-ks-navy text-gray-900 hover:text-ks-navy px-6 py-5 rounded-xl text-center font-medium transition-all">
+            {cat.name}
+          </a>
+        ))}
+      </div>
+      <div class="text-center">
+        <a href="/categorias/" class="btn-primary">
+          Ver Catálogo Completo <Icon name="arrow-right" size={18} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-gray-50">
+    <div class="container-ks">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-heading font-bold text-[#0A0A23] mb-4">Otras Ciudades en Colombia</h2>
+        <p class="text-gray-600">También brindamos servicio de productos promocionales en otras ciudades colombianas.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {otrasCiudades.map((otra) => (
+          <a href={`/productos-promocionales-colombia/${otra.slug}/`} class="bg-white border border-gray-200 hover:border-ks-navy rounded-xl p-4 text-center transition-all hover:shadow-lg group">
+            <Icon name="map-pin" size={22} class="mx-auto text-ks-navy mb-2 group-hover:scale-110 transition-transform" />
+            <span class="font-medium text-gray-900 group-hover:text-ks-navy transition-colors">{otra.nombre}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24 bg-midnight text-white">
+    <div class="container-ks max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">¿Necesitas productos promocionales en {ciudad.nombre}?</h2>
+      <p class="text-xl text-gray-400 mb-8">Contáctanos ahora y recibe atención personalizada para tu empresa en {ciudad.nombre}.</p>
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp pulse-whatsapp">
+        <Icon name="message-circle" size={18} /> Contactar por WhatsApp
+      </a>
+    </div>
+  </section>
+</BaseLayout>

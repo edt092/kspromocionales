@@ -1,0 +1,58 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SITE } from '@/lib/site';
+---
+
+<BaseLayout
+  title="Política de Privacidad | KS Promocionales Colombia"
+  description="Política de privacidad y tratamiento de datos personales de KS Promocionales Colombia."
+>
+  <section class="pt-32 pb-20">
+    <div class="container-ks max-w-3xl">
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mb-8">Política de Privacidad</h1>
+
+      <div class="prose-content space-y-6 text-gray-600 leading-relaxed">
+        <p>
+          En {SITE.legalName} ("nosotros") respetamos tu privacidad y nos comprometemos a
+          proteger los datos personales que compartes al contactarnos, de conformidad con la
+          Ley 1581 de 2012 y el Decreto 1377 de 2013 de Colombia sobre protección de datos
+          personales.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] pt-4">Qué información recopilamos</h2>
+        <p>
+          Recopilamos únicamente la información que nos proporcionas voluntariamente al
+          escribirnos por WhatsApp, teléfono o correo electrónico: nombre, empresa, número de
+          contacto y los detalles de tu solicitud de cotización.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] pt-4">Cómo usamos tu información</h2>
+        <p>
+          Usamos tus datos exclusivamente para responder tu solicitud de cotización, coordinar
+          la personalización y entrega de productos, y darte seguimiento comercial. No vendemos
+          ni compartimos tu información con terceros para fines distintos a estos.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] pt-4">Tus derechos</h2>
+        <p>
+          Puedes solicitar en cualquier momento el acceso, actualización, rectificación o
+          eliminación de tus datos personales escribiéndonos por WhatsApp al{' '}
+          {SITE.whatsappDisplay}.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] pt-4">Cookies y analítica</h2>
+        <p>
+          Este sitio puede usar cookies técnicas y de analítica para entender cómo se usa el
+          catálogo y mejorar la experiencia de navegación. No usamos esta información para
+          identificarte individualmente.
+        </p>
+
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] pt-4">Contacto</h2>
+        <p>
+          Para cualquier duda sobre esta política, contáctanos por WhatsApp al{' '}
+          {SITE.whatsappDisplay}.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

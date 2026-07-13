@@ -1,0 +1,51 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { getAllPosts } from '@/lib/blog';
+
+const posts = getAllPosts();
+
+function formatDate(iso: string) {
+  return new Date(iso + 'T00:00:00').toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<BaseLayout
+  title="Blog | KS Promocionales Colombia"
+  description="Ideas, guías y tendencias de productos promocionales y regalos corporativos para empresas en Colombia."
+>
+  <section class="section-navy-deep relative pt-32 pb-16">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10">
+      <span class="section-label mb-4"><Icon name="award" size={15} /> Blog</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white max-w-2xl">
+        Ideas y guías de productos promocionales
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-ks grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map((post, i) => (
+        <a
+          href={`/blog/${post.slug}/`}
+          class={`card-surface block overflow-hidden reveal stagger-${(i % 6) + 1}`}
+          style={`--stagger: ${(i % 6) * 60}ms`}
+        >
+          <div class="aspect-category overflow-hidden bg-ks-navy-wash">
+            <img src={post.image} alt={post.title} loading={i < 3 ? 'eager' : 'lazy'} class="w-full h-full object-cover" width="400" height="300" />
+          </div>
+          <div class="p-5">
+            <p class="text-[11px] uppercase tracking-wide text-ks-orange font-semibold mb-2">{post.categoryName}</p>
+            <h2 class="font-heading font-bold text-[#0A0A23] leading-snug mb-2 line-clamp-2">{post.title}</h2>
+            <p class="text-sm text-gray-500 line-clamp-2 mb-4">{post.excerpt}</p>
+            <div class="flex items-center gap-2 text-xs text-gray-400">
+              <span>{formatDate(post.date)}</span>
+              {post.readTime && <><span>·</span><span>{post.readTime}</span></>}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

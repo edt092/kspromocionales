@@ -1,0 +1,37 @@
+---
+import Icon from '@/components/Icon.astro';
+import ProductCard from '@/components/ProductCard.astro';
+import products from '@data/products.json';
+
+const bestsellers = (products as any[]).filter((p) => p.bestseller).slice(0, 8);
+const fallback = (products as any[]).slice(0, 8);
+const list = bestsellers.length ? bestsellers : fallback;
+---
+
+{list.length > 0 && (
+  <section class="py-24 lg:py-32 bg-ks-navy-ghost">
+    <div class="container-ks">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
+        <div class="max-w-xl">
+          <span class="section-label text-ks-navy">
+            <Icon name="star" size={15} /> Los más pedidos
+          </span>
+          <h2 class="heading-underline text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mt-3">
+            Bestsellers para empresas en Colombia
+          </h2>
+        </div>
+        <a href="/categorias/" class="btn-primary shrink-0">
+          Ver catálogo completo <Icon name="arrow-right" size={16} />
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {list.map((product: any, i: number) => (
+          <div class={`reveal stagger-${(i % 6) + 1}`} style={`--stagger: ${(i % 6) * 70}ms`}>
+            <ProductCard product={product} eager={i < 4} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

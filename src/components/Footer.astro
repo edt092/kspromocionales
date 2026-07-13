@@ -1,0 +1,65 @@
+---
+import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
+import { colombia } from '@/data/geo-data';
+import categories from '@data/categories.json';
+
+const footerCategories = (categories as any[]).slice(0, 10);
+const year = new Date().getFullYear();
+---
+
+<footer class="section-navy-deep relative">
+  <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+  <div class="container-ks relative z-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
+    <div class="col-span-2 md:col-span-1">
+      <img src="/logo-header.png" alt={SITE.name} class="h-11 w-auto mb-4" width="1190" height="320" />
+      <p class="text-white/60 text-sm leading-relaxed mb-4">
+        Productos promocionales y regalos corporativos personalizados con tu logo,
+        posicionados para Bucaramanga y las principales ciudades de Colombia.
+      </p>
+      <div class="flex items-center gap-2 text-white/70 text-sm">
+        <Icon name="map-pin" size={16} class="text-ks-orange shrink-0" />
+        Bucaramanga, Colombia
+      </div>
+    </div>
+
+    <div>
+      <h3 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Categorías</h3>
+      <ul class="space-y-2.5 text-sm text-white/60">
+        {footerCategories.map((cat: any) => (
+          <li><a href={`/categorias/${cat.slug}/`} class="hover:text-ks-orange-light transition-colors">{cat.name}</a></li>
+        ))}
+        <li><a href="/categorias/" class="text-ks-orange-light font-medium hover:text-ks-orange transition-colors">Ver todas →</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Ciudades</h3>
+      <ul class="space-y-2.5 text-sm text-white/60">
+        {colombia.ciudades.map((c) => (
+          <li><a href={`/productos-promocionales-colombia/${c.slug}/`} class="hover:text-ks-orange-light transition-colors">{c.nombre}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Empresa</h3>
+      <ul class="space-y-2.5 text-sm text-white/60">
+        <li><a href="/nosotros/" class="hover:text-ks-orange-light transition-colors">Nosotros</a></li>
+        <li><a href="/blog/" class="hover:text-ks-orange-light transition-colors">Blog</a></li>
+        <li><a href="/regalos-corporativos/" class="hover:text-ks-orange-light transition-colors">Regalos Corporativos</a></li>
+        <li><a href="/articulos-promocionales/" class="hover:text-ks-orange-light transition-colors">Artículos Promocionales</a></li>
+        <li><a href="/merchandising-corporativo/" class="hover:text-ks-orange-light transition-colors">Merchandising Corporativo</a></li>
+        <li><a href="/contacto/" class="hover:text-ks-orange-light transition-colors">Contacto</a></li>
+        <li><a href="/politica-de-privacidad/" class="hover:text-ks-orange-light transition-colors">Política de Privacidad</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="relative z-10 border-t border-white/10">
+    <div class="container-ks py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+      <span>© {year} {SITE.legalName}. Todos los derechos reservados.</span>
+      <span>Cotización y atención 100% por WhatsApp — {SITE.whatsappDisplay}</span>
+    </div>
+  </div>
+</footer>

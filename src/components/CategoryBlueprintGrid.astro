@@ -1,0 +1,92 @@
+---
+import Icon from '@/components/Icon.astro';
+import categories from '@data/categories.json';
+
+const items = (categories as any[]).slice(0, 12);
+
+// Mapa reducido de íconos por categoría (fallback: package). El dataset del
+// catálogo trae nombres de ícono estilo lucide-react (PascalCase); acá se
+// traduce al set kebab-case propio de Icon.astro.
+const iconMap: Record<string, string> = {
+  Zap: 'zap', Shield: 'shield-check', Layers: 'layers', Palette: 'palette',
+  Package: 'package', Award: 'award', Star: 'star', Truck: 'truck',
+  Users: 'users', Clock: 'clock',
+};
+
+function resolveIcon(name?: string) {
+  return iconMap[name ?? ''] ?? 'package';
+}
+---
+
+<section id="categorias" class="relative py-24 lg:py-32 bg-white overflow-hidden">
+  <svg class="absolute top-0 left-0 w-full h-16 text-ks-navy/15" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+    <path data-draw-line d="M0,30 L1200,30" fill="none" stroke="currentColor" stroke-width="1.5" />
+    <path data-draw-line d="M0,10 L1200,10" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 6" />
+  </svg>
+
+  <div class="container-ks">
+    <div class="max-w-2xl mb-14 reveal">
+      <span class="section-label text-ks-navy">
+        <Icon name="layers" size={15} /> Catálogo por categoría
+      </span>
+      <h2 class="heading-underline text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mt-3">
+        El plano completo de tu campaña promocional
+      </h2>
+      <p class="text-gray-600 mt-5 text-lg">
+        Explora por categoría igual que en un catálogo arquitectónico: cada bloque
+        agrupa las referencias con mejor rotación para empresas en Colombia.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {items.map((cat: any, i: number) => (
+        <a
+          href={`/categorias/${cat.slug}/`}
+          data-tilt
+          data-tilt-max="6"
+          class={`category-card-v2 group block p-6 reveal stagger-${(i % 6) + 1}`}
+          style={`--stagger: ${(i % 6) * 70}ms`}
+        >
+          <div class="w-11 h-11 rounded-lg bg-ks-navy-wash flex items-center justify-center text-ks-navy mb-4 group-hover:bg-ks-orange-wash group-hover:text-ks-orange transition-colors duration-300">
+            <Icon name={resolveIcon(cat.icon)} size={20} />
+          </div>
+          <h3 class="font-heading font-bold text-[#0A0A23] mb-1 leading-snug">{cat.name}</h3>
+          {cat.productCount && (
+            <p class="text-xs text-gray-500 mb-4">{cat.productCount}+ referencias</p>
+          )}
+          <span
+            data-magnetic
+            data-magnetic-pull="0.25"
+            class="magnetic-pill inline-flex items-center gap-1.5 text-xs font-semibold text-ks-navy group-hover:text-white px-3 py-1.5 rounded-full relative overflow-hidden"
+          >
+            <span class="relative z-10">Explorar</span>
+            <Icon name="arrow-right" size={13} class="relative z-10" />
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <div class="text-center mt-12 reveal">
+      <a href="/categorias/" class="btn-primary">
+        Ver las 37 categorías completas <Icon name="arrow-right" size={16} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .magnetic-pill {
+    background: #EDF0FB;
+    transition: color 0.25s ease;
+  }
+  .magnetic-pill::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0F2178, #1A3299);
+    border-radius: 999px;
+    clip-path: circle(0% at 15% 50%);
+    transition: clip-path 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  a:hover .magnetic-pill::before { clip-path: circle(140% at 50% 50%); }
+</style>

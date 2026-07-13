@@ -1,0 +1,26 @@
+---
+import Icon from '@/components/Icon.astro';
+
+const benefits = [
+  { icon: 'message-circle' as const, title: 'Cotización por WhatsApp', body: 'Sin formularios largos ni carritos: escríbenos y te respondemos directo.' },
+  { icon: 'layers' as const, title: 'Sin cantidad mínima', body: 'Varias líneas del catálogo no exigen un pedido mínimo grande.' },
+  { icon: 'palette' as const, title: 'Personalización con tu logo', body: 'Aplicamos tu marca al producto que elijas, guiándote en el proceso.' },
+  { icon: 'truck' as const, title: 'Envíos a toda Colombia', body: `Despachamos desde Bucaramanga a las principales ciudades del país.` },
+];
+---
+
+<section class="py-16 bg-white border-y border-gray-100">
+  <div class="container-ks grid grid-cols-2 lg:grid-cols-4 gap-8">
+    {benefits.map((b, i) => (
+      <div class={`flex items-start gap-3 reveal stagger-${i + 1}`} style={`--stagger: ${i * 70}ms`}>
+        <div class="w-10 h-10 shrink-0 rounded-lg bg-ks-orange-wash text-ks-orange flex items-center justify-center">
+          <Icon name={b.icon} size={18} />
+        </div>
+        <div>
+          <h3 class="font-heading font-bold text-sm text-[#0A0A23] mb-1">{b.title}</h3>
+          <p class="text-xs text-gray-500 leading-relaxed">{b.body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

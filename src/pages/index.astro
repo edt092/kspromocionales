@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Hero3D from '@/components/Hero3D.astro';
+import BenefitsBar from '@/components/BenefitsBar.astro';
+import CategoryBlueprintGrid from '@/components/CategoryBlueprintGrid.astro';
+import ScaleCustomizationSection from '@/components/ScaleCustomizationSection.astro';
+import BestsellersSection from '@/components/BestsellersSection.astro';
+import FaqSection from '@/components/FaqSection.astro';
+import FinalCta from '@/components/FinalCta.astro';
+import { SITE } from '@/lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITE.legalName,
+  url: SITE.url,
+  logo: `${SITE.url}/logo-header.png`,
+  areaServed: { '@type': 'Country', name: 'Colombia' },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    telephone: `+${SITE.whatsappNumber}`,
+    areaServed: 'CO',
+    availableLanguage: 'Spanish',
+  },
+};
+---
+
+<BaseLayout
+  title="Productos Promocionales en Bucaramanga y Colombia | KS Promocionales"
+  description="Artículos publicitarios y regalos corporativos personalizados con tu logo. Catálogo con más de 2.000 referencias, cotización directa por WhatsApp. Envíos a Bucaramanga y toda Colombia."
+  jsonLd={jsonLd}
+>
+  <Hero3D />
+  <BenefitsBar />
+  <CategoryBlueprintGrid />
+  <ScaleCustomizationSection />
+  <BestsellersSection />
+  <FaqSection />
+  <FinalCta />
+</BaseLayout>

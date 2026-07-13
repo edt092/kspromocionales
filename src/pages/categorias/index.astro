@@ -1,0 +1,53 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import categories from '@data/categories.json';
+import products from '@data/products.json';
+
+const iconMap: Record<string, string> = {
+  Zap: 'zap', Shield: 'shield-check', Layers: 'layers', Palette: 'palette',
+  Package: 'package', Award: 'award', Star: 'star', Truck: 'truck',
+  Users: 'users', Clock: 'clock',
+};
+function resolveIcon(name?: string) {
+  return iconMap[name ?? ''] ?? 'package';
+}
+function countFor(catId: string) {
+  return (products as any[]).filter((p) => p.categoryId === catId).length;
+}
+---
+
+<BaseLayout
+  title="Catálogo completo de productos promocionales | KS Promocionales Colombia"
+  description="Explora las categorías completas de artículos publicitarios y regalos corporativos personalizados: tecnología, drinkware, oficina, ropa, y más. Cotiza por WhatsApp."
+>
+  <section class="section-navy-deep relative pt-32 pb-16">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10">
+      <span class="section-label mb-4"><Icon name="layers" size={15} /> Catálogo</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white max-w-2xl">
+        Todas las categorías de productos promocionales
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-14 lg:py-20">
+    <div class="container-ks grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      {(categories as any[]).map((cat, i) => (
+        <a
+          href={`/categorias/${cat.slug}/`}
+          data-tilt
+          data-tilt-max="5"
+          class={`category-card-v2 group block p-6 reveal stagger-${(i % 6) + 1}`}
+          style={`--stagger: ${(i % 6) * 50}ms`}
+        >
+          <div class="w-11 h-11 rounded-lg bg-ks-navy-wash flex items-center justify-center text-ks-navy mb-4 group-hover:bg-ks-orange-wash group-hover:text-ks-orange transition-colors duration-300">
+            <Icon name={resolveIcon(cat.icon)} size={20} />
+          </div>
+          <h2 class="font-heading font-bold text-[#0A0A23] mb-1 leading-snug">{cat.name}</h2>
+          <p class="text-xs text-gray-500">{countFor(cat.id)} referencias</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

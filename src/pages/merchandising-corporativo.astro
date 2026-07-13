@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import ProductCard from '@/components/ProductCard.astro';
+import FaqSection from '@/components/FaqSection.astro';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+import products from '@data/products.json';
+
+const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const list = (products as any[]).slice(16, 24);
+
+const faqs = [
+  { question: '¿Qué es el merchandising corporativo?', answer: 'Es el uso de productos personalizados con la identidad de marca de tu empresa como herramienta de posicionamiento: uniformes, kits para equipos de trabajo, material para puntos de venta y más.' },
+  { question: '¿Trabajan con equipos/uniformes para todo un equipo de trabajo?', answer: 'Sí, es uno de los casos de uso más comunes en esta categoría — cuéntanos el número de personas y te ayudamos a definir la mejor opción.' },
+  { question: '¿Puedo aplicar los mismos colores exactos de mi marca?', answer: 'Buscamos la mayor fidelidad posible al color/logo de tu marca según la técnica de personalización de cada producto — lo confirmamos al cotizar.' },
+];
+---
+
+<BaseLayout
+  title="Merchandising Corporativo en Colombia | KS Promocionales"
+  description="Merchandising corporativo personalizado: uniformes, kits para equipos de trabajo y material de marca. Cotiza por WhatsApp, envíos a toda Colombia."
+>
+  <section class="section-navy relative overflow-hidden py-20 lg:py-28">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10 max-w-3xl">
+      <span class="section-label mb-4"><Icon name="layers" size={15} /> Merchandising Corporativo</span>
+      <h1 class="text-4xl sm:text-5xl font-heading font-bold text-white mb-6 text-balance">
+        Tu marca, aplicada de forma consistente en todo tu equipo
+      </h1>
+      <p class="text-white/75 text-lg mb-9">
+        Diseña la vestimenta y los accesorios de tu equipo en minutos: te guiamos en la
+        elección de producto y técnica de marcado para que la marca quede pareja en cada pieza.
+      </p>
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+        <Icon name="message-circle" size={18} /> Cotizar por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-ks-navy-ghost">
+    <div class="container-ks">
+      <h2 class="heading-underline text-2xl sm:text-3xl font-heading font-bold text-[#0A0A23] mb-10">
+        Ejemplos de merchandising corporativo
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {list.map((p: any, i: number) => (
+          <div class={`reveal stagger-${(i % 6) + 1}`} style={`--stagger: ${(i % 6) * 60}ms`}>
+            <ProductCard product={p} eager={i < 4} />
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/categorias/" class="btn-primary">Ver catálogo completo <Icon name="arrow-right" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqs} title="Preguntas frecuentes sobre merchandising corporativo" />
+</BaseLayout>

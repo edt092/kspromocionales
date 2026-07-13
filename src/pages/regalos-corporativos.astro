@@ -1,0 +1,79 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import ProductCard from '@/components/ProductCard.astro';
+import FaqSection from '@/components/FaqSection.astro';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+import products from '@data/products.json';
+
+const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const featured = (products as any[]).filter((p) => p.featured || p.bestseller).slice(0, 8);
+const list = featured.length ? featured : (products as any[]).slice(0, 8);
+
+const faqs = [
+  { question: '¿Qué incluye un regalo corporativo típico?', answer: 'Depende del presupuesto y la ocasión: desde un solo artículo personalizado (mug, libreta, power bank) hasta un kit con varias piezas empacadas. Te ayudamos a armar la propuesta por WhatsApp.' },
+  { question: '¿Puedo pedir muestras antes de decidir?', answer: 'Cuéntanos qué productos te interesan y te confirmamos disponibilidad de muestra física según la referencia.' },
+  { question: '¿Hacen kits de bienvenida para nuevos empleados?', answer: 'Sí, es uno de los usos más frecuentes de esta categoría — te ayudamos a definir una combinación con buena relación calidad-precio.' },
+  { question: '¿Cuánto tiempo toma la producción?', answer: 'Varía según el producto y la técnica de marcado. Te damos el tiempo estimado exacto al cotizar por WhatsApp.' },
+];
+---
+
+<BaseLayout
+  title="Regalos Corporativos Personalizados en Colombia | KS Promocionales"
+  description="Regalos corporativos con logo para clientes, empleados y eventos. Kits de bienvenida, detalles de fin de año y reconocimientos. Cotiza por WhatsApp, envíos a toda Colombia."
+>
+  <section class="section-navy relative overflow-hidden py-20 lg:py-28">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10 max-w-3xl">
+      <span class="section-label mb-4"><Icon name="award" size={15} /> Regalos Corporativos</span>
+      <h1 class="text-4xl sm:text-5xl font-heading font-bold text-white mb-6 text-balance">
+        Regalos corporativos que refuerzan tu marca, no solo la decoran
+      </h1>
+      <p class="text-white/75 text-lg mb-9">
+        Para clientes, empleados o partners: artículos personalizados con tu logo, pensados
+        para que se usen de verdad. Te ayudamos a elegir la opción correcta para tu presupuesto y ocasión.
+      </p>
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+        <Icon name="message-circle" size={18} /> Armar mi propuesta por WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-b border-gray-100">
+    <div class="container-ks grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="text-center md:text-left">
+        <h3 class="font-heading font-bold text-lg text-[#0A0A23] mb-2">Para clientes</h3>
+        <p class="text-gray-500 text-sm">Detalles de fin de año, agradecimiento o bienvenida que dejan una impresión duradera de tu empresa.</p>
+      </div>
+      <div class="text-center md:text-left">
+        <h3 class="font-heading font-bold text-lg text-[#0A0A23] mb-2">Para empleados</h3>
+        <p class="text-gray-500 text-sm">Kits de bienvenida, reconocimientos y celebraciones internas con tu marca presente.</p>
+      </div>
+      <div class="text-center md:text-left">
+        <h3 class="font-heading font-bold text-lg text-[#0A0A23] mb-2">Para eventos</h3>
+        <p class="text-gray-500 text-sm">Ferias, lanzamientos y activaciones donde el producto correcto multiplica la recordación de marca.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-ks-navy-ghost">
+    <div class="container-ks">
+      <h2 class="heading-underline text-2xl sm:text-3xl font-heading font-bold text-[#0A0A23] mb-10">
+        Opciones destacadas para regalos corporativos
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        {list.map((p: any, i: number) => (
+          <div class={`reveal stagger-${(i % 6) + 1}`} style={`--stagger: ${(i % 6) * 60}ms`}>
+            <ProductCard product={p} eager={i < 4} />
+          </div>
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/categorias/" class="btn-primary">Ver catálogo completo <Icon name="arrow-right" size={16} /></a>
+      </div>
+    </div>
+  </section>
+
+  <FaqSection items={faqs} title="Preguntas frecuentes sobre regalos corporativos" />
+</BaseLayout>

@@ -1,0 +1,75 @@
+---
+import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
+
+export interface FaqItem { question: string; answer: string }
+
+interface Props {
+  items?: FaqItem[];
+  title?: string;
+}
+
+const defaultFaqs: FaqItem[] = [
+  {
+    question: '¿Qué son los productos promocionales?',
+    answer: `Son artículos personalizados con el logo o mensaje de tu empresa —desde lapiceros hasta mugs y tecnología— que se entregan a clientes, empleados o asistentes a eventos para generar recordación de marca.`,
+  },
+  {
+    question: `¿Hacen envíos a ${SITE.primaryCity} y otras ciudades de Colombia?`,
+    answer: `Sí. Despachamos desde ${SITE.primaryCity} a Bogotá, Medellín, Cali, Barranquilla, Cartagena, Cúcuta y el resto del país.`,
+  },
+  {
+    question: '¿Hay cantidad mínima de pedido?',
+    answer: 'Varias líneas del catálogo no exigen una cantidad mínima grande. Cuéntanos por WhatsApp qué producto te interesa y te confirmamos la cantidad mínima exacta de esa referencia.',
+  },
+  {
+    question: '¿Cómo cotizo un producto?',
+    answer: 'Escríbenos por WhatsApp desde el botón de cualquier producto o categoría. Te pedimos tu logo y la cantidad aproximada, y te enviamos una propuesta con tiempos de entrega.',
+  },
+  {
+    question: '¿Puedo personalizar cualquier producto del catálogo?',
+    answer: 'La gran mayoría admite personalización con logo. Algunas referencias tienen técnicas de marcado específicas — te lo confirmamos al cotizar según el producto elegido.',
+  },
+];
+
+const { items = defaultFaqs, title = 'Preguntas frecuentes' } = Astro.props;
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+<section class="py-24 lg:py-32 bg-white">
+  <div class="container-ks max-w-3xl">
+    <div class="text-center mb-12 reveal">
+      <span class="section-label justify-center text-ks-navy">
+        <Icon name="check-circle" size={15} /> Resolvemos tus dudas
+      </span>
+      <h2 class="heading-underline text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mt-3">{title}</h2>
+    </div>
+
+    <div class="space-y-3">
+      {items.map((faq, i) => (
+        <details class={`faq-item group border border-gray-100 rounded-xl px-5 reveal stagger-${(i % 6) + 1}`} style={`--stagger: ${(i % 6) * 60}ms`}>
+          <summary class="flex items-center justify-between gap-4 py-5 cursor-pointer list-none font-heading font-semibold text-[#0A0A23]">
+            {faq.question}
+            <Icon name="chevron-down" size={18} class="shrink-0 transition-transform duration-300 group-open:rotate-180 text-ks-orange" />
+          </summary>
+          <p class="text-gray-600 text-sm leading-relaxed pb-5">{faq.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item summary::-webkit-details-marker { display: none; }
+</style>

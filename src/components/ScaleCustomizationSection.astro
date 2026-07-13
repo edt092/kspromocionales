@@ -1,0 +1,114 @@
+---
+import Icon from '@/components/Icon.astro';
+
+const steps = [
+  {
+    n: '01',
+    icon: 'package' as const,
+    title: 'Elige tu producto',
+    body: 'Filtra por categoría, uso o presupuesto entre más de 2.000 referencias. Marcamos las de mejor rotación en Colombia.',
+  },
+  {
+    n: '02',
+    icon: 'upload' as const,
+    title: 'Sube tu logo',
+    body: 'Envíanos tu marca por WhatsApp — colores, logo y el mensaje que quieres transmitir. Nosotros nos encargamos del resto.',
+  },
+  {
+    n: '03',
+    icon: 'eye' as const,
+    title: 'Previsualiza y confirma',
+    body: 'Recibes una propuesta de personalización y cantidades antes de producir. Sin sorpresas, sin cantidad mínima en varias líneas.',
+  },
+];
+---
+
+<section id="scale-section" class="relative bg-midnight text-white">
+  <div id="scale-pin" class="relative h-screen overflow-hidden">
+    <div class="absolute top-10 left-0 right-0 z-10 text-center px-4">
+      <span class="section-label justify-center">
+        <Icon name="layers" size={15} /> Cómo funciona
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-heading font-bold mt-2">De la idea a tu marca en manos del cliente</h2>
+    </div>
+
+    <div id="scale-track" class="flex h-full" style="width: 300%;">
+      {steps.map((step) => (
+        <div class="step-panel w-full h-full flex items-center justify-center px-6">
+          <div class="max-w-lg text-center">
+            <span class="block font-heading text-[7rem] leading-none font-extrabold text-white/10 mb-2">{step.n}</span>
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-ks-orange/15 border border-ks-orange/30 flex items-center justify-center text-ks-orange mb-6 -mt-16">
+              <Icon name={step.icon} size={28} />
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-heading font-bold mb-4">{step.title}</h3>
+            <p class="text-white/60 text-lg leading-relaxed">{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex gap-2">
+      {steps.map((_, i) => (
+        <span class="scale-dot w-2 h-2 rounded-full bg-white/20" data-dot-index={i}></span>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function setupHorizontalScroll() {
+    const pin = document.getElementById('scale-pin');
+    const track = document.getElementById('scale-track');
+    if (!pin || !track) return;
+
+    const panels = track.querySelectorAll<HTMLElement>('.step-panel');
+    const dots = document.querySelectorAll<HTMLElement>('.scale-dot');
+
+    // El track mide 3 paneles (300% del ancho del contenedor). Desplazamos
+    // por xPercent en vez de píxeles para que el cálculo sea independiente
+    // del tamaño real: -66.667% del ANCHO DEL TRACK (que es 3x el viewport)
+    // equivale exactamente a moverse 2 paneles completos hacia la izquierda,
+    // dejando el 3er panel encuadrado al terminar el scroll.
+    const xPercent = -((panels.length - 1) / panels.length) * 100;
+
+    const st = ScrollTrigger.create({
+      trigger: pin,
+      start: 'top top',
+      end: () => `+=${pin.offsetHeight * (panels.length - 1)}`,
+      scrub: 0.8,
+      pin: true,
+      anticipatePin: 1,
+      onUpdate: (self) => {
+        const active = Math.min(panels.length - 1, Math.round(self.progress * (panels.length - 1)));
+        dots.forEach((d, i) => d.classList.toggle('bg-ks-orange', i === active));
+      },
+    });
+
+    gsap.to(track, {
+      xPercent,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: pin,
+        start: 'top top',
+        end: () => `+=${pin.offsetHeight * (panels.length - 1)}`,
+        scrub: 0.8,
+      },
+    });
+
+    return () => st.kill();
+  }
+
+  let cleanup: (() => void) | undefined;
+  function init() {
+    cleanup?.();
+    cleanup = setupHorizontalScroll();
+    ScrollTrigger.refresh();
+  }
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

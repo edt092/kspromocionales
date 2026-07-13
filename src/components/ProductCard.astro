@@ -1,0 +1,60 @@
+---
+import Icon from '@/components/Icon.astro';
+import { productWhatsappUrl } from '@/lib/whatsapp';
+
+interface Props {
+  product: {
+    slug: string;
+    name: string;
+    images?: string[];
+    shortDescription?: string;
+    categoria?: string;
+    whatsappMessage?: string;
+    featured?: boolean;
+    bestseller?: boolean;
+  };
+  eager?: boolean;
+}
+
+const { product, eager = false } = Astro.props;
+const image = product.images?.[0] ?? '/images/products/_placeholder-ksp-co.jpg';
+---
+
+<article class="card-product group" data-tilt data-tilt-max="4">
+  <a href={`/productos/${product.slug}/`} class="block relative aspect-product overflow-hidden bg-ks-navy-wash">
+    <img
+      src={image}
+      alt={product.name}
+      loading={eager ? 'eager' : 'lazy'}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      width="400"
+      height="400"
+    />
+    {product.bestseller && <span class="badge-popular absolute top-3 left-3">Bestseller</span>}
+  </a>
+  <div class="p-4 flex flex-col flex-1">
+    {product.categoria && <p class="text-[11px] uppercase tracking-wide text-ks-orange font-semibold mb-1">{product.categoria}</p>}
+    <a href={`/productos/${product.slug}/`} class="font-heading font-bold text-[#0A0A23] leading-snug mb-2 hover:text-ks-navy transition-colors line-clamp-2">
+      {product.name}
+    </a>
+    {product.shortDescription && <p class="text-sm text-gray-500 line-clamp-2 mb-4">{product.shortDescription}</p>}
+    <a
+      href={productWhatsappUrl(product.name, product.whatsappMessage)}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-ks-navy border border-ks-navy/20 rounded-lg py-2.5 hover:bg-ks-navy hover:text-white transition-colors"
+    >
+      <Icon name="message-circle" size={15} /> Cotizar
+    </a>
+  </div>
+</article>
+
+<style>
+  .badge-popular {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    background: #F5A520; color: white;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    border-radius: 999px;
+  }
+</style>

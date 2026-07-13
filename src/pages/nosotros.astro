@@ -1,0 +1,74 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+
+const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+
+const values = [
+  { icon: 'message-circle' as const, title: 'Cotización directa', body: 'Sin formularios ni intermediarios: hablas con nosotros por WhatsApp desde el primer momento.' },
+  { icon: 'layers' as const, title: 'Catálogo curado', body: 'Más de 2.000 referencias organizadas por categoría para que encuentres lo que necesitas rápido.' },
+  { icon: 'truck' as const, title: 'Cobertura nacional', body: `Despachamos desde ${SITE.primaryCity} a las principales ciudades de Colombia.` },
+  { icon: 'palette' as const, title: 'Personalización guiada', body: 'Te acompañamos desde el logo hasta la propuesta final, sin letra pequeña.' },
+];
+---
+
+<BaseLayout
+  title="Nosotros | KS Promocionales Colombia"
+  description="KS Promocionales Colombia es la operación colombiana de KS Promocionales, especialistas en productos publicitarios y regalos corporativos personalizados, con base en Bucaramanga."
+>
+  <section class="section-navy-deep relative pt-32 pb-20">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10 max-w-2xl">
+      <span class="section-label mb-4"><Icon name="users" size={15} /> Nosotros</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6 text-balance">
+        Productos promocionales pensados para empresas colombianas
+      </h1>
+      <p class="text-white/70 text-lg">
+        Somos la operación colombiana de KS Promocionales, con base en {SITE.primaryCity}.
+        Ayudamos a empresas de todo el país a elegir el producto correcto para cada campaña,
+        con cotización directa por WhatsApp y sin procesos complicados.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-24">
+    <div class="container-ks grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="heading-underline text-2xl sm:text-3xl font-heading font-bold text-[#0A0A23] mb-6">
+          Cómo trabajamos
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Sabemos que elegir un producto promocional puede sentirse abrumador cuando hay miles
+          de opciones. Por eso organizamos el catálogo por categoría y te acompañamos por
+          WhatsApp desde la primera pregunta hasta la confirmación del pedido.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          No manejamos carrito de compras ni checkout: cada cotización se ajusta a tu cantidad,
+          presupuesto y tiempo de entrega real, conversando directamente con nuestro equipo.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {values.map((v) => (
+          <div class="card-surface p-5">
+            <div class="w-10 h-10 rounded-lg bg-ks-orange-wash text-ks-orange flex items-center justify-center mb-3">
+              <Icon name={v.icon} size={18} />
+            </div>
+            <h3 class="font-heading font-bold text-sm text-[#0A0A23] mb-1.5">{v.title}</h3>
+            <p class="text-xs text-gray-500 leading-relaxed">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-navy py-16 lg:py-20 text-center">
+    <div class="container-ks max-w-xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl font-heading font-bold text-white mb-5">¿Hablamos de tu próxima campaña?</h2>
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+        <Icon name="message-circle" size={18} /> Escríbenos por WhatsApp
+      </a>
+    </div>
+  </section>
+</BaseLayout>

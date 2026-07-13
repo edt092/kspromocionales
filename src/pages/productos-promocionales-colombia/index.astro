@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { colombia } from '@/data/geo-data';
+---
+
+<BaseLayout
+  title="Productos Promocionales en Colombia | Bucaramanga y Principales Ciudades"
+  description="Artículos publicitarios y regalos corporativos personalizados con envío a Bucaramanga, Bogotá, Medellín, Cali, Barranquilla, Cartagena y Cúcuta. Cotiza por WhatsApp."
+>
+  <section class="section-navy-deep relative pt-32 pb-16">
+    <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
+    <div class="container-ks relative z-10">
+      <span class="section-label mb-4"><Icon name="map-pin" size={15} /> Cobertura nacional</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white max-w-2xl">
+        Productos Promocionales en Colombia
+      </h1>
+      <p class="text-white/70 text-lg max-w-xl mt-5">
+        Despachamos desde Bucaramanga a las principales ciudades del país. Elige tu ciudad para ver información de envío y cotizar por WhatsApp.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20">
+    <div class="container-ks grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {colombia.ciudades.map((ciudad, i) => (
+        <a
+          href={`/productos-promocionales-colombia/${ciudad.slug}/`}
+          data-tilt
+          data-tilt-max="4"
+          class={`category-card-v2 block p-7 reveal stagger-${(i % 6) + 1}`}
+          style={`--stagger: ${(i % 6) * 60}ms`}
+        >
+          <div class="w-11 h-11 rounded-lg bg-ks-orange-wash flex items-center justify-center text-ks-orange mb-4">
+            <Icon name="map-pin" size={20} />
+          </div>
+          <h2 class="font-heading font-bold text-xl text-[#0A0A23] mb-2">{ciudad.nombre}</h2>
+          <p class="text-sm text-gray-500 leading-relaxed">{ciudad.intro}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

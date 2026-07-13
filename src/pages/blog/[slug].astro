@@ -1,0 +1,109 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { getAllPosts, getPostBySlug, getPostContent } from '@/lib/blog';
+import { SITE } from '@/lib/site';
+
+export function getStaticPaths() {
+  return getAllPosts().map((post) => ({ params: { slug: post.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = getPostBySlug(slug!)!;
+const contentHtml = getPostContent(slug!);
+const related = getAllPosts().filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 3);
+
+function formatDate(iso: string) {
+  return new Date(iso + 'T00:00:00').toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt,
+  image: post.image,
+  datePublished: post.date,
+  dateModified: post.dateModified || post.date,
+  author: { '@type': 'Person', name: post.author },
+  publisher: { '@type': 'Organization', name: SITE.legalName, logo: { '@type': 'ImageObject', url: `${SITE.url}/logo-header.png` } },
+  mainEntityOfPage: `${SITE.url}/blog/${post.slug}/`,
+};
+---
+
+<BaseLayout
+  title={post.seo?.metaTitle || post.title}
+  description={post.seo?.metaDescription || post.excerpt}
+  jsonLd={jsonLd}
+>
+  <div class="bg-gray-50 pt-28 pb-4">
+    <div class="container-ks">
+      <nav class="flex items-center gap-2 text-sm text-gray-600">
+        <a href="/" class="hover:text-ks-navy transition-colors">Inicio</a>
+        <span>/</span>
+        <a href="/blog/" class="hover:text-ks-navy transition-colors">Blog</a>
+        <span>/</span>
+        <span class="text-ks-navy font-medium line-clamp-1">{post.title}</span>
+      </nav>
+    </div>
+  </div>
+
+  <article class="py-10 lg:py-16">
+    <div class="container-ks max-w-3xl">
+      <p class="text-xs uppercase tracking-wide text-ks-orange font-semibold mb-3">{post.categoryName}</p>
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mb-6 leading-tight">{post.title}</h1>
+
+      <div class="flex items-center gap-3 text-sm text-gray-500 mb-8 pb-8 border-b border-gray-100">
+        {post.authorImage && <img src={post.authorImage} alt={post.author} class="w-10 h-10 rounded-full object-cover" width="40" height="40" />}
+        <div>
+          <p class="font-medium text-[#0A0A23]">{post.author}</p>
+          <p class="text-xs">{formatDate(post.date)} {post.readTime && `· ${post.readTime} de lectura`}</p>
+        </div>
+      </div>
+
+      <img src={post.image} alt={post.title} class="w-full aspect-video object-cover rounded-2xl mb-10" width="1200" height="675" />
+
+      <div id="blog-content" set:html={contentHtml} />
+
+      {post.tags?.length > 0 && (
+        <div class="flex flex-wrap gap-2 mt-12 pt-8 border-t border-gray-100">
+          {post.tags.slice(0, 5).map((tag) => (
+            <span class="badge-tag inline-flex items-center px-3 py-1 text-xs font-medium bg-ks-navy-wash text-ks-navy rounded-full">{tag}</span>
+          ))}
+        </div>
+      )}
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="py-16 bg-ks-navy-ghost">
+      <div class="container-ks max-w-3xl">
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] mb-6">Más sobre {post.categoryName.toLowerCase()}</h2>
+        <div class="grid sm:grid-cols-3 gap-5">
+          {related.map((p) => (
+            <a href={`/blog/${p.slug}/`} class="card-surface block overflow-hidden">
+              <div class="aspect-category overflow-hidden bg-ks-navy-wash">
+                <img src={p.image} alt={p.title} loading="lazy" class="w-full h-full object-cover" width="300" height="225" />
+              </div>
+              <div class="p-4">
+                <h3 class="font-heading font-bold text-sm text-[#0A0A23] line-clamp-2">{p.title}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <style>
+    #blog-content { color: #374151; line-height: 1.75; }
+    #blog-content h2 { font-family: var(--font-syne); font-size: 1.6rem; font-weight: 700; color: #0A0A23; margin: 2.5rem 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 2px solid #F5A520; }
+    #blog-content h3 { font-family: var(--font-syne); font-size: 1.25rem; font-weight: 700; color: #0A0A23; margin: 1.75rem 0 0.9rem; }
+    #blog-content p { margin-bottom: 1.15rem; }
+    #blog-content ul { margin: 1.25rem 0; padding-left: 1.4rem; }
+    #blog-content li { margin-bottom: 0.5rem; }
+    #blog-content a { color: #F5A520; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+    #blog-content strong { color: #0A0A23; font-weight: 600; }
+    #blog-content .lead { font-size: 1.1rem; color: #0A0A23; }
+  </style>
+</BaseLayout>

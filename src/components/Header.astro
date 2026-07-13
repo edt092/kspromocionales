@@ -1,0 +1,179 @@
+---
+import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { colombia } from '@/data/geo-data';
+import categories from '@data/categories.json';
+
+const featuredCategories = (categories as any[]).slice(0, 8);
+const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+---
+
+<header id="site-header" class="fixed top-0 inset-x-0 z-50 header-accent-line transition-colors duration-300">
+  <div class="bg-[#000820] text-white/80 text-xs">
+    <div class="container-ks flex items-center justify-between py-1.5">
+      <span class="hidden sm:inline">Envíos a Bucaramanga, Bogotá, Medellín, Cali y toda Colombia</span>
+      <a href={`tel:+${SITE.whatsappNumber}`} class="flex items-center gap-1.5 hover:text-white transition-colors">
+        <Icon name="phone" size={13} />
+        {SITE.whatsappDisplay}
+      </a>
+    </div>
+  </div>
+
+  <div id="header-main" class="bg-[#0F2178]/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+    <div class="container-ks flex items-center justify-between py-3">
+      <a href="/" class="logo-hover flex items-center shrink-0">
+        <img src="/logo-header.png" alt={SITE.name} class="h-9 sm:h-11 w-auto" width="1190" height="320" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-white/90">
+        <div class="relative group">
+          <button class="flex items-center gap-1 px-3 py-2 hover:text-ks-orange-light transition-colors">
+            Catálogo <Icon name="chevron-down" size={14} />
+          </button>
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="mega-menu-panel w-[560px] p-5 grid grid-cols-2 gap-1">
+              {featuredCategories.map((cat: any) => (
+                <a href={`/categorias/${cat.slug}/`} class="mega-item flex items-center px-3 py-2.5 text-white/85 hover:text-white rounded-md text-sm">
+                  {cat.name}
+                </a>
+              ))}
+              <a href="/categorias/" class="mega-item flex items-center px-3 py-2.5 text-ks-orange-light font-semibold text-sm col-span-2">
+                Ver todas las categorías <Icon name="arrow-right" size={14} class="ml-1" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="flex items-center gap-1 px-3 py-2 hover:text-ks-orange-light transition-colors">
+            Colombia <Icon name="chevron-down" size={14} />
+          </button>
+          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div class="mega-menu-panel w-64 p-3">
+              {colombia.ciudades.map((c) => (
+                <a href={`/productos-promocionales-colombia/${c.slug}/`} class="mega-item flex items-center gap-2 px-3 py-2.5 text-white/85 hover:text-white rounded-md text-sm">
+                  <Icon name="map-pin" size={14} />
+                  {c.nombre}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <a href="/regalos-corporativos/" class="px-3 py-2 hover:text-ks-orange-light transition-colors">Regalos Corporativos</a>
+        <a href="/blog/" class="px-3 py-2 hover:text-ks-orange-light transition-colors">Blog</a>
+        <a href="/nosotros/" class="px-3 py-2 hover:text-ks-orange-light transition-colors">Nosotros</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-header-cta items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white">
+          <Icon name="message-circle" size={16} />
+          Cotizar Ahora
+        </a>
+        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
+          <Icon name="menu" size={24} />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-drawer" class="mobile-drawer fixed inset-y-0 right-0 w-80 max-w-[85vw] translate-x-full transition-transform duration-300 z-50 lg:hidden">
+    <div class="flex items-center justify-between p-5 border-b border-white/10">
+      <span class="text-white font-heading font-bold">Menú</span>
+      <button id="mobile-menu-close" class="text-white p-2" aria-label="Cerrar menú">
+        <Icon name="x" size={22} />
+      </button>
+    </div>
+    <nav class="flex flex-col p-5 gap-1 text-white/90 text-sm font-medium overflow-y-auto">
+      <a href="/categorias/" class="px-3 py-3 hover:text-ks-orange-light">Catálogo completo</a>
+      <a href="/productos-promocionales-colombia/" class="px-3 py-3 hover:text-ks-orange-light">Colombia — todas las ciudades</a>
+      <a href="/regalos-corporativos/" class="px-3 py-3 hover:text-ks-orange-light">Regalos Corporativos</a>
+      <a href="/blog/" class="px-3 py-3 hover:text-ks-orange-light">Blog</a>
+      <a href="/nosotros/" class="px-3 py-3 hover:text-ks-orange-light">Nosotros</a>
+      <a href="/contacto/" class="px-3 py-3 hover:text-ks-orange-light">Contacto</a>
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp mt-4 justify-center">
+        <Icon name="message-circle" size={16} /> Cotizar por WhatsApp
+      </a>
+    </nav>
+  </div>
+  <div id="mobile-backdrop" class="fixed inset-0 bg-black/50 opacity-0 invisible transition-opacity duration-300 z-40 lg:hidden"></div>
+</header>
+
+<style>
+  .header-accent-line { position: relative; }
+  .header-accent-line::after {
+    content: '';
+    position: absolute; bottom: 0; left: 8%; right: 8%; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(245,165,32,0) 10%, rgba(245,165,32,0.55) 35%, rgba(255,152,60,0.95) 50%, rgba(245,165,32,0.55) 65%, rgba(245,165,32,0) 90%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  .header-accent-line.scrolled::after { opacity: 1; }
+
+  .logo-hover { transition: filter 0.3s ease, transform 0.25s ease; }
+  .logo-hover:hover { filter: drop-shadow(0 0 14px rgba(245,165,32,0.38)); transform: scale(1.02); }
+
+  .mega-menu-panel {
+    background: rgba(3, 8, 42, 0.97);
+    backdrop-filter: blur(28px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+  }
+  .mega-item { position: relative; }
+  .mega-item::before {
+    content: ''; position: absolute; left: 2px; top: 22%; bottom: 22%; width: 2px;
+    background: linear-gradient(180deg, #F5A520, #FFBA3D);
+    border-radius: 2px;
+    transform: scaleY(0);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .mega-item:hover { background: rgba(255, 255, 255, 0.05); }
+  .mega-item:hover::before { transform: scaleY(1); }
+
+  .btn-header-cta {
+    background: linear-gradient(135deg, #F5A520 0%, #D4641C 100%);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-header-cta:hover { transform: translateY(-1px); box-shadow: 0 0 28px rgba(245,165,32,0.55), 0 4px 20px rgba(245,165,32,0.3); }
+
+  .mobile-drawer {
+    background: linear-gradient(160deg, #00123D 0%, #000820 100%);
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .mobile-drawer.open { transform: translateX(0); }
+  #mobile-backdrop.open { opacity: 1; visibility: visible; }
+</style>
+
+<script>
+  const header = document.getElementById('site-header');
+  const headerMain = document.getElementById('header-main');
+  const onScroll = () => {
+    const scrolled = window.scrollY > 20;
+    header?.classList.toggle('scrolled', scrolled);
+    headerMain?.classList.toggle('shadow-navy', scrolled);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-backdrop');
+  const openBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-menu-close');
+
+  function openMenu() {
+    drawer?.classList.add('open');
+    backdrop?.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    drawer?.classList.remove('open');
+    backdrop?.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  openBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+</script>
