@@ -68,9 +68,9 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
   // varios MB y solo usamos un puñado de clases.
   import {
     Scene, PerspectiveCamera, WebGLRenderer, DirectionalLight, AmbientLight,
-    PointLight, MeshStandardMaterial, Group, Mesh, CylinderGeometry,
-    IcosahedronGeometry, BoxGeometry, Clock,
+    PointLight, Group, Box3, Vector3, Clock,
   } from 'three';
+  import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
   import { gsap } from 'gsap';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -102,39 +102,58 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
     rim.position.set(-3, -1, 2);
     scene.add(rim);
 
-    // ── Materiales de marca (navy / naranja, low-poly, sin texturas) ─────
-    const navyMat = new MeshStandardMaterial({ color: 0x2b4bc4, roughness: 0.35, metalness: 0.25 });
-    const orangeMat = new MeshStandardMaterial({ color: 0xf5a520, roughness: 0.3, metalness: 0.15 });
-    const darkMat = new MeshStandardMaterial({ color: 0x0f2178, roughness: 0.5, metalness: 0.2 });
-
-    // ── Los 3 objetos flotantes: botella, gadget, libreta ─────────────────
+    // ── Los 3 objetos flotantes: modelos reales exportados desde Blender
+    // (tomatodo, portallavero, bolígrafo) — reemplazan las geometrías
+    // primitivas (cilindro/icosaedro/caja) que se usaban antes. Cada modelo
+    // se carga en un Group "cascarón" que se centra y escala a una altura
+    // objetivo, para poder animarlo igual que a las primitivas anteriores.
     const bottle = new Group();
-    const bottleBody = new Mesh(new CylinderGeometry(0.36, 0.42, 1.7, 20), navyMat);
-    const bottleCap = new Mesh(new CylinderGeometry(0.16, 0.2, 0.34, 16), orangeMat);
-    bottleCap.position.y = 1.02;
-    bottle.add(bottleBody, bottleCap);
     bottle.position.set(-1.5, 0.6, 0);
 
-    const gadget = new Mesh(new IcosahedronGeometry(0.62, 0), orangeMat);
+    const gadget = new Group();
     gadget.position.set(1.4, 1.1, -0.6);
 
-    const notebook = new Group();
-    const cover = new Mesh(new BoxGeometry(1.15, 1.5, 0.14), darkMat);
-    const spine = new Mesh(new BoxGeometry(0.1, 1.5, 0.16), orangeMat);
-    spine.position.x = -0.55;
-    notebook.add(cover, spine);
-    notebook.position.set(0.9, -0.9, 0.4);
-    notebook.rotation.set(0.15, -0.4, 0.08);
+    const pen = new Group();
+    pen.position.set(0.9, -0.9, 0.4);
+    pen.rotation.set(0.15, -0.4, 0.08);
 
     const rig = new Group();
-    rig.add(bottle, gadget, notebook);
+    rig.add(bottle, gadget, pen);
     scene.add(rig);
 
     const floaters = [
       { obj: bottle, speed: 0.6, offset: 0 },
       { obj: gadget, speed: 0.8, offset: 2.1 },
-      { obj: notebook, speed: 0.5, offset: 4.2 },
+      { obj: pen, speed: 0.5, offset: 4.2 },
     ];
+
+    // Centra el modelo en su propio bounding box y lo escala a targetHeight,
+    // envuelto en un Group para que el padre (bottle/gadget/pen) conserve su
+    // pivote en el origen sin importar el offset del modelo exportado.
+    function normalizeModel(root: import('three').Object3D, targetHeight: number) {
+      const box = new Box3().setFromObject(root);
+      const size = new Vector3();
+      box.getSize(size);
+      const center = new Vector3();
+      box.getCenter(center);
+      root.position.sub(center);
+      const wrapper = new Group();
+      wrapper.scale.setScalar(targetHeight / (size.y || 1));
+      wrapper.add(root);
+      return wrapper;
+    }
+
+    const loader = new GLTFLoader();
+    const modelTargets: Array<[string, Group, number]> = [
+      ['/models/tomatodo.glb', bottle, 1.9],
+      ['/models/portallavero.glb', gadget, 1.3],
+      ['/models/boligrafo.glb', pen, 1.7],
+    ];
+    for (const [url, parent, targetHeight] of modelTargets) {
+      loader.load(url, (gltf) => {
+        parent.add(normalizeModel(gltf.scene, targetHeight));
+      });
+    }
 
     // ── Parallax por mouse: la perspectiva de una escena 3D depende del
     // ángulo desde el que "miramos" la cámara. Convertimos la posición del
@@ -168,8 +187,8 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
       .to(bottle.rotation, { y: Math.PI * 1.4, duration: 1 }, 0)
       .to(gadget.position, { x: 4.2, y: -2.6, z: -2, duration: 1 }, 0)
       .to(gadget.rotation, { x: Math.PI, y: Math.PI * 0.8, duration: 1 }, 0)
-      .to(notebook.position, { x: 3, y: 3, duration: 1 }, 0)
-      .to(notebook.rotation, { y: Math.PI * -1.2, duration: 1 }, 0)
+      .to(pen.position, { x: 3, y: 3, duration: 1 }, 0)
+      .to(pen.rotation, { y: Math.PI * -1.2, duration: 1 }, 0)
       .to(container, { opacity: 0, duration: 1 }, 0.15);
 
     // El grid de fondo se mueve a 0.3x la velocidad del scroll (profundidad).

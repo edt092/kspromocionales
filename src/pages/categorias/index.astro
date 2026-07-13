@@ -4,14 +4,7 @@ import Icon from '@/components/Icon.astro';
 import categories from '@data/categories.json';
 import products from '@data/products.json';
 
-const iconMap: Record<string, string> = {
-  Zap: 'zap', Shield: 'shield-check', Layers: 'layers', Palette: 'palette',
-  Package: 'package', Award: 'award', Star: 'star', Truck: 'truck',
-  Users: 'users', Clock: 'clock',
-};
-function resolveIcon(name?: string) {
-  return iconMap[name ?? ''] ?? 'package';
-}
+const fallbackImage = '/images/products/_placeholder-ksp-co.jpg';
 function countFor(catId: string) {
   return (products as any[]).filter((p) => p.categoryId === catId).length;
 }
@@ -38,14 +31,24 @@ function countFor(catId: string) {
           href={`/categorias/${cat.slug}/`}
           data-tilt
           data-tilt-max="5"
-          class={`category-card-v2 group block p-6 reveal stagger-${(i % 6) + 1}`}
+          class={`category-card-v2 group block reveal stagger-${(i % 6) + 1}`}
           style={`--stagger: ${(i % 6) * 50}ms`}
         >
-          <div class="w-11 h-11 rounded-lg bg-ks-navy-wash flex items-center justify-center text-ks-navy mb-4 group-hover:bg-ks-orange-wash group-hover:text-ks-orange transition-colors duration-300">
-            <Icon name={resolveIcon(cat.icon)} size={20} />
+          <div class="aspect-[4/3] w-full overflow-hidden bg-ks-navy-wash">
+            <img
+              src={cat.image || fallbackImage}
+              alt={cat.name}
+              loading="lazy"
+              width="400"
+              height="300"
+              onerror={`this.onerror=null;this.src='${fallbackImage}'`}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
-          <h2 class="font-heading font-bold text-[#0A0A23] mb-1 leading-snug">{cat.name}</h2>
-          <p class="text-xs text-gray-500">{countFor(cat.id)} referencias</p>
+          <div class="p-6">
+            <h2 class="font-heading font-bold text-[#0A0A23] mb-1 leading-snug">{cat.name}</h2>
+            <p class="text-xs text-gray-500">{countFor(cat.id)} referencias</p>
+          </div>
         </a>
       ))}
     </div>
