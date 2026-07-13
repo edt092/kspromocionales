@@ -12,7 +12,12 @@ const year = new Date().getFullYear();
   <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
   <div class="container-ks relative z-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
     <div class="col-span-2 md:col-span-1">
-      <img src="/logo-header.png" alt={SITE.name} class="h-11 w-auto mb-4" width="1190" height="320" />
+      <a href="/" class="flex items-center gap-2.5 mb-4" aria-label={SITE.name}>
+        <img src="/favicon-src.png" alt="" class="h-10 w-auto rounded-lg shadow-md" width="225" height="225" />
+        <span class="font-heading font-extrabold text-white text-xl leading-none">
+          Promocionales<span class="text-ks-orange-light">.co</span>
+        </span>
+      </a>
       <p class="text-white/60 text-sm leading-relaxed mb-4">
         Productos promocionales y regalos corporativos personalizados con tu logo,
         posicionados para Bucaramanga y las principales ciudades de Colombia.
