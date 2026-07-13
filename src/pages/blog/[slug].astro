@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Icon from '@/components/Icon.astro';
 import { getAllPosts, getPostBySlug, getPostContent } from '@/lib/blog';
 import { SITE } from '@/lib/site';
 
@@ -12,6 +11,7 @@ const { slug } = Astro.params;
 const post = getPostBySlug(slug!)!;
 const contentHtml = getPostContent(slug!);
 const related = getAllPosts().filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 3);
+const tags = post.tags ?? [];
 
 function formatDate(iso: string) {
   return new Date(iso + 'T00:00:00').toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -65,9 +65,9 @@ const jsonLd = {
 
       <div id="blog-content" set:html={contentHtml} />
 
-      {post.tags?.length > 0 && (
+      {tags.length > 0 && (
         <div class="flex flex-wrap gap-2 mt-12 pt-8 border-t border-gray-100">
-          {post.tags.slice(0, 5).map((tag) => (
+          {tags.slice(0, 5).map((tag) => (
             <span class="badge-tag inline-flex items-center px-3 py-1 text-xs font-medium bg-ks-navy-wash text-ks-navy rounded-full">{tag}</span>
           ))}
         </div>
