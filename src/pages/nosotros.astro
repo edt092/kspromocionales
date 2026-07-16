@@ -6,6 +6,15 @@ import { cityWhatsappUrl } from '@/lib/whatsapp';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Nosotros', item: `${SITE.url}/nosotros/` },
+  ],
+};
+
 const values = [
   { icon: 'message-circle' as const, title: 'Cotización directa', body: 'Sin formularios ni intermediarios: hablas con nosotros por WhatsApp desde el primer momento.' },
   { icon: 'layers' as const, title: 'Catálogo curado', body: 'Más de 2.000 referencias organizadas por categoría para que encuentres lo que necesitas rápido.' },
@@ -17,6 +26,7 @@ const values = [
 <BaseLayout
   title="Nosotros | KS Promocionales Colombia"
   description="KS Promocionales Colombia es la operación colombiana de KS Promocionales, especialistas en productos publicitarios y regalos corporativos personalizados, con base en Bucaramanga."
+  jsonLd={jsonLd}
 >
   <section class="section-navy-deep relative pt-32 pb-20">
     <div class="absolute inset-0 grid-pattern pointer-events-none"></div>

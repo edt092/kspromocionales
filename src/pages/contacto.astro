@@ -5,11 +5,21 @@ import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Contacto', item: `${SITE.url}/contacto/` },
+  ],
+};
 ---
 
 <BaseLayout
   title="Contacto | KS Promocionales Colombia"
   description={`Contáctanos por WhatsApp al ${SITE.whatsappDisplay} para cotizar productos promocionales en ${SITE.primaryCity} y toda Colombia.`}
+  jsonLd={jsonLd}
 >
   <section class="section-navy-deep relative pt-32 pb-24">
     <div class="absolute inset-0 grid-pattern pointer-events-none"></div>
@@ -48,6 +58,59 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
         <Icon name="map-pin" size={18} class="text-ks-navy" />
         <span>{SITE.primaryCity}, Colombia — envíos a todo el país</span>
       </div>
+    </div>
+  </section>
+
+  <section class="py-16 lg:py-20 bg-ks-navy-ghost">
+    <div class="container-ks max-w-2xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 class="heading-underline text-2xl sm:text-3xl font-heading font-bold text-[#0A0A23] mb-4">
+          ¿Prefieres enviarnos un briefing por escrito?
+        </h2>
+        <p class="text-gray-600">
+          Útil si tu área de compras necesita dejar la solicitud registrada. Te respondemos por correo o WhatsApp con la propuesta.
+        </p>
+      </div>
+
+      <form
+        name="briefing-contacto"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="card-surface p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-5"
+      >
+        <input type="hidden" name="form-name" value="briefing-contacto" />
+        <p class="hidden">
+          <label>No llenar este campo: <input name="bot-field" /></label>
+        </p>
+
+        <div class="sm:col-span-1">
+          <label for="nombre" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-1">
+          <label for="empresa" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Empresa</label>
+          <input id="empresa" name="empresa" type="text" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-1">
+          <label for="correo" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Correo</label>
+          <input id="correo" name="correo" type="email" required class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-1">
+          <label for="ciudad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Ciudad</label>
+          <input id="ciudad" name="ciudad" type="text" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-2">
+          <label for="mensaje" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Cuéntanos qué necesitas</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Producto, cantidad aproximada y fecha estimada del evento o entrega" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40"></textarea>
+        </div>
+
+        <div class="sm:col-span-2">
+          <button type="submit" class="btn-primary w-full sm:w-auto justify-center">
+            <Icon name="message-circle" size={18} /> Enviar briefing
+          </button>
+        </div>
+      </form>
     </div>
   </section>
 </BaseLayout>

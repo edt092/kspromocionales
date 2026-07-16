@@ -2,11 +2,22 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
 import { colombia } from '@/data/geo-data';
+import { SITE } from '@/lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Colombia', item: `${SITE.url}/productos-promocionales-colombia/` },
+  ],
+};
 ---
 
 <BaseLayout
   title="Productos Promocionales en Colombia | Bucaramanga y Principales Ciudades"
   description="Artículos publicitarios y regalos corporativos personalizados con envío a Bucaramanga, Bogotá, Medellín, Cali, Barranquilla, Cartagena y Cúcuta. Cotiza por WhatsApp."
+  jsonLd={jsonLd}
 >
   <section class="section-navy-deep relative pt-32 pb-16">
     <div class="absolute inset-0 grid-pattern pointer-events-none"></div>

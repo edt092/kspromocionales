@@ -10,6 +10,15 @@ import products from '@data/products.json';
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
 const list = (products as any[]).slice(16, 24);
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Merchandising Corporativo', item: `${SITE.url}/merchandising-corporativo/` },
+  ],
+};
+
 const faqs = [
   { question: '¿Qué es el merchandising corporativo?', answer: 'Es el uso de productos personalizados con la identidad de marca de tu empresa como herramienta de posicionamiento: uniformes, kits para equipos de trabajo, material para puntos de venta y más.' },
   { question: '¿Trabajan con equipos/uniformes para todo un equipo de trabajo?', answer: 'Sí, es uno de los casos de uso más comunes en esta categoría — cuéntanos el número de personas y te ayudamos a definir la mejor opción.' },
@@ -20,6 +29,7 @@ const faqs = [
 <BaseLayout
   title="Merchandising Corporativo en Colombia | KS Promocionales"
   description="Merchandising corporativo personalizado: uniformes, kits para equipos de trabajo y material de marca. Cotiza por WhatsApp, envíos a toda Colombia."
+  jsonLd={breadcrumbJsonLd}
 >
   <section class="section-navy relative overflow-hidden py-20 lg:py-28">
     <div class="absolute inset-0 grid-pattern pointer-events-none"></div>

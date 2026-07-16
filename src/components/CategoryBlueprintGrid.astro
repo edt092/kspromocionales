@@ -1,9 +1,13 @@
 ---
 import Icon from '@/components/Icon.astro';
 import categories from '@data/categories.json';
+import products from '@data/products.json';
 
 const items = (categories as any[]).slice(0, 12);
 const fallbackImage = '/images/products/_placeholder-ksp-co.jpg';
+function countFor(catId: string) {
+  return (products as any[]).filter((p) => p.categoryId === catId).length;
+}
 ---
 
 <section id="categorias" class="relative py-24 lg:py-32 bg-white overflow-hidden">
@@ -48,8 +52,8 @@ const fallbackImage = '/images/products/_placeholder-ksp-co.jpg';
           </div>
           <div class="p-6">
             <h3 class="font-heading font-bold text-[#0A0A23] mb-1 leading-snug">{cat.name}</h3>
-            {cat.productCount && (
-              <p class="text-xs text-gray-500 mb-4">{cat.productCount}+ referencias</p>
+            {countFor(cat.id) > 0 && (
+              <p class="text-xs text-gray-500 mb-4">{countFor(cat.id)} referencias</p>
             )}
             <span
               data-magnetic

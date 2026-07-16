@@ -16,13 +16,24 @@ export function getStaticPaths() {
 const { category } = Astro.props;
 const categoryProducts = (products as any[]).filter((p) => p.categoryId === category.id || p.categoryId === category.slug);
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  name: category.seoTitle || category.name,
-  description: category.seoDescription || category.description,
-  url: `${SITE.url}/categorias/${category.slug}/`,
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: category.seoTitle || category.name,
+    description: category.seoDescription || category.description,
+    url: `${SITE.url}/categorias/${category.slug}/`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
+      { '@type': 'ListItem', position: 2, name: 'Categorías', item: `${SITE.url}/categorias/` },
+      { '@type': 'ListItem', position: 3, name: category.name, item: `${SITE.url}/categorias/${category.slug}/` },
+    ],
+  },
+];
 ---
 
 <BaseLayout
