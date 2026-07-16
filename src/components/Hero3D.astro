@@ -2,8 +2,32 @@
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
+import products from '@data/products.json';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+
+// Cartelera de productos: una imagen por categoría primero (variedad visual),
+// luego se completa el cupo con el resto del catálogo. Selección determinista
+// (sin Math.random) para que el HTML generado en build sea estable.
+const allProducts = products as { images?: string[]; categoryId?: string; name: string }[];
+const seenCategories = new Set<string>();
+const curated: typeof allProducts = [];
+
+for (const p of allProducts) {
+  if (!p.images?.[0] || curated.length >= 28) continue;
+  if (p.categoryId && seenCategories.has(p.categoryId)) continue;
+  if (p.categoryId) seenCategories.add(p.categoryId);
+  curated.push(p);
+}
+for (const p of allProducts) {
+  if (curated.length >= 28) break;
+  if (!p.images?.[0] || curated.includes(p)) continue;
+  curated.push(p);
+}
+
+const SHOWCASE_COLS = 4;
+const showcaseColumns: (typeof allProducts)[] = Array.from({ length: SHOWCASE_COLS }, () => []);
+curated.forEach((p, i) => showcaseColumns[i % SHOWCASE_COLS].push(p));
 ---
 
 <section id="hero" class="section-navy-deep relative min-h-screen overflow-hidden">
@@ -11,9 +35,9 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
   <div id="hero-grid-bg" class="absolute inset-0 grid-pattern opacity-30 pointer-events-none" style="background-size: 56px 56px;"></div>
   <div class="absolute inset-0 noise-overlay pointer-events-none"></div>
 
-  <div class="container-ks relative z-10 flex items-center min-h-screen pt-36 pb-24">
+  <div class="container-ks relative z-10 flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-16 min-h-screen pt-36 pb-24">
     <!-- Tipografía de alto contraste -->
-    <div id="hero-copy" class="max-w-2xl">
+    <div id="hero-copy" class="max-w-2xl lg:flex-1">
       <span class="section-label mb-5">
         <Icon name="sparkles" size={15} /> {SITE.primaryCity} y Colombia
       </span>
@@ -49,6 +73,47 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
         </div>
       </div>
     </div>
+
+    <!-- Cartelera de productos: marquesina en columnas + "spotlight" secuencial -->
+    <div
+      class="hero-showcase-wrap relative hidden md:block md:mx-auto lg:mx-0 lg:flex-1 w-full max-w-md lg:max-w-none"
+      aria-hidden="true"
+    >
+      <div class="hero-showcase relative h-[420px] lg:h-[640px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 h-full p-3.5">
+          {showcaseColumns.map((col, i) => (
+            <div
+              class:list={['marquee-col flex flex-col gap-3.5', i >= 2 && 'hidden lg:flex']}
+              style={`--duration:${28 + i * 6}s`}
+            >
+              {[...col, ...col].map((p) => (
+                <div class="marquee-tile relative aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 shrink-0">
+                  <img
+                    src={p.images![0]}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    width="220"
+                    height="220"
+                    class="w-full h-full object-cover block"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div
+          class="pointer-events-none absolute inset-x-0 top-0 h-24 z-[3]"
+          style="background: linear-gradient(180deg, #091557 0%, transparent 100%);"
+        >
+        </div>
+        <div
+          class="pointer-events-none absolute inset-x-0 bottom-0 h-28 z-[3]"
+          style="background: linear-gradient(0deg, #0D0D1A 0%, transparent 100%);"
+        >
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/40 text-xs uppercase tracking-widest">
@@ -56,6 +121,81 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
     <span class="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"></span>
   </div>
 </section>
+
+<style>
+  /* Panel inclinado tipo cartelera/vitrina; el brillo ambiental vive en el wrap
+     (sin overflow-hidden) para no quedar recortado por el panel interior. */
+  .hero-showcase-wrap {
+    transform: perspective(1600px) rotateY(-6deg) rotateX(1.5deg);
+    transform-style: preserve-3d;
+  }
+  .hero-showcase-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -15%;
+    background: radial-gradient(closest-side, rgba(245, 165, 32, 0.28), transparent 72%);
+    filter: blur(50px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero-showcase {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+  }
+  /* Barrido de brillo tipo vitrina de vidrio, cadencia múltiplo de 400ms. */
+  .hero-showcase::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg, transparent 42%, rgba(255, 255, 255, 0.1) 50%, transparent 58%);
+    transform: translateX(-120%);
+    animation: showcaseSweep 6.4s ease-in-out infinite;
+    z-index: 4;
+    pointer-events: none;
+  }
+  @keyframes showcaseSweep {
+    0%, 65% { transform: translateX(-120%); }
+    100% { transform: translateX(120%); }
+  }
+
+  .marquee-col {
+    will-change: transform;
+    animation-name: marqueeUp;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: var(--duration, 32s);
+  }
+  .marquee-col:nth-child(even) { animation-direction: reverse; }
+  @keyframes marqueeUp {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+  /* Pausado por JS cuando el panel sale del viewport o la pestaña está oculta. */
+  .hero-showcase.is-paused .marquee-col { animation-play-state: paused; }
+
+  .marquee-tile {
+    filter: saturate(0.92) brightness(0.94);
+    transition:
+      transform 0.4s var(--ease-spring),
+      box-shadow 0.4s var(--ease),
+      border-color 0.4s var(--ease),
+      filter 0.4s var(--ease);
+  }
+  /* Transición de foco resuelta en ~0.4s: dentro del umbral de Doherty (400ms),
+     se lee como inmediata en vez de perezosa. */
+  .marquee-tile.spotlight {
+    transform: scale(1.09);
+    border-color: rgba(245, 165, 32, 0.75) !important;
+    box-shadow: 0 0 0 3px rgba(245, 165, 32, 0.3), 0 14px 34px rgba(245, 165, 32, 0.35);
+    filter: saturate(1.08) brightness(1.04);
+    z-index: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-col { animation: none !important; }
+    .hero-showcase::after { animation: none !important; display: none; }
+    .marquee-tile { filter: none; }
+  }
+</style>
 
 <script>
   import { gsap } from 'gsap';
@@ -72,6 +212,58 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
       backgroundPosition: '0px 300px',
       ease: 'none',
       scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: 0.3 },
+    });
+  }
+
+  // Cartelera de productos: la marquesina (CSS) corre siempre por defecto (progressive
+  // enhancement); este script solo añade el "spotlight" secuencial y pausa todo cuando
+  // el panel no es visible o la pestaña está en segundo plano (ahorro de batería/CPU).
+  const showcase = document.querySelector('.hero-showcase');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (showcase && !reduceMotion) {
+    const cols = Array.from(showcase.querySelectorAll('.marquee-col'));
+    let step = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const tick = () => {
+      cols.forEach((col, i) => {
+        const tiles = col.querySelectorAll('.marquee-tile');
+        tiles.forEach((t) => t.classList.remove('spotlight'));
+        if (!tiles.length) return;
+        tiles[(step + i * 3) % tiles.length]?.classList.add('spotlight');
+      });
+      step++;
+    };
+
+    const start = () => {
+      if (timer) return;
+      showcase.classList.remove('is-paused');
+      tick();
+      // 2400ms = 6 × 400ms: cada columna revela un nuevo foco dentro de la
+      // ventana de atención de 400ms, sin saturar la lectura visual.
+      timer = setInterval(tick, 2400);
+    };
+    const stop = () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = undefined;
+      }
+      showcase.classList.add('is-paused');
+    };
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting && document.visibilityState === 'visible') start();
+        else stop();
+      },
+      { threshold: 0.15 }
+    );
+    io.observe(showcase);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') stop();
+      else if (showcase.getBoundingClientRect().top < window.innerHeight) start();
     });
   }
 </script>
