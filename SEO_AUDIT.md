@@ -70,10 +70,16 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 - **Riesgo:** exactamente el patrón doorway que el propio brief pide evitar; canibalización entre ciudades y con `/productos-promocionales-colombia/`.
 - **Solución propuesta:** ver Fase 2-E: reposicionar como páginas de cobertura/envío (no "sede"), diferenciar contenido real donde haya datos (categorías más pedidas por zona, logística), documentar cuáles no pueden diferenciarse aún.
 
-### P1-6. Categorías sin paginación (hasta 290 productos en una sola página)
-- **Evidencia:** `src/pages/categorias/[slug].astro` renderiza `categoryProducts` completo sin límite. Distribución real: `novedades` 290, `escritura` 184, `maletines` 142, `tecnologia` 137, `tomatodos-botilitos` 115, `ecologia` 110, `precio-bomba` 110.
-- **Riesgo:** HTML pesado, presupuesto de rastreo, potencial impacto en CWV (aunque `ProductCard` ya usa `loading="lazy"` fuera de los primeros 4 → mitiga LCP pero no el peso total del DOM).
-- **Solución propuesta:** paginación SEO rastreable (URLs `?page=N` o `/pagina/N/`, canonical autorreferente, sin canonicalizar a la página 1) para categorías por encima de un umbral a definir (p. ej. >60 productos).
+### P1-6. Categorías sin paginación (hasta 290 productos en una sola página) ✅ Corregido
+- **Evidencia original:** `src/pages/categorias/[slug].astro` renderiza `categoryProducts` completo sin límite. Distribución real: `novedades` 290, `escritura` 184, `maletines` 142, `tecnologia` 137, `tomatodos-botilitos` 115, `ecologia` 110, `precio-bomba` 110 (y varias más entre 60-110).
+- **Implementado (Fase 8 de `SEO_AUDIT_1.md`):** paginación estática con `CATEGORY_PAGE_SIZE = 60` (`src/lib/pagination.ts`). Rutas: `/categorias/{slug}/` = página 1, `/categorias/{slug}/pagina/{N}/` = páginas siguientes (`src/pages/categorias/[slug]/index.astro` y `.../pagina/[page].astro`), con markup compartido en `src/components/CategoryListing.astro` para no duplicar la plantilla.
+  - Canonical autorreferente por página (no se canonicaliza a la página 1) — hereda el default de `BaseLayout` (`Astro.url.pathname`).
+  - Título natural por página: `"{título} — Página N"`.
+  - Enlaces `<a>` HTML reales de anterior/siguiente/números de página, sin JS.
+  - Contenido editorial (`category.editorial`) solo en la página 1.
+  - Sin `noindex` en páginas siguientes (confirmado: 0 meta robots en `/pagina/3/`).
+  - 11 categorías superan el umbral de 60 y generan 18 páginas adicionales en total (2.248 → 2.266 páginas). Las 18 están en el sitemap.
+- **Resultado verificado:** build limpio (0 errors, 0 warnings, 0 hints); `novedades` página 1 muestra 60/290 con "Mostrando 1–60 de 290 referencias"; página 3 muestra "121–180 de 290" con canonical propio y sin la sección editorial duplicada.
 
 ### P1-7. Home sin `WebSite` JSON-LD ✅ Corregido
 - **Evidencia:** `src/pages/index.astro` solo emitía `Organization`.
@@ -163,7 +169,7 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 | `seoTitle` > 65 caracteres | 63 |
 | `seoDescription` > 165 caracteres | 9 |
 | `seoTitle` duplicados | 16 |
-| Categoría más grande sin paginar | `novedades` (290 productos) |
+| Categoría más grande | `novedades` (290 productos → paginada, 60/página, 5 páginas) |
 | `astro check` | 0 errors / 0 warnings / 55 hints |
 
 *Cifras de contenido y Ecuador recalculadas con `npm run seo:audit` (Fase 1 de `SEO_AUDIT_1.md`); reemplazan los estimados iniciales de esta auditoría.*
@@ -193,7 +199,8 @@ Los 3 hallazgos P0 quedaron implementados y verificados (build limpio, HTML comp
   - `BenefitsBar.astro` / `productos-promocionales-colombia/index.astro`: el texto de despacho pasó de "Despachamos desde Bucaramanga" a "Despachamos desde Girón, Santander (área metropolitana de Bucaramanga)" para mayor precisión.
 - **Fase 7 (páginas geográficas):** completa dentro de lo que el código permite sin datos nuevos. `geo-data.ts` (solo la entrada de Bucaramanga) ahora explica la base operativa en Girón y declara explícitamente que no hay atención al público, sin tocar el resto de ciudades (evita el patrón doorway de reescribir las 7 con la misma plantilla). `[ciudad].astro` añade una nota de transparencia visible en las 7 páginas, con dos variantes de texto (no una por ciudad): Bucaramanga explica la base en Girón; las otras 6 declaran explícitamente "no tenemos oficina ni equipo en {ciudad}". El bloque "Otras Ciudades" se renombró a "Envíos a Otras Ciudades de Colombia". `LocalBusiness` confirmado en 0 páginas (`grep -l LocalBusiness dist/productos-promocionales-colombia/*/index.html` → vacío).
   - **No implementado:** la evaluación formal de demanda/valor único por ciudad (4 preguntas del brief: demanda real, contenido único, consultas reales, aporte vs. página nacional) requiere datos de Search Console/clientes que no existen aún en el repo — no se puede completar sin inventar cifras. Ninguna ciudad se consolidó ni se marcó `noindex` en esta pasada.
-- **Fases 3, 8–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
+- **Fase 8 (categorías y paginación):** completa. Ver P1-6.
+- **Fases 3, 9–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
   - **Fase 3** (indexabilidad + `noindex`) tiene una instrucción explícita de "DETENTE después del reporte. No apliques noindex masivo automáticamente."
   - **Fase 13** (checklist de Google Business Profile) es solo documentación, sin riesgo, se puede hacer en cualquier momento.
 - P2/P3: ver secciones correspondientes.

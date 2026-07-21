@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategoryListing from '@/components/CategoryListing.astro';
+import { SITE } from '@/lib/site';
+import { collectionPageSchema, breadcrumbListSchema } from '@/lib/schema';
+import { CATEGORY_PAGE_SIZE, totalPagesFor, pageSlice } from '@/lib/pagination';
+import categories from '@data/categories.json';
+import products from '@data/products.json';
+
+export function getStaticPaths() {
+  return (categories as any[]).map((category) => ({
+    params: { slug: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const categoryProducts = (products as any[]).filter((p) => p.categoryId === category.id || p.categoryId === category.slug);
+const totalPages = totalPagesFor(categoryProducts.length, CATEGORY_PAGE_SIZE);
+const pageProducts = pageSlice(categoryProducts, 1, CATEGORY_PAGE_SIZE);
+const categoryUrl = `${SITE.url}/categorias/${category.slug}/`;
+const basePath = `/categorias/${category.slug}`;
+
+const jsonLd = [
+  collectionPageSchema({
+    name: category.seoTitle || category.name,
+    description: category.seoDescription || category.description,
+    url: categoryUrl,
+  }),
+  breadcrumbListSchema([
+    { name: 'Inicio', item: SITE.url },
+    { name: 'Categorías', item: `${SITE.url}/categorias/` },
+    { name: category.name, item: categoryUrl },
+  ]),
+];
+---
+
+<BaseLayout
+  title={category.seoTitle || `${category.name} Personalizados con Logo | Colombia`}
+  description={category.seoDescription || category.description}
+  ogImage={category.image}
+  jsonLd={jsonLd}
+>
+  <CategoryListing
+    category={category}
+    totalCount={categoryProducts.length}
+    pageProducts={pageProducts}
+    currentPage={1}
+    totalPages={totalPages}
+    basePath={basePath}
+  />
+</BaseLayout>

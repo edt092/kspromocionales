@@ -1,0 +1,125 @@
+---
+import ProductCard from '@/components/ProductCard.astro';
+import Icon from '@/components/Icon.astro';
+import { CATEGORY_PAGE_SIZE } from '@/lib/pagination';
+
+interface Props {
+  category: any;
+  totalCount: number;
+  pageProducts: any[];
+  currentPage: number;
+  totalPages: number;
+  basePath: string;
+}
+
+const { category, totalCount, pageProducts, currentPage, totalPages, basePath } = Astro.props;
+
+function pageUrl(page: number) {
+  return page <= 1 ? `${basePath}/` : `${basePath}/pagina/${page}/`;
+}
+
+const rangeStart = totalCount === 0 ? 0 : (currentPage - 1) * CATEGORY_PAGE_SIZE + 1;
+const rangeEnd = Math.min(currentPage * CATEGORY_PAGE_SIZE, totalCount);
+---
+
+<section class="section-navy-deep relative pt-32 pb-16">
+  <div class="container-ks relative z-10">
+    <nav class="flex items-center gap-2 text-sm text-white/60 mb-6">
+      <a href="/" class="hover:text-white transition-colors">Inicio</a>
+      <span>/</span>
+      <a href="/categorias/" class="hover:text-white transition-colors">Categorías</a>
+      <span>/</span>
+      <a href={`${basePath}/`} class="hover:text-white transition-colors">{category.name}</a>
+      {currentPage > 1 && (
+        <>
+          <span>/</span>
+          <span class="text-white font-medium">Página {currentPage}</span>
+        </>
+      )}
+    </nav>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-5 max-w-3xl">
+      {category.name}{currentPage > 1 && <span class="text-white/50"> — Página {currentPage}</span>}
+    </h1>
+    {category.description && <p class="text-white/70 text-lg max-w-2xl">{category.description}</p>}
+
+    {category.benefits?.length > 0 && (
+      <div class="flex flex-wrap gap-3 mt-8">
+        {category.benefits.map((b: string) => (
+          <span class="inline-flex items-center gap-1.5 text-xs font-medium bg-white/10 text-white/90 px-3 py-1.5 rounded-full">
+            <Icon name="check-circle" size={13} /> {b}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="py-14 lg:py-20">
+  <div class="container-ks">
+    <p class="text-sm text-gray-500 mb-8">
+      {totalPages > 1
+        ? `Mostrando ${rangeStart}–${rangeEnd} de ${totalCount} referencias en esta categoría`
+        : `${totalCount} referencias en esta categoría`}
+    </p>
+
+    {pageProducts.length > 0 ? (
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {pageProducts.map((p, i) => (
+          <div class={`reveal stagger-${(i % 6) + 1}`} style={`--stagger: ${(i % 6) * 60}ms`}>
+            <ProductCard product={p} eager={i < 4} />
+          </div>
+        ))}
+      </div>
+    ) : (
+      <p class="text-gray-500">Muy pronto sumaremos referencias a esta categoría. Escríbenos por WhatsApp y te ayudamos a encontrar la opción ideal.</p>
+    )}
+
+    {totalPages > 1 && (
+      <nav aria-label="Paginación de la categoría" class="flex flex-wrap items-center justify-center gap-2 mt-12">
+        {currentPage > 1 ? (
+          <a href={pageUrl(currentPage - 1)} class="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-ks-navy hover:text-ks-navy transition-colors">
+            <Icon name="arrow-left" size={14} class="inline -mt-0.5 mr-1" /> Anterior
+          </a>
+        ) : (
+          <span class="px-4 py-2 rounded-lg border border-gray-100 text-sm font-medium text-gray-300 cursor-not-allowed">
+            <Icon name="arrow-left" size={14} class="inline -mt-0.5 mr-1" /> Anterior
+          </span>
+        )}
+
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+          <a
+            href={pageUrl(p)}
+            aria-current={p === currentPage ? 'page' : undefined}
+            class:list={[
+              'w-10 h-10 flex items-center justify-center rounded-lg text-sm font-medium transition-colors',
+              p === currentPage
+                ? 'bg-ks-navy text-white'
+                : 'border border-gray-200 text-gray-700 hover:border-ks-navy hover:text-ks-navy',
+            ]}
+          >
+            {p}
+          </a>
+        ))}
+
+        {currentPage < totalPages ? (
+          <a href={pageUrl(currentPage + 1)} class="px-4 py-2 rounded-lg border border-gray-200 text-sm font-medium text-gray-700 hover:border-ks-navy hover:text-ks-navy transition-colors">
+            Siguiente <Icon name="arrow-right" size={14} class="inline -mt-0.5 ml-1" />
+          </a>
+        ) : (
+          <span class="px-4 py-2 rounded-lg border border-gray-100 text-sm font-medium text-gray-300 cursor-not-allowed">
+            Siguiente <Icon name="arrow-right" size={14} class="inline -mt-0.5 ml-1" />
+          </span>
+        )}
+      </nav>
+    )}
+  </div>
+</section>
+
+{currentPage === 1 && category.editorial && (
+  <section class="py-16 bg-ks-navy-ghost">
+    <div class="container-ks max-w-3xl">
+      <h2 class="font-heading font-bold text-2xl text-[#0A0A23] mb-4">Sobre {category.name.toLowerCase()}</h2>
+      <p class="text-gray-600 leading-relaxed whitespace-pre-line">{category.editorial}</p>
+    </div>
+  </section>
+)}

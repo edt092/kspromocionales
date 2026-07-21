@@ -1,0 +1,63 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategoryListing from '@/components/CategoryListing.astro';
+import { SITE } from '@/lib/site';
+import { collectionPageSchema, breadcrumbListSchema } from '@/lib/schema';
+import { CATEGORY_PAGE_SIZE, totalPagesFor, pageSlice } from '@/lib/pagination';
+import categories from '@data/categories.json';
+import products from '@data/products.json';
+
+export function getStaticPaths() {
+  const paths: { params: { slug: string; page: string }; props: { category: any } }[] = [];
+
+  for (const category of categories as any[]) {
+    const categoryProducts = (products as any[]).filter(
+      (p) => p.categoryId === category.id || p.categoryId === category.slug
+    );
+    const totalPages = totalPagesFor(categoryProducts.length, CATEGORY_PAGE_SIZE);
+    // La página 1 vive en /categorias/{slug}/ — aquí solo se generan la 2 en adelante.
+    for (let page = 2; page <= totalPages; page++) {
+      paths.push({ params: { slug: category.slug, page: String(page) }, props: { category } });
+    }
+  }
+
+  return paths;
+}
+
+const { category } = Astro.props;
+const currentPage = Number(Astro.params.page);
+const categoryProducts = (products as any[]).filter((p) => p.categoryId === category.id || p.categoryId === category.slug);
+const totalPages = totalPagesFor(categoryProducts.length, CATEGORY_PAGE_SIZE);
+const pageProducts = pageSlice(categoryProducts, currentPage, CATEGORY_PAGE_SIZE);
+const categoryUrl = `${SITE.url}/categorias/${category.slug}/`;
+const pageUrl = `${SITE.url}/categorias/${category.slug}/pagina/${currentPage}/`;
+const basePath = `/categorias/${category.slug}`;
+
+const baseTitle = category.seoTitle || `${category.name} Personalizados con Logo | Colombia`;
+const baseDescription = category.seoDescription || category.description;
+
+const jsonLd = [
+  collectionPageSchema({
+    name: `${category.seoTitle || category.name} — Página ${currentPage}`,
+    description: baseDescription,
+    url: pageUrl,
+  }),
+  breadcrumbListSchema([
+    { name: 'Inicio', item: SITE.url },
+    { name: 'Categorías', item: `${SITE.url}/categorias/` },
+    { name: category.name, item: categoryUrl },
+    { name: `Página ${currentPage}`, item: pageUrl },
+  ]),
+];
+---
+
+<BaseLayout title={`${baseTitle} — Página ${currentPage}`} description={baseDescription} ogImage={category.image} jsonLd={jsonLd}>
+  <CategoryListing
+    category={category}
+    totalCount={categoryProducts.length}
+    pageProducts={pageProducts}
+    currentPage={currentPage}
+    totalPages={totalPages}
+    basePath={basePath}
+  />
+</BaseLayout>
