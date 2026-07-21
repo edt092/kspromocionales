@@ -15,3 +15,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# generated SEO audit reports
+reports/

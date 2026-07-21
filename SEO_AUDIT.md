@@ -43,25 +43,27 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 
 ## P1 — Impacto SEO alto
 
-### P1-1. 1.211 productos (55%) sin descripción diferencial real
-- **Evidencia:** `description` es una plantilla genérica (`"{Nombre} personalizado con logo. Producto promocional para empresas en Colombia."`) en 1.211/2.185 productos. Coincide exactamente con el hallazgo preliminar del brief.
-- **Riesgo:** contenido casi idéntico entre miles de páginas indexables → thin/duplicate content, canibalización, bajo valor como resultado independiente.
-- **Solución propuesta:** no reescribir en masa. Usar el criterio de indexability score (ver Fase 2-C) para poner `noindex, follow` temporal a estas fichas hasta enriquecerlas; documentar conteo exacto antes de aplicar.
+### P1-1. Campo `description` vacío en 1.211 productos (55%) — corregido tras auditoría automatizada
+- **Evidencia:** `data/products.json` — 1.211/2.185 productos tienen el campo `description` vacío; 294 adicionales tienen la plantilla genérica literal (`"{Nombre} personalizado con logo. Producto promocional para empresas en Colombia."`).
+- **Corrección respecto al hallazgo preliminar del brief:** el campo `description` **no se muestra en la página de producto** (`src/pages/productos/[slug].astro` solo lo usa como fallback de `description`/JSON-LD, nunca en el cuerpo visible). El contenido visible real viene de `shortDescription`, `features`, `useCases` y `story`. Verificado con `npm run seo:audit`: de los 1.211+294=1.505 productos con `description` vacía o genérica, **1.504 sí tienen contenido real en al menos uno de esos otros campos**, y solo **1 producto** (`cargador-inalambrico-magnet-3-1-eco-10746`) carece de contenido en absolutamente todos los campos.
+- **Riesgo real:** bajo en general (no es thin/duplicate content masivo como sugería la cifra inicial); el riesgo genuino se concentra en el subconjunto de P1-2.
+- **Solución propuesta:** no reescribir en masa. El `npm run seo:audit` ya implementado (Fase 1) reporta este desglose exacto (`emptyDescriptionCount`, `partialContentCount`, `thinContentCount`) para decidir con datos reales, no con la cifra headline.
 
-### P1-2. 92 productos sin shortDescription/features/useCases
-- **Evidencia:** mismos 92 productos carecen simultáneamente de `shortDescription`, `features` y `useCases` (subconjunto de P1-1, contenido mínimo aún más débil).
-- **Riesgo:** páginas de producto casi vacías de contenido único.
-- **Solución propuesta:** primeras candidatas a `noindex, follow` conservador.
+### P1-2. 92 productos sin shortDescription/features/useCases (contenido visible débil)
+- **Evidencia:** 92 productos carecen simultáneamente de `shortDescription`, `features` y `useCases` — confirmado por `npm run seo:audit`. De estos, solo 1 tiene además `description` vacía/genérica (contenido realmente nulo); los otros 91 sí conservan una `description` propia no genérica, aunque sin el resto del contenido enriquecido.
+- **Riesgo:** páginas con contenido visible mínimo, candidatas reales a revisión de indexabilidad.
+- **Solución propuesta:** son las verdaderas candidatas a `noindex, follow` conservador (Fase 3 de `SEO_AUDIT_1.md`), no las 1.211 originales.
 
 ### P1-3. 2.096/2.185 imágenes de producto alojadas en dominio externo (`catalogospromocionales.com`)
 - **Evidencia:** `data/products.json` — 2.092 imágenes en `catalogospromocionales.com` + 4 en `www.catalogospromocionales.com`. `netlify.toml` CSP ya declara excepción explícita `img-src ... https://catalogospromocionales.com https://*.catalogospromocionales.com https://cataprom.com https://*.cataprom.com`. `scripts/seed-from-ecuador.mjs` confirma que el catálogo se sembró desde un sitio de otro mercado.
 - **Riesgo:** dependencia de disponibilidad de un dominio de terceros (posible competidor u origen del catálogo Ecuador) para todas las imágenes de producto; sin control de optimización (`astro:assets`), sin garantía de licencia; refuerza señal de contenido no original.
 - **Solución propuesta:** no es un cambio masivo de datos (fuera de alcance ahora), pero documentar como riesgo prioritario para Fase 2 posterior: migrar imágenes a `public/` o a un storage propio, con URLs bajo `kspromocionales.co`.
 
-### P1-4. Contenido residual de Ecuador en 944 productos (`seoKeywords`/`story`)
-- **Evidencia:** 944/2.185 productos incluyen "quito", "guayaquil" en `seoKeywords` (p. ej. `"...merchandising quito, productos promocionales guayaquil..."`). Es residuo directo de `seed-from-ecuador.mjs`.
-- **Riesgo:** señales geográficas contradictorias con el posicionamiento Colombia/Bucaramanga; se acerca a keyword stuffing con términos irrelevantes al mercado objetivo; puede diluir relevancia local.
-- **Solución propuesta:** limpiar por script determinístico (no reescritura manual masiva) que elimine tokens de ciudades ecuatorianas de `seoKeywords`/`keywords`; no se toca el resto del contenido del producto. Requiere `data/products.json` — evaluar como excepción puntual y acotada a la regla "evitar cambios masivos en products.json", dado que es remoción de datos erróneos, no generación de contenido nuevo.
+### P1-4. Contenido residual de Ecuador en 944 productos (`seoKeywords`/`keywords`) ✅ Corregido
+- **Evidencia original:** 944/2.185 productos con referencias a Quito, Guayaquil, Cuenca o Ambato en `seoKeywords`/`keywords` (p. ej. `"...merchandising quito, productos promocionales guayaquil..."`). Residuo directo de `seed-from-ecuador.mjs`.
+- **Análisis previo a tocar datos:** se verificó campo por campo dónde aparecía cada término. `story`, `description`, `shortDescription`, `seoTitle` y `seoDescription` no tenían residuo real — los 3 hits que parecían Ecuador en esos campos eran la palabra española "manta" (cobija) en productos reales de cobijas/mantas de viaje, no la ciudad ecuatoriana. Por eso el alcance se limitó estrictamente a `seoKeywords`/`keywords`, donde sí se confirmó residuo genuino en 944 productos (936 en `seoKeywords`, 11 en `keywords`; algunos productos en ambos).
+- **Implementado:** `scripts/clean-ecuador-residue.mjs` — modo dry-run por defecto, `--apply` para escribir. Elimina el **segmento de keyword completo** que contiene el término ecuatoriano (p. ej. `"merchandising quito"` completo, no solo la palabra `"quito"`), nunca dejando fragmentos huérfanos ni vaciando el campo (0 casos de "quedaría vacío" en los 944). Se ejecutó primero el dry-run, se revisaron ejemplos antes/después incluyendo los casos ambiguos de cuenca/ambato/manta, y se aplicó tras confirmación explícita.
+- **Resultado verificado:** `git diff --stat data/products.json` → 947 líneas cambiadas (936 `seoKeywords` + 11 `keywords`), ninguna otra línea ni campo tocado. `npm run seo:audit` → 0 residuos Ecuador. `npm run build` → 0 errors, 2.248 páginas.
 
 ### P1-5. Páginas de ciudad son plantillas casi idénticas (patrón doorway)
 - **Evidencia:** `src/data/geo-data.ts` — las 7 entradas comparten estructura y redacción idéntica, solo cambia el nombre de ciudad (`"Productos Promocionales en {Ciudad} con Tu Logo"`, mismo patrón de `intro`/`seoTitle`/`seoDescription`/`caracteristicas`). `src/pages/productos-promocionales-colombia/[ciudad].astro` renderiza la misma estructura de secciones para todas.
@@ -99,9 +101,10 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 - No hay soporte para `robots` más allá de `noindex` binario (p. ej. `noindex, follow` ya está bien, pero no hay forma de pasar directivas custom).
 - **Solución:** ampliar `Props` de `BaseLayout` (Fase 2-A), manteniendo compatibilidad con los usos actuales.
 
-### P2-3. No existe mecanismo de indexability score ni script `seo:audit`
-- **Evidencia:** `package.json` no tiene script `seo:audit`; no hay `noindex` condicional en ninguna página de producto.
-- **Solución:** implementar en Fase 2-C, con reporte de conteo/ejemplos antes de aplicar `noindex` a cualquier URL.
+### P2-3. Mecanismo de indexability score y script `seo:audit` ✅ Script de auditoría implementado (aplicación de `noindex` pendiente)
+- **Evidencia original:** `package.json` no tenía script `seo:audit`; no hay `noindex` condicional en ninguna página de producto.
+- **Implementado:** `scripts/seo-audit.mjs` (solo lectura, no modifica datos) + `npm run seo:audit`. Valida los 2.185 productos: slugs duplicados, categorías huérfanas/vacías, contenido genérico vs. vacío vs. realmente delgado, imágenes externas/rotas, residuo geográfico de Ecuador, metadatos fuera de rango/duplicados, y una heurística conservadora de indexabilidad. Genera reporte JSON en `reports/` (ignorado por Git).
+- **Pendiente:** la aplicación real de `noindex, follow` en páginas y su exclusión del sitemap requiere el helper tipado `src/lib/product-indexability.ts` (Fase 3 de `SEO_AUDIT_1.md`) y aprobación explícita antes de aplicarse — el script actual solo reporta.
 
 ### P2-4. Formulario de contacto incompleto respecto al briefing corporativo pedido
 - **Evidencia:** `src/pages/contacto.astro` usa Netlify Forms (`data-netlify="true"`, real, no ficticio) con campos: nombre, empresa, correo, ciudad, mensaje.
@@ -149,33 +152,38 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 | Posts de blog | 8 |
 | Ciudades | 7 (todas usaban `LocalBusiness` sin dirección verificable — corregido a `Service`) |
 | Páginas generadas (`dist/`) | 2.248 |
-| Productos sin descripción real | 1.211 (55%) |
-| Productos sin shortDescription/features/useCases | 92 |
+| Productos con campo `description` vacío | 1.211 (55%) — pero 2.093/2.185 (96%) tienen contenido visible real vía shortDescription/features/story |
+| Productos con contenido realmente delgado (nada en ningún campo) | 1 |
+| Productos sin shortDescription/features/useCases (contenido visible débil) | 92 |
 | Imágenes de producto en dominio externo | 2.096 (96%) |
-| Imágenes de producto rotas (ruta local inexistente) | 89 |
-| Productos con residuo "Quito/Guayaquil" en keywords | 944 (43%) |
+| Imágenes de producto rotas (ruta local inexistente) | 89 → 0 (corregido, P0-3) |
+| Productos con residuo Ecuador (Quito/Guayaquil/Cuenca/...) | 946 (43%) |
 | `seoTitle` > 65 caracteres | 63 |
 | `seoDescription` > 165 caracteres | 9 |
 | `seoTitle` duplicados | 16 |
 | Categoría más grande sin paginar | `novedades` (290 productos) |
 | `astro check` | 0 errors / 0 warnings / 55 hints |
 
+*Cifras de contenido y Ecuador recalculadas con `npm run seo:audit` (Fase 1 de `SEO_AUDIT_1.md`); reemplazan los estimados iniciales de esta auditoría.*
+
 ---
 
 ## Siguiente paso
 
-Los 3 hallazgos P0 quedaron implementados y verificados (build limpio, HTML compilado inspeccionado). Archivos tocados en esta pasada:
+Los 3 hallazgos P0 quedaron implementados y verificados (build limpio, HTML compilado inspeccionado). Archivos tocados en esa pasada:
 
 - `src/lib/product-image.ts` (nuevo)
 - `src/components/ProductCard.astro`
 - `src/pages/productos/[slug].astro`
 - `src/pages/productos-promocionales-colombia/[ciudad].astro`
 
-Pendiente (P1 y siguientes, no implementado aún, requiere decisión explícita):
+### Estado de `SEO_AUDIT_1.md` (segunda pasada, contexto de negocio real con dirección de Girón/Bucaramanga para GBP)
 
-- P1-1/P1-2: indexability score + `noindex` + script `npm run seo:audit`.
-- P1-3: migración de imágenes fuera del dominio externo (fuera de alcance inmediato).
-- P1-4: limpieza de residuo "Quito/Guayaquil" en `seoKeywords` de 944 productos — es el único cambio que tocaría `data/products.json`, se requiere confirmación explícita antes de tocar ese archivo.
-- P1-5/P1-6: contenido diferenciador por ciudad y paginación de categorías grandes.
-- P1-7/P1-8: `WebSite` JSON-LD en home y decisión sobre `hreflang`.
+- **Fase 0 (revalidación):** completa. `git status` limpio salvo archivos nuevos sin trackear; build limpio (0 errors, 2.248 páginas); las 3 correcciones P0 confirmadas activas en el HTML compilado.
+- **Fase 1 (script de auditoría automatizada):** completa. `scripts/seo-audit.mjs` + `npm run seo:audit`, solo lectura, genera reporte en consola y JSON en `reports/` (gitignored). Corrigió la cifra headline "1.211 productos sin descripción" — en realidad el 96% de esos productos sí tiene contenido visible real; el contenido genuinamente delgado es 1 producto, y las candidatas reales a revisión de indexabilidad son las 92 de P1-2.
+- **Fases 2–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
+  - **Fase 2** es la única que tocaría `data/products.json` (limpieza de residuo Ecuador en 946 productos) — el propio brief exige dry-run + reporte antes/después + confirmación antes de ejecutar.
+  - **Fase 3** (indexabilidad + `noindex`) tiene una instrucción explícita de "DETENTE después del reporte. No apliques noindex masivo automáticamente."
+  - **Fase 6/7** (representación de Girón/Bucaramanga, footer, páginas de ciudad) requiere confirmar el texto exacto a usar y si la dirección de verificación se hace pública o no.
+  - **Fase 13** (checklist de Google Business Profile) es solo documentación, sin riesgo, se puede hacer en cualquier momento.
 - P2/P3: ver secciones correspondientes.
