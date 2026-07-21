@@ -22,7 +22,7 @@ const values = [
 
 <BaseLayout
   title="Nosotros | KS Promocionales Colombia"
-  description="KS Promocionales Colombia es la operación colombiana de KS Promocionales, especialistas en productos publicitarios y regalos corporativos personalizados, con base en Bucaramanga."
+  description={`KS Promocionales Colombia: productos publicitarios y regalos corporativos personalizados. Operación 100% online desde ${SITE.operatingBase}, con envíos a toda Colombia.`}
   jsonLd={jsonLd}
 >
   <section class="section-navy-deep relative pt-32 pb-20">
@@ -32,7 +32,7 @@ const values = [
         Productos promocionales pensados para empresas colombianas
       </h1>
       <p class="text-white/70 text-lg">
-        Somos la operación colombiana de KS Promocionales, con base en {SITE.primaryCity}.
+        Operamos de forma online desde {SITE.operatingBase}, en el {SITE.metroAreaLabel}.
         Ayudamos a empresas de todo el país a elegir el producto correcto para cada campaña,
         con cotización directa por WhatsApp y sin procesos complicados.
       </p>
@@ -50,9 +50,15 @@ const values = [
           de opciones. Por eso organizamos el catálogo por categoría y te acompañamos por
           WhatsApp desde la primera pregunta hasta la confirmación del pedido.
         </p>
-        <p class="text-gray-600 leading-relaxed">
+        <p class="text-gray-600 leading-relaxed mb-4">
           No manejamos carrito de compras ni checkout: cada cotización se ajusta a tu cantidad,
           presupuesto y tiempo de entrega real, conversando directamente con nuestro equipo.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Nuestra operación es 100% online: no contamos con local de atención al público.
+          Puedes escribirnos por WhatsApp o dejar tu solicitud en el
+          <a href="/contacto/" class="text-ks-navy font-medium hover:underline">formulario de contacto</a>,
+          y te respondemos por ese mismo canal.
         </p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">

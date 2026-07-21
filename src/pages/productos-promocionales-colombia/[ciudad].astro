@@ -18,6 +18,14 @@ const ctaUrl = cityWhatsappUrl(ciudad.nombre);
 const featuredCategories = (categories as any[]).slice(0, 8);
 const ciudadUrl = `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/`;
 
+// Nota de transparencia operativa (Fase 6/7, SEO_AUDIT_1.md): ninguna ciudad se presenta
+// como sede física. Bucaramanga explica la base real en Girón; el resto se presenta
+// explícitamente como cobertura de envío, sin equipo ni oficina local.
+const isBase = ciudad.slug === 'bucaramanga';
+const operationalNote = isBase
+  ? `Operamos 100% online desde ${SITE.operatingBase}, dentro del ${SITE.metroAreaLabel}. No contamos con local de atención al público.`
+  : `Es una operación 100% online: no tenemos oficina ni equipo en ${ciudad.nombre}. Coordinamos cada pedido desde nuestra base en ${SITE.operatingBase} (${SITE.metroAreaLabel}) y despachamos directamente a tu dirección.`;
+
 const jsonLd = [
   serviceSchema({
     name: `${SITE.name} ${ciudad.nombre}`,
@@ -58,6 +66,10 @@ const jsonLd = [
       <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp pulse-whatsapp">
         <Icon name="message-circle" size={18} /> Cotizar Ahora en {ciudad.nombre}
       </a>
+      <p class="flex items-start gap-2 text-sm text-white/60 max-w-2xl mt-6">
+        <Icon name="info" size={16} class="shrink-0 mt-0.5" />
+        {operationalNote}
+      </p>
     </div>
   </section>
 
@@ -100,8 +112,8 @@ const jsonLd = [
   <section class="py-16 lg:py-24 bg-gray-50">
     <div class="container-ks">
       <div class="text-center mb-10">
-        <h2 class="text-3xl font-heading font-bold text-[#0A0A23] mb-4">Otras Ciudades en Colombia</h2>
-        <p class="text-gray-600">También brindamos servicio de productos promocionales en otras ciudades colombianas.</p>
+        <h2 class="text-3xl font-heading font-bold text-[#0A0A23] mb-4">Envíos a Otras Ciudades de Colombia</h2>
+        <p class="text-gray-600">También despachamos productos promocionales a otras ciudades colombianas.</p>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
         {otrasCiudades.map((otra) => (

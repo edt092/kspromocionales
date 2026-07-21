@@ -1,11 +1,12 @@
 ---
 import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
 
 const benefits = [
   { icon: 'message-circle' as const, title: 'Cotización por WhatsApp', body: 'Sin formularios largos ni carritos: escríbenos y te respondemos directo.' },
   { icon: 'layers' as const, title: 'Sin cantidad mínima', body: 'Varias líneas del catálogo no exigen un pedido mínimo grande.' },
   { icon: 'palette' as const, title: 'Personalización con tu logo', body: 'Aplicamos tu marca al producto que elijas, guiándote en el proceso.' },
-  { icon: 'truck' as const, title: 'Envíos a toda Colombia', body: `Despachamos desde Bucaramanga a las principales ciudades del país.` },
+  { icon: 'truck' as const, title: 'Envíos a toda Colombia', body: `Despachamos desde ${SITE.operatingBase} (${SITE.metroAreaLabel}) a todo el país.` },
 ];
 ---
 

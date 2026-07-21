@@ -15,14 +15,14 @@ export const colombia: { ciudades: Ciudad[] } = {
       slug: 'bucaramanga',
       nombre: 'Bucaramanga',
       h1: 'Productos Promocionales en Bucaramanga con Tu Logo',
-      intro: 'Artículos publicitarios personalizados para empresas de Bucaramanga y el área metropolitana (Floridablanca, Girón, Piedecuesta). Cotiza por WhatsApp y recibe atención directa.',
+      intro: 'Operamos de forma online desde Girón, dentro del área metropolitana de Bucaramanga (junto a Floridablanca y Piedecuesta). No contamos con punto de atención al público: cada cotización se gestiona por WhatsApp o formulario.',
       seoTitle: 'Productos Promocionales Bucaramanga | Regalos Corporativos con Logo',
-      seoDescription: 'Artículos publicitarios y regalos corporativos personalizados en Bucaramanga. Cotiza por WhatsApp, sin cantidad mínima en varias líneas. Envíos al área metropolitana.',
+      seoDescription: 'Artículos publicitarios y regalos corporativos personalizados, operación online desde Girón, área metropolitana de Bucaramanga. Cotiza por WhatsApp, sin cantidad mínima en varias líneas.',
       caracteristicas: [
-        'Cotización directa por WhatsApp, respuesta rápida',
+        'Base operativa en Girón, área metropolitana de Bucaramanga',
+        'Operación 100% online, sin local de atención al público',
         'Personalización con logo de tu empresa',
         'Envíos a Bucaramanga y su área metropolitana',
-        'Catálogo con cientos de referencias por categoría',
       ],
     },
     {

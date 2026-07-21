@@ -16,12 +16,12 @@ const year = new Date().getFullYear();
         <img src="/logo-header-white.png" alt={SITE.name} class="h-14 w-auto" width="1010" height="195" />
       </a>
       <p class="text-white/60 text-sm leading-relaxed mb-4">
-        Productos promocionales y regalos corporativos personalizados con tu logo,
-        posicionados para Bucaramanga y las principales ciudades de Colombia.
+        Productos promocionales y regalos corporativos personalizados para empresas.
+        Operación online desde {SITE.operatingBase}, con envíos a toda Colombia.
       </p>
       <div class="flex items-center gap-2 text-white/70 text-sm">
         <Icon name="map-pin" size={16} class="text-ks-orange shrink-0" />
-        Bucaramanga, Colombia
+        {SITE.operatingBase} — operación online
       </div>
     </div>
 
@@ -36,7 +36,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <h3 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Ciudades</h3>
+      <h3 class="text-white font-heading font-bold text-sm uppercase tracking-wide mb-4">Envíos por Ciudad</h3>
       <ul class="space-y-2.5 text-sm text-white/60">
         {colombia.ciudades.map((c) => (
           <li><a href={`/productos-promocionales-colombia/${c.slug}/`} class="hover:text-ks-orange-light transition-colors">{c.nombre}</a></li>
