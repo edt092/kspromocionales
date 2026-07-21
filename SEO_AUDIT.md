@@ -114,10 +114,17 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 - **Implementado:** `scripts/seo-audit.mjs` (solo lectura, no modifica datos) + `npm run seo:audit`. Valida los 2.185 productos: slugs duplicados, categorías huérfanas/vacías, contenido genérico vs. vacío vs. realmente delgado, imágenes externas/rotas, residuo geográfico de Ecuador, metadatos fuera de rango/duplicados, y una heurística conservadora de indexabilidad. Genera reporte JSON en `reports/` (ignorado por Git).
 - **Pendiente:** la aplicación real de `noindex, follow` en páginas y su exclusión del sitemap requiere el helper tipado `src/lib/product-indexability.ts` (Fase 3 de `SEO_AUDIT_1.md`) y aprobación explícita antes de aplicarse — el script actual solo reporta.
 
-### P2-4. Formulario de contacto incompleto respecto al briefing corporativo pedido
-- **Evidencia:** `src/pages/contacto.astro` usa Netlify Forms (`data-netlify="true"`, real, no ficticio) con campos: nombre, empresa, correo, ciudad, mensaje.
-- **Falta:** teléfono (opcional), producto/categoría, cantidad aproximada, fecha estimada, checkbox de consentimiento de privacidad (ya existe `/politica-de-privacidad/` para enlazar).
-- **Solución:** ampliar el formulario existente (aditivo, no reemplaza WhatsApp) en Fase 3.
+### P2-4. Formulario de contacto incompleto respecto al briefing corporativo pedido ✅ Corregido
+- **Evidencia original:** `src/pages/contacto.astro` usaba Netlify Forms (`data-netlify="true"`, real, no ficticio) con campos: nombre, empresa, correo, ciudad, mensaje.
+- **Implementado (Fase 10 de `SEO_AUDIT_1.md`):**
+  - Campos añadidos: teléfono (opcional, `type="tel"`), producto o categoría (`<select>` poblado con las 37 categorías reales de `data/categories.json`, no inventadas), cantidad aproximada, fecha estimada (opcional, `type="date"`), y checkbox de consentimiento de privacidad **obligatorio** (`required`) enlazado a `/politica-de-privacidad/`.
+  - Ciudad se renombró a "Ciudad o departamento de entrega" para mayor claridad, sin cambiar el campo.
+  - Labels visibles y asociados (`<label for>`) en todos los campos; el checkbox usa `aria-required="true"`.
+  - Honeypot (`netlify-honeypot="bot-field"`) se conserva sin cambios.
+  - **Página de confirmación real:** `src/pages/gracias.astro` (nueva, `noindex, follow`), enlazada vía `action="/gracias/"` en el `<form>`. Netlify solo redirige ahí tras procesar un POST real — no hay JS que simule éxito sin enviar el formulario.
+  - El formulario sigue siendo la alternativa; el CTA principal de WhatsApp no se tocó (botones existentes en la misma página, sin cambios).
+- **Pendiente (Fase 11):** no enviar datos personales del formulario a Analytics — no aplica todavía porque Analytics no está implementado (ver P3-3).
+- **Resultado verificado:** build limpio (0 errors, 0 warnings, 0 hints, 2.267 páginas); `dist/contacto/index.html` contiene los 5 campos nuevos y el `<select>` con las 37 categorías reales; `dist/gracias/index.html` con `robots: noindex, follow`.
 
 ### P2-5. Sitemap sin filtrado
 - **Evidencia:** `astro.config.mjs` usa `sitemap()` sin opciones. Una vez exista `noindex` en productos débiles, por defecto seguirían apareciendo en el sitemap salvo que se configure `filter`.
@@ -206,7 +213,8 @@ Los 3 hallazgos P0 quedaron implementados y verificados (build limpio, HTML comp
   - **No implementado:** la evaluación formal de demanda/valor único por ciudad (4 preguntas del brief: demanda real, contenido único, consultas reales, aporte vs. página nacional) requiere datos de Search Console/clientes que no existen aún en el repo — no se puede completar sin inventar cifras. Ninguna ciudad se consolidó ni se marcó `noindex` en esta pasada.
 - **Fase 8 (categorías y paginación):** completa. Ver P1-6.
 - **Fase 9 (imágenes y rendimiento):** completa dentro de lo ejecutable sin desplegar. Estrategia de migración documentada en `IMAGE_MIGRATION_STRATEGY.md`, con evidencia real (no hipotética): `catalogospromocionales.com` redirige (308) a `cataprom.com`, con `Cache-Control: private` y servidor de terceros confirmado (`Panda Consulting S.A.`) — ver P1-3. Ninguna imagen migrada (bloqueado por falta de confirmación de licencia). Correcciones de código: eliminada la dependencia `three`/`@types/three` sin uso; corregido `loading="lazy"` sobre imágenes visibles del Hero (antipatrón de LCP); `fetchpriority="high"` en imágenes principales de producto/blog; `prefers-reduced-motion` ahora también cubre `.reveal` y `.pulse-whatsapp` a nivel global. Sin medición de Lighthouse/PageSpeed (requiere sitio desplegado) — no se afirma mejora de CWV. Ver P3-5.
-- **Fases 3, 10–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
+- **Fase 10 (contacto y conversión):** completa. Ver P2-4.
+- **Fases 3, 11–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
   - **Fase 3** (indexabilidad + `noindex`) tiene una instrucción explícita de "DETENTE después del reporte. No apliques noindex masivo automáticamente."
   - **Fase 13** (checklist de Google Business Profile) es solo documentación, sin riesgo, se puede hacer en cualquier momento.
 - P2/P3: ver secciones correspondientes.

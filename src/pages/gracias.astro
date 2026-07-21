@@ -1,0 +1,37 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { SITE } from '@/lib/site';
+import { cityWhatsappUrl } from '@/lib/whatsapp';
+
+const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+---
+
+<BaseLayout
+  title="Briefing recibido | KS Promocionales Colombia"
+  description="Recibimos tu briefing. Te respondemos por correo o WhatsApp con la propuesta."
+  robots="noindex, follow"
+>
+  <section class="section-navy-deep relative min-h-[70vh] flex items-center pt-24">
+    <div class="container-ks relative z-10 text-center max-w-xl mx-auto">
+      <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6">
+        <Icon name="check-circle" size={32} class="text-ks-orange" />
+      </div>
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">
+        Recibimos tu briefing
+      </h1>
+      <p class="text-white/70 text-lg mb-9">
+        Gracias por escribirnos. Revisamos tu solicitud y te respondemos por correo o WhatsApp con
+        una propuesta ajustada a lo que necesitas.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="message-circle" size={16} /> ¿Prefieres avanzar ya? Escríbenos por WhatsApp
+        </a>
+        <a href="/" class="btn-hero-ghost">
+          Volver al inicio
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -4,8 +4,10 @@ import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema } from '@/lib/schema';
+import categories from '@data/categories.json';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const categoryOptions = (categories as any[]).map((c) => c.name);
 
 const jsonLd = breadcrumbListSchema([
   { name: 'Inicio', item: SITE.url },
@@ -71,6 +73,7 @@ const jsonLd = breadcrumbListSchema([
       <form
         name="briefing-contacto"
         method="POST"
+        action="/gracias/"
         data-netlify="true"
         netlify-honeypot="bot-field"
         class="card-surface p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-5"
@@ -89,16 +92,45 @@ const jsonLd = breadcrumbListSchema([
           <input id="empresa" name="empresa" type="text" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
         </div>
         <div class="sm:col-span-1">
-          <label for="correo" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Correo</label>
+          <label for="correo" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Correo corporativo</label>
           <input id="correo" name="correo" type="email" required class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
         </div>
         <div class="sm:col-span-1">
-          <label for="ciudad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Ciudad</label>
+          <label for="telefono" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label>
+          <input id="telefono" name="telefono" type="tel" autocomplete="tel" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-1">
+          <label for="categoria" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Producto o categoría</label>
+          <select id="categoria" name="categoria" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40 bg-white">
+            <option value="">Selecciona una categoría (opcional)</option>
+            {categoryOptions.map((name) => <option value={name}>{name}</option>)}
+            <option value="No estoy seguro">No estoy seguro / varias categorías</option>
+          </select>
+        </div>
+        <div class="sm:col-span-1">
+          <label for="cantidad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Cantidad aproximada</label>
+          <input id="cantidad" name="cantidad" type="text" placeholder="Ej: 100, o 50-100" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-1">
+          <label for="ciudad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Ciudad o departamento de entrega</label>
           <input id="ciudad" name="ciudad" type="text" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+        </div>
+        <div class="sm:col-span-1">
+          <label for="fecha" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Fecha estimada <span class="text-gray-400 font-normal">(opcional)</span></label>
+          <input id="fecha" name="fecha" type="date" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
         </div>
         <div class="sm:col-span-2">
           <label for="mensaje" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Cuéntanos qué necesitas</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Producto, cantidad aproximada y fecha estimada del evento o entrega" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40"></textarea>
+          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Detalles adicionales sobre tu producto, evento o marca" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40"></textarea>
+        </div>
+
+        <div class="sm:col-span-2">
+          <label for="privacidad" class="flex items-start gap-2.5 text-sm text-gray-600">
+            <input id="privacidad" name="privacidad" type="checkbox" required aria-required="true" class="mt-0.5 rounded border-gray-300 text-ks-navy focus:ring-ks-orange/40" />
+            <span>
+              He leído y acepto la <a href="/politica-de-privacidad/" class="text-ks-navy font-medium hover:underline">política de privacidad</a>.
+            </span>
+          </label>
         </div>
 
         <div class="sm:col-span-2">
