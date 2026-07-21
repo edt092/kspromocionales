@@ -7,23 +7,9 @@ import ScaleCustomizationSection from '@/components/ScaleCustomizationSection.as
 import BestsellersSection from '@/components/BestsellersSection.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import FinalCta from '@/components/FinalCta.astro';
-import { SITE } from '@/lib/site';
+import { organizationSchema, websiteSchema } from '@/lib/schema';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: SITE.legalName,
-  url: SITE.url,
-  logo: `${SITE.url}/logo-header.png`,
-  areaServed: { '@type': 'Country', name: 'Colombia' },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'sales',
-    telephone: `+${SITE.whatsappNumber}`,
-    areaServed: 'CO',
-    availableLanguage: 'Spanish',
-  },
-};
+const jsonLd = [organizationSchema(), websiteSchema()];
 ---
 
 <BaseLayout

@@ -5,6 +5,7 @@ import ProductCard from '@/components/ProductCard.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { breadcrumbListSchema } from '@/lib/schema';
 import products from '@data/products.json';
 import categories from '@data/categories.json';
 
@@ -13,14 +14,10 @@ const list = (products as any[]).filter((p) => p.bestseller).slice(0, 8);
 const shown = list.length ? list : (products as any[]).slice(8, 16);
 const topCategories = (categories as any[]).slice(0, 6);
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'Artículos Promocionales', item: `${SITE.url}/articulos-promocionales/` },
-  ],
-};
+const breadcrumbJsonLd = breadcrumbListSchema([
+  { name: 'Inicio', item: SITE.url },
+  { name: 'Artículos Promocionales', item: `${SITE.url}/articulos-promocionales/` },
+]);
 
 const faqs = [
   { question: '¿Qué son los artículos promocionales?', answer: 'Objetos de uso cotidiano —lapiceros, mugs, memorias USB, bolsos— personalizados con el logo de tu empresa, entregados como estrategia de marketing de bajo costo por impacto.' },

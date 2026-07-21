@@ -5,6 +5,7 @@ import Icon from '@/components/Icon.astro';
 import { productWhatsappUrl } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site';
 import { getProductImage, getValidProductImages } from '@/lib/product-image';
+import { productSchema, breadcrumbListSchema } from '@/lib/schema';
 import products from '@data/products.json';
 import categories from '@data/categories.json';
 
@@ -23,32 +24,30 @@ const related = (products as any[])
 const image = getProductImage(product.images);
 const validImages = getValidProductImages(product.images);
 const ctaUrl = productWhatsappUrl(product.name, product.whatsappMessage);
+const productUrl = `${SITE.url}/productos/${product.slug}/`;
 
 const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
+  productSchema({
     name: product.name,
     description: product.description || product.shortDescription,
-    image: validImages.length ? validImages : undefined,
-    url: `${SITE.url}/productos/${product.slug}/`,
-    brand: { '@type': 'Brand', name: SITE.name },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-      category && { '@type': 'ListItem', position: 2, name: category.name, item: `${SITE.url}/categorias/${category.slug}/` },
-      { '@type': 'ListItem', position: 3, name: product.name, item: `${SITE.url}/productos/${product.slug}/` },
-    ].filter(Boolean),
-  },
+    images: validImages,
+    url: productUrl,
+    sku: product.referencia_proveedor,
+  }),
+  breadcrumbListSchema(
+    [
+      { name: 'Inicio', item: SITE.url },
+      category && { name: category.name, item: `${SITE.url}/categorias/${category.slug}/` },
+      { name: product.name, item: productUrl },
+    ].filter(Boolean) as { name: string; item: string }[]
+  ),
 ];
 ---
 
 <BaseLayout
   title={product.seoTitle || `${product.name} Personalizado | Colombia`}
   description={product.seoDescription || product.shortDescription || product.description}
+  ogImage={image}
   jsonLd={jsonLd}
 >
   <div class="bg-gray-50 pt-28 pb-4">

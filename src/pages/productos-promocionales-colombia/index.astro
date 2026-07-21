@@ -3,15 +3,20 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
 import { colombia } from '@/data/geo-data';
 import { SITE } from '@/lib/site';
+import { collectionPageSchema, breadcrumbListSchema } from '@/lib/schema';
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'Colombia', item: `${SITE.url}/productos-promocionales-colombia/` },
-  ],
-};
+const coverageUrl = `${SITE.url}/productos-promocionales-colombia/`;
+const jsonLd = [
+  collectionPageSchema({
+    name: 'Productos Promocionales en Colombia — Cobertura Nacional',
+    description: 'Cobertura de envío de KS Promocionales por ciudad: Bucaramanga y las principales ciudades de Colombia.',
+    url: coverageUrl,
+  }),
+  breadcrumbListSchema([
+    { name: 'Inicio', item: SITE.url },
+    { name: 'Colombia', item: coverageUrl },
+  ]),
+];
 ---
 
 <BaseLayout

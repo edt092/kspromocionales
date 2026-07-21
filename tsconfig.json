@@ -7,5 +7,6 @@
       "@data/*": ["data/*"]
     },
     "resolveJsonModule": true
-  }
+  },
+  "exclude": ["dist"]
 }

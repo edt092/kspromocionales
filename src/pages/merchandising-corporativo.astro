@@ -5,19 +5,16 @@ import ProductCard from '@/components/ProductCard.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { breadcrumbListSchema } from '@/lib/schema';
 import products from '@data/products.json';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
 const list = (products as any[]).slice(16, 24);
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'Merchandising Corporativo', item: `${SITE.url}/merchandising-corporativo/` },
-  ],
-};
+const breadcrumbJsonLd = breadcrumbListSchema([
+  { name: 'Inicio', item: SITE.url },
+  { name: 'Merchandising Corporativo', item: `${SITE.url}/merchandising-corporativo/` },
+]);
 
 const faqs = [
   { question: '¿Qué es el merchandising corporativo?', answer: 'Es el uso de productos personalizados con la identidad de marca de tu empresa como herramienta de posicionamiento: uniformes, kits para equipos de trabajo, material para puntos de venta y más.' },

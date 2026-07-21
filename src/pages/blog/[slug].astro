@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAllPosts, getPostBySlug, getPostContent } from '@/lib/blog';
 import { SITE } from '@/lib/site';
+import { blogPostingSchema, breadcrumbListSchema } from '@/lib/schema';
 
 export function getStaticPaths() {
   return getAllPosts().map((post) => ({ params: { slug: post.slug } }));
@@ -12,28 +13,36 @@ const post = getPostBySlug(slug!)!;
 const contentHtml = getPostContent(slug!);
 const related = getAllPosts().filter((p) => p.slug !== post.slug && p.category === post.category).slice(0, 3);
 const tags = post.tags ?? [];
+const postUrl = `${SITE.url}/blog/${post.slug}/`;
 
 function formatDate(iso: string) {
   return new Date(iso + 'T00:00:00').toLocaleDateString('es-CO', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: post.title,
-  description: post.excerpt,
-  image: post.image,
-  datePublished: post.date,
-  dateModified: post.dateModified || post.date,
-  author: { '@type': 'Person', name: post.author },
-  publisher: { '@type': 'Organization', name: SITE.legalName, logo: { '@type': 'ImageObject', url: `${SITE.url}/logo-header.png` } },
-  mainEntityOfPage: `${SITE.url}/blog/${post.slug}/`,
-};
+const jsonLd = [
+  blogPostingSchema({
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    datePublished: post.date,
+    dateModified: post.dateModified,
+    authorName: post.author,
+    url: postUrl,
+  }),
+  breadcrumbListSchema([
+    { name: 'Inicio', item: SITE.url },
+    { name: 'Blog', item: `${SITE.url}/blog/` },
+    { name: post.title, item: postUrl },
+  ]),
+];
 ---
 
 <BaseLayout
   title={post.seo?.metaTitle || post.title}
   description={post.seo?.metaDescription || post.excerpt}
+  ogImage={post.image}
+  ogType="article"
+  article={{ publishedTime: post.date, modifiedTime: post.dateModified, author: post.author }}
   jsonLd={jsonLd}
 >
   <div class="bg-gray-50 pt-28 pb-4">

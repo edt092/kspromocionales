@@ -5,20 +5,17 @@ import ProductCard from '@/components/ProductCard.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { breadcrumbListSchema } from '@/lib/schema';
 import products from '@data/products.json';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
 const featured = (products as any[]).filter((p) => p.featured || p.bestseller).slice(0, 8);
 const list = featured.length ? featured : (products as any[]).slice(0, 8);
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-    { '@type': 'ListItem', position: 2, name: 'Regalos Corporativos', item: `${SITE.url}/regalos-corporativos/` },
-  ],
-};
+const breadcrumbJsonLd = breadcrumbListSchema([
+  { name: 'Inicio', item: SITE.url },
+  { name: 'Regalos Corporativos', item: `${SITE.url}/regalos-corporativos/` },
+]);
 
 const faqs = [
   { question: '¿Qué incluye un regalo corporativo típico?', answer: 'Depende del presupuesto y la ocasión: desde un solo artículo personalizado (mug, libreta, power bank) hasta un kit con varias piezas empacadas. Te ayudamos a armar la propuesta por WhatsApp.' },

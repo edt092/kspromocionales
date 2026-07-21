@@ -75,14 +75,13 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 - **Riesgo:** HTML pesado, presupuesto de rastreo, potencial impacto en CWV (aunque `ProductCard` ya usa `loading="lazy"` fuera de los primeros 4 → mitiga LCP pero no el peso total del DOM).
 - **Solución propuesta:** paginación SEO rastreable (URLs `?page=N` o `/pagina/N/`, canonical autorreferente, sin canonicalizar a la página 1) para categorías por encima de un umbral a definir (p. ej. >60 productos).
 
-### P1-7. Home sin `WebSite` JSON-LD
-- **Evidencia:** `src/pages/index.astro` solo emite `Organization`. El brief pide `WebSite` en home.
-- **Solución propuesta:** añadir `WebSite` (name, url) vía helper JSON-LD reutilizable.
+### P1-7. Home sin `WebSite` JSON-LD ✅ Corregido
+- **Evidencia:** `src/pages/index.astro` solo emitía `Organization`.
+- **Implementado:** `src/lib/schema.ts` (`websiteSchema`) añadido a la home junto a `organizationSchema`. Sin `SearchAction` (el sitio no tiene búsqueda interna real).
 
-### P1-8. `hreflang` no funcional
-- **Evidencia:** `src/layouts/BaseLayout.astro:57` — un único `<link rel="alternate" hreflang="es-CO">` que apunta a la misma URL canónica, sin par de retorno ni alternates reales.
-- **Riesgo:** bajo (no penaliza), pero es una implementación que no cumple su propósito — Google puede ignorarla al no encontrar contrapartida. Como el sitio es monolingüe/mono-región, lo técnicamente correcto es **no emitir hreflang** (o emitir solo si en el futuro hay `es-EC`, etc.).
-- **Solución propuesta:** decidir entre remover el tag (sitio de un solo mercado no lo necesita) o dejarlo documentado como no-op intencional. Bajo impacto, se resuelve en Fase 2-A.
+### P1-8. `hreflang` no funcional ✅ Corregido (eliminado)
+- **Evidencia:** `src/layouts/BaseLayout.astro:57` — un único `<link rel="alternate" hreflang="es-CO">` que apuntaba a la misma URL canónica, sin par de retorno ni alternates reales.
+- **Implementado:** se eliminó el tag por completo (sitio monolingüe/mono-región, no aporta nada sin alternates reales). `<html lang="es-CO">` se conserva. Confirmado: `grep -rl hreflang dist/` → 0 archivos.
 
 ---
 
@@ -94,12 +93,15 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 - 16 `seoTitle` duplicados entre productos distintos.
 - **Solución:** utilidad centralizada de validación/construcción de metadata (Fase 2-A) que trunque de forma natural (por palabra, no por carácter) y detecte duplicados en build/CI.
 
-### P2-2. `BaseLayout` incompleto vs. lo pedido en el brief
-- `og:type` fijo en `"website"` (no configurable; blog debería poder usar `article`).
-- Falta `twitter:title`/`twitter:description`/`twitter:image` explícitos (hoy dependen del fallback de OG, inconsistente entre clientes).
-- Falta `og:image:width`/`og:image:height`.
-- No hay soporte para `robots` más allá de `noindex` binario (p. ej. `noindex, follow` ya está bien, pero no hay forma de pasar directivas custom).
-- **Solución:** ampliar `Props` de `BaseLayout` (Fase 2-A), manteniendo compatibilidad con los usos actuales.
+### P2-2. `BaseLayout` incompleto vs. lo pedido en el brief ✅ Corregido
+- **Evidencia original:** `og:type` fijo en `"website"`; sin `twitter:title`/`description`/`image` explícitos; sin `robots` configurable (solo `noindex` binario); default `ogImage="/og-default.jpg"` apuntando a un archivo inexistente (404 real en cada página sin imagen propia).
+- **Implementado (`src/layouts/BaseLayout.astro`):**
+  - `ogType?: 'website' | 'article'` configurable; páginas de blog usan `article` + `article:published_time`/`modified_time`/`author`.
+  - `robots?: string` reemplaza el antiguo `noindex` booleano (sin usos restantes del prop viejo en el repo, se eliminó en vez de mantenerlo como shim muerto). `404.astro` migrado a `robots="noindex, follow"`.
+  - `twitter:title`, `twitter:description`, `twitter:image` explícitos.
+  - Default `ogImage` cambiado de `/og-default.jpg` (inexistente) a `/logo.png` (real, 1536×1024). Además, cada tipo de página ahora pasa una imagen real y específica: producto → imagen del producto (con el mismo fallback a placeholder de P0-3), categoría → imagen de la categoría, blog → imagen del post. **Pendiente:** `/logo.png` sigue sin ser un diseño de OG dedicado (1200×630, <300KB) — es un fallback real y no roto, pero no óptimo; queda como tarea de diseño, no se fabricó ningún asset nuevo.
+  - `og:image:width/height` deliberadamente NO añadidos: las imágenes varían por página (externas, tamaños desconocidos) y declarar dimensiones incorrectas sería peor que omitirlas. Pendiente si se decide procesar imágenes con `astro:image`/`sharp`.
+- **No implementado:** `canonical sin parámetros irrelevantes` no requirió cambios — `Astro.url.pathname` ya excluye query params.
 
 ### P2-3. Mecanismo de indexability score y script `seo:audit` ✅ Script de auditoría implementado (aplicación de `noindex` pendiente)
 - **Evidencia original:** `package.json` no tenía script `seo:audit`; no hay `noindex` condicional en ninguna página de producto.
@@ -119,14 +121,14 @@ Auditoría de código estático (no crawl en vivo, el dominio es nuevo). Se insp
 
 ## P3 — Oportunidad posterior
 
-### P3-1. `astro check` genera 55 "hints" por scripts JSON-LD sin `is:inline`
-- **Evidencia:** `astro check` → `Result (42 files): 0 errors, 0 warnings, 55 hints` — hints de tipo "Add the `is:inline` directive" en los `<script type="application/ld+json">` de `BaseLayout.astro`, páginas de categoría, producto, ciudad, FAQ, etc.
-- **Riesgo:** ninguno funcional; ruido en CI.
-- **Solución:** agregar `is:inline` a esos `<script>` (cambio mecánico, seguro, de una línea por ocurrencia).
+### P3-1. `astro check` generaba 55 "hints" por scripts JSON-LD sin `is:inline` ✅ Corregido
+- **Evidencia:** `astro check` → `Result (42 files): 0 errors, 0 warnings, 55 hints`.
+- **Implementado:** `is:inline` añadido a los dos únicos `<script type="application/ld+json">` del repo (`BaseLayout.astro`, `FaqSection.astro`); el resto de páginas usa la prop `jsonLd` de `BaseLayout`, que ya emite el script correcto. También se eliminó el prop `noindex` deprecado de `BaseLayout` (sin usos restantes) en vez de dejarlo como shim muerto.
+- **Resultado:** `astro check` → `Result (44 files): 0 errors, 0 warnings, 0 hints`.
 
-### P3-2. `tsconfig.json` no excluye `dist/`
-- Puede provocar que herramientas de chequeo procesen el bundle vendorizado (GSAP/Three.js minificado) en lugar de solo código fuente, generando ruido adicional en logs de build.
-- **Solución:** agregar `"exclude": ["dist"]` a `tsconfig.json`.
+### P3-2. `tsconfig.json` no excluía `dist/` ✅ Corregido
+- Podía provocar que herramientas de chequeo procesaran el bundle vendorizado (GSAP/Three.js minificado) en lugar de solo código fuente.
+- **Implementado:** `"exclude": ["dist"]` añadido a `tsconfig.json`.
 
 ### P3-3. Medición (GA4/GTM/GSC) no implementada
 - No se encontró carga condicional de Google Analytics/Tag Manager ni meta de verificación de Search Console en `BaseLayout.astro`. Pendiente de variables de entorno (Fase 2-I) — no se debe inventar ID.
@@ -181,8 +183,10 @@ Los 3 hallazgos P0 quedaron implementados y verificados (build limpio, HTML comp
 
 - **Fase 0 (revalidación):** completa. `git status` limpio salvo archivos nuevos sin trackear; build limpio (0 errors, 2.248 páginas); las 3 correcciones P0 confirmadas activas en el HTML compilado.
 - **Fase 1 (script de auditoría automatizada):** completa. `scripts/seo-audit.mjs` + `npm run seo:audit`, solo lectura, genera reporte en consola y JSON en `reports/` (gitignored). Corrigió la cifra headline "1.211 productos sin descripción" — en realidad el 96% de esos productos sí tiene contenido visible real; el contenido genuinamente delgado es 1 producto, y las candidatas reales a revisión de indexabilidad son las 92 de P1-2.
-- **Fases 2–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
-  - **Fase 2** es la única que tocaría `data/products.json` (limpieza de residuo Ecuador en 946 productos) — el propio brief exige dry-run + reporte antes/después + confirmación antes de ejecutar.
+- **Fase 2 (limpieza residuo Ecuador):** completa. Dry-run revisado y aprobado, `scripts/clean-ecuador-residue.mjs --apply` ejecutado sobre 944 productos (947 segmentos de keyword eliminados, 0 campos vaciados). Verificado con `seo:audit` (0 residuo) y build limpio.
+- **Fase 4 (metadata/BaseLayout):** completa. `og:type` configurable (`article` en blog con `article:*` meta), `robots` configurable (reemplaza el `noindex` deprecado, eliminado por no tener usos), Twitter Card completo, `og-default.jpg` roto corregido (ahora `/logo.png`, real, más imagen específica por tipo de página: producto/categoría/blog), `hreflang` aislado eliminado. `og:image:width/height` deliberadamente no añadidos (dimensiones variables/desconocidas por imagen).
+- **Fase 5 (datos estructurados):** completa. Nuevo `src/lib/schema.ts` con helpers tipados (`organizationSchema`, `websiteSchema`, `collectionPageSchema`, `productSchema`, `serviceSchema`, `blogPostingSchema`, `breadcrumbListSchema`, `faqPageSchema`) usados en las 13 páginas que emiten JSON-LD. `WebSite` añadido a home. `Product.brand` eliminado (KS Promocionales personaliza sobre catálogo de terceros, no es el fabricante verificable de cada artículo — declarar brand por defecto no era exacto). `Product.sku` usa `referencia_proveedor` solo cuando existe (89/2.185 productos). `is:inline` en los 2 `<script type="application/ld+json">` del repo → `astro check` pasó de 55 hints a **0 errors / 0 warnings / 0 hints**.
+- **Fases 3, 6–14:** no implementadas todavía. Requieren decisión explícita antes de continuar, en particular:
   - **Fase 3** (indexabilidad + `noindex`) tiene una instrucción explícita de "DETENTE después del reporte. No apliques noindex masivo automáticamente."
   - **Fase 6/7** (representación de Girón/Bucaramanga, footer, páginas de ciudad) requiere confirmar el texto exacto a usar y si la dirección de verificación se hace pública o no.
   - **Fase 13** (checklist de Google Business Profile) es solo documentación, sin riesgo, se puede hacer en cualquier momento.

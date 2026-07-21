@@ -4,6 +4,7 @@ import Icon from '@/components/Icon.astro';
 import { colombia, getCiudadBySlug } from '@/data/geo-data';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { serviceSchema, breadcrumbListSchema } from '@/lib/schema';
 import categories from '@data/categories.json';
 
 export function getStaticPaths() {
@@ -15,27 +16,21 @@ const ciudad = getCiudadBySlug(slug!)!;
 const otrasCiudades = colombia.ciudades.filter((c) => c.slug !== slug);
 const ctaUrl = cityWhatsappUrl(ciudad.nombre);
 const featuredCategories = (categories as any[]).slice(0, 8);
+const ciudadUrl = `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/`;
 
 const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  serviceSchema({
     name: `${SITE.name} ${ciudad.nombre}`,
     description: ciudad.seoDescription,
-    url: `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/`,
+    url: ciudadUrl,
     serviceType: 'Productos promocionales y regalos corporativos personalizados',
-    areaServed: { '@type': 'City', name: ciudad.nombre, containedInPlace: { '@type': 'Country', name: 'Colombia' } },
-    provider: { '@type': 'Organization', name: SITE.legalName, url: SITE.url },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE.url },
-      { '@type': 'ListItem', position: 2, name: 'Colombia', item: `${SITE.url}/productos-promocionales-colombia/` },
-      { '@type': 'ListItem', position: 3, name: ciudad.nombre, item: `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/` },
-    ],
-  },
+    areaServedCity: ciudad.nombre,
+  }),
+  breadcrumbListSchema([
+    { name: 'Inicio', item: SITE.url },
+    { name: 'Colombia', item: `${SITE.url}/productos-promocionales-colombia/` },
+    { name: ciudad.nombre, item: ciudadUrl },
+  ]),
 ];
 ---
 
