@@ -1,6 +1,7 @@
 ---
 import Icon from '@/components/Icon.astro';
 import { productWhatsappUrl } from '@/lib/whatsapp';
+import { getProductImage } from '@/lib/product-image';
 
 interface Props {
   product: {
@@ -17,7 +18,7 @@ interface Props {
 }
 
 const { product, eager = false } = Astro.props;
-const image = product.images?.[0] ?? '/images/products/_placeholder-ksp-co.jpg';
+const image = getProductImage(product.images);
 ---
 
 <article class="card-product group" data-tilt data-tilt-max="4">

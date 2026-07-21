@@ -4,6 +4,7 @@ import ProductCard from '@/components/ProductCard.astro';
 import Icon from '@/components/Icon.astro';
 import { productWhatsappUrl } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site';
+import { getProductImage, getValidProductImages } from '@/lib/product-image';
 import products from '@data/products.json';
 import categories from '@data/categories.json';
 
@@ -19,7 +20,8 @@ const category = (categories as any[]).find((c) => c.id === product.categoryId |
 const related = (products as any[])
   .filter((p) => p.categoryId === product.categoryId && p.slug !== product.slug)
   .slice(0, 4);
-const image = product.images?.[0] ?? '/images/products/_placeholder-ksp-co.jpg';
+const image = getProductImage(product.images);
+const validImages = getValidProductImages(product.images);
 const ctaUrl = productWhatsappUrl(product.name, product.whatsappMessage);
 
 const jsonLd = [
@@ -28,14 +30,9 @@ const jsonLd = [
     '@type': 'Product',
     name: product.name,
     description: product.description || product.shortDescription,
-    image: product.images?.length ? product.images : undefined,
+    image: validImages.length ? validImages : undefined,
+    url: `${SITE.url}/productos/${product.slug}/`,
     brand: { '@type': 'Brand', name: SITE.name },
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      areaServed: 'CO',
-      priceSpecification: { '@type': 'PriceSpecification', description: 'Precio a cotizar por WhatsApp' },
-    },
   },
   {
     '@context': 'https://schema.org',

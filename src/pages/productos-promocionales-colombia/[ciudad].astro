@@ -19,12 +19,13 @@ const featuredCategories = (categories as any[]).slice(0, 8);
 const jsonLd = [
   {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'Service',
     name: `${SITE.name} ${ciudad.nombre}`,
     description: ciudad.seoDescription,
     url: `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/`,
+    serviceType: 'Productos promocionales y regalos corporativos personalizados',
     areaServed: { '@type': 'City', name: ciudad.nombre, containedInPlace: { '@type': 'Country', name: 'Colombia' } },
-    parentOrganization: { '@type': 'Organization', name: SITE.legalName, url: SITE.url },
+    provider: { '@type': 'Organization', name: SITE.legalName, url: SITE.url },
   },
   {
     '@context': 'https://schema.org',
