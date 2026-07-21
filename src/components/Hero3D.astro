@@ -86,12 +86,13 @@ curated.forEach((p, i) => showcaseColumns[i % SHOWCASE_COLS].push(p));
               class:list={['marquee-col flex flex-col gap-3.5', i >= 2 && 'hidden lg:flex']}
               style={`--duration:${28 + i * 6}s`}
             >
-              {[...col, ...col].map((p) => (
+              {[...col, ...col].map((p, tileIndex) => (
                 <div class="marquee-tile relative aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 shrink-0">
                   <img
                     src={p.images![0]}
                     alt=""
-                    loading="lazy"
+                    loading={tileIndex < col.length ? 'eager' : 'lazy'}
+                    fetchpriority={i === 0 && tileIndex === 0 ? 'high' : undefined}
                     decoding="async"
                     width="220"
                     height="220"

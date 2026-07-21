@@ -53,7 +53,7 @@ const jsonLd = [
             <img
               src={cat.image || fallbackImage}
               alt={cat.name}
-              loading="lazy"
+              loading={i < 4 ? 'eager' : 'lazy'}
               width="400"
               height="300"
               onerror={`this.onerror=null;this.src='${fallbackImage}'`}

@@ -70,7 +70,7 @@ const jsonLd = [
         </div>
       </div>
 
-      <img src={post.image} alt={post.title} class="w-full aspect-video object-cover rounded-2xl mb-10" width="1200" height="675" />
+      <img src={post.image} alt={post.title} fetchpriority="high" class="w-full aspect-video object-cover rounded-2xl mb-10" width="1200" height="675" />
 
       <div id="blog-content" set:html={contentHtml} />
 

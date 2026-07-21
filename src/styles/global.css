@@ -198,3 +198,17 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* El resto del sitio confía en .reveal (fade-in por scroll) y .pulse-whatsapp
+   (pulso infinito del CTA flotante) — ambas son animaciones que se disparan
+   solas, no por interacción, así que se desactivan aquí sitio-wide. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .pulse-whatsapp {
+    animation: none;
+  }
+}
