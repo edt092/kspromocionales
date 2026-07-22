@@ -21,7 +21,7 @@ Todo lo siguiente ya está en `main`, verificado con build limpio (0 errors, 0 w
 - `CONTENT_STRATEGY_CO.md`, `GOOGLE_BUSINESS_PROFILE_CHECKLIST.md`, `IMAGE_MIGRATION_STRATEGY.md` — documentos de estrategia.
 
 **Pendiente y bloqueante para lo que sigue:**
-- Fase 3 (indexabilidad + `noindex`): implementada como *reporte* en `seo:audit`, la aplicación real requiere aprobación explícita del propietario (regla del propio brief: "DETENTE después del reporte").
+- ~~Fase 3 (indexabilidad + `noindex`)~~ ✅ completa desde el 2026-07-22: aprobación recibida, `noindex, follow` aplicado a la única candidata real (1 de 2.185), excluida del sitemap junto con `/gracias/` (gap detectado de paso). Ver `SEO_AUDIT.md` P2-3.
 - Fase 11 (Analytics/GA4/GTM/Search Console): requiere IDs reales del propietario — sin esto, la mayoría de los KPI de este roadmap no tienen forma de medirse.
 - Migración de imágenes: bloqueada por confirmación de licencia (ver `IMAGE_MIGRATION_STRATEGY.md`).
 - Resolución de la solicitud de Google Business Profile (en revisión).
@@ -36,22 +36,21 @@ Todo lo siguiente ya está en `main`, verificado con build limpio (0 errors, 0 w
 | Automatizar auditoría (`npm run seo:audit`) | ✅ Hecho |
 | Corregir metadata y OG image | ✅ Hecho |
 | Implementar Organization/WebSite | ✅ Hecho |
-| Definir indexabilidad (criterio + reporte) | ✅ Hecho (heurística en `seo:audit`); **aplicación real de `noindex` pendiente de aprobación** |
-| Revisar sitemap | ✅ Hecho (paginación incluida correctamente, sin `noindex` filtrado todavía porque no se ha aplicado ninguno) |
+| Definir indexabilidad (criterio + reporte + aplicación) | ✅ Hecho — helper tipado, `noindex` aplicado (1 candidata), sitemap filtrado |
+| Revisar sitemap | ✅ Hecho (paginación + exclusión de `noindex` con la misma regla que la página) |
 | Medir formularios y WhatsApp | ⏳ Pendiente — depende de Fase 11 (eventos `click_whatsapp`, `form_submit`) |
 | Corregir presentación de Girón/Bucaramanga | ✅ Hecho |
 | No crear contenido masivo | ✅ Respetado — 0 artículos nuevos publicados, solo estrategia documentada |
 
 **Lo que falta para cerrar el bloque de días 1–14 (próximos ~7 días):**
-1. Decisión del propietario sobre Fase 3 (aplicar `noindex` a las fichas candidatas que reporte `seo:audit`).
-2. IDs reales de GA4/GTM/Search Console para implementar Fase 11.
-3. Verificar sitemap enviado en Search Console una vez exista la propiedad.
+1. IDs reales de GA4/GTM/Search Console para implementar Fase 11.
+2. Verificar sitemap enviado en Search Console una vez exista la propiedad.
 
 ---
 
 ## Días 15–30
 
-- Aplicar la estrategia de indexación **solo tras aprobación** (Fase 3): `noindex, follow` en las fichas realmente débiles, exclusión del sitemap, verificar que la regla de la página y la del sitemap coincidan exactamente.
+- ~~Aplicar la estrategia de indexación~~ ✅ ya hecho en el día ~7 (adelantado respecto al plan original). Re-ejecutar `npm run seo:audit` periódicamente: si al enriquecer productos o cambiar contenido aparecen nuevas candidatas, requieren la misma aprobación explícita, no aplicación automática.
 - ~~Paginar categorías~~ ✅ ya hecho en el día ~7 (adelantado respecto al plan original).
 - Enriquecer las categorías comerciales principales (contenido editorial real, no relleno).
 - Mejorar de 20 a 50 productos prioritarios con información real — priorizar los que `seo:audit` marca sin `shortDescription`/`features`/`useCases` (92 candidatos, ver `SEO_AUDIT.md` P1-2).

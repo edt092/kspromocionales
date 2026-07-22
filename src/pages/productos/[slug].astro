@@ -6,6 +6,7 @@ import { productWhatsappUrl } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site';
 import { getProductImage, getValidProductImages } from '@/lib/product-image';
 import { productSchema, breadcrumbListSchema } from '@/lib/schema';
+import { evaluateProductIndexability } from '@/lib/product-indexability';
 import products from '@data/products.json';
 import categories from '@data/categories.json';
 
@@ -25,6 +26,7 @@ const image = getProductImage(product.images);
 const validImages = getValidProductImages(product.images);
 const ctaUrl = productWhatsappUrl(product.name, product.whatsappMessage);
 const productUrl = `${SITE.url}/productos/${product.slug}/`;
+const indexability = evaluateProductIndexability(product);
 
 const jsonLd = [
   productSchema({
@@ -48,6 +50,7 @@ const jsonLd = [
   title={product.seoTitle || `${product.name} Personalizado | Colombia`}
   description={product.seoDescription || product.shortDescription || product.description}
   ogImage={image}
+  robots={indexability.indexable ? undefined : 'noindex, follow'}
   jsonLd={jsonLd}
 >
   <div class="bg-gray-50 pt-28 pb-4">
