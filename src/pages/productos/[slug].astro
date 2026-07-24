@@ -4,8 +4,8 @@ import ProductCard from '@/components/ProductCard.astro';
 import Icon from '@/components/Icon.astro';
 import { productWhatsappUrl } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site';
-import { getProductImage, getValidProductImages } from '@/lib/product-image';
-import { productSchema, breadcrumbListSchema } from '@/lib/schema';
+import { getProductImage } from '@/lib/product-image';
+import { breadcrumbListSchema } from '@/lib/schema';
 import { evaluateProductIndexability } from '@/lib/product-indexability';
 import products from '@data/products.json';
 import categories from '@data/categories.json';
@@ -23,19 +23,11 @@ const related = (products as any[])
   .filter((p) => p.categoryId === product.categoryId && p.slug !== product.slug)
   .slice(0, 4);
 const image = getProductImage(product.images);
-const validImages = getValidProductImages(product.images);
 const ctaUrl = productWhatsappUrl(product.name, product.whatsappMessage);
 const productUrl = `${SITE.url}/productos/${product.slug}/`;
 const indexability = evaluateProductIndexability(product);
 
 const jsonLd = [
-  productSchema({
-    name: product.name,
-    description: product.description || product.shortDescription,
-    images: validImages,
-    url: productUrl,
-    sku: product.referencia_proveedor,
-  }),
   breadcrumbListSchema(
     [
       { name: 'Inicio', item: SITE.url },

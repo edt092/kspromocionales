@@ -9,6 +9,14 @@ type JsonLd = Record<string, unknown>;
  * respaldo, LocalBusiness sin dirección real, brand no verificado, etc).
  */
 
+/**
+ * No hay helper `productSchema` / `@type: 'Product'`: Google exige `offers`, `review` o
+ * `aggregateRating` para que un Product sea válido para rich results, y ninguno de los tres
+ * es verificable aquí (precio por cotización, sin reseñas reales) — ver P0-1 en SEO_AUDIT.md.
+ * Declarar Product sin esos campos genera el error "Debe especificarse offers, review o
+ * aggregateRating" en Search Console. Las fichas de producto usan solo BreadcrumbList.
+ */
+
 export interface BreadcrumbItem {
   name: string;
   item: string;
@@ -72,31 +80,6 @@ export function collectionPageSchema(input: CollectionPageInput): JsonLd {
     name: input.name,
     description: input.description,
     url: input.url,
-  };
-}
-
-export interface ProductSchemaInput {
-  name: string;
-  description?: string;
-  images: string[];
-  url: string;
-  sku?: string;
-}
-
-/**
- * Product sin `offers`/`brand`: no hay precio/disponibilidad verificable por producto
- * (ver P0-1 en SEO_AUDIT.md) ni marca de fabricante real — KS Promocionales personaliza
- * sobre un catálogo de terceros, no declara ser el fabricante de cada artículo.
- */
-export function productSchema(input: ProductSchemaInput): JsonLd {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: input.name,
-    description: input.description,
-    image: input.images.length ? input.images : undefined,
-    url: input.url,
-    sku: input.sku,
   };
 }
 
