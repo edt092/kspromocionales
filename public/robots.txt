@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kspromocionales.co/sitemap-index.xml
+Sitemap: https://www.kspromocionales.co/sitemap-index.xml

@@ -22,7 +22,7 @@ const noindexProductPaths = new Set(
 const noindexStaticPaths = new Set(['/gracias/']);
 
 export default defineConfig({
-  site: 'https://kspromocionales.co',
+  site: 'https://www.kspromocionales.co',
   output: 'static',
   trailingSlash: 'always',
   integrations: [

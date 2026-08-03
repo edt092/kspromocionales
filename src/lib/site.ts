@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'KS Promocionales',
   legalName: 'KS Promocionales Colombia',
-  domain: 'kspromocionales.co',
-  url: 'https://kspromocionales.co',
+  domain: 'www.kspromocionales.co',
+  url: 'https://www.kspromocionales.co',
   country: 'Colombia',
   locale: 'es_CO',
   hreflang: 'es-CO',
