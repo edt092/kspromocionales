@@ -3,9 +3,10 @@ import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 import { colombia } from '@/data/geo-data';
-import categories from '@data/categories.json';
+import { categoriesByIds } from '@/lib/catalog';
+import { NAV_CATEGORY_IDS } from '@/data/merchandising';
 
-const featuredCategories = (categories as any[]).slice(0, 8);
+const featuredCategories = categoriesByIds(NAV_CATEGORY_IDS);
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
 ---
 

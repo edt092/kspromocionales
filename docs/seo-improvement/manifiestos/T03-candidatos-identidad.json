@@ -1,0 +1,3354 @@
+{
+ "generatedAt": "2026-10-09T20:27:09.689Z",
+ "source": "C:/Users/Dagon/Desktop/MIS PROYECTOS PERSONALES/SITIOS_WEB/SEO-ANALISI-GENERAL/SEO-KSPROMOCIONALES.CO/ANALISI-09-10-2026/auditoria-seo-competitiva-codex/SEO-audit-evidence-package/duplicate-catalog-identities.csv",
+ "csvGroups": 95,
+ "csvUrls": 190,
+ "dataDuplicateSuffixGroups": 99,
+ "csvVsDataMismatch": {
+  "inDataNotCsv": [
+   "19",
+   "21",
+   "27",
+   "30",
+   "23",
+   "20",
+   "1",
+   "294",
+   "6",
+   "2",
+   "5"
+  ],
+  "inCsvNotData": [
+   "9333",
+   "9217",
+   "9218",
+   "13560",
+   "1085",
+   "6865",
+   "5693"
+  ]
+ },
+ "summary": {
+  "variante_o_distinto": 32,
+  "mismo_producto": 63
+ },
+ "groupsWithGscSignal": [
+  "10661",
+  "9364",
+  "8231",
+  "1442",
+  "7557",
+  "9132",
+  "13320",
+  "13213",
+  "13298"
+ ],
+ "groups": [
+  {
+   "catalogId": "10422",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-holt-eco-120gr-10422",
+     "id": "bolsa-holt-eco-120gr-10422",
+     "name": "Bolsa Holt Eco (120gr)",
+     "normalizedName": "bolsa holt eco 120gr",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/10422.jpg",
+     "imageId": "10422",
+     "contentChars": 1924,
+     "materialClaims": [
+      "sostenible",
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-holt-eco-10422",
+     "id": "algodon-bolsa-holt-eco",
+     "name": "Bolsa Holt Eco",
+     "normalizedName": "bolsa holt eco",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/10422.jpg",
+     "imageId": "10422",
+     "contentChars": 2201,
+     "materialClaims": [
+      "eco-amigable",
+      "reciclad",
+      "sostenible"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "3742",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-pvc-mercury-850ml-precio-bomba-3742",
+     "id": "botilitos-deportivos-botilito-pvc-mercury-850ml-pr",
+     "name": "Botilito Pvc Mercury - 850ml - Precio Bomba",
+     "normalizedName": "botilito pvc mercury 850ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/3742.jpg",
+     "imageId": "3742",
+     "contentChars": 684,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-pvc-mercury-850ml-3742",
+     "id": "botilito-pvc-mercury-850ml-3742",
+     "name": "Botilito Pvc Mercury - 850ml",
+     "normalizedName": "botilito pvc mercury 850ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/3742.jpg",
+     "imageId": "3742",
+     "contentChars": 722,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7991",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "set-de-destornilladores-everest-7991",
+     "id": "set-de-destornilladores-everest-7991",
+     "name": "Set de Destornilladores Everest",
+     "normalizedName": "set de destornilladores everest",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/7991.jpg",
+     "imageId": "7991",
+     "contentChars": 1589,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "set-de-destornilladores-everest-precio-bomba-7991",
+     "id": "multiusos-set-de-destornilladores-everest-precio-b",
+     "name": "Set de Destornilladores Everest -precio Bomba",
+     "normalizedName": "set de destornilladores everest",
+     "categoryId": "herramientas",
+     "image": "https://catalogospromocionales.com/images/productos/7991.jpg",
+     "imageId": "7991",
+     "contentChars": 458,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7518",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "agarre-total-flexi-tu-copiloto-ideal-7518",
+     "id": "accesorios-auto-agarre-total-flexi-tu-copiloto-ideal",
+     "name": "Agarre Total Flexi: Tu copiloto ideal",
+     "normalizedName": "agarre total flexi tu copiloto ideal",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7518.jpg",
+     "imageId": "7518",
+     "contentChars": 669,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "soporte-para-movil-flexi-7518",
+     "id": "soporte-para-movil-flexi-7518",
+     "name": "Soporte Para Movil Flexi",
+     "normalizedName": "soporte para movil flexi",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7518.jpg",
+     "imageId": "7518",
+     "contentChars": 1466,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9587",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "audifono-bluetooth-2-en-1-libertad-total-al-volante-9587",
+     "id": "accesorios-auto-audifono-bluetooth-2-en-1-libertad-total-al-volante",
+     "name": "Audífono Bluetooth 2-en-1: ¡Libertad Total al Volante!",
+     "normalizedName": "audifono bluetooth 2 en 1 libertad total al volante",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9587.jpg",
+     "imageId": "9587",
+     "contentChars": 635,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "audifono-bluetooth-manos-libres-2-1-oferta-9587",
+     "id": "adaptadores-audifono-bluetooth-manos-libres-2-1-of",
+     "name": "Audifono Bluetooth Manos Libres 2-1 - Oferta",
+     "normalizedName": "audifono bluetooth manos libres 2 1",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/9587.jpg",
+     "imageId": "9587",
+     "contentChars": 562,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7410",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "aspiradora-para-carro-7410",
+     "id": "aspiradora-para-carro-7410",
+     "name": "Aspiradora Para Carro",
+     "normalizedName": "aspiradora para carro",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7410.jpg",
+     "imageId": "7410",
+     "contentChars": 1768,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "turboclean-mini-el-aspirador-imbatible-para-tu-auto-7410",
+     "id": "accesorios-auto-turboclean-mini-el-aspirador-imbatible-para-tu-auto",
+     "name": "TurboClean Mini: El Aspirador Imbatible para Tu Auto",
+     "normalizedName": "turboclean mini el aspirador imbatible para tu auto",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7410.jpg",
+     "imageId": "7410",
+     "contentChars": 631,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13212",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "audifonos-bluetooth-anc-13212",
+     "id": "audifonos-bluetooth-anc-13212",
+     "name": "Audifonos Bluetooth Anc",
+     "normalizedName": "audifonos bluetooth anc",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13212.jpg",
+     "imageId": "13212",
+     "contentChars": 1993,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "audifonos-bluetooth-anc-nuevo-13212",
+     "id": "boompods-audifonos-bluetooth-anc-nuevo",
+     "name": "Audifonos Bluetooth Anc Nuevo",
+     "normalizedName": "audifonos bluetooth anc",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13212.jpg",
+     "imageId": "13212",
+     "contentChars": 518,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7330",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "balmax-stylus-7330",
+     "id": "balmax-stylus-7330",
+     "name": "Balmax Stylus",
+     "normalizedName": "balmax stylus",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/7330.jpg",
+     "imageId": "7330",
+     "contentChars": 1391,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "balmax-stylus-precio-bomba-7330",
+     "id": "plasticos-con-stylus-balmax-stylus-precio-bomba",
+     "name": "Balmax Stylus - Precio Bomba",
+     "normalizedName": "balmax stylus",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/7330.jpg",
+     "imageId": "7330",
+     "contentChars": 403,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13202",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bbq-grill-soccer-cook-13202",
+     "id": "bbq-grill-soccer-cook-13202",
+     "name": "Bbq Grill Soccer Cook",
+     "normalizedName": "bbq grill soccer cook",
+     "categoryId": "hogar",
+     "image": "https://catalogospromocionales.com/images/productos/13202.jpg",
+     "imageId": "13202",
+     "contentChars": 1858,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "bbq-grill-soccer-cook-nuevo-13202",
+     "id": "set-de-bbq-bbq-grill-soccer-cook-nuevo",
+     "name": "Bbq Grill Soccer Cook Nuevo",
+     "normalizedName": "bbq grill soccer cook",
+     "categoryId": "hogar",
+     "image": "https://catalogospromocionales.com/images/productos/13202.jpg",
+     "imageId": "13202",
+     "contentChars": 490,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10664",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-aldrich-metalizado-10664",
+     "id": "boligrafo-aldrich-metalizado-10664",
+     "name": "Bolígrafo Aldrich Metalizado",
+     "normalizedName": "boligrafo aldrich metalizado",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10664.jpg",
+     "imageId": "10664",
+     "contentChars": 1792,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-aldrich-metalizadomas-10664",
+     "id": "ecologia-10664",
+     "name": "Bolígrafo Aldrich Metalizado",
+     "normalizedName": "boligrafo aldrich metalizado",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10664.jpg",
+     "imageId": "10664",
+     "contentChars": 2547,
+     "materialClaims": [
+      "eco-amigable",
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10663",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-aldrich-solido-10663",
+     "id": "boligrafo-aldrich-solido-10663",
+     "name": "Bolígrafo Aldrich Sólido",
+     "normalizedName": "boligrafo aldrich solido",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10663.jpg",
+     "imageId": "10663",
+     "contentChars": 1870,
+     "materialClaims": [
+      "metal sólido"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-aldrich-solidomas-10663",
+     "id": "ecologia-10663",
+     "name": "Bolígrafo Aldrich Sólido",
+     "normalizedName": "boligrafo aldrich solido",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10663.jpg",
+     "imageId": "10663",
+     "contentChars": 2021,
+     "materialClaims": [
+      "ecológic",
+      "reciclad",
+      "sostenible"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10658",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-baniri-bamboo-10658",
+     "id": "boligrafo-baniri-bamboo-10658",
+     "name": "Bolígrafo Baniri Bamboo",
+     "normalizedName": "boligrafo baniri bamboo",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10658.jpg",
+     "imageId": "10658",
+     "contentChars": 1861,
+     "materialClaims": [
+      "bambú",
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-baniri-bamboomas-10658",
+     "id": "ecologia-10658",
+     "name": "Bolígrafo Baniri Bamboo",
+     "normalizedName": "boligrafo baniri bamboo",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10658.jpg",
+     "imageId": "10658",
+     "contentChars": 2176,
+     "materialClaims": [
+      "ecológic",
+      "bambú"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10666",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-helmetmas-10666",
+     "id": "ecologia-10666",
+     "name": "Bolígrafo Helmet",
+     "normalizedName": "boligrafo helmet",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10666.jpg",
+     "imageId": "10666",
+     "contentChars": 2462,
+     "materialClaims": [
+      "sostenible",
+      "reciclad",
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-helmet-10666",
+     "id": "boligrafo-helmet-10666",
+     "name": "Bolígrafo Helmet",
+     "normalizedName": "boligrafo helmet",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10666.jpg",
+     "imageId": "10666",
+     "contentChars": 1763,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10662",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-landon-10662",
+     "id": "boligrafo-landon-10662",
+     "name": "Bolígrafo Landon",
+     "normalizedName": "boligrafo landon",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10662.jpg",
+     "imageId": "10662",
+     "contentChars": 1698,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-landonmas-10662",
+     "id": "ecologia-10662",
+     "name": "Bolígrafo Landon",
+     "normalizedName": "boligrafo landon",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10662.jpg",
+     "imageId": "10662",
+     "contentChars": 2563,
+     "materialClaims": [
+      "sostenible",
+      "reciclad",
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10661",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "boligrafo-luana-10661",
+     "id": "boligrafo-luana-10661",
+     "name": "Bolígrafo Luana",
+     "normalizedName": "boligrafo luana",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10661.jpg",
+     "imageId": "10661",
+     "contentChars": 1646,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "boligrafo-luanamas-10661",
+     "id": "ecologia-10661",
+     "name": "Bolígrafo Luana",
+     "normalizedName": "boligrafo luana",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10661.jpg",
+     "imageId": "10661",
+     "contentChars": 2435,
+     "materialClaims": [
+      "reciclad",
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13294",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-scroll-13294",
+     "id": "boligrafo-scroll-13294",
+     "name": "Boligrafo Scroll",
+     "normalizedName": "boligrafo scroll",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/13294.jpg",
+     "imageId": "13294",
+     "contentChars": 2508,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-scroll-nuevo-13294",
+     "id": "metalicos-con-stylus-boligrafo-scroll-nuevo",
+     "name": "Boligrafo Scroll Nuevo",
+     "normalizedName": "boligrafo scroll",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/13294.jpg",
+     "imageId": "13294",
+     "contentChars": 560,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10659",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "boligrafo-ziwei-bamboo-10659",
+     "id": "boligrafo-ziwei-bamboo-10659",
+     "name": "Bolígrafo Ziwei Bamboo",
+     "normalizedName": "boligrafo ziwei bamboo",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/10659.jpg",
+     "imageId": "10659",
+     "contentChars": 1662,
+     "materialClaims": [
+      "bambú",
+      "biodegradable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-ziwei-bamboomas-10659",
+     "id": "ecologia-10659",
+     "name": "Bolígrafo Ziwei Bamboo",
+     "normalizedName": "boligrafo ziwei bamboo",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10659.jpg",
+     "imageId": "10659",
+     "contentChars": 1812,
+     "materialClaims": [
+      "bambú",
+      "biodegradable"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6463",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-clear-trenza-con-ribete-produccion-nacional-6463",
+     "id": "bolsa-clear-trenza-con-ribete-produccion-nacional-6463",
+     "name": "Bolsa Clear Trenza Con Ribete - Producción Nacional",
+     "normalizedName": "bolsa clear trenza con ribete",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/6463.jpg",
+     "imageId": "6463",
+     "contentChars": 1781,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-clear-trenza-con-ribete-produccion-nacionalmas-6463",
+     "id": "produccion-nacional-6463",
+     "name": "Bolsa Clear Trenza Con Ribete - Producción Nacional",
+     "normalizedName": "bolsa clear trenza con ribete",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/6463.jpg",
+     "imageId": "6463",
+     "contentChars": 2660,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6460",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-clear-zuzy-con-ribete-produccion-nacional-6460",
+     "id": "bolsa-clear-zuzy-con-ribete-produccion-nacional-6460",
+     "name": "Bolsa Clear Zuzy Con Ribete - Produccion Nacional",
+     "normalizedName": "bolsa clear zuzy con ribete",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/6460.jpg",
+     "imageId": "6460",
+     "contentChars": 1529,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-clear-zuzy-con-ribete-produccion-nacionalmas-6460",
+     "id": "produccion-nacional-6460",
+     "name": "Bolsa Clear Zuzy Con Ribete - Produccion Nacional",
+     "normalizedName": "bolsa clear zuzy con ribete",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/6460.jpg",
+     "imageId": "6460",
+     "contentChars": 1819,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13555",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-algodon-basic-300-gm-nuevo-13555",
+     "id": "bolsa-en-algodon-basic-300-gm-nuevo-13555",
+     "name": "Bolsa en Algodón Basic (300 Gm) Nuevo",
+     "normalizedName": "bolsa en algodon basic 300 gm",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13555.jpg",
+     "imageId": "13555",
+     "contentChars": 2500,
+     "materialClaims": [
+      "sostenible",
+      "ecológic",
+      "biodegradable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-basic-300-gm-nuevomas-13555",
+     "id": "novedades-13555",
+     "name": "Bolsa en Algodón Basic (300 Gm) Nuevo",
+     "normalizedName": "bolsa en algodon basic 300 gm",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13555.jpg",
+     "imageId": "13555",
+     "contentChars": 1761,
+     "materialClaims": [
+      "sostenible"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10690",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-algodon-botanik-100gr-10690",
+     "id": "bolsa-en-algodon-botanik-100gr-10690",
+     "name": "Bolsa en Algodón Botanik (100gr)",
+     "normalizedName": "bolsa en algodon botanik 100gr",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/10690.jpg",
+     "imageId": "10690",
+     "contentChars": 1773,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-botanik-10690",
+     "id": "algodon-bolsa-en-algodon-botanik",
+     "name": "Bolsa en Algodón Botanik",
+     "normalizedName": "bolsa en algodon botanik",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/10690.jpg",
+     "imageId": "10690",
+     "contentChars": 467,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10691",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-algodon-con-fuelle-100gr-10691",
+     "id": "bolsa-en-algodon-con-fuelle-100gr-10691",
+     "name": "Bolsa en Algodón Con Fuelle (100gr)",
+     "normalizedName": "bolsa en algodon con fuelle 100gr",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/10691.jpg",
+     "imageId": "10691",
+     "contentChars": 1794,
+     "materialClaims": [
+      "sostenible"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-con-fuelle-10691",
+     "id": "ecopromo-bolsa-en-algodon-con-fuelle",
+     "name": "Bolsa en Algodón Con Fuelle",
+     "normalizedName": "bolsa en algodon con fuelle",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/10691.jpg",
+     "imageId": "10691",
+     "contentChars": 506,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9103",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-algodon-corcho-135gr-9103",
+     "id": "bolsa-en-algodon-corcho-135gr-9103",
+     "name": "Bolsa en Algodón Corcho (135gr)",
+     "normalizedName": "bolsa en algodon corcho 135gr",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/9103.jpg",
+     "imageId": "9103",
+     "contentChars": 2738,
+     "materialClaims": [
+      "corcho",
+      "sostenible",
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-corcho-9103",
+     "id": "algodon-bolsa-en-algodon-corcho",
+     "name": "Bolsa en Algodón Corcho",
+     "normalizedName": "bolsa en algodon corcho",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/9103.jpg",
+     "imageId": "9103",
+     "contentChars": 447,
+     "materialClaims": [
+      "corcho"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10367",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-algodon-shopper-290gr-10367",
+     "id": "bolsa-en-algodon-shopper-290gr-10367",
+     "name": "Bolsa en Algodón Shopper (290gr)",
+     "normalizedName": "bolsa en algodon shopper 290gr",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/10367.jpg",
+     "imageId": "10367",
+     "contentChars": 1688,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-shopper-10367",
+     "id": "algodon-bolsa-en-algodon-shopper",
+     "name": "Bolsa en Algodón Shopper",
+     "normalizedName": "bolsa en algodon shopper",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/10367.jpg",
+     "imageId": "10367",
+     "contentChars": 2397,
+     "materialClaims": [
+      "sostenible",
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13554",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevo-13554",
+     "id": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevo-13554",
+     "name": "Bolsa en Algodón y Yute Nativ (300 Gm) Nuevo",
+     "normalizedName": "bolsa en algodon y yute nativ 300 gm",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13554.jpg",
+     "imageId": "13554",
+     "contentChars": 2491,
+     "materialClaims": [
+      "sostenible",
+      "yute",
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevomas-13554",
+     "id": "novedades-13554",
+     "name": "Bolsa en Algodón y Yute Nativ (300 Gm) Nuevo",
+     "normalizedName": "bolsa en algodon y yute nativ 300 gm",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13554.jpg",
+     "imageId": "13554",
+     "contentChars": 2341,
+     "materialClaims": [
+      "yute",
+      "eco-amigable"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9364",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "bolsa-en-cambrel-multiusos-vita-prod-nacional-9364",
+     "id": "bolsa-en-cambrel-multiusos-vita-prod-nacional-9364",
+     "name": "Bolsa en Cambrel Multiusos Vita - Prod Nacional",
+     "normalizedName": "bolsa en cambrel multiusos vita prod nacional",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9364.jpg",
+     "imageId": "9364",
+     "contentChars": 1815,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "ecologica-vita-bolsa-reutilizable-hecha-en-mexico-9364",
+     "id": "accesorios-auto-ecologica-vita-bolsa-reutilizable-hecha-en-mexico",
+     "name": "Ecológica Vita: Bolsa Reutilizable Hecha en México",
+     "normalizedName": "ecologica vita bolsa reutilizable hecha en mexico",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9364.jpg",
+     "imageId": "9364",
+     "contentChars": 633,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ]
+  },
+  {
+   "catalogId": "13553",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "bolsa-en-cambrel-soot-nuevo-13553",
+     "id": "bolsa-en-cambrel-soot-nuevo-13553",
+     "name": "Bolsa en Cambrel Soot Nuevo",
+     "normalizedName": "bolsa en cambrel soot",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13553.jpg",
+     "imageId": "13553",
+     "contentChars": 1819,
+     "materialClaims": [
+      "sostenible",
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-cambrel-soot-nuevomas-13553",
+     "id": "novedades-13553",
+     "name": "Bolsa en Cambrel Soot Nuevo",
+     "normalizedName": "bolsa en cambrel soot",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13553.jpg",
+     "imageId": "13553",
+     "contentChars": 2087,
+     "materialClaims": [
+      "sostenible"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6322",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-en-pvc-curvy-500ml-produccion-nacional-6322",
+     "id": "botilito-en-pvc-curvy-500ml-produccion-nacional-6322",
+     "name": "Botilito en Pvc Curvy 500ml - Producción Nacional",
+     "normalizedName": "botilito en pvc curvy 500ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/6322.jpg",
+     "imageId": "6322",
+     "contentChars": 732,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-en-pvc-curvy-525ml-produccion-nacional-6322",
+     "id": "botilitos-deportivos-botilito-en-pvc-curvy-525ml-p",
+     "name": "Botilito en Pvc Curvy 525ml - Producción Nacional",
+     "normalizedName": "botilito en pvc curvy 525ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/6322.jpg",
+     "imageId": "6322",
+     "contentChars": 673,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "5741",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-en-pvc-helice-650ml-produccion-nacional-5741",
+     "id": "botilitos-plasticos-botilito-en-pvc-helice-650ml-p",
+     "name": "Botilito en Pvc Hélice 650ml - Producción Nacional",
+     "normalizedName": "botilito en pvc helice 650ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/5741.jpg",
+     "imageId": "5741",
+     "contentChars": 767,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-en-pvc-helice-760ml-produccion-nacional-5741",
+     "id": "botilito-en-pvc-helice-760ml-produccion-nacional-5741",
+     "name": "Botilito en Pvc Hélice 760ml - Producción Nacional",
+     "normalizedName": "botilito en pvc helice 760ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/5741.jpg",
+     "imageId": "5741",
+     "contentChars": 692,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "5159",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-mini-spring-550ml-5159",
+     "id": "botilitos-deportivos-botilito-mini-spring-550ml",
+     "name": "Botilito Mini Spring 550ml",
+     "normalizedName": "botilito mini spring 550ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/5159.jpg",
+     "imageId": "5159",
+     "contentChars": 499,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-mini-spring-590ml-tapa-importada-o-nacional-5159",
+     "id": "botilito-mini-spring-590ml-tapa-importada-o-nacional-5159",
+     "name": "Botilito Mini Spring 590ml (tapa Importada o Nacional)",
+     "normalizedName": "botilito mini spring 590ml tapa importada o nacional",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/5159.jpg",
+     "imageId": "5159",
+     "contentChars": 717,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10688",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-plastico-wonder-650ml-produccion-nacional-10688",
+     "id": "mug-sublimacion-botilito-plastico-wonder-650ml-pro",
+     "name": "Botilito Plástico Wonder-650ml-producción Nacional",
+     "normalizedName": "botilito plastico wonder 650ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/10688.jpg",
+     "imageId": "10688",
+     "contentChars": 714,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-plastico-wonder-700ml-produccion-nacional-10688",
+     "id": "botilito-plastico-wonder-700ml-produccion-nacional-10688",
+     "name": "Botilito Plástico Wonder-700ml-producción Nacional",
+     "normalizedName": "botilito plastico wonder 700ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/10688.jpg",
+     "imageId": "10688",
+     "contentChars": 672,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "4083",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-sport-650ml-produccion-nacional-4083",
+     "id": "botilito-sport-650ml-produccion-nacional-4083",
+     "name": "Botilito Sport 650ml - Produccion Nacional",
+     "normalizedName": "botilito sport 650ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/4083.jpg",
+     "imageId": "4083",
+     "contentChars": 766,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-sport-650ml-produccion-nacionalmas-4083",
+     "id": "produccion-nacional-4083",
+     "name": "Botilito Sport 650ml - Produccion Nacional",
+     "normalizedName": "botilito sport 650ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/4083.jpg",
+     "imageId": "4083",
+     "contentChars": 750,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "4439",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-sport-titan-650-ml-produccion-nacional-4439",
+     "id": "botilitos-deportivos-botilito-sport-titan-650-ml-p",
+     "name": "Botilito Sport Titán - 650 ml - Produccion Nacional",
+     "normalizedName": "botilito sport titan 650 ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/4439.jpg",
+     "imageId": "4439",
+     "contentChars": 871,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-sport-titan-690-ml-produccion-nacional-4439",
+     "id": "botilito-sport-titan-690-ml-produccion-nacional-4439",
+     "name": "Botilito Sport Titán - 690 ml - Produccion Nacional",
+     "normalizedName": "botilito sport titan 690 ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/4439.jpg",
+     "imageId": "4439",
+     "contentChars": 797,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6706",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "botilito-supra-en-pet-600ml-produccion-nacional-6706",
+     "id": "botilito-supra-en-pet-600ml-produccion-nacional-6706",
+     "name": "Botilito Supra en Pet 600ml - Produccion Nacional",
+     "normalizedName": "botilito supra en pet 600ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/6706.jpg",
+     "imageId": "6706",
+     "contentChars": 808,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "botilito-supra-en-pet-610ml-produccion-nacional-6706",
+     "id": "botilitos-plasticos-botilito-supra-en-pet-610ml-pr",
+     "name": "Botilito Supra en Pet 610ml - Produccion Nacional",
+     "normalizedName": "botilito supra en pet 610ml",
+     "categoryId": "tomatodos-botilitos",
+     "image": "https://catalogospromocionales.com/images/productos/6706.jpg",
+     "imageId": "6706",
+     "contentChars": 874,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "3010",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "cartoonmas-3010",
+     "id": "ecologia-3010",
+     "name": "Cartoon",
+     "normalizedName": "cartoon",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/3010.jpg",
+     "imageId": "3010",
+     "contentChars": 2087,
+     "materialClaims": [
+      "ecológic",
+      "reciclad",
+      "sostenible",
+      "biodegradable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "cartoon-3010",
+     "id": "cartoon-3010",
+     "name": "Cartoon",
+     "normalizedName": "cartoon",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/3010.jpg",
+     "imageId": "3010",
+     "contentChars": 1802,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9333",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "cojin-de-viaje-triple-uso-produccion-nacional-9333",
+     "id": "cojin-de-viaje-triple-uso-produccion-nacional-9333",
+     "name": "Cojín de Viaje Triple Uso - Produccion Nacional",
+     "normalizedName": "cojin de viaje triple uso",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9333.jpg",
+     "imageId": "9333",
+     "contentChars": 1909,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "descanso-tricolor-cojin-de-viaje-3-en-1-9333",
+     "id": "accesorios-auto-descanso-tricolor-cojin-de-viaje-3-en-1",
+     "name": "¡Descanso Tricolor! Cojín de Viaje 3 en 1",
+     "normalizedName": "descanso tricolor cojin de viaje 3 en 1",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9333.jpg",
+     "imageId": "9333",
+     "contentChars": 611,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13500",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "cosmetiquera-terra-13500",
+     "id": "cosmetiquera-terra-13500",
+     "name": "Cosmetiquera Terra",
+     "normalizedName": "cosmetiquera terra",
+     "categoryId": "cuidado-personal",
+     "image": "https://catalogospromocionales.com/images/productos/13500.jpg",
+     "imageId": "13500",
+     "contentChars": 1709,
+     "materialClaims": [
+      "sostenible"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "cosmetiquera-terra-nuevo-13500",
+     "id": "algodon-cosmetiquera-terra-nuevo",
+     "name": "Cosmetiquera Terra Nuevo",
+     "normalizedName": "cosmetiquera terra",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13500.jpg",
+     "imageId": "13500",
+     "contentChars": 524,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9439",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "cuerpo-plastico-para-abanico-9439",
+     "id": "ventiladores-y-abanicos-cuerpo-plastico-para-abani",
+     "name": "Cuerpo Plastico Para Abanico",
+     "normalizedName": "cuerpo plastico para abanico",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/9439.jpg",
+     "imageId": "9439",
+     "contentChars": 2300,
+     "materialClaims": [
+      "reciclad",
+      "sostenible"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "cuerpo-plastico-para-abanico-tela-impresa-prod-nal-9439",
+     "id": "cuerpo-plastico-para-abanico-tela-impresa-prod-nal-9439",
+     "name": "Cuerpo Plastico Para Abanico (tela Impresa Prod Nal)",
+     "normalizedName": "cuerpo plastico para abanico tela impresa",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/9439.jpg",
+     "imageId": "9439",
+     "contentChars": 1803,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "8231",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "ecologik-8231",
+     "id": "ecologik-8231",
+     "name": "Ecologik",
+     "normalizedName": "ecologik",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/8231.jpg",
+     "imageId": "8231",
+     "contentChars": 1441,
+     "materialClaims": [
+      "ecológic",
+      "biodegradable",
+      "reciclad"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "ecologikmas-8231",
+     "id": "ecologia-8231",
+     "name": "Ecologik",
+     "normalizedName": "ecologik",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/8231.jpg",
+     "imageId": "8231",
+     "contentChars": 2259,
+     "materialClaims": [
+      "sostenible",
+      "ecológic",
+      "reciclad",
+      "biodegradable"
+     ],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ]
+  },
+  {
+   "catalogId": "1442",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "escudo-solar-auto-frescura-y-proteccion-para-tu-viaje-1442",
+     "id": "accesorios-auto-escudo-solar-auto-frescura-y-proteccion-para-tu-viaje",
+     "name": "Escudo Solar Auto: Frescura y Protección para tu Viaje",
+     "normalizedName": "escudo solar auto frescura y proteccion para tu viaje",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/1442.jpg",
+     "imageId": "1442",
+     "contentChars": 633,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "protector-solar-para-carro-1442",
+     "id": "protector-solar-para-carro-1442",
+     "name": "Protector Solar Para Carro",
+     "normalizedName": "protector solar para carro",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/1442.jpg",
+     "imageId": "1442",
+     "contentChars": 2062,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 2
+     }
+    }
+   ]
+  },
+  {
+   "catalogId": "6048",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "estuche-doble-regal-prod-nacional-6048",
+     "id": "estuche-doble-regal-prod-nacional-6048",
+     "name": "Estuche Doble Regal (prod. Nacional)",
+     "normalizedName": "estuche doble regal prod nacional",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/6048.jpg",
+     "imageId": "6048",
+     "contentChars": 1866,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "estuche-doble-regal-6048",
+     "id": "estuches-boligrafos-estuche-doble-regal",
+     "name": "Estuche Doble Regal",
+     "normalizedName": "estuche doble regal",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/6048.jpg",
+     "imageId": "6048",
+     "contentChars": 427,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7557",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "iman-titan-soporte-magnetico-para-tu-celular-7557",
+     "id": "accesorios-auto-iman-titan-soporte-magnetico-para-tu-celular",
+     "name": "Imán Titán: Soporte Magnético para tu Celular",
+     "normalizedName": "iman titan soporte magnetico para tu celular",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7557.jpg",
+     "imageId": "7557",
+     "contentChars": 627,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "soporte-magnetico-para-moviles-7557",
+     "id": "soporte-magnetico-para-moviles-7557",
+     "name": "Soporte Magnético Para Moviles",
+     "normalizedName": "soporte magnetico para moviles",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7557.jpg",
+     "imageId": "7557",
+     "contentChars": 1812,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13540",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "lapiz-infinito-gemini-nuevo-13540",
+     "id": "lapiz-infinito-gemini-nuevo-13540",
+     "name": "Lápiz Infinito Gemini Nuevo",
+     "normalizedName": "lapiz infinito gemini",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/13540.jpg",
+     "imageId": "13540",
+     "contentChars": 2669,
+     "materialClaims": [
+      "sostenible",
+      "eco-amigable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "lapiz-infinito-gemini-nuevomas-13540",
+     "id": "novedades-13540",
+     "name": "Lápiz Infinito Gemini Nuevo",
+     "normalizedName": "lapiz infinito gemini",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13540.jpg",
+     "imageId": "13540",
+     "contentChars": 1999,
+     "materialClaims": [
+      "eco-amigable",
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9132",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "llavero-pito-con-destapador-precio-bomba-9132",
+     "id": "con-destapador-llavero-pito-con-destapador-precio-",
+     "name": "Llavero Pito Con Destapador - Precio Bomba",
+     "normalizedName": "llavero pito con destapador",
+     "categoryId": "mugs",
+     "image": "https://catalogospromocionales.com/images/productos/9132.jpg",
+     "imageId": "9132",
+     "contentChars": 472,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "llavero-pito-con-destapador-9132",
+     "id": "llavero-pito-con-destapador-9132",
+     "name": "Llavero Pito Con Destapador",
+     "normalizedName": "llavero pito con destapador",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/9132.jpg",
+     "imageId": "9132",
+     "contentChars": 2037,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7776",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "localizador-de-llaves-7776",
+     "id": "articulos-smartphone-tablet-y-computador-localizad",
+     "name": "Localizador de Llaves",
+     "normalizedName": "localizador de llaves",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/7776.jpg",
+     "imageId": "7776",
+     "contentChars": 577,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "no-pierdas-mas-tiempo-encuentra-tus-llaves-con-keyfind-7776",
+     "id": "accesorios-auto-no-pierdas-mas-tiempo-encuentra-tus-llaves-con-keyfind",
+     "name": "¡No Pierdas Más Tiempo! Encuentra tus Llaves con KeyFind",
+     "normalizedName": "no pierdas mas tiempo encuentra tus llaves con keyfind",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/7776.jpg",
+     "imageId": "7776",
+     "contentChars": 670,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13338",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "masajeador-hyper-eco-13338",
+     "id": "masajeador-hyper-eco-13338",
+     "name": "Masajeador Hyper Eco",
+     "normalizedName": "masajeador hyper eco",
+     "categoryId": "cuidado-personal",
+     "image": "https://catalogospromocionales.com/images/productos/13338.jpg",
+     "imageId": "13338",
+     "contentChars": 2506,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "masajeador-hyper-eco-nuevo-13338",
+     "id": "masajeadores-masajeador-hyper-eco-nuevo",
+     "name": "Masajeador Hyper Eco Nuevo",
+     "normalizedName": "masajeador hyper eco",
+     "categoryId": "cuidado-personal",
+     "image": "https://catalogospromocionales.com/images/productos/13338.jpg",
+     "imageId": "13338",
+     "contentChars": 473,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13297",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "medidor-de-presion-para-neumaticos-nuevo-13297",
+     "id": "novedades-medidor-de-presion-para-neumaticos-nuevo",
+     "name": "Medidor de Presión Para Neumaticos Nuevo",
+     "normalizedName": "medidor de presion para neumaticos",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13297.jpg",
+     "imageId": "13297",
+     "contentChars": 531,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "medidor-de-presion-para-neumaticos-13297",
+     "id": "medidor-de-presion-para-neumaticos-13297",
+     "name": "Medidor de Presión Para Neumaticos",
+     "normalizedName": "medidor de presion para neumaticos",
+     "categoryId": "herramientas",
+     "image": "https://catalogospromocionales.com/images/productos/13297.jpg",
+     "imageId": "13297",
+     "contentChars": 2390,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "5277",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "memoria-mini-usb-en-imitacion-cuero-precio-neto-oferta-5277",
+     "id": "memoria-mini-usb-en-imitacion-cuero-precio-neto-oferta-5277",
+     "name": "Memoria Mini Usb en Imitacion Cuero Precio Neto - Oferta",
+     "normalizedName": "memoria mini usb en imitacion cuero precio neto",
+     "categoryId": "memorias-usb",
+     "image": "https://catalogospromocionales.com/images/productos/5277.jpg",
+     "imageId": "5277",
+     "contentChars": 1828,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "memoria-mini-usb-en-imitacion-cuero-precio-neto-5277",
+     "id": "metalicas-memoria-mini-usb-en-imitacion-cuero-prec",
+     "name": "Memoria Mini Usb en Imitacion Cuero Precio Neto",
+     "normalizedName": "memoria mini usb en imitacion cuero precio neto",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/5277.jpg",
+     "imageId": "5277",
+     "contentChars": 529,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "7987",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "memoria-usb-braxton-precio-neto-7987",
+     "id": "metalicas-memoria-usb-braxton-precio-neto",
+     "name": "Memoria Usb Braxton Precio Neto",
+     "normalizedName": "memoria usb braxton precio neto",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/7987.jpg",
+     "imageId": "7987",
+     "contentChars": 469,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "memoria-usb-braxton-precio-neto-oferta-7987",
+     "id": "memoria-usb-braxton-precio-neto-oferta-7987",
+     "name": "Memoria Usb Braxton Precio Neto - Oferta",
+     "normalizedName": "memoria usb braxton precio neto",
+     "categoryId": "memorias-usb",
+     "image": "https://catalogospromocionales.com/images/productos/7987.jpg",
+     "imageId": "7987",
+     "contentChars": 1837,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "4727",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "memoria-usb-carabinero-precio-neto-4727",
+     "id": "metalicas-memoria-usb-carabinero-precio-neto",
+     "name": "Memoria Usb Carabinero Precio Neto",
+     "normalizedName": "memoria usb carabinero precio neto",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/4727.jpg",
+     "imageId": "4727",
+     "contentChars": 603,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "memoria-usb-carabinero-precio-neto-oferta-4727",
+     "id": "memoria-usb-carabinero-precio-neto-oferta-4727",
+     "name": "Memoria Usb Carabinero Precio Neto - Oferta",
+     "normalizedName": "memoria usb carabinero precio neto",
+     "categoryId": "memorias-usb",
+     "image": "https://catalogospromocionales.com/images/productos/4727.jpg",
+     "imageId": "4727",
+     "contentChars": 1787,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13253",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mini-bolsa-en-algodon-100gms-nuevo-13253",
+     "id": "algodon-mini-bolsa-en-algodon-100gms-nuevo",
+     "name": "Mini Bolsa en Algodón 100gms Nuevo",
+     "normalizedName": "mini bolsa en algodon 100gms",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/13253.jpg",
+     "imageId": "13253",
+     "contentChars": 475,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mini-bolsa-en-algodon-100gms-13253",
+     "id": "mini-bolsa-en-algodon-100gms-13253",
+     "name": "Mini Bolsa en Algodón 100gms",
+     "normalizedName": "mini bolsa en algodon 100gms",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13253.jpg",
+     "imageId": "13253",
+     "contentChars": 2221,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13334",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mini-herramientero-blazor-nuevo-13334",
+     "id": "linternas-llavero-mini-herramientero-blazor-nuevo",
+     "name": "Mini Herramientero Blazor Nuevo",
+     "normalizedName": "mini herramientero blazor",
+     "categoryId": "herramientas",
+     "image": "https://catalogospromocionales.com/images/productos/13334.jpg",
+     "imageId": "13334",
+     "contentChars": 429,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mini-herramientero-blazor-13334",
+     "id": "mini-herramientero-blazor-13334",
+     "name": "Mini Herramientero Blazor",
+     "normalizedName": "mini herramientero blazor",
+     "categoryId": "iluminacion",
+     "image": "https://catalogospromocionales.com/images/productos/13334.jpg",
+     "imageId": "13334",
+     "contentChars": 2267,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6051",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mini-libreta-duo-produccion-nacional-6051",
+     "id": "produccion-nacional-mini-libreta-duo-produccion-na",
+     "name": "Mini Libreta Duo - Producción Nacional",
+     "normalizedName": "mini libreta duo",
+     "categoryId": "oficina",
+     "image": "https://catalogospromocionales.com/images/productos/6051.jpg",
+     "imageId": "6051",
+     "contentChars": 494,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mini-libreta-duo-produccion-nacional-ver-ref-bolian-6051",
+     "id": "mini-libreta-duo-produccion-nacional-ver-ref-bolian-6051",
+     "name": "Mini Libreta Duo - Producción Nacional (ver Ref Bolian)",
+     "normalizedName": "mini libreta duo ver ref bolian",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/6051.jpg",
+     "imageId": "6051",
+     "contentChars": 2236,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13296",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mini-linterna-ozen-nuevo-13296",
+     "id": "novedades-mini-linterna-ozen-nuevo",
+     "name": "Mini Linterna Ozen Nuevo",
+     "normalizedName": "mini linterna ozen",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13296.jpg",
+     "imageId": "13296",
+     "contentChars": 413,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mini-linterna-ozen-13296",
+     "id": "mini-linterna-ozen-13296",
+     "name": "Mini Linterna Ozen",
+     "normalizedName": "mini linterna ozen",
+     "categoryId": "iluminacion",
+     "image": "https://catalogospromocionales.com/images/productos/13296.jpg",
+     "imageId": "13296",
+     "contentChars": 2009,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10677",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "molde-de-silicona-ice-face-10677",
+     "id": "molde-de-silicona-ice-face-10677",
+     "name": "Molde de Silicona Ice Face",
+     "normalizedName": "molde de silicona ice face",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/10677.jpg",
+     "imageId": "10677",
+     "contentChars": 2184,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "molde-de-silicona-ice-face-precio-bomba-10677",
+     "id": "articulos-hogar-molde-de-silicona-ice-face-precio-",
+     "name": "Molde de Silicona Ice Face - Precio Bomba",
+     "normalizedName": "molde de silicona ice face",
+     "categoryId": "hogar",
+     "image": "https://catalogospromocionales.com/images/productos/10677.jpg",
+     "imageId": "10677",
+     "contentChars": 517,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10725",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "morral-backpack-elegant-precio-bomba-10725",
+     "id": "morral-backpack-morral-backpack-elegant-precio-bom",
+     "name": "Morral Backpack Elegant - Precio Bomba",
+     "normalizedName": "morral backpack elegant",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/10725.jpg",
+     "imageId": "10725",
+     "contentChars": 592,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "morral-backpack-elegant-10725",
+     "id": "morral-backpack-elegant-10725",
+     "name": "Morral Backpack Elegant",
+     "normalizedName": "morral backpack elegant",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/10725.jpg",
+     "imageId": "10725",
+     "contentChars": 1821,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6530",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "motobike-master-kit-la-herramienta-que-tu-moto-necesita-6530",
+     "id": "accesorios-auto-motobike-master-kit-la-herramienta-que-tu-moto-necesita",
+     "name": "Motobike Master Kit: La Herramienta que tu Moto Necesita",
+     "normalizedName": "motobike master kit la herramienta que tu moto necesita",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/6530.jpg",
+     "imageId": "6530",
+     "contentChars": 656,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "set-de-herramientas-motobike-6530",
+     "id": "herramientero-con-linterna-set-de-herramientas-mot",
+     "name": "Set de Herramientas Motobike",
+     "normalizedName": "set de herramientas motobike",
+     "categoryId": "herramientas",
+     "image": "https://catalogospromocionales.com/images/productos/6530.jpg",
+     "imageId": "6530",
+     "contentChars": 530,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13300",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mouse-inalambrico-lumo-13300",
+     "id": "mouse-inalambrico-lumo-13300",
+     "name": "Mouse Inalambrico Lumo",
+     "normalizedName": "mouse inalambrico lumo",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13300.jpg",
+     "imageId": "13300",
+     "contentChars": 1979,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mouse-inalambrico-lumo-nuevo-13300",
+     "id": "novedades-mouse-inalambrico-lumo-nuevo",
+     "name": "Mouse Inalambrico Lumo Nuevo",
+     "normalizedName": "mouse inalambrico lumo",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13300.jpg",
+     "imageId": "13300",
+     "contentChars": 561,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9699",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mug-eco-chic-bambu-disfruta-tu-cafe-con-estilo-sustentable-9699",
+     "id": "accesorios-auto-mug-eco-chic-bambu-disfruta-tu-cafe-con-estilo-sustentable",
+     "name": "Mug Eco-Chic Bambú: Disfruta tu café con estilo sustentable",
+     "normalizedName": "mug eco chic bambu disfruta tu cafe con estilo sustentable",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9699.jpg",
+     "imageId": "9699",
+     "contentChars": 642,
+     "materialClaims": [
+      "bambú"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "mug-metalico-con-bamboo-500ml-9699",
+     "id": "mug-metalicos-mug-metalico-con-bamboo-500ml",
+     "name": "Mug Metálico Con Bamboo 500ml",
+     "normalizedName": "mug metalico con bamboo 500ml",
+     "categoryId": "mugs",
+     "image": "https://catalogospromocionales.com/images/productos/9699.jpg",
+     "imageId": "9699",
+     "contentChars": 2138,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13559",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mug-lume-350-ml-nuevomas-13559",
+     "id": "novedades-13559",
+     "name": "Mug Lume 350 ml Nuevo",
+     "normalizedName": "mug lume 350 ml",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13559.jpg",
+     "imageId": "13559",
+     "contentChars": 1980,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mug-lume-350-ml-nuevo-13559",
+     "id": "mug-lume-350-ml-nuevo-13559",
+     "name": "Mug Lume 350 ml Nuevo",
+     "normalizedName": "mug lume 350 ml",
+     "categoryId": "mugs",
+     "image": "https://catalogospromocionales.com/images/productos/13559.jpg",
+     "imageId": "13559",
+     "contentChars": 2396,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13569",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mug-metalico-arrow-600-ml-nuevo-13569",
+     "id": "mug-metalico-arrow-600-ml-nuevo-13569",
+     "name": "Mug Metálico Arrow 600 ml Nuevo",
+     "normalizedName": "mug metalico arrow 600 ml",
+     "categoryId": "mugs",
+     "image": "https://catalogospromocionales.com/images/productos/13569.jpg",
+     "imageId": "13569",
+     "contentChars": 2483,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mug-metalico-arrow-600-ml-nuevomas-13569",
+     "id": "novedades-13569",
+     "name": "Mug Metálico Arrow 600 ml Nuevo",
+     "normalizedName": "mug metalico arrow 600 ml",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13569.jpg",
+     "imageId": "13569",
+     "contentChars": 2083,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13570",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mug-metalico-gillan-500-ml-nuevo-13570",
+     "id": "mug-metalico-gillan-500-ml-nuevo-13570",
+     "name": "Mug Metálico Gillan 500 ml Nuevo",
+     "normalizedName": "mug metalico gillan 500 ml",
+     "categoryId": "mugs",
+     "image": "https://catalogospromocionales.com/images/productos/13570.jpg",
+     "imageId": "13570",
+     "contentChars": 2304,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "mug-metalico-gillan-500-ml-nuevomas-13570",
+     "id": "novedades-13570",
+     "name": "Mug Metálico Gillan 500 ml Nuevo",
+     "normalizedName": "mug metalico gillan 500 ml",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13570.jpg",
+     "imageId": "13570",
+     "contentChars": 1867,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9707",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "mug-metalico-warmer-450ml-9707",
+     "id": "mug-metalicos-mug-metalico-warmer-450ml",
+     "name": "Mug Metálico Warmer 450ml",
+     "normalizedName": "mug metalico warmer 450ml",
+     "categoryId": "mugs",
+     "image": "https://catalogospromocionales.com/images/productos/9707.jpg",
+     "imageId": "9707",
+     "contentChars": 2104,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "termo-viajero-calientito-tu-companero-ideal-9707",
+     "id": "accesorios-auto-termo-viajero-calientito-tu-companero-ideal",
+     "name": "Termo Viajero Calientito: Tu Compañero Ideal",
+     "normalizedName": "termo viajero calientito tu companero ideal",
+     "categoryId": "termos-personalizados",
+     "image": "https://catalogospromocionales.com/images/productos/9707.jpg",
+     "imageId": "9707",
+     "contentChars": 629,
+     "materialClaims": [
+      "acero inoxidable"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6753",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "panos-humedos-antibacterial-60und-6753",
+     "id": "panos-humedos-antibacterial-60und-6753",
+     "name": "Paños Humedos Antibacterial 60und",
+     "normalizedName": "panos humedos antibacterial 60und",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/6753.jpg",
+     "imageId": "6753",
+     "contentChars": 1940,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "panos-humedos-antibacterial-60und-precio-bomba-6753",
+     "id": "pharma-panos-humedos-antibacterial-60und-precio-bo",
+     "name": "Paños Humedos Antibacterial 60und - Precio Bomba",
+     "normalizedName": "panos humedos antibacterial 60und",
+     "categoryId": "cuidado-personal",
+     "image": "https://catalogospromocionales.com/images/productos/6753.jpg",
+     "imageId": "6753",
+     "contentChars": 504,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9217",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "paraguas-23-9217",
+     "id": "paraguas-23-9217",
+     "name": "Paraguas 23",
+     "normalizedName": "paraguas 23",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/9217.jpg",
+     "imageId": "9217",
+     "contentChars": 1795,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-23-roma-urban-travel-9217",
+     "id": "urban-travel-paraguas-23-roma-urban-travel",
+     "name": "Paraguas 23\" Roma Urban Travel",
+     "normalizedName": "paraguas 23 roma urban travel",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/9217.jpg",
+     "imageId": "9217",
+     "contentChars": 530,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9218",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "paraguas-27-9218",
+     "id": "paraguas-27-9218",
+     "name": "Paraguas 27",
+     "normalizedName": "paraguas 27",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/9218.jpg",
+     "imageId": "9218",
+     "contentChars": 1704,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-27-gentle-urban-travel-9218",
+     "id": "urban-travel-paraguas-27-gentle-urban-travel",
+     "name": "Paraguas 27\" Gentle Urban Travel",
+     "normalizedName": "paraguas 27 gentle urban travel",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/9218.jpg",
+     "imageId": "9218",
+     "contentChars": 469,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13560",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "paraguas-balan-23-nuevomas-13560",
+     "id": "novedades-13560",
+     "name": "Paraguas Balan 23\" Nuevo",
+     "normalizedName": "paraguas balan 23",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13560.jpg",
+     "imageId": "13560",
+     "contentChars": 1891,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-balan-23-13560",
+     "id": "paraguas-balan-23-13560",
+     "name": "Paraguas Balan 23",
+     "normalizedName": "paraguas balan 23",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/13560.jpg",
+     "imageId": "13560",
+     "contentChars": 1806,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "1085",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "paraguas-golf-cuadrado-30-1085",
+     "id": "paraguas-golf-cuadrado-30-1085",
+     "name": "Paraguas Golf Cuadrado 30",
+     "normalizedName": "paraguas golf cuadrado 30",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/1085.jpg",
+     "imageId": "1085",
+     "contentChars": 1762,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-golf-cuadrado-30-oferta-1085",
+     "id": "rainpro-paraguas-golf-cuadrado-30-oferta",
+     "name": "Paraguas Golf Cuadrado 30\" Oferta",
+     "normalizedName": "paraguas golf cuadrado 30",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/1085.jpg",
+     "imageId": "1085",
+     "contentChars": 563,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6865",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "paraguas-lancelot-27-oferta-6865",
+     "id": "normales-23-a-30-pulgadas-paraguas-lancelot-27-ofe",
+     "name": "Paraguas Lancelot 27\" Oferta",
+     "normalizedName": "paraguas lancelot 27",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/6865.jpg",
+     "imageId": "6865",
+     "contentChars": 540,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-lancelot-27-6865",
+     "id": "paraguas-lancelot-27-6865",
+     "name": "Paraguas Lancelot 27",
+     "normalizedName": "paraguas lancelot 27",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/6865.jpg",
+     "imageId": "6865",
+     "contentChars": 1655,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "5693",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "paraguas-trendy-poliester-27-5693",
+     "id": "paraguas-trendy-poliester-27-5693",
+     "name": "Paraguas Trendy Poliéster 27",
+     "normalizedName": "paraguas trendy poliester 27",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/5693.jpg",
+     "imageId": "5693",
+     "contentChars": 1765,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-trendy-poliester-27-fibra-de-vidrio-5693",
+     "id": "normales-23-a-30-pulgadas-paraguas-trendy-polieste",
+     "name": "Paraguas Trendy Poliéster 27\" Fibra de Vidrio",
+     "normalizedName": "paraguas trendy poliester 27 fibra de vidrio",
+     "categoryId": "paraguas",
+     "image": "https://catalogospromocionales.com/images/productos/5693.jpg",
+     "imageId": "5693",
+     "contentChars": 530,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13332",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "pastillero-radion-13332",
+     "id": "pastillero-radion-13332",
+     "name": "Pastillero Radion",
+     "normalizedName": "pastillero radion",
+     "categoryId": "cuidado-personal",
+     "image": "https://catalogospromocionales.com/images/productos/13332.jpg",
+     "imageId": "13332",
+     "contentChars": 2064,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "pastillero-radion-nuevo-13332",
+     "id": "pastilleros-pastillero-radion-nuevo",
+     "name": "Pastillero Radion Nuevo",
+     "normalizedName": "pastillero radion",
+     "categoryId": "cuidado-personal",
+     "image": "https://catalogospromocionales.com/images/productos/13332.jpg",
+     "imageId": "13332",
+     "contentChars": 404,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9080",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "pilot-grip-tu-copiloto-perfecto-9080",
+     "id": "accesorios-auto-pilot-grip-tu-copiloto-perfecto",
+     "name": "Pilot Grip: Tu Copiloto Perfecto",
+     "normalizedName": "pilot grip tu copiloto perfecto",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9080.jpg",
+     "imageId": "9080",
+     "contentChars": 592,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "soporte-para-moviles-pilot-9080",
+     "id": "soporte-para-moviles-pilot-9080",
+     "name": "Soporte Para Moviles Pilot",
+     "normalizedName": "soporte para moviles pilot",
+     "categoryId": "automovil",
+     "image": "https://catalogospromocionales.com/images/productos/9080.jpg",
+     "imageId": "9080",
+     "contentChars": 1765,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13366",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "pito-con-luz-vision-13366",
+     "id": "pito-con-luz-vision-13366",
+     "name": "Pito Con Luz Vision",
+     "normalizedName": "pito con luz vision",
+     "categoryId": "iluminacion",
+     "image": "https://catalogospromocionales.com/images/productos/13366.jpg",
+     "imageId": "13366",
+     "contentChars": 2104,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "pito-con-luz-vision-nuevo-13366",
+     "id": "con-luz-pito-con-luz-vision-nuevo",
+     "name": "Pito Con Luz Vision Nuevo",
+     "normalizedName": "pito con luz vision",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/13366.jpg",
+     "imageId": "13366",
+     "contentChars": 446,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13556",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "planeador-semanal-week-nuevo-13556",
+     "id": "planeador-semanal-week-nuevo-13556",
+     "name": "Planeador Semanal Week Nuevo",
+     "normalizedName": "planeador semanal week",
+     "categoryId": "oficina",
+     "image": "https://catalogospromocionales.com/images/productos/13556.jpg",
+     "imageId": "13556",
+     "contentChars": 2651,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "planeador-semanal-week-nuevomas-13556",
+     "id": "novedades-13556",
+     "name": "Planeador Semanal Week Nuevo",
+     "normalizedName": "planeador semanal week",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13556.jpg",
+     "imageId": "13556",
+     "contentChars": 1823,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13362",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "portadocumentos-de-viajes-y-de-cables-neox-rpet-nuevo-13362",
+     "id": "portapasaporte-portadocumentos-de-viajes-y-de-cabl",
+     "name": "Portadocumentos de Viajes y de Cables Neox Rpet Nuevo",
+     "normalizedName": "portadocumentos de viajes y de cables neox rpet",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13362.jpg",
+     "imageId": "13362",
+     "contentChars": 623,
+     "materialClaims": [
+      "rpet"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "portadocumentos-de-viajes-y-de-cables-neox-rpet-13362",
+     "id": "portadocumentos-de-viajes-y-de-cables-neox-rpet-13362",
+     "name": "Portadocumentos de Viajes y de Cables Neox Rpet",
+     "normalizedName": "portadocumentos de viajes y de cables neox rpet",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13362.jpg",
+     "imageId": "13362",
+     "contentChars": 1938,
+     "materialClaims": [
+      "sostenible",
+      "rpet"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13308",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "portadocumentos-vintra-nuevo-13308",
+     "id": "portapasaporte-portadocumentos-vintra-nuevo",
+     "name": "Portadocumentos Vintra Nuevo",
+     "normalizedName": "portadocumentos vintra",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/13308.jpg",
+     "imageId": "13308",
+     "contentChars": 493,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "portadocumentos-vintra-13308",
+     "id": "portadocumentos-vintra-13308",
+     "name": "Portadocumentos Vintra",
+     "normalizedName": "portadocumentos vintra",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/13308.jpg",
+     "imageId": "13308",
+     "contentChars": 2105,
+     "materialClaims": [
+      "rpet"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13211",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "rastreador-airtag-boomcard-13211",
+     "id": "rastreador-airtag-boomcard-13211",
+     "name": "Rastreador Airtag Boomcard",
+     "normalizedName": "rastreador airtag boomcard",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13211.jpg",
+     "imageId": "13211",
+     "contentChars": 1864,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "rastreador-airtag-boomcard-nuevo-13211",
+     "id": "boompods-rastreador-airtag-boomcard-nuevo",
+     "name": "Rastreador Airtag Boomcard Nuevo",
+     "normalizedName": "rastreador airtag boomcard",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13211.jpg",
+     "imageId": "13211",
+     "contentChars": 509,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13210",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "rastreador-airtag-boomtag-13210",
+     "id": "rastreador-airtag-boomtag-13210",
+     "name": "Rastreador Airtag Boomtag",
+     "normalizedName": "rastreador airtag boomtag",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13210.jpg",
+     "imageId": "13210",
+     "contentChars": 1981,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "rastreador-airtag-boomtag-nuevo-13210",
+     "id": "boompods-rastreador-airtag-boomtag-nuevo",
+     "name": "Rastreador Airtag Boomtag Nuevo",
+     "normalizedName": "rastreador airtag boomtag",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13210.jpg",
+     "imageId": "13210",
+     "contentChars": 532,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13333",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "reloj-de-arena-doble-13333",
+     "id": "reloj-de-arena-doble-13333",
+     "name": "Reloj de Arena Doble",
+     "normalizedName": "reloj de arena doble",
+     "categoryId": "hogar",
+     "image": "https://catalogospromocionales.com/images/productos/13333.jpg",
+     "imageId": "13333",
+     "contentChars": 1825,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "reloj-de-arena-doble-nuevo-13333",
+     "id": "mesa-y-escritorio-reloj-de-arena-doble-nuevo",
+     "name": "Reloj de Arena Doble Nuevo",
+     "normalizedName": "reloj de arena doble",
+     "categoryId": "oficina",
+     "image": "https://catalogospromocionales.com/images/productos/13333.jpg",
+     "imageId": "13333",
+     "contentChars": 485,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9721",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "reloj-led-bamboo-oferta-9721",
+     "id": "relojes-9721",
+     "name": "Reloj Led Bamboo",
+     "normalizedName": "reloj led bamboo",
+     "categoryId": "relojes",
+     "image": "https://catalogospromocionales.com/images/productos/9721.jpg",
+     "imageId": "9721",
+     "contentChars": 2396,
+     "materialClaims": [
+      "bambú",
+      "eco-amigable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "reloj-led-bamboo-9721",
+     "id": "reloj-led-bamboo-9721",
+     "name": "Reloj Led Bamboo",
+     "normalizedName": "reloj led bamboo",
+     "categoryId": "relojes",
+     "image": "https://catalogospromocionales.com/images/productos/9721.jpg",
+     "imageId": "9721",
+     "contentChars": 1635,
+     "materialClaims": [
+      "bambú",
+      "sostenible"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "2026",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "relojes-catalogo-mundial-2026",
+     "id": "relojes-catalogo-mundial-2026",
+     "name": "Catálogo Mundial 2026",
+     "normalizedName": "catalogo mundial 2026",
+     "categoryId": "relojes",
+     "image": "https://www.catalogospromocionales.com/images/PORATADA-CATALOGO-MUNDIAL-WEB.jpg",
+     "imageId": null,
+     "contentChars": 2178,
+     "materialClaims": [
+      "acero inoxidable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "relojes-catalogo-novelties-2026",
+     "id": "relojes-catalogo-novelties-2026",
+     "name": "Catálogo Novelties 2026",
+     "normalizedName": "catalogo novelties 2026",
+     "categoryId": "relojes",
+     "image": "https://www.catalogospromocionales.com/images/PORTADA-NOVELTIES-2026-WEB.jpg",
+     "imageId": null,
+     "contentChars": 1653,
+     "materialClaims": [
+      "acero inoxidable"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13539",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "resaltador-de-cera-seren-nuevo-13539",
+     "id": "resaltador-de-cera-seren-nuevo-13539",
+     "name": "Resaltador de Cera Seren Nuevo",
+     "normalizedName": "resaltador de cera seren",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/13539.jpg",
+     "imageId": "13539",
+     "contentChars": 1945,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "resaltador-de-cera-seren-nuevomas-13539",
+     "id": "novedades-13539",
+     "name": "Resaltador de Cera Seren Nuevo",
+     "normalizedName": "resaltador de cera seren",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13539.jpg",
+     "imageId": "13539",
+     "contentChars": 2052,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13262",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "resaltadores-jeringa-13262",
+     "id": "resaltadores-jeringa-13262",
+     "name": "Resaltadores Jeringa",
+     "normalizedName": "resaltadores jeringa",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/13262.jpg",
+     "imageId": "13262",
+     "contentChars": 2112,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "resaltadores-jeringa-nuevo-13262",
+     "id": "boligrafo-con-resaltador-resaltadores-jeringa-nuev",
+     "name": "Resaltadores Jeringa Nuevo",
+     "normalizedName": "resaltadores jeringa",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/13262.jpg",
+     "imageId": "13262",
+     "contentChars": 542,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9680",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "set-de-cafe-eco-9680",
+     "id": "set-de-cafe-eco-9680",
+     "name": "Set de Café Eco",
+     "normalizedName": "set de cafe eco",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/9680.jpg",
+     "imageId": "9680",
+     "contentChars": 2154,
+     "materialClaims": [
+      "sostenible",
+      "biodegradable",
+      "reciclad",
+      "bambú",
+      "corcho"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "set-de-cafe-eco-precio-bomba-9680",
+     "id": "estuches-boligrafos-set-de-cafe-eco-precio-bomba",
+     "name": "Set de Café Eco - Precio Bomba",
+     "normalizedName": "set de cafe eco",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/9680.jpg",
+     "imageId": "9680",
+     "contentChars": 515,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10250",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "set-de-herramientas-con-lampara-led-10250",
+     "id": "set-de-herramientas-con-lampara-led-10250",
+     "name": "Set de Herramientas Con Lámpara Led",
+     "normalizedName": "set de herramientas con lampara led",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/10250.jpg",
+     "imageId": "10250",
+     "contentChars": 1814,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "set-de-herramientas-con-lampara-led-precio-bomba-10250",
+     "id": "herramientero-con-linterna-set-de-herramientas-con",
+     "name": "Set de Herramientas Con Lámpara Led - Precio Bomba",
+     "normalizedName": "set de herramientas con lampara led",
+     "categoryId": "herramientas",
+     "image": "https://catalogospromocionales.com/images/productos/10250.jpg",
+     "imageId": "10250",
+     "contentChars": 550,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9753",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "set-enfriador-de-vino-chill-9753",
+     "id": "set-enfriador-de-vino-chill-9753",
+     "name": "Set Enfriador de Vino Chill",
+     "normalizedName": "set enfriador de vino chill",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/9753.jpg",
+     "imageId": "9753",
+     "contentChars": 1984,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "set-enfriador-de-vino-chill-precio-bomba-9753",
+     "id": "xindao-set-enfriador-de-vino-chill-precio-bomba",
+     "name": "Set Enfriador de Vino Chill - Precio Bomba",
+     "normalizedName": "set enfriador de vino chill",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/9753.jpg",
+     "imageId": "9753",
+     "contentChars": 458,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13320",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "soporte-para-celular-pop-it-13320",
+     "id": "soporte-para-celular-pop-it-13320",
+     "name": "Soporte Para Celular Pop it",
+     "normalizedName": "soporte para celular pop it",
+     "categoryId": "antiestres",
+     "image": "https://catalogospromocionales.com/images/productos/13320.jpg",
+     "imageId": "13320",
+     "contentChars": 2162,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "soporte-para-celular-pop-it-nuevo-13320",
+     "id": "antiestres-soporte-para-celular-pop-it-nuevo",
+     "name": "Soporte Para Celular Pop it Nuevo",
+     "normalizedName": "soporte para celular pop it",
+     "categoryId": "antiestres",
+     "image": "https://catalogospromocionales.com/images/productos/13320.jpg",
+     "imageId": "13320",
+     "contentChars": 476,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "10282",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "soporte-para-moviles-strike-produccion-nacional-10282",
+     "id": "soporte-para-moviles-strike-produccion-nacional-10282",
+     "name": "Soporte Para Móviles Strike Producción Nacional",
+     "normalizedName": "soporte para moviles strike",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/10282.jpg",
+     "imageId": "10282",
+     "contentChars": 1845,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "soporte-para-moviles-strike-produccion-nacionalmas-10282",
+     "id": "produccion-nacional-10282",
+     "name": "Soporte Para Móviles Strike Producción Nacional",
+     "normalizedName": "soporte para moviles strike",
+     "categoryId": "produccion-nacional",
+     "image": "https://catalogospromocionales.com/images/productos/10282.jpg",
+     "imageId": "10282",
+     "contentChars": 1884,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13213",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "speaker-bluetooth-beach-35-boompods-13213",
+     "id": "speaker-bluetooth-beach-35-boompods-13213",
+     "name": "Speaker Bluetooth Beach 35 Boompods",
+     "normalizedName": "speaker bluetooth beach 35 boompods",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13213.jpg",
+     "imageId": "13213",
+     "contentChars": 1720,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "speaker-bluetooth-beach-35-boompods-nuevo-13213",
+     "id": "boompods-speaker-bluetooth-beach-35-boompods-nuevo",
+     "name": "Speaker Bluetooth Beach 35 Boompods Nuevo",
+     "normalizedName": "speaker bluetooth beach 35 boompods",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13213.jpg",
+     "imageId": "13213",
+     "contentChars": 593,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ]
+  },
+  {
+   "catalogId": "13298",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": true,
+   "items": [
+    {
+     "slug": "speaker-bluetooth-novark-13298",
+     "id": "speaker-bluetooth-novark-13298",
+     "name": "Speaker Bluetooth Novark",
+     "normalizedName": "speaker bluetooth novark",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/13298.jpg",
+     "imageId": "13298",
+     "contentChars": 2105,
+     "materialClaims": [
+      "ecológic"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "speaker-bluetooth-novark-nuevo-13298",
+     "id": "novedades-speaker-bluetooth-novark-nuevo",
+     "name": "Speaker Bluetooth Novark Nuevo",
+     "normalizedName": "speaker bluetooth novark",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13298.jpg",
+     "imageId": "13298",
+     "contentChars": 440,
+     "materialClaims": [],
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ]
+  },
+  {
+   "catalogId": "11039",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "sporty-bag-cotton-180gr-ii-11039",
+     "id": "sporty-bag-cotton-180gr-ii-11039",
+     "name": "Sporty Bag Cotton (180gr) ii",
+     "normalizedName": "sporty bag cotton 180gr ii",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/11039.jpg",
+     "imageId": "11039",
+     "contentChars": 1740,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "sporty-bag-cotton-ii-11039",
+     "id": "algodon-sporty-bag-cotton-ii",
+     "name": "Sporty Bag Cotton ii",
+     "normalizedName": "sporty bag cotton ii",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/11039.jpg",
+     "imageId": "11039",
+     "contentChars": 470,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "9725",
+   "decision": "variante_o_distinto",
+   "reason": "Los nombres normalizados difieren: posible variante (capacidad/modelo) o producto distinto; no se fusiona sin SKU.",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "sporty-bag-eco-yute-280gr-9725",
+     "id": "sporty-bag-eco-yute-280gr-9725",
+     "name": "Sporty Bag Eco Yute (280gr)",
+     "normalizedName": "sporty bag eco yute 280gr",
+     "categoryId": "deportes",
+     "image": "https://catalogospromocionales.com/images/productos/9725.jpg",
+     "imageId": "9725",
+     "contentChars": 1904,
+     "materialClaims": [
+      "yute",
+      "sostenible",
+      "biodegradable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "sporty-bag-eco-yute-9725",
+     "id": "algodon-sporty-bag-eco-yute",
+     "name": "Sporty Bag Eco Yute",
+     "normalizedName": "sporty bag eco yute",
+     "categoryId": "variedades",
+     "image": "https://catalogospromocionales.com/images/productos/9725.jpg",
+     "imageId": "9725",
+     "contentChars": 2331,
+     "materialClaims": [
+      "yute",
+      "ecológic"
+     ],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "13299",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "teclado-bluetooth-orbi-13299",
+     "id": "teclado-bluetooth-orbi-13299",
+     "name": "Teclado Bluetooth Orbi",
+     "normalizedName": "teclado bluetooth orbi",
+     "categoryId": "tecnologia",
+     "image": "https://catalogospromocionales.com/images/productos/13299.jpg",
+     "imageId": "13299",
+     "contentChars": 1553,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "teclado-bluetooth-orbi-nuevo-13299",
+     "id": "novedades-teclado-bluetooth-orbi-nuevo",
+     "name": "Teclado Bluetooth Orbi Nuevo",
+     "normalizedName": "teclado bluetooth orbi",
+     "categoryId": "novedades",
+     "image": "https://catalogospromocionales.com/images/productos/13299.jpg",
+     "imageId": "13299",
+     "contentChars": 494,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "6926",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": false,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "trolley-morral-backpack-dilbert-precio-bomba-6926",
+     "id": "poliester-trolley-morral-backpack-dilbert-precio-b",
+     "name": "Trolley Morral Backpack Dilbert - Precio Bomba",
+     "normalizedName": "trolley morral backpack dilbert",
+     "categoryId": "maletines",
+     "image": "https://catalogospromocionales.com/images/productos/6926.jpg",
+     "imageId": "6926",
+     "contentChars": 492,
+     "materialClaims": [],
+     "gsc": null
+    },
+    {
+     "slug": "trolley-morral-backpack-dilbert-6926",
+     "id": "trolley-morral-backpack-dilbert-6926",
+     "name": "Trolley Morral Backpack Dilbert",
+     "normalizedName": "trolley morral backpack dilbert",
+     "categoryId": "precio-bomba",
+     "image": "https://catalogospromocionales.com/images/productos/6926.jpg",
+     "imageId": "6926",
+     "contentChars": 2237,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "catalogId": "3690",
+   "decision": "mismo_producto",
+   "reason": "Misma imagen del proveedor y mismo nombre tras quitar etiquetas comerciales (Nuevo/Oferta/Precio Bomba/[más]/Producción Nacional).",
+   "conflictingMaterialClaims": true,
+   "hasGscSignal": false,
+   "items": [
+    {
+     "slug": "woodymas-3690",
+     "id": "ecologia-3690",
+     "name": "Woody",
+     "normalizedName": "woody",
+     "categoryId": "ecologia",
+     "image": "https://catalogospromocionales.com/images/productos/3690.jpg",
+     "imageId": "3690",
+     "contentChars": 2252,
+     "materialClaims": [
+      "ecológic",
+      "biodegradable"
+     ],
+     "gsc": null
+    },
+    {
+     "slug": "woody-3690",
+     "id": "woody-3690",
+     "name": "Woody",
+     "normalizedName": "woody",
+     "categoryId": "escritura",
+     "image": "https://catalogospromocionales.com/images/productos/3690.jpg",
+     "imageId": "3690",
+     "contentChars": 1698,
+     "materialClaims": [],
+     "gsc": null
+    }
+   ]
+  }
+ ]
+}

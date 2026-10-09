@@ -1,0 +1,2710 @@
+{
+  "generatedAt": "2026-10-09T20:13:08.877Z",
+  "formulas": {
+    "ctr": "clics / impresiones × 100 (nunca media de CTR)",
+    "position": "Σ(posición × impresiones) / Σ(impresiones de filas con posición); usa valores exportados ya redondeados, es una reconstrucción aproximada",
+    "blanks": "celda vacía = sin dato, nunca cero"
+  },
+  "filters": [
+    {
+      "Filtrar": "Tipo de búsqueda",
+      "Valor": "Web"
+    },
+    {
+      "Filtrar": "Fecha",
+      "Valor": "Últimos 3 meses"
+    }
+  ],
+  "performance": {
+    "scope": "Todos los países, tipo de búsqueda Web. La carpeta de Colombia está vacía: consultas y páginas NO están filtradas por país.",
+    "chartRange": {
+      "from": "2026-07-13",
+      "to": "2026-10-06",
+      "days": 86
+    },
+    "totals": {
+      "clicks": 8,
+      "impressions": 314,
+      "ctrPercent": 2.55,
+      "impressionWeightedPosition": 40.15
+    },
+    "monthly": {
+      "2026-07": {
+        "days": 19,
+        "clicks": 2,
+        "impressions": 192,
+        "ctrPercent": 1.04,
+        "impressionWeightedPosition": 28.58
+      },
+      "2026-08": {
+        "days": 31,
+        "clicks": 2,
+        "impressions": 42,
+        "ctrPercent": 4.76,
+        "impressionWeightedPosition": 51.33
+      },
+      "2026-09": {
+        "days": 30,
+        "clicks": 3,
+        "impressions": 57,
+        "ctrPercent": 5.26,
+        "impressionWeightedPosition": 59.78
+      },
+      "2026-10": {
+        "days": 6,
+        "clicks": 1,
+        "impressions": 23,
+        "ctrPercent": 4.35,
+        "impressionWeightedPosition": 67.61
+      }
+    },
+    "last28": {
+      "from": "2026-09-09",
+      "to": "2026-10-06",
+      "clicks": 4,
+      "impressions": 68,
+      "ctrPercent": 5.88,
+      "impressionWeightedPosition": 60.62
+    },
+    "previous28": {
+      "from": "2026-08-12",
+      "to": "2026-09-08",
+      "clicks": 2,
+      "impressions": 38,
+      "ctrPercent": 5.26,
+      "impressionWeightedPosition": 62.34
+    },
+    "countries": [
+      {
+        "País": "Colombia",
+        "Clics": "8",
+        "Impresiones": "258",
+        "CTR": "3.1%",
+        "Posición": "45.57"
+      },
+      {
+        "País": "Estados Unidos",
+        "Clics": "0",
+        "Impresiones": "21",
+        "CTR": "0%",
+        "Posición": "13.95"
+      },
+      {
+        "País": "México",
+        "Clics": "0",
+        "Impresiones": "6",
+        "CTR": "0%",
+        "Posición": "7.67"
+      },
+      {
+        "País": "España",
+        "Clics": "0",
+        "Impresiones": "5",
+        "CTR": "0%",
+        "Posición": "28.2"
+      },
+      {
+        "País": "Ecuador",
+        "Clics": "0",
+        "Impresiones": "3",
+        "CTR": "0%",
+        "Posición": "8.67"
+      },
+      {
+        "País": "Argentina",
+        "Clics": "0",
+        "Impresiones": "2",
+        "CTR": "0%",
+        "Posición": "6"
+      },
+      {
+        "País": "Perú",
+        "Clics": "0",
+        "Impresiones": "2",
+        "CTR": "0%",
+        "Posición": "6"
+      },
+      {
+        "País": "Cuba",
+        "Clics": "0",
+        "Impresiones": "2",
+        "CTR": "0%",
+        "Posición": "10"
+      },
+      {
+        "País": "Filipinas",
+        "Clics": "0",
+        "Impresiones": "2",
+        "CTR": "0%",
+        "Posición": "26"
+      },
+      {
+        "País": "La India",
+        "Clics": "0",
+        "Impresiones": "2",
+        "CTR": "0%",
+        "Posición": "33"
+      },
+      {
+        "País": "Canadá",
+        "Clics": "0",
+        "Impresiones": "2",
+        "CTR": "0%",
+        "Posición": "35"
+      },
+      {
+        "País": "Nicaragua",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "1"
+      },
+      {
+        "País": "Sudáfrica",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "2"
+      },
+      {
+        "País": "Brasil",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "3"
+      },
+      {
+        "País": "Francia",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "4"
+      },
+      {
+        "País": "Túnez",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "5"
+      },
+      {
+        "País": "Etiopía",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "6"
+      },
+      {
+        "País": "Taiwán",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "6"
+      },
+      {
+        "País": "Chile",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "39"
+      },
+      {
+        "País": "Vietnam",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "45"
+      }
+    ],
+    "countriesTotal": {
+      "clicks": 8,
+      "impressions": 314,
+      "ctrPercent": 2.55,
+      "impressionWeightedPosition": 40.15
+    },
+    "devices": [
+      {
+        "Dispositivo": "Ordenador",
+        "Clics": "7",
+        "Impresiones": "247",
+        "CTR": "2.83%",
+        "Posición": "45.83"
+      },
+      {
+        "Dispositivo": "Móviles",
+        "Clics": "1",
+        "Impresiones": "66",
+        "CTR": "1.52%",
+        "Posición": "18.52"
+      },
+      {
+        "Dispositivo": "Tablet",
+        "Clics": "0",
+        "Impresiones": "1",
+        "CTR": "0%",
+        "Posición": "63"
+      }
+    ],
+    "devicesTotal": {
+      "clicks": 8,
+      "impressions": 314,
+      "ctrPercent": 2.55,
+      "impressionWeightedPosition": 40.14
+    },
+    "pages": {
+      "note": "Agregación por página: el total no coincide con el de propiedad y no se suma a él.",
+      "rows": 179,
+      "clicks": 8,
+      "impressions": 362,
+      "ctrPercent": 2.21,
+      "impressionWeightedPosition": 35.98,
+      "byHost": {
+        "www.kspromocionales.co": {
+          "rows": 62,
+          "clicks": 3,
+          "impressions": 112,
+          "ctrPercent": 2.68,
+          "impressionWeightedPosition": 38.82
+        },
+        "kspromocionales.co": {
+          "rows": 117,
+          "clicks": 5,
+          "impressions": 250,
+          "ctrPercent": 2,
+          "impressionWeightedPosition": 34.7
+        }
+      },
+      "distinctPaths": 167,
+      "pathsOnBothHosts": [
+        "/",
+        "/productos/llavero-silicone-silicona-2226/",
+        "/productos-promocionales-colombia/bogota/",
+        "/blog/llaveros-promocionales-cual-es-la-mejor-opcion-para-tu-presupuesto/",
+        "/merchandising-corporativo/",
+        "/categorias/memorias-usb-personalizadas/",
+        "/categorias/precio-bomba/",
+        "/productos/juego-ruleta-nuevo-13331/",
+        "/blog/buscas-productos-promocionales-en-bucaramanga-encuentra-el-ideal-aqui/",
+        "/categorias/paraguas/",
+        "/productos/reloj-de-pared-tempo-produccion-nacional-7208/",
+        "/productos/pelota-antiestres-personalizada-67cm/"
+      ],
+      "normalizedByPath": [
+        {
+          "path": "/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 3,
+          "impressions": 9,
+          "ctrPercent": 33.33,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/categorias/antiestres/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 1,
+          "impressions": 6,
+          "ctrPercent": 16.67,
+          "impressionWeightedPosition": 35.33
+        },
+        {
+          "path": "/categorias/econature/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 1,
+          "impressions": 4,
+          "ctrPercent": 25,
+          "impressionWeightedPosition": 9.75
+        },
+        {
+          "path": "/productos/llavero-silicone-silicona-2226/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 1,
+          "impressions": 4,
+          "ctrPercent": 25,
+          "impressionWeightedPosition": 55.75
+        },
+        {
+          "path": "/productos/cojin-terapeutico-produccion-nacional-2394/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 1,
+          "impressions": 2,
+          "ctrPercent": 50,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/bolsa-en-algodon-vera-140gr-13614/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 1,
+          "impressions": 1,
+          "ctrPercent": 100,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos-promocionales-colombia/cali/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 20,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 30.55
+        },
+        {
+          "path": "/productos-promocionales-colombia/medellin/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 19,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 84.79
+        },
+        {
+          "path": "/productos-promocionales-colombia/bogota/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 17,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 71.59
+        },
+        {
+          "path": "/categorias/boligrafos-publicitarios/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 14,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 73.86
+        },
+        {
+          "path": "/categorias/llaveros-personalizados/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 14,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 74.71
+        },
+        {
+          "path": "/productos-promocionales-colombia/bucaramanga/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 13.33
+        },
+        {
+          "path": "/blog/llaveros-promocionales-cual-es-la-mejor-opcion-para-tu-presupuesto/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 78.34
+        },
+        {
+          "path": "/merchandising-corporativo/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 9,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 81.44
+        },
+        {
+          "path": "/productos-promocionales-colombia/barranquilla/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 8,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 24.88
+        },
+        {
+          "path": "/productos-promocionales-colombia/cartagena/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6.83
+        },
+        {
+          "path": "/categorias/memorias-usb-personalizadas/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 54.67
+        },
+        {
+          "path": "/categorias/precio-bomba/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 6,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 19
+        },
+        {
+          "path": "/productos/juego-ruleta-nuevo-13331/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9.6
+        },
+        {
+          "path": "/blog/buscas-productos-promocionales-en-bucaramanga-encuentra-el-ideal-aqui/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 5,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 36.2
+        },
+        {
+          "path": "/productos/reloj-inteligente-korbin-plus-10353/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/productos/mini-proyector-lcd-13384/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5.75
+        },
+        {
+          "path": "/categorias/deportes/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8.25
+        },
+        {
+          "path": "/productos/boligrafo-blink-13438/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8.25
+        },
+        {
+          "path": "/productos/boligrafo-allegro-13355/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 4,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 56.5
+        },
+        {
+          "path": "/productos/soporte-magnetico-para-moviles-aluminio-9636/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 13.67
+        },
+        {
+          "path": "/categorias/golf/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 33.67
+        },
+        {
+          "path": "/categorias/paraguas/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 3,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 67
+        },
+        {
+          "path": "/categorias/master-line/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 1
+        },
+        {
+          "path": "/productos/cable-multicargador-eco-fast-65w-13365/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 2
+        },
+        {
+          "path": "/productos/memo-pad-milk-13504/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3.5
+        },
+        {
+          "path": "/productos/summit-3018/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 4
+        },
+        {
+          "path": "/productos/organizador-multiusos-link-nuevo-13536/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5.5
+        },
+        {
+          "path": "/productos/boligrafo-devo-9945/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5.5
+        },
+        {
+          "path": "/categorias/calculadoras/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/categorias/cuidado-personal/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/funda-para-mouse-13493/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 11
+        },
+        {
+          "path": "/productos/boligrafo-abanico-13293/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/gemini-roller-10304/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 31
+        },
+        {
+          "path": "/productos/bolsa-metalizada-hologram-personalizada-colombia/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 36
+        },
+        {
+          "path": "/productos/pelota-antiestres-personalizada-silicona/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 40.5
+        },
+        {
+          "path": "/productos/protector-solar-para-carro-1442/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 43.5
+        },
+        {
+          "path": "/categorias/gorras-personalizadas/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 56
+        },
+        {
+          "path": "/productos/nevera-cooler-bag-pocket-9401/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 63
+        },
+        {
+          "path": "/regalos-corporativos/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 65.5
+        },
+        {
+          "path": "/productos/mug-metalico-star-350ml-8986/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 66
+        },
+        {
+          "path": "/productos/set-de-escritorio-office-8718/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 75
+        },
+        {
+          "path": "/productos/reloj-de-pared-tempo-produccion-nacional-7208/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 42.5
+        },
+        {
+          "path": "/productos/pelota-antiestres-personalizada-67cm/",
+          "hosts": [
+            "kspromocionales.co",
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 2,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 62
+        },
+        {
+          "path": "/blog/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 1
+        },
+        {
+          "path": "/productos/mobile-holder-3-1-produccion-nacional-3471/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 1
+        },
+        {
+          "path": "/productos/llavero-pito-con-destapador-precio-bomba-9132/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 1
+        },
+        {
+          "path": "/productos/kirk-eco-9225/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 2
+        },
+        {
+          "path": "/productos/memoria-usb-manilla-bandy-ii-precio-neto-7259/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 2
+        },
+        {
+          "path": "/productos/mouse-pad-rpet-urban-business-10790/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 2
+        },
+        {
+          "path": "/productos/puerto-usb-6-1-10471/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 2
+        },
+        {
+          "path": "/productos/audifonos-bluetooth-big-display-9569/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/productos/banda-elastica-doble-7959/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/productos/libreta-century-6838/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/productos/set-romain-urban-business-10992/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/categorias/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 3
+        },
+        {
+          "path": "/categorias/tomatodos-y-botilitos-personalizados/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 4
+        },
+        {
+          "path": "/productos/morral-backpack-taos-nuevo-13585/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 4
+        },
+        {
+          "path": "/productos/set-bantik-urban-business-13426/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 4
+        },
+        {
+          "path": "/nosotros/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/ecologica-vita-bolsa-reutilizable-hecha-en-mexico-9364/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/espejo-shower-13419/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/libreta-multifuncional-rpet-bamboo-urban-business-10792/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/categorias/reflectivos/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/boligrafo-vinnie-eco-10546/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/bolsa-termica-600ml-10358/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/productos/ecologikmas-8231/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 5
+        },
+        {
+          "path": "/blog/enamora-a-tus-clientes-regalos-corporativos-unicos-para-amor-y-amistad/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/blog/listos-para-carnaval-2026-impulsa-tu-marca-con-productos-promocionales/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/mug-ceramica-con-cuchara-trump-10oz-6822/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/pesa-de-viaje-digital-6262/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/abanico-plegable-frisbee-flexible-7577/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/billy-7010/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/joyero-krono-13431/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 6
+        },
+        {
+          "path": "/productos/cafetera-en-vidrio-600ml-9866/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 7
+        },
+        {
+          "path": "/productos/llavero-ml-414-10771/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 7
+        },
+        {
+          "path": "/productos/mini-libreta-con-boligrafo-tavish-8668/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 7
+        },
+        {
+          "path": "/productos/llavero-double-10218/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 7
+        },
+        {
+          "path": "/productos/boligrafo-medic-7022/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos/boligrafo-metalico-personalizado-articulos-promocionales/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos/cafetera-en-vidrio-compact-350ml-9560/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos/mouse-pad-con-cargador-inalambrico-mylo-9806/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos/boligrafo-merrick-10444/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos/llavero-bici-7781/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/productos/yoyo-plastico-produccion-nacional-nuevo-9860/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 8
+        },
+        {
+          "path": "/categorias/infantil/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos-promocionales-colombia/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/destapador-electrico-cork-9964/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/frisbee-enjoy-produccion-nacional-5245/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/llavero-silver-ml-145-2257/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/mini-resaltador-de-cera-ver-of-376eof-376j-5884/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/morral-backpack-circuit-urban-travel-13341/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/portadocumentos-de-viaje-y-de-cables-rpet-10420/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/set-crayolas-dexter-7592/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/boligrafo-luana-10661/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/herramientero-orca-11128/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/mug-metalico-dewar-400-ml-nuevo-13577/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/reloj-digital-bowen-oferta-9789/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/set-de-colores-cartoon-3441/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 9
+        },
+        {
+          "path": "/productos/boligrafo-mystic-13220/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/bolsa-en-cambrel-vest-13256/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/botilito-dual-rpet-700-ml-13487/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/gorra-eco-6-cascos-1082/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/iman-titan-soporte-magnetico-para-tu-celular-7557/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/mug-plastico-con-corcho-16oz-9562/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/reloj-inteligente-fyllex-13377/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/set-de-poker-13401/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/set-de-resaltadores-luban-13221/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/speaker-bluetooth-novark-nuevo-13298/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/boligrafo-ralph-10032/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/ellison-solido-8570/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/llavero-casco-8753/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/portacelular-elephant-13453/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 10
+        },
+        {
+          "path": "/productos/alcancia-cow-oferta-7595/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 11
+        },
+        {
+          "path": "/productos/lapiz-rojo-check-para-contabilidad-11000/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 11
+        },
+        {
+          "path": "/productos/set-jorka-urban-business-13425/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 11
+        },
+        {
+          "path": "/productos/speaker-bluetooth-beach-35-boompods-nuevo-13213/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 11
+        },
+        {
+          "path": "/productos/usb-soccer-memoria-personalizado-colombia/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 11
+        },
+        {
+          "path": "/productos/identificador-de-maletas-en-pvc-13490/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/libreta-pollux-eco-11019/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/set-de-12-colores-eco-kraft-10996/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/set-de-cables-de-carga-mini-kit-9436/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/set-de-limpieza-tech-10156/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/audifonos-bluetooth-soccer-ball-13385/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 12
+        },
+        {
+          "path": "/productos/pila-recargable-powerbank-astro-2000mah-13411/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 15
+        },
+        {
+          "path": "/productos/soporte-para-celular-pop-it-13320/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 17
+        },
+        {
+          "path": "/productos/botilitro-plastico-1000ml-1-litro-produccion-nacional-10300/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 18
+        },
+        {
+          "path": "/productos/mezclador-en-acero-inoxidable-6701/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 18
+        },
+        {
+          "path": "/productos/set-licorera-malt-9909/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 20
+        },
+        {
+          "path": "/productos/destapador-botella-con-iman-produccion-nacional-8756/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 21
+        },
+        {
+          "path": "/productos/set-monarch-7443/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 22
+        },
+        {
+          "path": "/productos/ventilador-niklas-10817/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 22
+        },
+        {
+          "path": "/productos/martillo-con-navaja-eco-11050/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 28
+        },
+        {
+          "path": "/productos/estuche-clear-produccion-nacional-6047/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 32
+        },
+        {
+          "path": "/productos/set-de-4-mini-marcadores-tinta-lavable-9415/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 34
+        },
+        {
+          "path": "/productos/liquido-antibacterial-pump-spray-10ml-produccion-nacional-9619/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 37
+        },
+        {
+          "path": "/productos/pelota-antiestres-personalizada-colombia/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 39
+        },
+        {
+          "path": "/blog/top-10-regalos-corporativos-tecnologicos-2026/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 39
+        },
+        {
+          "path": "/categorias/camisetas-y-confeccion-corporativa/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 43
+        },
+        {
+          "path": "/productos/pitillo-reutilizable-metalico-wheat-9708/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 45
+        },
+        {
+          "path": "/productos/morral-city-backpack-trolley-6268/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 47
+        },
+        {
+          "path": "/productos/pelota-antiestres-personalizada-soporte-celular/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 50
+        },
+        {
+          "path": "/productos/mug-ceramica-para-sublimacion-i-11oz-4065/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 53
+        },
+        {
+          "path": "/productos/set-limpiador-7-en-1-10980/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 54
+        },
+        {
+          "path": "/categorias/mochilas-y-maletines-personalizados/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 55
+        },
+        {
+          "path": "/productos/memoria-usb-boligrafo-king-personalizado/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 55
+        },
+        {
+          "path": "/productos/gorra-golf-471/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 55
+        },
+        {
+          "path": "/productos/picnic-set-10074/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 55
+        },
+        {
+          "path": "/productos/cargador-inalambrico-magnet-oferta-10482/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 57
+        },
+        {
+          "path": "/categorias/bar-y-vino/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 58
+        },
+        {
+          "path": "/categorias/bicicleta/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 58
+        },
+        {
+          "path": "/productos/bowl-plastico-con-base-produccion-nacional-8730/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 60
+        },
+        {
+          "path": "/productos/pelota-antiestres-personalizada/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 69
+        },
+        {
+          "path": "/productos/boligrafos-metalicos-personalizados-articulos-promocionales/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 69
+        },
+        {
+          "path": "/productos/boligrafo-bamboo-clip-eco-9675/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 74
+        },
+        {
+          "path": "/productos/llavero-car-ii-3204/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 81
+        },
+        {
+          "path": "/productos/bolsa-metalizada-hologram-9154/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 83
+        },
+        {
+          "path": "/productos/cinta-para-portacarnet-kunel-9892/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 85
+        },
+        {
+          "path": "/blog/boligrafos-personalizados-la-mejor-inversion-publicitaria-en-colombia/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 96
+        },
+        {
+          "path": "/categorias/mugs-y-termos-personalizados/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 96
+        },
+        {
+          "path": "/productos/corazon-antiestres-3650/",
+          "hosts": [
+            "kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 97
+        },
+        {
+          "path": "/productos/corneta-stadium-produccion-nacional-5765/",
+          "hosts": [
+            "www.kspromocionales.co"
+          ],
+          "clicks": 0,
+          "impressions": 1,
+          "ctrPercent": 0,
+          "impressionWeightedPosition": 118
+        }
+      ]
+    },
+    "queries": {
+      "note": "Desglose parcial por privacidad/umbral; no representa todo el tráfico. No se une con páginas.",
+      "rows": 79,
+      "clicks": 1,
+      "impressions": 184,
+      "ctrPercent": 0.54,
+      "impressionWeightedPosition": 58.59,
+      "operatorQueries": {
+        "rows": 2,
+        "clicks": 0,
+        "impressions": 8,
+        "ctrPercent": 0,
+        "impressionWeightedPosition": 3.75,
+        "list": [
+          "\"perdura\" \"adhesivo\" -site:reddit.com -site:twitter.com -site:x.com \n-site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com \n-site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "\"startups cúcuta\" -site:reddit.com -site:twitter.com -site:x.com \n-site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com \n-site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+        ]
+      },
+      "all": [
+        {
+          "Consultas principales": "econature",
+          "Clics": "1",
+          "Impresiones": "3",
+          "CTR": "33.33%",
+          "Posición": "3.33"
+        },
+        {
+          "Consultas principales": "bolígrafos / esferos publicitarios",
+          "Clics": "0",
+          "Impresiones": "12",
+          "CTR": "0%",
+          "Posición": "77.42"
+        },
+        {
+          "Consultas principales": "productos publicitarios en medellin",
+          "Clics": "0",
+          "Impresiones": "11",
+          "CTR": "0%",
+          "Posición": "89.27"
+        },
+        {
+          "Consultas principales": "llaveros promocionales",
+          "Clics": "0",
+          "Impresiones": "10",
+          "CTR": "0%",
+          "Posición": "88.4"
+        },
+        {
+          "Consultas principales": "promocionales bogota",
+          "Clics": "0",
+          "Impresiones": "9",
+          "CTR": "0%",
+          "Posición": "69.89"
+        },
+        {
+          "Consultas principales": "promocionales cali",
+          "Clics": "0",
+          "Impresiones": "8",
+          "CTR": "0%",
+          "Posición": "32"
+        },
+        {
+          "Consultas principales": "productos publicitarios en cali",
+          "Clics": "0",
+          "Impresiones": "7",
+          "CTR": "0%",
+          "Posición": "21.57"
+        },
+        {
+          "Consultas principales": "productos publicitarios medellin",
+          "Clics": "0",
+          "Impresiones": "7",
+          "CTR": "0%",
+          "Posición": "84.14"
+        },
+        {
+          "Consultas principales": "regalos corporativos bucaramanga",
+          "Clics": "0",
+          "Impresiones": "6",
+          "CTR": "0%",
+          "Posición": "37.5"
+        },
+        {
+          "Consultas principales": "\"perdura\" \"adhesivo\" -site:reddit.com -site:twitter.com -site:x.com \n-site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com \n-site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "Clics": "0",
+          "Impresiones": "4",
+          "CTR": "0%",
+          "Posición": "3"
+        },
+        {
+          "Consultas principales": "\"startups cúcuta\" -site:reddit.com -site:twitter.com -site:x.com \n-site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com \n-site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+          "Clics": "0",
+          "Impresiones": "4",
+          "CTR": "0%",
+          "Posición": "4.5"
+        },
+        {
+          "Consultas principales": "ruleta online para captar leads con premios personalizados.",
+          "Clics": "0",
+          "Impresiones": "4",
+          "CTR": "0%",
+          "Posición": "8.25"
+        },
+        {
+          "Consultas principales": "souvenirs empresariales barranquilla",
+          "Clics": "0",
+          "Impresiones": "3",
+          "CTR": "0%",
+          "Posición": "16.33"
+        },
+        {
+          "Consultas principales": "regalos corporativos barranquilla",
+          "Clics": "0",
+          "Impresiones": "3",
+          "CTR": "0%",
+          "Posición": "26.67"
+        },
+        {
+          "Consultas principales": "llaveros corporativos",
+          "Clics": "0",
+          "Impresiones": "3",
+          "CTR": "0%",
+          "Posición": "45.33"
+        },
+        {
+          "Consultas principales": "antiestrés personalizados",
+          "Clics": "0",
+          "Impresiones": "3",
+          "CTR": "0%",
+          "Posición": "54.33"
+        },
+        {
+          "Consultas principales": "boligrafos promocionales",
+          "Clics": "0",
+          "Impresiones": "3",
+          "CTR": "0%",
+          "Posición": "67"
+        },
+        {
+          "Consultas principales": "merchandising corporativo",
+          "Clics": "0",
+          "Impresiones": "3",
+          "CTR": "0%",
+          "Posición": "78"
+        },
+        {
+          "Consultas principales": "artículos promocionales en cali",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "33.5"
+        },
+        {
+          "Consultas principales": "bomba de regalo",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "46.5"
+        },
+        {
+          "Consultas principales": "accesorios golf",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "48.5"
+        },
+        {
+          "Consultas principales": "antiestrés para oficina",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "49"
+        },
+        {
+          "Consultas principales": "lapicero alegro",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "53"
+        },
+        {
+          "Consultas principales": "promocionales en bogota",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "53.5"
+        },
+        {
+          "Consultas principales": "usb promocionales",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "55.5"
+        },
+        {
+          "Consultas principales": "gorras personalizadas",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "56"
+        },
+        {
+          "Consultas principales": "esferos allegro",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "60"
+        },
+        {
+          "Consultas principales": "cooler bag",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "63"
+        },
+        {
+          "Consultas principales": "regalos corporativos personalizados",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "65.5"
+        },
+        {
+          "Consultas principales": "mug metálico",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "66"
+        },
+        {
+          "Consultas principales": "llaveros personalizados",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "71.5"
+        },
+        {
+          "Consultas principales": "bolsas metalizadas personalizadas",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "72.5"
+        },
+        {
+          "Consultas principales": "merchandising en colombia",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "72.5"
+        },
+        {
+          "Consultas principales": "kit de oficina personalizado",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "75"
+        },
+        {
+          "Consultas principales": "llaveros publicitarios",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "76"
+        },
+        {
+          "Consultas principales": "artículos promocionales en bogotá",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "80.5"
+        },
+        {
+          "Consultas principales": "llaveros personalizados bogota",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "86"
+        },
+        {
+          "Consultas principales": "venta llaveros personalizados",
+          "Clics": "0",
+          "Impresiones": "2",
+          "CTR": "0%",
+          "Posición": "94"
+        },
+        {
+          "Consultas principales": "pito de bomba",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "1"
+        },
+        {
+          "Consultas principales": "botilitro",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "18"
+        },
+        {
+          "Consultas principales": "memorias personalizadas",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "19"
+        },
+        {
+          "Consultas principales": "eco nature",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "29"
+        },
+        {
+          "Consultas principales": "regalos corporativos tecnologicos",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "39"
+        },
+        {
+          "Consultas principales": "servipromo medellin",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "40"
+        },
+        {
+          "Consultas principales": "protector solar para carro",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "42"
+        },
+        {
+          "Consultas principales": "camisetas corporativas",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "43"
+        },
+        {
+          "Consultas principales": "pitillo colombia",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "45"
+        },
+        {
+          "Consultas principales": "protector solar carro",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "45"
+        },
+        {
+          "Consultas principales": "11oz mug",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "53"
+        },
+        {
+          "Consultas principales": "7 kit",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "54"
+        },
+        {
+          "Consultas principales": "bolígrafo usb personalizado",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "55"
+        },
+        {
+          "Consultas principales": "gorras de golf personalizadas",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "55"
+        },
+        {
+          "Consultas principales": "morrales personalizados",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "55"
+        },
+        {
+          "Consultas principales": "picnic kit",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "55"
+        },
+        {
+          "Consultas principales": "cargador magnetico",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "57"
+        },
+        {
+          "Consultas principales": "productos de bar personalizados",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "58"
+        },
+        {
+          "Consultas principales": "merchandising cali",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "63"
+        },
+        {
+          "Consultas principales": "regalos para clientes barranquilla",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "65"
+        },
+        {
+          "Consultas principales": "regalos corporativos cali",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "68"
+        },
+        {
+          "Consultas principales": "esferos metalicos",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "69"
+        },
+        {
+          "Consultas principales": "llaveros silicon",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "72"
+        },
+        {
+          "Consultas principales": "productos publicitarios bogota",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "73"
+        },
+        {
+          "Consultas principales": "bolígrafo de bambú",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "74"
+        },
+        {
+          "Consultas principales": "llaveros baratos personalizados",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "74"
+        },
+        {
+          "Consultas principales": "relojes de pared corporativos",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "77"
+        },
+        {
+          "Consultas principales": "articulos publicitarios bogota",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "79"
+        },
+        {
+          "Consultas principales": "artículos promocionales bogotá",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "79"
+        },
+        {
+          "Consultas principales": "llaveros de silicona personalizados",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "80"
+        },
+        {
+          "Consultas principales": "merchandising colombia",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "82"
+        },
+        {
+          "Consultas principales": "cinta porta carnet personalizada",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "85"
+        },
+        {
+          "Consultas principales": "empresas de merchandising",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "87"
+        },
+        {
+          "Consultas principales": "empresas que hacen merchandising",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "88"
+        },
+        {
+          "Consultas principales": "regalos corporativos en bogota",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "89"
+        },
+        {
+          "Consultas principales": "usb personalizadas",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "89"
+        },
+        {
+          "Consultas principales": "empresas de paraguas",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "96"
+        },
+        {
+          "Consultas principales": "termos corporativos",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "96"
+        },
+        {
+          "Consultas principales": "empresa merchandising",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "97"
+        },
+        {
+          "Consultas principales": "paraguas personalizados",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "99"
+        },
+        {
+          "Consultas principales": "usb empresa",
+          "Clics": "0",
+          "Impresiones": "1",
+          "CTR": "0%",
+          "Posición": "100"
+        }
+      ]
+    },
+    "searchAppearanceRows": 0
+  },
+  "indexing": {
+    "scope": [
+      {
+        "Propiedad": "Sitemap",
+        "Valor": "Todas las páginas conocidas"
+      }
+    ],
+    "chartRange": {
+      "from": "2026-07-12",
+      "to": "2026-10-03",
+      "days": 84
+    },
+    "daysWithCounts": 73,
+    "daysWithoutCounts": 11,
+    "latest": {
+      "date": "2026-10-03",
+      "indexed": 1792,
+      "notIndexed": 1824,
+      "known": 3616
+    },
+    "indexChanges": [
+      {
+        "from": "2026-07-23",
+        "to": "2026-07-24",
+        "indexed": [
+          1448,
+          1637
+        ]
+      },
+      {
+        "from": "2026-08-04",
+        "to": "2026-08-05",
+        "indexed": [
+          1637,
+          1566
+        ]
+      },
+      {
+        "from": "2026-08-09",
+        "to": "2026-08-10",
+        "indexed": [
+          1566,
+          1567
+        ]
+      },
+      {
+        "from": "2026-08-13",
+        "to": "2026-08-14",
+        "indexed": [
+          1567,
+          1566
+        ]
+      },
+      {
+        "from": "2026-08-16",
+        "to": "2026-08-17",
+        "indexed": [
+          1566,
+          1572
+        ]
+      },
+      {
+        "from": "2026-08-20",
+        "to": "2026-08-21",
+        "indexed": [
+          1572,
+          1580
+        ]
+      },
+      {
+        "from": "2026-08-27",
+        "to": "2026-08-28",
+        "indexed": [
+          1580,
+          1623
+        ]
+      },
+      {
+        "from": "2026-09-03",
+        "to": "2026-09-04",
+        "indexed": [
+          1623,
+          1847
+        ]
+      },
+      {
+        "from": "2026-09-13",
+        "to": "2026-09-14",
+        "indexed": [
+          1847,
+          1801
+        ]
+      },
+      {
+        "from": "2026-09-17",
+        "to": "2026-09-18",
+        "indexed": [
+          1801,
+          1798
+        ]
+      },
+      {
+        "from": "2026-09-20",
+        "to": "2026-09-21",
+        "indexed": [
+          1798,
+          1792
+        ]
+      }
+    ],
+    "criticalIssues": [
+      {
+        "reason": "Página con redirección",
+        "source": "Sitio web",
+        "validation": "Error",
+        "pages": 112
+      },
+      {
+        "reason": "Rastreada: actualmente sin indexar",
+        "source": "Sistemas de Google",
+        "validation": "Error",
+        "pages": 45
+      },
+      {
+        "reason": "Excluida por una etiqueta \"noindex\"",
+        "source": "Sitio web",
+        "validation": "No iniciada",
+        "pages": 1
+      },
+      {
+        "reason": "Descubierta: actualmente sin indexar",
+        "source": "Sistemas de Google",
+        "validation": "No iniciada",
+        "pages": 1262
+      },
+      {
+        "reason": "Duplicada: Google ha elegido una versión canónica diferente a la del usuario",
+        "source": "Sistemas de Google",
+        "validation": "No iniciada",
+        "pages": 402
+      },
+      {
+        "reason": "Página alternativa con etiqueta canónica adecuada",
+        "source": "Sitio web",
+        "validation": "Correcto",
+        "pages": 2
+      },
+      {
+        "reason": "Error de servidor (5xx)",
+        "source": "Sitio web",
+        "validation": "N/D",
+        "pages": 0
+      }
+    ],
+    "criticalIssuesTotal": 1824,
+    "nonCriticalIssueRows": 0
+  }
+}

@@ -1,0 +1,33 @@
+$ node scripts/seo-audit.mjs
+
+SEO AUDIT — 2026-10-09T20:20:18.148Z
+============================================================
+Productos: 2185 | Categorías: 37 | Posts: 8
+------------------------------------------------------------
+Slugs duplicados: 0
+Productos con categoryId huérfano: 0
+Categorías sin productos: 0
+------------------------------------------------------------
+Campo description vacío: 1211 (no implica página delgada por sí solo)
+Descripción genérica (plantilla): 294
+Sin shortDescription: 92 | Sin features: 92 | Sin useCases: 92 | Sin story: 3
+Description vacía/genérica pero con contenido en otro campo: 1504
+Contenido realmente delgado (sin nada en ningún campo): 1
+------------------------------------------------------------
+Imágenes externas: 2096 | Imágenes locales rotas: 89 | Sin imagen: 0
+------------------------------------------------------------
+Productos con residuo Ecuador (Quito/Guayaquil/Cuenca/...): 0
+------------------------------------------------------------
+seoTitle vacío: 0 | > 65 car.: 63 | duplicados: 16
+seoDescription vacío: 0 | > 165 car.: 9 | < 70 car.: 0 | duplicados: 0
+------------------------------------------------------------
+Indexables (heurística conservadora): 2184
+Candidatas a noindex: 1
+  Motivos: {"descripcion_generica":1,"sin_shortDescription":1,"sin_features":1,"sin_useCases":1}
+============================================================
+Este script no modifica ningún archivo. Los conteos de "candidatas a noindex"
+son un reporte para revisión manual, no se aplica noindex automáticamente.
+
+Reporte detallado: reports/seo-audit-2026-10-09T20-20-18-148Z.json
+
+EXIT=0

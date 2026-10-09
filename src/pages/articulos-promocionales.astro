@@ -6,13 +6,13 @@ import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema } from '@/lib/schema';
-import products from '@data/products.json';
-import categories from '@data/categories.json';
+import IntentCrossLinks from '@/components/IntentCrossLinks.astro';
+import { curatedProducts, categoriesByIds } from '@/lib/catalog';
+import { HUBS } from '@/data/merchandising';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
-const list = (products as any[]).filter((p) => p.bestseller).slice(0, 8);
-const shown = list.length ? list : (products as any[]).slice(8, 16);
-const topCategories = (categories as any[]).slice(0, 6);
+const shown = curatedProducts(HUBS.articulos, 8);
+const topCategories = categoriesByIds(HUBS.articulos);
 
 const breadcrumbJsonLd = breadcrumbListSchema([
   { name: 'Inicio', item: SITE.url },
@@ -28,18 +28,18 @@ const faqs = [
 
 <BaseLayout
   title="Artículos Promocionales Personalizados en Colombia | KS Promocionales"
-  description="Lapiceros, mugs, memorias USB, bolsos y más artículos promocionales personalizados con tu logo. Cotiza por WhatsApp, envíos a toda Colombia desde Bucaramanga."
+  description="Lapiceros, mugs, memorias USB, bolsos y más artículos promocionales personalizados con tu logo. Cotiza por WhatsApp, envíos a toda Colombia desde el área metropolitana de Bucaramanga."
   jsonLd={breadcrumbJsonLd}
 >
   <section class="section-navy relative overflow-hidden py-20 lg:py-28">
     <div class="container-ks relative z-10 max-w-3xl">
       <span class="section-label mb-4"><Icon name="package" size={15} /> Artículos Promocionales</span>
       <h1 class="text-4xl sm:text-5xl font-heading font-bold text-white mb-6 text-balance">
-        El artículo correcto, en la cantidad correcta, con tu logo
+        Artículos promocionales y publicitarios con tu logo, para entregar en volumen
       </h1>
       <p class="text-white/75 text-lg mb-9">
-        Miles de referencias organizadas por categoría para que tu campaña no dependa de
-        adivinar: tecnología, drinkware, oficina, ropa y mucho más.
+        Bolígrafos, llaveros, antiestrés, mugs y más artículos publicitarios para ferias,
+        activaciones y campañas donde necesitas llegar a mucha gente con un costo por unidad controlado.
       </p>
       <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
         <Icon name="message-circle" size={18} /> Cotizar por WhatsApp
@@ -60,7 +60,7 @@ const faqs = [
   <section class="py-16 lg:py-20 bg-ks-navy-ghost">
     <div class="container-ks">
       <h2 class="heading-underline text-2xl sm:text-3xl font-heading font-bold text-[#0A0A23] mb-10">
-        Los artículos más pedidos
+        Artículos para campañas de volumen
       </h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
         {shown.map((p: any, i: number) => (
@@ -76,4 +76,5 @@ const faqs = [
   </section>
 
   <FaqSection items={faqs} title="Preguntas frecuentes sobre artículos promocionales" />
+  <IntentCrossLinks current="articulos" />
 </BaseLayout>

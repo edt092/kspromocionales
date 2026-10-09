@@ -1,0 +1,50 @@
+---
+/**
+ * Enlaces cruzados entre los tres hubs comerciales con anchors descriptivos (T14). Cada hub
+ * es dueño de una intención distinta; este bloque la explica y enlaza a los otros dos para
+ * que no compitan por la misma consulta. Se omite el hub actual.
+ */
+import Icon from '@/components/Icon.astro';
+
+interface Props {
+  current: 'regalos' | 'articulos' | 'merchandising';
+}
+
+const { current } = Astro.props;
+const hubs = [
+  {
+    key: 'regalos',
+    href: '/regalos-corporativos/',
+    anchor: 'Regalos corporativos para clientes y empleados',
+    body: 'Detalles seleccionados para personas concretas: agradecimientos a clientes, kits de bienvenida y fechas especiales.',
+  },
+  {
+    key: 'articulos',
+    href: '/articulos-promocionales/',
+    anchor: 'Artículos promocionales para entregar en volumen',
+    body: 'Bolígrafos, llaveros, antiestrés y otros artículos publicitarios para ferias, activaciones y campañas masivas.',
+  },
+  {
+    key: 'merchandising',
+    href: '/merchandising-corporativo/',
+    anchor: 'Merchandising corporativo para tu equipo',
+    body: 'Uniformes, gorras, maletines y accesorios con tu marca aplicada de forma consistente en todo el equipo.',
+  },
+].filter((h) => h.key !== current);
+---
+
+<section class="py-14 bg-white border-t border-gray-100">
+  <div class="container-ks">
+    <h2 class="font-heading font-bold text-xl text-[#0A0A23] mb-6">¿Buscas otra cosa?</h2>
+    <div class="grid sm:grid-cols-2 gap-5">
+      {hubs.map((h) => (
+        <a href={h.href} class="group block border border-gray-100 rounded-xl p-5 hover:border-ks-navy/30 transition-colors">
+          <span class="font-heading font-bold text-ks-navy inline-flex items-center gap-1.5">
+            {h.anchor} <Icon name="arrow-right" size={15} />
+          </span>
+          <p class="text-sm text-gray-500 mt-2">{h.body}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,470 @@
+{
+  "evidenceRoot": "C:\\Users\\Dagon\\Desktop\\MIS PROYECTOS PERSONALES\\SITIOS_WEB\\SEO-ANALISI-GENERAL\\SEO-KSPROMOCIONALES.CO\\ANALISI-09-10-2026",
+  "generatedAt": "2026-10-09T20:13:08.848Z",
+  "fileCount": 30,
+  "uniqueContentCount": 25,
+  "duplicateGroups": [
+    [
+      "auditoria-seo-competitiva-codex/SEO-architecture-competitive-audit.md",
+      "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/SEO-architecture-competitive-audit.md"
+    ],
+    [
+      "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/duplicate-catalog-identities.csv",
+      "auditoria-seo-competitiva-codex/duplicate-catalog-identities.csv"
+    ],
+    [
+      "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/page-audit.csv",
+      "auditoria-seo-competitiva-codex/page-audit.csv"
+    ],
+    [
+      "paln-de-acción-completo/PLAN-MAESTRO-SEO-KS-PARA-CLAUDE.md",
+      "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/PLAN-MAESTRO-SEO-KS-PARA-CLAUDE.md"
+    ],
+    [
+      "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/PROMPT-CLAUDE-CODE-SEO-KS.md",
+      "paln-de-acción-completo/PROMPT-CLAUDE-CODE-SEO-KS.md"
+    ]
+  ],
+  "emptyDirectories": [
+    "Rendimiento-resultados-de-busqueda-colombia"
+  ],
+  "files": [
+    {
+      "path": "Paginas-no-index-gsc-problems/Gráfico.csv",
+      "bytes": 1892,
+      "sha256": "0cb1acf73344d5e0fb7c47b66a66564ed4e85e56f468039b7e7bfbfcc8ca8330",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Fecha",
+        "Sin indexar",
+        "Indexadas",
+        "Impresiones"
+      ],
+      "dataRows": 84
+    },
+    {
+      "path": "Paginas-no-index-gsc-problems/Metadatos.csv",
+      "bytes": 52,
+      "sha256": "ff78a5ecbfca38e1b1ada5bbfe3ddc87a06d4335ef72c5b8ff42123af03f40e6",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Propiedad",
+        "Valor"
+      ],
+      "dataRows": 1
+    },
+    {
+      "path": "Paginas-no-index-gsc-problems/Problemas críticos.csv",
+      "bytes": 506,
+      "sha256": "21eae4663ce7fc43d479c2f9f6c802c1e0cd18a70b7b3eea09469d9b33250f4e",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Motivo",
+        "Fuente",
+        "Validación",
+        "Páginas"
+      ],
+      "dataRows": 7
+    },
+    {
+      "path": "Paginas-no-index-gsc-problems/Problemas no críticos.csv",
+      "bytes": 34,
+      "sha256": "72473bc4aca8022088e2c2640f05800156bee0def96d6c79b235a3d3cca67f01",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Motivo",
+        "Fuente",
+        "Validación",
+        "Páginas"
+      ],
+      "dataRows": 0
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Aparición en búsquedas.csv",
+      "bytes": 56,
+      "sha256": "fc461129af3cb4e5289a639bb63ede6c68ca1b6f9fff6d8276b9e90d908c208f",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Aparición en búsquedas",
+        "Clics",
+        "Impresiones",
+        "CTR",
+        "Posición"
+      ],
+      "dataRows": 0
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Consultas.csv",
+      "bytes": 3250,
+      "sha256": "0f7606b3621e3ef37396c7c8e8c287c950edeb92327cf6b00d07cd548d7dcb4d",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Consultas principales",
+        "Clics",
+        "Impresiones",
+        "CTR",
+        "Posición"
+      ],
+      "dataRows": 79
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Dispositivos.csv",
+      "bytes": 114,
+      "sha256": "ac2bcd28638873e3a7a17a06fbc573e5b61470bff1b5033ba5eb1ec17e0e0e73",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Dispositivo",
+        "Clics",
+        "Impresiones",
+        "CTR",
+        "Posición"
+      ],
+      "dataRows": 3
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Filtros.csv",
+      "bytes": 59,
+      "sha256": "d88ac02ecc2ec15ad0dd9c5896076b40a9cade70987c51193d995fdea5139aad",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Filtrar",
+        "Valor"
+      ],
+      "dataRows": 2
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Gráfico.csv",
+      "bytes": 1814,
+      "sha256": "150b097a15fc39aa2535a65463ed05b1e66297c93c7e472d98c0a2b9223428f8",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Fecha",
+        "Clics",
+        "Impresiones",
+        "CTR",
+        "Posición"
+      ],
+      "dataRows": 86
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Países.csv",
+      "bytes": 415,
+      "sha256": "56d53849d6068ababe0d4bbf33f0d7b7f91b7bf9962c7ac80fbff40b1cbe7aee",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "País",
+        "Clics",
+        "Impresiones",
+        "CTR",
+        "Posición"
+      ],
+      "dataRows": 20
+    },
+    {
+      "path": "Rendimiento-resultados-de-busqueda-todos-los-paises/Páginas.csv",
+      "bytes": 14454,
+      "sha256": "05f0cd6dca52d214deedb4d84e906687dd3ce5e50255959a2b672b17f0ecd679",
+      "type": "csv",
+      "utf8Bom": false,
+      "columns": [
+        "Páginas principales",
+        "Clics",
+        "Impresiones",
+        "CTR",
+        "Posición"
+      ],
+      "dataRows": 179
+    },
+    {
+      "path": "auditoria-claude-seo-agents/AUDITORIA_SEO_COMPLETA_2026-10-09.md",
+      "bytes": 33753,
+      "sha256": "ab96beec8d637bfaa298b7b06c48ab902bce8a6a8efc6bf095070ead32cbab39",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 521,
+      "words": 5371
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-architecture-competitive-audit.md",
+      "bytes": 44261,
+      "sha256": "05a7de9764dc5d4b1a5c0feb1121bf392343401882367c8859f9ed3bc33bfc0a",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 445,
+      "words": 5718,
+      "identicalTo": [
+        "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/SEO-architecture-competitive-audit.md"
+      ]
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/SEO-architecture-competitive-audit.md",
+      "bytes": 44261,
+      "sha256": "05a7de9764dc5d4b1a5c0feb1121bf392343401882367c8859f9ed3bc33bfc0a",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 445,
+      "words": 5718,
+      "identicalTo": [
+        "auditoria-seo-competitiva-codex/SEO-architecture-competitive-audit.md"
+      ]
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/architecture-link-edges.csv",
+      "bytes": 36264167,
+      "sha256": "31c2365bc2f9f7244ad0ace30c8a057ea75dd411d0ea3cf03fca939501eae8f0",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "Source URL",
+        "Destination URL"
+      ],
+      "dataRows": 239098
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/benchmark-discovered-product-urls.txt",
+      "bytes": 201549,
+      "sha256": "189b494cfa109fa39844430fa15cc3a0e6b56639ec528ed036d0e17d859282b9",
+      "type": "txt",
+      "utf8Bom": false,
+      "lines": 2265
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/benchmark-subcategory-map.csv",
+      "bytes": 24127,
+      "sha256": "5f5b0671fcbfebd1989b985261b8ff80dbfaacd8395d326e60a387793a998658",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "Parent category ID",
+        "Parent H1",
+        "Subcategory label",
+        "Subcategory URL"
+      ],
+      "dataRows": 196
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/duplicate-catalog-identities.csv",
+      "bytes": 65072,
+      "sha256": "5ffa03d3cd0b6ce495a4cd714cd05ed06db8f1ec822fea9225ccd097a748c696",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "Shared numeric catalog ID",
+        "URL",
+        "Title",
+        "H1",
+        "Canonical",
+        "Action"
+      ],
+      "dataRows": 190,
+      "identicalTo": [
+        "auditoria-seo-competitiva-codex/duplicate-catalog-identities.csv"
+      ]
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/duplicate-product-titles.csv",
+      "bytes": 7506,
+      "sha256": "3fa70aaa60a4bee8ed758da3a3e3bafb3f4de7cf67cf49adc6c4e94b0d0f3aa3",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "Shared title",
+        "URL",
+        "Action"
+      ],
+      "dataRows": 37
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/page-audit.csv",
+      "bytes": 1967576,
+      "sha256": "884b9e4f59db830d1acfaeb6fb0aae4653cd5e21c55168e610a1471b4cfcd381",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "URL",
+        "HTTP",
+        "Final URL",
+        "Canonical",
+        "Robots",
+        "X-Robots-Tag",
+        "Title",
+        "Description",
+        "H1",
+        "JSON-LD types",
+        "Internal unique link count"
+      ],
+      "dataRows": 4659,
+      "identicalTo": [
+        "auditoria-seo-competitiva-codex/page-audit.csv"
+      ]
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/url-inventory.txt",
+      "bytes": 173239,
+      "sha256": "aefc00f859279138fc03b33e8cc931bf202506e3f74b8605a19e2490ddb928c6",
+      "type": "txt",
+      "utf8Bom": false,
+      "lines": 2264
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/duplicate-catalog-identities.csv",
+      "bytes": 65072,
+      "sha256": "5ffa03d3cd0b6ce495a4cd714cd05ed06db8f1ec822fea9225ccd097a748c696",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "Shared numeric catalog ID",
+        "URL",
+        "Title",
+        "H1",
+        "Canonical",
+        "Action"
+      ],
+      "dataRows": 190,
+      "identicalTo": [
+        "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/duplicate-catalog-identities.csv"
+      ]
+    },
+    {
+      "path": "auditoria-seo-competitiva-codex/page-audit.csv",
+      "bytes": 1967576,
+      "sha256": "884b9e4f59db830d1acfaeb6fb0aae4653cd5e21c55168e610a1471b4cfcd381",
+      "type": "csv",
+      "utf8Bom": true,
+      "columns": [
+        "URL",
+        "HTTP",
+        "Final URL",
+        "Canonical",
+        "Robots",
+        "X-Robots-Tag",
+        "Title",
+        "Description",
+        "H1",
+        "JSON-LD types",
+        "Internal unique link count"
+      ],
+      "dataRows": 4659,
+      "identicalTo": [
+        "auditoria-seo-competitiva-codex/SEO-audit-evidence-package/page-audit.csv"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PLAN-MAESTRO-SEO-KS-PARA-CLAUDE.md",
+      "bytes": 23286,
+      "sha256": "be71d4711b7f659b65085e4b1af090df0edec74f91dc339b6d43da23831fa0f0",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 217,
+      "words": 3504,
+      "identicalTo": [
+        "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/PLAN-MAESTRO-SEO-KS-PARA-CLAUDE.md"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/PLAN-MAESTRO-SEO-KS-PARA-CLAUDE.md",
+      "bytes": 23286,
+      "sha256": "be71d4711b7f659b65085e4b1af090df0edec74f91dc339b6d43da23831fa0f0",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 217,
+      "words": 3504,
+      "identicalTo": [
+        "paln-de-acción-completo/PLAN-MAESTRO-SEO-KS-PARA-CLAUDE.md"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/PROMPT-CLAUDE-CODE-SEO-KS.md",
+      "bytes": 39627,
+      "sha256": "bbd02726f62d56ea5e3688838e1939f97b2398db2cd4066aa22837a8c3267215",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 394,
+      "words": 4998,
+      "identicalTo": [
+        "paln-de-acción-completo/PROMPT-CLAUDE-CODE-SEO-KS.md"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/evidencia-repositorio.json",
+      "bytes": 4276,
+      "sha256": "2dc923ad5bb01dfeb196efaf1b8a88fd9132fc656dbd72623bb561537eea0a81",
+      "type": "json",
+      "utf8Bom": false,
+      "topLevelKeys": [
+        "repository",
+        "products",
+        "categories",
+        "post_records",
+        "text_corruption",
+        "files",
+        "duplicate_internal_id_records",
+        "duplicate_numeric_catalog_suffix_groups",
+        "duplicate_numeric_catalog_suffix_urls",
+        "first_product_image_hosts",
+        "caveat"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/inventario-fuentes-revisadas.json",
+      "bytes": 10135,
+      "sha256": "fdf49923e1d4bbb95b730e2eda48112cb1df247c344d2838fbdee8533aea045b",
+      "type": "json",
+      "utf8Bom": false,
+      "topLevelKeys": [
+        "root",
+        "file_count",
+        "unique_content_count",
+        "files",
+        "directories"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/metricas-reconciliadas-gsc.json",
+      "bytes": 86413,
+      "sha256": "bbd06aa940ab20e1d5990bcacdb3c7596f63cbfcea7efb6796dea4a93c0ad6a5",
+      "type": "json",
+      "utf8Bom": false,
+      "topLevelKeys": [
+        "totals",
+        "performance_period",
+        "monthly",
+        "last28",
+        "previous28",
+        "hosts",
+        "types",
+        "normalized_pages",
+        "queries",
+        "operator_query_count",
+        "operator_query_totals",
+        "index_latest",
+        "index_changes",
+        "issues_reconciled",
+        "duplicate_groups_with_performance",
+        "performance_paths_outside_sitemap"
+      ]
+    },
+    {
+      "path": "paln-de-acción-completo/PROMPT-CLAUDE-CODE-SEO-KS.md",
+      "bytes": 39627,
+      "sha256": "bbd02726f62d56ea5e3688838e1939f97b2398db2cd4066aa22837a8c3267215",
+      "type": "md",
+      "utf8Bom": false,
+      "lines": 394,
+      "words": 4998,
+      "identicalTo": [
+        "paln-de-acción-completo/PLAN-Y-PROMPT-CLAUDE-KS/PROMPT-CLAUDE-CODE-SEO-KS.md"
+      ]
+    }
+  ]
+}

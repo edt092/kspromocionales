@@ -2,9 +2,10 @@
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { colombia } from '@/data/geo-data';
-import categories from '@data/categories.json';
+import { categoriesByIds } from '@/lib/catalog';
+import { FOOTER_CATEGORY_IDS } from '@/data/merchandising';
 
-const footerCategories = (categories as any[]).slice(0, 10);
+const footerCategories = categoriesByIds(FOOTER_CATEGORY_IDS);
 const year = new Date().getFullYear();
 ---
 

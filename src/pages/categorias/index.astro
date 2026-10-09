@@ -1,14 +1,15 @@
 ---
+import { resolveSupplierImageUrl } from '@/lib/product-image';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { collectionPageSchema, breadcrumbListSchema } from '@/lib/schema';
 import categories from '@data/categories.json';
-import products from '@data/products.json';
+import { categoryProductCount } from '@/lib/catalog';
 
 const fallbackImage = '/images/products/_placeholder-ksp-co.jpg';
 function countFor(catId: string) {
-  return (products as any[]).filter((p) => p.categoryId === catId).length;
+  return categoryProductCount(catId);
 }
 
 const catalogUrl = `${SITE.url}/categorias/`;
@@ -51,7 +52,7 @@ const jsonLd = [
         >
           <div class="aspect-[4/3] w-full overflow-hidden bg-ks-navy-wash">
             <img
-              src={cat.image || fallbackImage}
+              src={cat.image ? resolveSupplierImageUrl(cat.image) : fallbackImage}
               alt={cat.name}
               loading={i < 4 ? 'eager' : 'lazy'}
               width="400"

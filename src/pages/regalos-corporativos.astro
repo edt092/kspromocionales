@@ -6,11 +6,12 @@ import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema } from '@/lib/schema';
-import products from '@data/products.json';
+import IntentCrossLinks from '@/components/IntentCrossLinks.astro';
+import { curatedProducts } from '@/lib/catalog';
+import { HUBS } from '@/data/merchandising';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
-const featured = (products as any[]).filter((p) => p.featured || p.bestseller).slice(0, 8);
-const list = featured.length ? featured : (products as any[]).slice(0, 8);
+const list = curatedProducts(HUBS.regalos, 8);
 
 const breadcrumbJsonLd = breadcrumbListSchema([
   { name: 'Inicio', item: SITE.url },
@@ -34,7 +35,7 @@ const faqs = [
     <div class="container-ks relative z-10 max-w-3xl">
       <span class="section-label mb-4"><Icon name="award" size={15} /> Regalos Corporativos</span>
       <h1 class="text-4xl sm:text-5xl font-heading font-bold text-white mb-6 text-balance">
-        Regalos corporativos que refuerzan tu marca, no solo la decoran
+        Regalos corporativos personalizados para clientes y empleados
       </h1>
       <p class="text-white/75 text-lg mb-9">
         Para clientes, empleados o partners: artículos personalizados con tu logo, pensados
@@ -82,4 +83,5 @@ const faqs = [
   </section>
 
   <FaqSection items={faqs} title="Preguntas frecuentes sobre regalos corporativos" />
+  <IntentCrossLinks current="regalos" />
 </BaseLayout>

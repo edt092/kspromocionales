@@ -35,14 +35,21 @@ const COUNTRY_MAP = [
   ['ecuador', 'colombia'],
 ];
 
+// Reemplazo por PALABRA COMPLETA (límites Unicode). El reemplazo por substring anterior
+// convertía "Cuencadad" (ya corrupto en el origen: "Calidad" con Cali→Cuenca) en
+// "Medellíndad". Ver docs/seo-improvement/RECONCILIACION_EVIDENCIA.md.
+function replaceWord(text, from, to) {
+  return text.replace(new RegExp(String.raw`(?<!\p{L})${from}(?!\p{L})`, 'gu'), to);
+}
+
 function adaptText(value) {
   if (typeof value !== 'string' || !value) return value;
   let out = value;
   for (const [from, to] of CITY_MAP) {
-    out = out.split(from).join(to);
+    out = replaceWord(out, from, to);
   }
   for (const [from, to] of COUNTRY_MAP) {
-    out = out.split(from).join(to);
+    out = replaceWord(out, from, to);
   }
   return out;
 }

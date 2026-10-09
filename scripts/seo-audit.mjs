@@ -1,22 +1,32 @@
 #!/usr/bin/env node
 /**
- * Auditoría SEO de solo lectura. No modifica data/products.json, data/categories.json
- * ni ningún otro archivo. Uso: `npm run seo:audit`.
+ * Auditoría SEO de solo lectura sobre los datos del catálogo. No modifica data/*.json.
+ * Uso: `pnpm run seo:audit` (añade `--strict` para salir con código 1 si hay errores de datos).
  *
  * Genera un resumen en consola y, si `reports/` es escribible, un JSON detallado
- * (reports/seo-audit-<timestamp>.json, ignorado por Git) con hasta 50 ejemplos
- * por hallazgo para revisión manual.
+ * (reports/seo-audit-<timestamp>.json, ignorado por Git) con:
+ *  - `counts`: recuentos reales sobre TODO el catálogo;
+ *  - `lists`: listas completas de afectados (no truncadas);
+ *  - `examples`: hasta EXAMPLE_LIMIT ejemplos para lectura rápida.
+ * Antes, algunos recuentos se calculaban con el tamaño del array de ejemplos (máx. 50).
+ *
+ * La política de indexabilidad es la MISMA que usan la ficha y el sitemap
+ * (src/lib/product-indexability.mjs); aquí no se duplica.
  */
 import { readFileSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { evaluateProductIndexability } from '../src/lib/product-indexability.mjs';
+import { detect } from './seo-improvement/lib/text-repair.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const EXAMPLE_LIMIT = 50;
+const STRICT = process.argv.includes('--strict');
 
-function readJson(relPath) {
+function readJson(relPath, { optional = false } = {}) {
   const full = path.join(ROOT, relPath);
   if (!existsSync(full)) {
+    if (optional) return null;
     throw new Error(`Archivo requerido no encontrado: ${relPath}`);
   }
   try {
@@ -26,310 +36,177 @@ function readJson(relPath) {
   }
 }
 
-function pushExample(list, value) {
-  if (list.length < EXAMPLE_LIMIT) list.push(value);
-}
+// Residuo geográfico de Ecuador (catálogo semilla, scripts/seed-from-ecuador.mjs).
+// En keywords se buscan ciudades; en texto libre solo gentilicios inequívocos, porque
+// "manta" (cobija) y "cuenca" (hidrográfica) son sustantivos legítimos en fichas reales.
+const ECUADOR_KEYWORDS = /\b(ecuador|quito|guayaquil|cuenca|ambato|manta|riobamba|machala|loja)\b|\.ec\b/i;
+const TEXT_FIELDS = ['name', 'shortDescription', 'story', 'description', 'seoTitle', 'seoDescription', 'whatsappMessage'];
+const LIST_FIELDS = ['features', 'useCases'];
 
-// Términos y dominios asociados al catálogo original de Ecuador (scripts/seed-from-ecuador.mjs).
-// Se marcan como residuo geográfico incorrecto para un sitio que solo opera en Colombia.
-const ECUADOR_PATTERN = /\b(ecuador|quito|guayaquil|cuenca|ambato|manta|riobamba|machala|loja)\b|\.ec\b/i;
-const GENERIC_DESCRIPTION = (name) =>
-  `${name} personalizado con logo. Producto promocional para empresas en Colombia.`;
+const textsOf = (p) => [
+  ...TEXT_FIELDS.map((f) => [f, p[f]]),
+  ...LIST_FIELDS.flatMap((f) => (Array.isArray(p[f]) ? p[f].map((v, i) => [`${f}[${i}]`, v]) : [])),
+  ...['keywords', 'seoKeywords'].map((f) => [f, p[f]]),
+];
 
 function main() {
-  const errors = [];
-  let products, categories, posts;
-
+  let products, categories, posts, aliases;
   try {
     products = readJson('data/products.json');
     categories = readJson('data/categories.json');
     posts = readJson('data/blog/posts.json');
+    aliases = readJson('data/product-aliases.json', { optional: true }) ?? [];
   } catch (err) {
     console.error(`✗ Error estructural: ${err.message}`);
     process.exit(1);
   }
-
-  if (!Array.isArray(products)) errors.push('data/products.json no es un array.');
-  if (!Array.isArray(categories)) errors.push('data/categories.json no es un array.');
-  if (errors.length) {
-    console.error('✗ Errores estructurales:\n' + errors.map((e) => `  - ${e}`).join('\n'));
+  if (!Array.isArray(products) || !Array.isArray(categories)) {
+    console.error('✗ data/products.json y data/categories.json deben ser arrays.');
     process.exit(1);
   }
 
-  const categoryIds = new Set(categories.map((c) => c.id));
-  const categoryBySlug = new Set(categories.map((c) => c.slug));
+  const lists = {};
+  const add = (key, value) => (lists[key] ??= []).push(value);
+  const categoryKeys = new Set(categories.flatMap((c) => [c.id, c.slug]));
 
-  const report = {
-    generatedAt: new Date().toISOString(),
-    totals: {
-      products: products.length,
-      categories: categories.length,
-      blogPosts: Array.isArray(posts) ? posts.length : 0,
-    },
-    findings: {},
-  };
-
-  // --- Slugs duplicados / inválidos ---
-  const slugCounts = new Map();
-  const missingSlugOrName = [];
+  // --- Identidad: slugs, sourceProductId, aliases ---
+  const slugCount = new Map();
+  const sidCount = new Map();
   for (const p of products) {
-    if (!p.slug || !p.name) pushExample(missingSlugOrName, { id: p.id, slug: p.slug, name: p.name });
-    if (p.slug) slugCounts.set(p.slug, (slugCounts.get(p.slug) || 0) + 1);
+    if (!p.slug || !p.name) add('missingSlugOrName', { id: p.id, slug: p.slug, name: p.name });
+    if (p.slug) slugCount.set(p.slug, (slugCount.get(p.slug) || 0) + 1);
+    if (p.sourceProductId) sidCount.set(p.sourceProductId, [...(sidCount.get(p.sourceProductId) ?? []), p.slug]);
   }
-  const duplicateSlugs = [...slugCounts.entries()].filter(([, count]) => count > 1);
-
-  // --- Categorías inexistentes / vacías ---
-  const productsPerCategory = new Map();
-  const orphanCategoryProducts = [];
-  for (const p of products) {
-    const valid = categoryIds.has(p.categoryId) || categoryBySlug.has(p.categoryId);
-    if (!valid) pushExample(orphanCategoryProducts, { slug: p.slug, categoryId: p.categoryId });
-    productsPerCategory.set(p.categoryId, (productsPerCategory.get(p.categoryId) || 0) + 1);
+  for (const [slug, n] of slugCount) if (n > 1) add('duplicateSlugs', { slug, count: n });
+  for (const [sid, slugs] of sidCount) if (slugs.length > 1) add('sharedSourceProductId', { sourceProductId: sid, slugs });
+  const productSlugs = new Set(products.map((p) => p.slug));
+  for (const a of aliases) {
+    const from = a.from.replace(/^\/productos\/|\/$/g, '');
+    const to = a.to.replace(/^\/productos\/|\/$/g, '');
+    if (productSlugs.has(from)) add('aliasStillAProduct', a.from);
+    if (!productSlugs.has(to)) add('aliasTargetMissing', a);
+    if (aliases.some((b) => b.from === a.to)) add('aliasChain', a);
   }
-  const emptyCategories = categories
-    .filter((c) => !(productsPerCategory.get(c.id) > 0))
-    .map((c) => ({ id: c.id, slug: c.slug, name: c.name }));
 
-  // --- Contenido genérico / incompleto ---
-  // Importante: el campo `description` vacío NO implica página delgada — la mayoría de
-  // fichas muestran contenido real en pantalla vía shortDescription/features/story
-  // (product.description solo se usa como fallback de meta/JSON-LD). Por eso se reportan
-  // por separado: el estado del campo `description` y el estado del contenido visible.
-  let emptyDescriptionCount = 0;
-  let genericDescriptionCount = 0;
-  let missingShortDescription = 0;
-  let missingFeatures = 0;
-  let missingUseCases = 0;
-  let missingStory = 0;
-  let thinContentCount = 0; // description vacía/genérica Y sin ningún campo suplementario
-  let partialContentCount = 0; // description vacía/genérica pero con AL MENOS un campo suplementario
-  const thinContentExamples = [];
-  const genericDescExamples = [];
-
+  // --- Categorías (primaria + secundarias) ---
+  const perCategory = new Map();
   for (const p of products) {
-    const isEmpty = !p.description || !p.description.trim();
-    const isGeneric = p.description === GENERIC_DESCRIPTION(p.name);
-    const descWeak = isEmpty || isGeneric;
-    const noShort = !p.shortDescription || p.shortDescription.trim().length < 10;
-    const noFeatures = !p.features || p.features.length === 0;
-    const noUseCases = !p.useCases || p.useCases.length === 0;
-    const noStory = !p.story || p.story.trim().length < 50;
-
-    if (isEmpty) emptyDescriptionCount++;
-    if (isGeneric) {
-      genericDescriptionCount++;
-      pushExample(genericDescExamples, p.slug);
+    const cats = [p.categoryId, ...(p.secondaryCategoryIds ?? [])];
+    for (const c of cats) {
+      if (!categoryKeys.has(c)) add('orphanCategory', { slug: p.slug, categoryId: c });
+      const id = categories.find((x) => x.id === c || x.slug === c)?.id ?? c;
+      perCategory.set(id, (perCategory.get(id) || 0) + 1);
     }
-    if (noShort) missingShortDescription++;
-    if (noFeatures) missingFeatures++;
-    if (noUseCases) missingUseCases++;
-    if (noStory) missingStory++;
+  }
+  for (const c of categories) {
+    if (!(perCategory.get(c.id) > 0)) add('emptyCategories', c.slug);
+    if (typeof c.productCount === 'number' && c.productCount !== (perCategory.get(c.id) || 0))
+      add('staleProductCount', { slug: c.slug, declared: c.productCount, actual: perCategory.get(c.id) || 0 });
+  }
 
-    if (descWeak) {
-      if (noShort && noFeatures && noUseCases) {
-        thinContentCount++;
-        pushExample(thinContentExamples, p.slug);
-      } else {
-        partialContentCount++;
-      }
+  // --- Texto corrupto y residuo Ecuador ---
+  for (const p of products) {
+    for (const [field, value] of textsOf(p)) {
+      if (typeof value !== 'string' || !value) continue;
+      for (const [pattern, n] of Object.entries(detect(value))) add(`corrupt:${pattern}`, { slug: p.slug, field, n });
+      if ((field === 'keywords' || field === 'seoKeywords') && ECUADOR_KEYWORDS.test(value)) add('ecuadorKeyword', { slug: p.slug, field });
     }
   }
 
-  // --- Imágenes ---
-  let externalImages = 0;
-  let brokenLocalImages = 0;
-  let missingImages = 0;
-  const brokenLocalExamples = [];
+  // --- Contenido / indexabilidad (política compartida) ---
+  const statusCount = {};
+  const reasonCount = {};
+  for (const p of products) {
+    const r = evaluateProductIndexability(p);
+    statusCount[r.status] = (statusCount[r.status] || 0) + 1;
+    for (const x of r.reasons) reasonCount[x] = (reasonCount[x] || 0) + 1;
+    if (r.status !== 'indexable') add(`indexability:${r.status}`, { slug: p.slug, reasons: r.reasons });
+    if (!p.description || !p.description.trim()) add('emptyDescriptionField', p.slug);
+  }
 
+  // --- Imágenes (primera imagen) ---
   for (const p of products) {
     const first = p.images?.[0];
-    if (!first) {
-      missingImages++;
-      continue;
-    }
-    if (first.startsWith('http')) {
-      externalImages++;
-    } else {
-      const full = path.join(ROOT, 'public', first);
-      if (!existsSync(full)) {
-        brokenLocalImages++;
-        pushExample(brokenLocalExamples, { slug: p.slug, image: first });
-      }
-    }
+    if (!first) add('imageMissing', p.slug);
+    else if (/^https?:\/\//.test(first)) add('imageExternal', { slug: p.slug, host: new URL(first).host });
+    else if (!existsSync(path.join(ROOT, 'public', first))) add('imageLocalMissing', { slug: p.slug, image: first });
+    else add('imageLocalOk', p.slug);
   }
 
-  // --- Residuo geográfico (Ecuador) ---
-  // Alcance acotado a seoKeywords/keywords a propósito (igual que scripts/clean-ecuador-residue.mjs):
-  // "manta" es también el sustantivo español (cobija) y aparece legítimamente en story/
-  // shortDescription de productos reales de cobijas. Ampliar el escaneo a esos campos
-  // libres produce falsos positivos sin encontrar residuo real (verificado manualmente).
-  let ecuadorReferenceCount = 0;
-  const ecuadorFields = ['seoKeywords', 'keywords'];
-  const ecuadorExamples = [];
-
-  for (const p of products) {
-    const hits = ecuadorFields.filter((field) => typeof p[field] === 'string' && ECUADOR_PATTERN.test(p[field]));
-    if (hits.length) {
-      ecuadorReferenceCount++;
-      pushExample(ecuadorExamples, { slug: p.slug, fields: hits });
-    }
-  }
-
-  // --- Títulos y descripciones SEO ---
-  let emptyTitle = 0;
-  let emptyDescription = 0;
-  let titleTooLong = 0; // > 65
-  let descTooLong = 0; // > 165
-  let descTooShort = 0; // < 70
+  // --- Metadatos ---
   const titleMap = new Map();
   const descMap = new Map();
-
   for (const p of products) {
-    if (!p.seoTitle) emptyTitle++;
-    if (!p.seoDescription) emptyDescription++;
-    if (p.seoTitle && p.seoTitle.length > 65) titleTooLong++;
-    if (p.seoDescription && p.seoDescription.length > 165) descTooLong++;
-    if (p.seoDescription && p.seoDescription.length < 70) descTooShort++;
-    if (p.seoTitle) titleMap.set(p.seoTitle, (titleMap.get(p.seoTitle) || 0) + 1);
-    if (p.seoDescription) descMap.set(p.seoDescription, (descMap.get(p.seoDescription) || 0) + 1);
+    if (!p.seoTitle) add('emptySeoTitle', p.slug);
+    if (!p.seoDescription) add('emptySeoDescription', p.slug);
+    if (p.seoTitle?.length > 65) add('seoTitleOver65', p.slug);
+    if (p.seoDescription?.length > 165) add('seoDescriptionOver165', p.slug);
+    if (p.seoDescription && p.seoDescription.length < 70) add('seoDescriptionUnder70', p.slug);
+    if (p.seoTitle) titleMap.set(p.seoTitle, [...(titleMap.get(p.seoTitle) ?? []), p.slug]);
+    if (p.seoDescription) descMap.set(p.seoDescription, [...(descMap.get(p.seoDescription) ?? []), p.slug]);
   }
-  const duplicateTitles = [...titleMap.entries()].filter(([, c]) => c > 1);
-  const duplicateDescriptions = [...descMap.entries()].filter(([, c]) => c > 1);
+  for (const [title, slugs] of titleMap) if (slugs.length > 1) add('duplicateSeoTitle', { title, slugs });
+  for (const [, slugs] of descMap) if (slugs.length > 1) add('duplicateSeoDescription', slugs);
 
-  // --- Candidatas a indexación / noindex ---
-  // Heurística conservadora (ver Fase 3 de SEO_AUDIT_1.md para la versión tipada
-  // que se aplicará en las páginas). Aquí solo se reporta, no se aplica nada.
-  // Candidata SOLO si no hay contenido diferencial visible en NINGÚN campo
-  // (description vacía/genérica Y sin shortDescription Y sin features Y sin useCases).
-  // Tener al menos uno de esos campos con contenido real se considera suficiente para no
-  // marcar la ficha como candidata en esta primera pasada.
-  let indexableCount = 0;
-  let noindexCandidateCount = 0;
-  const noindexReasons = new Map();
-  const noindexExamples = [];
-
-  for (const p of products) {
-    const isEmpty = !p.description || !p.description.trim();
-    const isGeneric = p.description === GENERIC_DESCRIPTION(p.name);
-    const noShort = !p.shortDescription || p.shortDescription.trim().length < 10;
-    const noFeatures = !p.features || p.features.length === 0;
-    const noUseCases = !p.useCases || p.useCases.length === 0;
-
-    const reasons = [];
-    if (isEmpty) reasons.push('descripcion_vacia');
-    if (isGeneric) reasons.push('descripcion_generica');
-    if (noShort) reasons.push('sin_shortDescription');
-    if (noFeatures) reasons.push('sin_features');
-    if (noUseCases) reasons.push('sin_useCases');
-    if (!p.images?.[0]) reasons.push('sin_imagen');
-
-    const isCandidate = (isEmpty || isGeneric) && noShort && noFeatures && noUseCases;
-
-    if (isCandidate) {
-      noindexCandidateCount++;
-      for (const r of reasons) noindexReasons.set(r, (noindexReasons.get(r) || 0) + 1);
-      pushExample(noindexExamples, { slug: p.slug, reasons });
-    } else {
-      indexableCount++;
-    }
+  // --- Blog: metaTitle cortado a mitad de palabra (prefijo del título + " | ") ---
+  for (const post of Array.isArray(posts) ? posts : []) {
+    const meta = post.seo?.metaTitle ?? '';
+    const head = meta.split(' | ')[0].trim();
+    if (head && head !== post.title && post.title.startsWith(head) && /\p{L}$/u.test(head) && /^\p{L}/u.test(post.title.slice(head.length)))
+      add('blogMetaTitleTruncated', { slug: post.slug, metaTitle: meta });
   }
 
-  // --- Ensamblar reporte ---
-  report.findings = {
-    slugs: {
-      duplicateCount: duplicateSlugs.length,
-      duplicates: duplicateSlugs.slice(0, EXAMPLE_LIMIT).map(([slug, count]) => ({ slug, count })),
-      missingSlugOrName,
-    },
-    categories: {
-      total: categories.length,
-      productsPerCategory: Object.fromEntries(productsPerCategory),
-      orphanCategoryProductCount: orphanCategoryProducts.length,
-      orphanCategoryProductExamples: orphanCategoryProducts,
-      emptyCategories,
-    },
-    content: {
-      note: 'El campo description vacío NO implica página delgada por sí solo: la mayoría de fichas muestran shortDescription/features/story en pantalla aunque description esté vacío (solo se usa como fallback de meta/JSON-LD).',
-      emptyDescriptionCount,
-      genericDescriptionCount,
-      genericDescriptionExamples: genericDescExamples,
-      missingShortDescription,
-      missingFeatures,
-      missingUseCases,
-      missingStory,
-      partialContentCount,
-      thinContentCount,
-      thinContentExamples,
-    },
-    images: {
-      externalImages,
-      brokenLocalImages,
-      missingImages,
-      brokenLocalExamples,
-    },
-    ecuadorResidue: {
-      productCount: ecuadorReferenceCount,
-      examples: ecuadorExamples,
-    },
-    metadata: {
-      emptyTitle,
-      emptyDescription,
-      titleTooLong,
-      descTooLong,
-      descTooShort,
-      duplicateTitleCount: duplicateTitles.length,
-      duplicateDescriptionCount: duplicateDescriptions.length,
-    },
-    indexability: {
-      indexableCount,
-      noindexCandidateCount,
-      reasonBreakdown: Object.fromEntries(noindexReasons),
-      examples: noindexExamples,
-    },
+  const counts = Object.fromEntries(Object.entries(lists).map(([k, v]) => [k, v.length]));
+  const report = {
+    generatedAt: new Date().toISOString(),
+    totals: { products: products.length, categories: categories.length, blogPosts: Array.isArray(posts) ? posts.length : 0, aliases: aliases.length },
+    indexability: { statusCount, reasonCount },
+    productsPerCategory: Object.fromEntries(perCategory),
+    counts,
+    examples: Object.fromEntries(Object.entries(lists).map(([k, v]) => [k, v.slice(0, EXAMPLE_LIMIT)])),
+    lists,
   };
 
-  // --- Salida en consola ---
-  console.log(`\nSEO AUDIT — ${report.generatedAt}`);
-  console.log('='.repeat(60));
-  console.log(`Productos: ${report.totals.products} | Categorías: ${report.totals.categories} | Posts: ${report.totals.blogPosts}`);
-  console.log('-'.repeat(60));
-  console.log(`Slugs duplicados: ${duplicateSlugs.length}`);
-  console.log(`Productos con categoryId huérfano: ${orphanCategoryProducts.length}`);
-  console.log(`Categorías sin productos: ${emptyCategories.length}${emptyCategories.length ? ' -> ' + emptyCategories.map((c) => c.slug).join(', ') : ''}`);
-  console.log('-'.repeat(60));
-  console.log(`Campo description vacío: ${emptyDescriptionCount} (no implica página delgada por sí solo)`);
-  console.log(`Descripción genérica (plantilla): ${genericDescriptionCount}`);
-  console.log(`Sin shortDescription: ${missingShortDescription} | Sin features: ${missingFeatures} | Sin useCases: ${missingUseCases} | Sin story: ${missingStory}`);
-  console.log(`Description vacía/genérica pero con contenido en otro campo: ${partialContentCount}`);
-  console.log(`Contenido realmente delgado (sin nada en ningún campo): ${thinContentCount}`);
-  console.log('-'.repeat(60));
-  console.log(`Imágenes externas: ${externalImages} | Imágenes locales rotas: ${brokenLocalImages} | Sin imagen: ${missingImages}`);
-  console.log('-'.repeat(60));
-  console.log(`Productos con residuo Ecuador (Quito/Guayaquil/Cuenca/...): ${ecuadorReferenceCount}`);
-  console.log('-'.repeat(60));
-  console.log(`seoTitle vacío: ${emptyTitle} | > 65 car.: ${titleTooLong} | duplicados: ${duplicateTitles.length}`);
-  console.log(`seoDescription vacío: ${emptyDescription} | > 165 car.: ${descTooLong} | < 70 car.: ${descTooShort} | duplicados: ${duplicateDescriptions.length}`);
-  console.log('-'.repeat(60));
-  console.log(`Indexables (heurística conservadora): ${indexableCount}`);
-  console.log(`Candidatas a noindex: ${noindexCandidateCount}`);
-  console.log('  Motivos:', JSON.stringify(Object.fromEntries(noindexReasons)));
-  console.log('='.repeat(60));
-  console.log('Este script no modifica ningún archivo. Los conteos de "candidatas a noindex"');
-  console.log('son un reporte para revisión manual, no se aplica noindex automáticamente.\n');
+  const c = (k) => counts[k] ?? 0;
+  const corruptKeys = Object.keys(counts).filter((k) => k.startsWith('corrupt:'));
+  const errors = [
+    'duplicateSlugs', 'missingSlugOrName', 'orphanCategory', 'aliasStillAProduct', 'aliasTargetMissing', 'aliasChain', 'blogMetaTitleTruncated', ...corruptKeys,
+  ].filter((k) => c(k) > 0);
 
-  // --- Reporte JSON opcional ---
+  console.log(`\nSEO AUDIT — ${report.generatedAt}`);
+  console.log('='.repeat(64));
+  console.log(`Productos: ${products.length} | Categorías: ${categories.length} | Posts: ${report.totals.blogPosts} | Aliases 301: ${aliases.length}`);
+  console.log('-'.repeat(64));
+  console.log(`Slugs duplicados: ${c('duplicateSlugs')} | sin slug/nombre: ${c('missingSlugOrName')} | categoría huérfana: ${c('orphanCategory')}`);
+  console.log(`sourceProductId compartido (variantes pendientes de SKU): ${c('sharedSourceProductId')}`);
+  console.log(`Aliases: sigue existiendo ${c('aliasStillAProduct')} | destino inexistente ${c('aliasTargetMissing')} | cadenas ${c('aliasChain')}`);
+  console.log(`Categorías vacías: ${c('emptyCategories')} | productCount desactualizado: ${c('staleProductCount')}`);
+  console.log('-'.repeat(64));
+  console.log(`Texto corrupto: ${corruptKeys.length ? corruptKeys.map((k) => `${k.slice(8)}=${c(k)}`).join(', ') : '0'}`);
+  console.log(`Residuo Ecuador en keywords: ${c('ecuadorKeyword')} | metaTitle de blog cortado: ${c('blogMetaTitleTruncated')}`);
+  console.log('-'.repeat(64));
+  console.log(`Indexabilidad: ${JSON.stringify(statusCount)}`);
+  console.log(`  Motivos: ${JSON.stringify(reasonCount)}`);
+  console.log(`Campo description vacío (no se muestra en el cuerpo; no decide indexación): ${c('emptyDescriptionField')}`);
+  console.log('-'.repeat(64));
+  console.log(`Imágenes: externas ${c('imageExternal')} | locales OK ${c('imageLocalOk')} | locales inexistentes (placeholder) ${c('imageLocalMissing')} | sin imagen ${c('imageMissing')}`);
+  console.log(`seoTitle vacío ${c('emptySeoTitle')} | >65 ${c('seoTitleOver65')} | duplicados ${c('duplicateSeoTitle')} grupos`);
+  console.log(`seoDescription vacío ${c('emptySeoDescription')} | >165 ${c('seoDescriptionOver165')} | <70 ${c('seoDescriptionUnder70')} | duplicados ${c('duplicateSeoDescription')} grupos`);
+  console.log('='.repeat(64));
+  console.log(errors.length ? `✗ Errores de datos: ${errors.join(', ')}` : '✓ Sin errores de datos.');
+  console.log('Este script no modifica archivos ni aplica noindex.\n');
+
   try {
     const reportsDir = path.join(ROOT, 'reports');
     if (!existsSync(reportsDir)) mkdirSync(reportsDir);
     const stamp = report.generatedAt.replace(/[:.]/g, '-');
-    const outPath = path.join(reportsDir, `seo-audit-${stamp}.json`);
-    writeFileSync(outPath, JSON.stringify(report, null, 2), 'utf8');
-    console.log(`Reporte detallado: reports/seo-audit-${stamp}.json\n`);
+    writeFileSync(path.join(reportsDir, `seo-audit-${stamp}.json`), JSON.stringify(report, null, 2), 'utf8');
+    console.log(`Reporte detallado (listas completas): reports/seo-audit-${stamp}.json\n`);
   } catch (err) {
     console.warn(`(No se pudo escribir el reporte JSON: ${err.message})`);
   }
 
-  process.exit(0);
+  process.exit(STRICT && errors.length ? 1 : 0);
 }
 
 main();

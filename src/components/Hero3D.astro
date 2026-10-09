@@ -1,4 +1,5 @@
 ---
+import { getProductImage, getValidProductImages } from '@/lib/product-image';
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
@@ -13,15 +14,17 @@ const allProducts = products as { images?: string[]; categoryId?: string; name: 
 const seenCategories = new Set<string>();
 const curated: typeof allProducts = [];
 
+// Solo productos con una imagen servible real (no placeholder): ver src/lib/product-image.ts.
+const hasImage = (p: { images?: string[] }) => getValidProductImages(p.images).length > 0;
 for (const p of allProducts) {
-  if (!p.images?.[0] || curated.length >= 28) continue;
+  if (!hasImage(p) || curated.length >= 28) continue;
   if (p.categoryId && seenCategories.has(p.categoryId)) continue;
   if (p.categoryId) seenCategories.add(p.categoryId);
   curated.push(p);
 }
 for (const p of allProducts) {
   if (curated.length >= 28) break;
-  if (!p.images?.[0] || curated.includes(p)) continue;
+  if (!hasImage(p) || curated.includes(p)) continue;
   curated.push(p);
 }
 
@@ -89,9 +92,9 @@ curated.forEach((p, i) => showcaseColumns[i % SHOWCASE_COLS].push(p));
               {[...col, ...col].map((p, tileIndex) => (
                 <div class="marquee-tile relative aspect-square rounded-xl overflow-hidden border border-white/10 bg-white/5 shrink-0">
                   <img
-                    src={p.images![0]}
+                    src={getProductImage(p.images)}
                     alt=""
-                    loading={tileIndex < col.length ? 'eager' : 'lazy'}
+                    loading={tileIndex < 3 ? 'eager' : 'lazy'}
                     fetchpriority={i === 0 && tileIndex === 0 ? 'high' : undefined}
                     decoding="async"
                     width="220"

@@ -5,7 +5,8 @@ import { colombia, getCiudadBySlug } from '@/data/geo-data';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 import { serviceSchema, breadcrumbListSchema } from '@/lib/schema';
-import categories from '@data/categories.json';
+import { categoriesByIds } from '@/lib/catalog';
+import { NAV_CATEGORY_IDS } from '@/data/merchandising';
 
 export function getStaticPaths() {
   return colombia.ciudades.map((ciudad) => ({ params: { ciudad: ciudad.slug } }));
@@ -15,7 +16,7 @@ const { ciudad: slug } = Astro.params;
 const ciudad = getCiudadBySlug(slug!)!;
 const otrasCiudades = colombia.ciudades.filter((c) => c.slug !== slug);
 const ctaUrl = cityWhatsappUrl(ciudad.nombre);
-const featuredCategories = (categories as any[]).slice(0, 8);
+const featuredCategories = categoriesByIds(NAV_CATEGORY_IDS);
 const ciudadUrl = `${SITE.url}/productos-promocionales-colombia/${ciudad.slug}/`;
 
 // Nota de transparencia operativa (Fase 6/7, SEO_AUDIT_1.md): ninguna ciudad se presenta
@@ -28,7 +29,7 @@ const operationalNote = isBase
 
 const jsonLd = [
   serviceSchema({
-    name: `${SITE.name} ${ciudad.nombre}`,
+    name: `Productos promocionales para empresas en ${ciudad.nombre}`,
     description: ciudad.seoDescription,
     url: ciudadUrl,
     serviceType: 'Productos promocionales y regalos corporativos personalizados',

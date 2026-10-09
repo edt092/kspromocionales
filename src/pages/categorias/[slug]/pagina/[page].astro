@@ -1,19 +1,18 @@
 ---
+import { resolveSupplierImageUrl } from '@/lib/product-image';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CategoryListing from '@/components/CategoryListing.astro';
 import { SITE } from '@/lib/site';
 import { collectionPageSchema, breadcrumbListSchema } from '@/lib/schema';
 import { CATEGORY_PAGE_SIZE, totalPagesFor, pageSlice } from '@/lib/pagination';
 import categories from '@data/categories.json';
-import products from '@data/products.json';
+import { productsInCategory } from '@/lib/catalog';
 
 export function getStaticPaths() {
   const paths: { params: { slug: string; page: string }; props: { category: any } }[] = [];
 
   for (const category of categories as any[]) {
-    const categoryProducts = (products as any[]).filter(
-      (p) => p.categoryId === category.id || p.categoryId === category.slug
-    );
+    const categoryProducts = productsInCategory(category);
     const totalPages = totalPagesFor(categoryProducts.length, CATEGORY_PAGE_SIZE);
     // La página 1 vive en /categorias/{slug}/ — aquí solo se generan la 2 en adelante.
     for (let page = 2; page <= totalPages; page++) {
@@ -26,7 +25,7 @@ export function getStaticPaths() {
 
 const { category } = Astro.props;
 const currentPage = Number(Astro.params.page);
-const categoryProducts = (products as any[]).filter((p) => p.categoryId === category.id || p.categoryId === category.slug);
+const categoryProducts = productsInCategory(category);
 const totalPages = totalPagesFor(categoryProducts.length, CATEGORY_PAGE_SIZE);
 const pageProducts = pageSlice(categoryProducts, currentPage, CATEGORY_PAGE_SIZE);
 const categoryUrl = `${SITE.url}/categorias/${category.slug}/`;
@@ -51,7 +50,7 @@ const jsonLd = [
 ];
 ---
 
-<BaseLayout title={`${baseTitle} — Página ${currentPage}`} description={baseDescription} ogImage={category.image} jsonLd={jsonLd}>
+<BaseLayout title={`${baseTitle} — Página ${currentPage}`} description={baseDescription} ogImage={category.image ? resolveSupplierImageUrl(category.image) : undefined} jsonLd={jsonLd}>
   <CategoryListing
     category={category}
     totalCount={categoryProducts.length}

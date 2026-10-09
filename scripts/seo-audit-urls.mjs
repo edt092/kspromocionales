@@ -34,9 +34,13 @@ const HISTORIC_CATEGORY_IDS = [
   'tomatodos-botilitos',
 ];
 
+// El total real se guarda en list.total; el array solo conserva hasta EXAMPLE_LIMIT ejemplos.
+// (Antes el recuento mostrado era el tamaño del array de ejemplos, truncado a 30.)
 function pushExample(list, value) {
+  list.total = (list.total ?? 0) + 1;
   if (list.length < EXAMPLE_LIMIT) list.push(value);
 }
+const totalOf = (list) => list.total ?? list.length;
 
 function walkHtmlFiles(dir) {
   const out = [];
@@ -111,7 +115,30 @@ function main() {
     internalLinkWrongHost: [],
     internalLinkHistoricSlug: [],
     internalLinkNoTrailingSlash: [],
+    internalLinkToAlias: [],
+    redirectsFileMissing: [],
+    redirectTargetNotGenerated: [],
+    redirectSourceGenerated: [],
+    redirectSourceInSitemap: [],
+    jsonLdInvalid: [],
+    jsonLdDanglingId: [],
+    breadcrumbRootNoSlash: [],
   };
+
+  // --- Redirects de aliases (T04): dist/_redirects generado desde data/product-aliases.json ---
+  const aliasesPath = path.join(ROOT, 'data', 'product-aliases.json');
+  const aliases = existsSync(aliasesPath) ? JSON.parse(readFileSync(aliasesPath, 'utf8')) : [];
+  const aliasFromSet = new Set(aliases.map((a) => a.from));
+  const redirectsPath = path.join(DIST, '_redirects');
+  if (aliases.length) {
+    const redirectsTxt = existsSync(redirectsPath) ? readFileSync(redirectsPath, 'utf8') : null;
+    if (redirectsTxt === null) pushExample(findings.redirectsFileMissing, 'dist/_redirects');
+    for (const a of aliases) {
+      if (redirectsTxt !== null && !redirectsTxt.includes(`${a.from}  ${a.to}  301`)) pushExample(findings.redirectsFileMissing, a.from);
+      if (!existsSync(path.join(DIST, a.to, 'index.html'))) pushExample(findings.redirectTargetNotGenerated, a);
+      if (existsSync(path.join(DIST, a.from, 'index.html'))) pushExample(findings.redirectSourceGenerated, a.from);
+    }
+  }
 
   // --- Sitemap ---
   if (!sitemapIndexXml.includes(`${EXPECTED_ORIGIN}/sitemap-0.xml`)) {
@@ -132,6 +159,7 @@ function main() {
       pushExample(findings.sitemapNoTrailingSlash, loc);
     }
     if (pathname === '/gracias/') pushExample(findings.sitemapGracias, loc);
+    if (aliasFromSet.has(pathname)) pushExample(findings.redirectSourceInSitemap, loc);
     if (seenLocs.has(loc)) pushExample(findings.sitemapDuplicates, loc);
     seenLocs.add(loc);
   }
@@ -179,6 +207,31 @@ function main() {
         expectedPathname,
         canonicalPathname: canonicalUrl.pathname,
       });
+    }
+
+    // --- JSON-LD: parseable, @id referenciados declarados en la página, raíz con barra ---
+    const declaredIds = new Set();
+    const referencedIds = [];
+    for (const [, raw] of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      let data;
+      try {
+        data = JSON.parse(raw);
+      } catch (err) {
+        pushExample(findings.jsonLdInvalid, { file: relFile, error: err.message });
+        continue;
+      }
+      (function walk(node, isTop) {
+        if (Array.isArray(node)) return node.forEach((n) => walk(n, false));
+        if (!node || typeof node !== 'object') return;
+        const keys = Object.keys(node);
+        if (node['@id'] && (node['@type'] || isTop)) declaredIds.add(node['@id']);
+        else if (node['@id'] && keys.length === 1) referencedIds.push(node['@id']);
+        if (node['@type'] === 'ListItem' && node.item === EXPECTED_ORIGIN) pushExample(findings.breadcrumbRootNoSlash, relFile);
+        for (const k of keys) if (k !== '@id') walk(node[k], false);
+      })(data, true);
+    }
+    for (const id of referencedIds) {
+      if (id.startsWith(EXPECTED_ORIGIN) && id.includes('#') && !declaredIds.has(id)) pushExample(findings.jsonLdDanglingId, { file: relFile, id });
     }
 
     const isNoindex = /<meta\s+name="robots"\s+content="noindex/.test(html);
@@ -229,6 +282,9 @@ function main() {
       if (hrefPathname && !hrefPathname.endsWith('/') && !path.extname(hrefPathname)) {
         pushExample(findings.internalLinkNoTrailingSlash, { file: relFile, href });
       }
+      if (hrefPathname && aliasFromSet.has(hrefPathname.split(/[?#]/)[0])) {
+        pushExample(findings.internalLinkToAlias, { file: relFile, href });
+      }
       if (hrefPathname) {
         const catMatch = hrefPathname.match(/^\/categorias\/([^/]+)/);
         if (catMatch && HISTORIC_CATEGORY_IDS.includes(catMatch[1])) {
@@ -249,7 +305,7 @@ function main() {
 
   for (const key of structuralKeys) {
     const list = findings[key];
-    const count = list.length;
+    const count = totalOf(list);
     const marker = count > 0 ? '✗' : '✓';
     if (count > 0) hasErrors = true;
     console.log(`${marker} ${key}: ${count}`);
@@ -257,7 +313,7 @@ function main() {
       for (const ex of list.slice(0, 5)) {
         console.log(`    - ${JSON.stringify(ex)}`);
       }
-      if (count > 5) console.log(`    ... y ${count - 5} más (hasta ${EXAMPLE_LIMIT} en total registrados)`);
+      if (count > 5) console.log(`    ... y ${count - 5} más (${Math.min(count, EXAMPLE_LIMIT)} ejemplos registrados)`);
     }
   }
 

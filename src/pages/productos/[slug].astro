@@ -5,37 +5,46 @@ import Icon from '@/components/Icon.astro';
 import { productWhatsappUrl } from '@/lib/whatsapp';
 import { SITE } from '@/lib/site';
 import { getProductImage } from '@/lib/product-image';
-import { breadcrumbListSchema } from '@/lib/schema';
+import { breadcrumbListSchema, type BreadcrumbItem } from '@/lib/schema';
 import { evaluateProductIndexability } from '@/lib/product-indexability';
-import products from '@data/products.json';
-import categories from '@data/categories.json';
+import { allProducts, primaryCategoryOf, relatedProducts } from '@/lib/catalog';
 
 export function getStaticPaths() {
-  return (products as any[]).map((product) => ({
+  return allProducts.map((product) => ({
     params: { slug: product.slug },
     props: { product },
   }));
 }
 
 const { product } = Astro.props;
-const category = (categories as any[]).find((c) => c.id === product.categoryId || c.slug === product.categoryId);
-const related = (products as any[])
-  .filter((p) => p.categoryId === product.categoryId && p.slug !== product.slug)
-  .slice(0, 4);
+const category = primaryCategoryOf(product);
+const related = relatedProducts(product, 4);
 const image = getProductImage(product.images);
 const ctaUrl = productWhatsappUrl(product.name, product.whatsappMessage);
 const productUrl = `${SITE.url}/productos/${product.slug}/`;
-const indexability = evaluateProductIndexability(product);
+const indexability = evaluateProductIndexability(product as any);
 
-const jsonLd = [
-  breadcrumbListSchema(
-    [
-      { name: 'Inicio', item: SITE.url },
-      category && { name: category.name, item: `${SITE.url}/categorias/${category.slug}/` },
-      { name: product.name, item: productUrl },
-    ].filter(Boolean) as { name: string; item: string }[]
-  ),
+// Una sola lista ordenada alimenta el breadcrumb visible y el JSON-LD (antes el JSON-LD
+// omitía "Categorías" y la raíz no tenía barra final).
+const crumbs: (BreadcrumbItem & { href: string })[] = [
+  { name: 'Inicio', item: `${SITE.url}/`, href: '/' },
+  { name: 'Categorías', item: `${SITE.url}/categorias/`, href: '/categorias/' },
+  ...(category ? [{ name: category.name, item: `${SITE.url}/categorias/${category.slug}/`, href: `/categorias/${category.slug}/` }] : []),
+  { name: product.name, item: productUrl, href: `/productos/${product.slug}/` },
 ];
+const jsonLd = [breadcrumbListSchema(crumbs.map(({ name, item }) => ({ name, item })))];
+
+// Hechos verificados (data/catalog-corrections.json). Lo pendiente de confirmar no se muestra.
+const FACT_LABELS: Record<string, string> = {
+  tipo: 'Tipo',
+  material: 'Material',
+  estructura: 'Estructura',
+  mecanismo: 'Mecanismo',
+  largo: 'Largo',
+  medidas: 'Medidas',
+  capacidad: 'Capacidad',
+};
+const facts = Object.entries((product.facts ?? {}) as Record<string, string>).filter(([k, v]) => FACT_LABELS[k] && v);
 ---
 
 <BaseLayout
@@ -45,42 +54,61 @@ const jsonLd = [
   robots={indexability.indexable ? undefined : 'noindex, follow'}
   jsonLd={jsonLd}
 >
-  <div class="bg-gray-50 pt-28 pb-4">
+  {/* El header ocupa espacio en el flujo (Header.astro: .header-accent-line { position: relative }),
+       así que aquí no hace falta compensar su altura; antes pt-28 dejaba ~110px vacíos en móvil. */}
+  <div class="bg-gray-50 pt-4 pb-3 lg:pt-6">
     <div class="container-ks">
-      <nav class="flex items-center gap-2 text-sm text-gray-600 flex-wrap">
-        <a href="/" class="hover:text-ks-navy transition-colors">Inicio</a>
-        <span>/</span>
-        <a href="/categorias/" class="hover:text-ks-navy transition-colors">Categorías</a>
-        {category && (
-          <>
-            <span>/</span>
-            <a href={`/categorias/${category.slug}/`} class="hover:text-ks-navy transition-colors">{category.name}</a>
-          </>
+      <nav aria-label="Ruta de navegación" class="flex items-center gap-x-2 gap-y-1 text-sm text-gray-600 flex-wrap">
+        {crumbs.map((c, i) =>
+          i < crumbs.length - 1 ? (
+            <>
+              <a href={c.href} class="hover:text-ks-navy transition-colors py-1">{c.name}</a>
+              <span aria-hidden="true">/</span>
+            </>
+          ) : (
+            <span class="text-ks-navy font-medium" aria-current="page">{c.name}</span>
+          )
         )}
-        <span>/</span>
-        <span class="text-ks-navy font-medium">{product.name}</span>
       </nav>
     </div>
   </div>
 
-  <section class="py-10 lg:py-16">
-    <div class="container-ks grid lg:grid-cols-2 gap-12">
-      <div class="aspect-product rounded-2xl overflow-hidden bg-ks-navy-wash">
-        <img src={image} alt={product.name} fetchpriority="high" class="w-full h-full object-cover" width="600" height="600" />
+  <section class="py-6 lg:py-16">
+    <div class="container-ks grid lg:grid-cols-2 gap-6 lg:gap-12">
+      <div class="aspect-product rounded-2xl overflow-hidden bg-ks-navy-wash w-full max-w-[18rem] sm:max-w-sm mx-auto lg:max-w-none">
+        <img src={image} alt={product.name} fetchpriority="high" decoding="async" class="w-full h-full object-cover" width="600" height="600" />
       </div>
 
       <div>
         {category && (
-          <a href={`/categorias/${category.slug}/`} class="section-label mb-3">
+          <a href={`/categorias/${category.slug}/`} class="section-label mb-3 hidden sm:inline-flex">
             <Icon name="layers" size={14} /> {category.name}
           </a>
         )}
-        <h1 class="text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mb-4 leading-tight">{product.name}</h1>
-        {product.shortDescription && <p class="text-lg text-gray-600 mb-8 leading-relaxed">{product.shortDescription}</p>}
+        <h1 class="text-2xl sm:text-4xl font-heading font-bold text-[#0A0A23] mb-3 sm:mb-4 leading-tight">{product.name}</h1>
+        {product.shortDescription && <p class="text-base sm:text-lg text-gray-600 mb-5 sm:mb-8 leading-relaxed">{product.shortDescription}</p>}
 
-        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp pulse-whatsapp w-full sm:w-auto justify-center mb-8">
+        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" data-primary-cta class="btn-whatsapp pulse-whatsapp w-full sm:w-auto justify-center mb-4 min-h-[48px]">
           <Icon name="message-circle" size={18} /> Cotizar por WhatsApp
         </a>
+        <p class="text-sm text-gray-500 mb-8 leading-relaxed">
+          Al cotizar te confirmamos cantidad mínima, técnica de marcación, colores disponibles y tiempo de producción.
+          Enviamos a toda Colombia desde {SITE.operatingBase.split(',')[0]} ({SITE.metroAreaLabel}).
+        </p>
+
+        {facts.length > 0 && (
+          <div class="mb-8">
+            <h2 class="font-heading font-bold text-[#0A0A23] mb-3">Ficha del producto</h2>
+            <dl class="grid grid-cols-[auto,1fr] gap-x-6 gap-y-2 text-sm">
+              {facts.map(([k, v]) => (
+                <>
+                  <dt class="text-gray-500">{FACT_LABELS[k]}</dt>
+                  <dd class="text-[#0A0A23] font-medium">{v}</dd>
+                </>
+              ))}
+            </dl>
+          </div>
+        )}
 
         {product.features?.length > 0 && (
           <div class="mb-8">
@@ -113,7 +141,7 @@ const jsonLd = [
     </div>
 
     {product.story && (
-      <div class="container-ks max-w-3xl mt-16 pt-12 border-t border-gray-100">
+      <div class="container-ks max-w-3xl mt-12 lg:mt-16 pt-10 lg:pt-12 border-t border-gray-100">
         <h2 class="font-heading font-bold text-2xl text-[#0A0A23] mb-4">Sobre este producto</h2>
         <p class="text-gray-600 leading-relaxed whitespace-pre-line">{product.story}</p>
       </div>

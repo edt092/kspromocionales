@@ -11,6 +11,7 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import WhatsAppFloat from '@/components/WhatsAppFloat.astro';
 import { SITE } from '@/lib/site';
+import { organizationSchema, websiteSchema } from '@/lib/schema';
 
 interface ArticleMeta {
   publishedTime: string;
@@ -42,7 +43,9 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, SITE.url).toString();
-const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+// Organization + WebSite en todas las páginas: los bloques de página (Service.provider,
+// BlogPosting.publisher, AboutPage.about…) referencian sus @id y deben resolverse en la misma página.
+const jsonLdList = [organizationSchema(), websiteSchema(), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 const ogImageUrl = new URL(ogImage, SITE.url).toString();
 ---
 
@@ -52,6 +55,8 @@ const ogImageUrl = new URL(ogImage, SITE.url).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/png" href="/favicon-src.png" />
+    <!-- Imágenes de producto aún servidas por el proveedor (ver IMAGE_MIGRATION_STRATEGY.md) -->
+    <link rel="preconnect" href="https://cataprom.com" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />

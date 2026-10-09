@@ -1,0 +1,2859 @@
+{
+ "generatedAt": "2026-10-09T20:29:45.272Z",
+ "rules": {
+  "identity": "sourceProductId = id numérico del archivo de imagen del proveedor (catalogospromocionales.com/images/productos/<id>.jpg).",
+  "tierA": "Misma imagen y mismo nombre tras quitar etiquetas comerciales mutables.",
+  "tierB": "Misma imagen; los nombres difieren solo por título comercial generado o por especificación añadida. Si ambos nombres declaran medidas distintas → variante, no se fusiona.",
+  "primary": "Mayor puntaje: clics GSC > slug sin etiqueta comercial > nombre descriptivo > medidas en el nombre > categoría no promocional > impresiones.",
+  "categories": "Primaria = categoría base (no precio-bomba/novedades/ecologia si hay alternativa). Secundarias = resto; ecologia solo si el nombre declara material."
+ },
+ "summary": {
+  "mismo_producto_A": 64,
+  "mismo_producto_B": 24,
+  "variante": 6
+ },
+ "removedRecords": 88,
+ "productsBefore": 2185,
+ "productsAfter": 2097,
+ "remainingDuplicateSourceIds": [
+  "6322",
+  "4439",
+  "5159",
+  "6706",
+  "5741",
+  "10688"
+ ],
+ "decisions": [
+  {
+   "sourceProductId": "13296",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mini-linterna-ozen-nuevo-13296",
+     "id": "novedades-mini-linterna-ozen-nuevo",
+     "name": "Mini Linterna Ozen Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "mini-linterna-ozen-13296",
+     "id": "mini-linterna-ozen-13296",
+     "name": "Mini Linterna Ozen",
+     "categoryId": "iluminacion",
+     "gsc": null
+    }
+   ],
+   "primary": "mini-linterna-ozen-13296",
+   "primaryCategory": "iluminacion",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mini-linterna-ozen-nuevo-13296"
+   ]
+  },
+  {
+   "sourceProductId": "13297",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "medidor-de-presion-para-neumaticos-nuevo-13297",
+     "id": "novedades-medidor-de-presion-para-neumaticos-nuevo",
+     "name": "Medidor de Presión Para Neumaticos Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "medidor-de-presion-para-neumaticos-13297",
+     "id": "medidor-de-presion-para-neumaticos-13297",
+     "name": "Medidor de Presión Para Neumaticos",
+     "categoryId": "herramientas",
+     "gsc": null
+    }
+   ],
+   "primary": "medidor-de-presion-para-neumaticos-13297",
+   "primaryCategory": "herramientas",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "medidor-de-presion-para-neumaticos-nuevo-13297"
+   ]
+  },
+  {
+   "sourceProductId": "13298",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "speaker-bluetooth-novark-nuevo-13298",
+     "id": "novedades-speaker-bluetooth-novark-nuevo",
+     "name": "Speaker Bluetooth Novark Nuevo",
+     "categoryId": "novedades",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "speaker-bluetooth-novark-13298",
+     "id": "speaker-bluetooth-novark-13298",
+     "name": "Speaker Bluetooth Novark",
+     "categoryId": "ecologia",
+     "gsc": null
+    }
+   ],
+   "primary": "speaker-bluetooth-novark-13298",
+   "primaryCategory": "ecologia",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "speaker-bluetooth-novark-nuevo-13298"
+   ]
+  },
+  {
+   "sourceProductId": "13299",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "teclado-bluetooth-orbi-nuevo-13299",
+     "id": "novedades-teclado-bluetooth-orbi-nuevo",
+     "name": "Teclado Bluetooth Orbi Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "teclado-bluetooth-orbi-13299",
+     "id": "teclado-bluetooth-orbi-13299",
+     "name": "Teclado Bluetooth Orbi",
+     "categoryId": "tecnologia",
+     "gsc": null
+    }
+   ],
+   "primary": "teclado-bluetooth-orbi-13299",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "teclado-bluetooth-orbi-nuevo-13299"
+   ]
+  },
+  {
+   "sourceProductId": "13300",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mouse-inalambrico-lumo-nuevo-13300",
+     "id": "novedades-mouse-inalambrico-lumo-nuevo",
+     "name": "Mouse Inalambrico Lumo Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "mouse-inalambrico-lumo-13300",
+     "id": "mouse-inalambrico-lumo-13300",
+     "name": "Mouse Inalambrico Lumo",
+     "categoryId": "tecnologia",
+     "gsc": null
+    }
+   ],
+   "primary": "mouse-inalambrico-lumo-13300",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mouse-inalambrico-lumo-nuevo-13300"
+   ]
+  },
+  {
+   "sourceProductId": "13213",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "speaker-bluetooth-beach-35-boompods-nuevo-13213",
+     "id": "boompods-speaker-bluetooth-beach-35-boompods-nuevo",
+     "name": "Speaker Bluetooth Beach 35 Boompods Nuevo",
+     "categoryId": "tecnologia",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "speaker-bluetooth-beach-35-boompods-13213",
+     "id": "speaker-bluetooth-beach-35-boompods-13213",
+     "name": "Speaker Bluetooth Beach 35 Boompods",
+     "categoryId": "tecnologia",
+     "gsc": null
+    }
+   ],
+   "primary": "speaker-bluetooth-beach-35-boompods-13213",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "speaker-bluetooth-beach-35-boompods-nuevo-13213"
+   ]
+  },
+  {
+   "sourceProductId": "13210",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "rastreador-airtag-boomtag-nuevo-13210",
+     "id": "boompods-rastreador-airtag-boomtag-nuevo",
+     "name": "Rastreador Airtag Boomtag Nuevo",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "rastreador-airtag-boomtag-13210",
+     "id": "rastreador-airtag-boomtag-13210",
+     "name": "Rastreador Airtag Boomtag",
+     "categoryId": "tecnologia",
+     "gsc": null
+    }
+   ],
+   "primary": "rastreador-airtag-boomtag-13210",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "rastreador-airtag-boomtag-nuevo-13210"
+   ]
+  },
+  {
+   "sourceProductId": "13211",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "rastreador-airtag-boomcard-nuevo-13211",
+     "id": "boompods-rastreador-airtag-boomcard-nuevo",
+     "name": "Rastreador Airtag Boomcard Nuevo",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "rastreador-airtag-boomcard-13211",
+     "id": "rastreador-airtag-boomcard-13211",
+     "name": "Rastreador Airtag Boomcard",
+     "categoryId": "tecnologia",
+     "gsc": null
+    }
+   ],
+   "primary": "rastreador-airtag-boomcard-13211",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "rastreador-airtag-boomcard-nuevo-13211"
+   ]
+  },
+  {
+   "sourceProductId": "13212",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "audifonos-bluetooth-anc-nuevo-13212",
+     "id": "boompods-audifonos-bluetooth-anc-nuevo",
+     "name": "Audifonos Bluetooth Anc Nuevo",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "audifonos-bluetooth-anc-13212",
+     "id": "audifonos-bluetooth-anc-13212",
+     "name": "Audifonos Bluetooth Anc",
+     "categoryId": "tecnologia",
+     "gsc": null
+    }
+   ],
+   "primary": "audifonos-bluetooth-anc-13212",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "audifonos-bluetooth-anc-nuevo-13212"
+   ]
+  },
+  {
+   "sourceProductId": "10690",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "bolsa-en-algodon-botanik-10690",
+     "id": "algodon-bolsa-en-algodon-botanik",
+     "name": "Bolsa en Algodón Botanik",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-botanik-100gr-10690",
+     "id": "bolsa-en-algodon-botanik-100gr-10690",
+     "name": "Bolsa en Algodón Botanik (100gr)",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-algodon-botanik-100gr-10690",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-algodon-botanik-10690"
+   ]
+  },
+  {
+   "sourceProductId": "10691",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "bolsa-en-algodon-con-fuelle-10691",
+     "id": "ecopromo-bolsa-en-algodon-con-fuelle",
+     "name": "Bolsa en Algodón Con Fuelle",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-con-fuelle-100gr-10691",
+     "id": "bolsa-en-algodon-con-fuelle-100gr-10691",
+     "name": "Bolsa en Algodón Con Fuelle (100gr)",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-algodon-con-fuelle-100gr-10691",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "ecologia"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-algodon-con-fuelle-10691"
+   ]
+  },
+  {
+   "sourceProductId": "5693",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "paraguas-trendy-poliester-27-fibra-de-vidrio-5693",
+     "id": "normales-23-a-30-pulgadas-paraguas-trendy-polieste",
+     "name": "Paraguas Trendy Poliéster 27\" Fibra de Vidrio",
+     "categoryId": "paraguas",
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-trendy-poliester-27-5693",
+     "id": "paraguas-trendy-poliester-27-5693",
+     "name": "Paraguas Trendy Poliéster 27",
+     "categoryId": "paraguas",
+     "gsc": null
+    }
+   ],
+   "primary": "paraguas-trendy-poliester-27-fibra-de-vidrio-5693",
+   "primaryCategory": "paraguas",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "paraguas-trendy-poliester-27-5693"
+   ]
+  },
+  {
+   "sourceProductId": "1085",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "paraguas-golf-cuadrado-30-oferta-1085",
+     "id": "rainpro-paraguas-golf-cuadrado-30-oferta",
+     "name": "Paraguas Golf Cuadrado 30\" Oferta",
+     "categoryId": "paraguas",
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-golf-cuadrado-30-1085",
+     "id": "paraguas-golf-cuadrado-30-1085",
+     "name": "Paraguas Golf Cuadrado 30",
+     "categoryId": "paraguas",
+     "gsc": null
+    }
+   ],
+   "primary": "paraguas-golf-cuadrado-30-1085",
+   "primaryCategory": "paraguas",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "paraguas-golf-cuadrado-30-oferta-1085"
+   ]
+  },
+  {
+   "sourceProductId": "9217",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "paraguas-23-roma-urban-travel-9217",
+     "id": "urban-travel-paraguas-23-roma-urban-travel",
+     "name": "Paraguas 23\" Roma Urban Travel",
+     "categoryId": "paraguas",
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-23-9217",
+     "id": "paraguas-23-9217",
+     "name": "Paraguas 23",
+     "categoryId": "paraguas",
+     "gsc": null
+    }
+   ],
+   "primary": "paraguas-23-roma-urban-travel-9217",
+   "primaryCategory": "paraguas",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "paraguas-23-9217"
+   ]
+  },
+  {
+   "sourceProductId": "9218",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "paraguas-27-gentle-urban-travel-9218",
+     "id": "urban-travel-paraguas-27-gentle-urban-travel",
+     "name": "Paraguas 27\" Gentle Urban Travel",
+     "categoryId": "paraguas",
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-27-9218",
+     "id": "paraguas-27-9218",
+     "name": "Paraguas 27",
+     "categoryId": "paraguas",
+     "gsc": null
+    }
+   ],
+   "primary": "paraguas-27-gentle-urban-travel-9218",
+   "primaryCategory": "paraguas",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "paraguas-27-9218"
+   ]
+  },
+  {
+   "sourceProductId": "9753",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "set-enfriador-de-vino-chill-precio-bomba-9753",
+     "id": "xindao-set-enfriador-de-vino-chill-precio-bomba",
+     "name": "Set Enfriador de Vino Chill - Precio Bomba",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "set-enfriador-de-vino-chill-9753",
+     "id": "set-enfriador-de-vino-chill-9753",
+     "name": "Set Enfriador de Vino Chill",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "set-enfriador-de-vino-chill-9753",
+   "primaryCategory": "variedades",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "set-enfriador-de-vino-chill-precio-bomba-9753"
+   ]
+  },
+  {
+   "sourceProductId": "13262",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "resaltadores-jeringa-nuevo-13262",
+     "id": "boligrafo-con-resaltador-resaltadores-jeringa-nuev",
+     "name": "Resaltadores Jeringa Nuevo",
+     "categoryId": "escritura",
+     "gsc": null
+    },
+    {
+     "slug": "resaltadores-jeringa-13262",
+     "id": "resaltadores-jeringa-13262",
+     "name": "Resaltadores Jeringa",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "resaltadores-jeringa-13262",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "resaltadores-jeringa-nuevo-13262"
+   ]
+  },
+  {
+   "sourceProductId": "6048",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "estuche-doble-regal-6048",
+     "id": "estuches-boligrafos-estuche-doble-regal",
+     "name": "Estuche Doble Regal",
+     "categoryId": "escritura",
+     "gsc": null
+    },
+    {
+     "slug": "estuche-doble-regal-prod-nacional-6048",
+     "id": "estuche-doble-regal-prod-nacional-6048",
+     "name": "Estuche Doble Regal (prod. Nacional)",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    }
+   ],
+   "primary": "estuche-doble-regal-6048",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "produccion-nacional"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "estuche-doble-regal-prod-nacional-6048"
+   ]
+  },
+  {
+   "sourceProductId": "9680",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "set-de-cafe-eco-precio-bomba-9680",
+     "id": "estuches-boligrafos-set-de-cafe-eco-precio-bomba",
+     "name": "Set de Café Eco - Precio Bomba",
+     "categoryId": "escritura",
+     "gsc": null
+    },
+    {
+     "slug": "set-de-cafe-eco-9680",
+     "id": "set-de-cafe-eco-9680",
+     "name": "Set de Café Eco",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "set-de-cafe-eco-9680",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "set-de-cafe-eco-precio-bomba-9680"
+   ]
+  },
+  {
+   "sourceProductId": "13294",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-scroll-nuevo-13294",
+     "id": "metalicos-con-stylus-boligrafo-scroll-nuevo",
+     "name": "Boligrafo Scroll Nuevo",
+     "categoryId": "escritura",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-scroll-13294",
+     "id": "boligrafo-scroll-13294",
+     "name": "Boligrafo Scroll",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-scroll-13294",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "boligrafo-scroll-nuevo-13294"
+   ]
+  },
+  {
+   "sourceProductId": "7330",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "balmax-stylus-precio-bomba-7330",
+     "id": "plasticos-con-stylus-balmax-stylus-precio-bomba",
+     "name": "Balmax Stylus - Precio Bomba",
+     "categoryId": "escritura",
+     "gsc": null
+    },
+    {
+     "slug": "balmax-stylus-7330",
+     "id": "balmax-stylus-7330",
+     "name": "Balmax Stylus",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "balmax-stylus-7330",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "balmax-stylus-precio-bomba-7330"
+   ]
+  },
+  {
+   "sourceProductId": "6530",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "set-de-herramientas-motobike-6530",
+     "id": "herramientero-con-linterna-set-de-herramientas-mot",
+     "name": "Set de Herramientas Motobike",
+     "categoryId": "herramientas",
+     "gsc": null
+    },
+    {
+     "slug": "motobike-master-kit-la-herramienta-que-tu-moto-necesita-6530",
+     "id": "accesorios-auto-motobike-master-kit-la-herramienta-que-tu-moto-necesita",
+     "name": "Motobike Master Kit: La Herramienta que tu Moto Necesita",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "set-de-herramientas-motobike-6530",
+   "primaryCategory": "herramientas",
+   "secondaryCategoryIds": [
+    "automovil"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "motobike-master-kit-la-herramienta-que-tu-moto-necesita-6530"
+   ]
+  },
+  {
+   "sourceProductId": "10250",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "set-de-herramientas-con-lampara-led-precio-bomba-10250",
+     "id": "herramientero-con-linterna-set-de-herramientas-con",
+     "name": "Set de Herramientas Con Lámpara Led - Precio Bomba",
+     "categoryId": "herramientas",
+     "gsc": null
+    },
+    {
+     "slug": "set-de-herramientas-con-lampara-led-10250",
+     "id": "set-de-herramientas-con-lampara-led-10250",
+     "name": "Set de Herramientas Con Lámpara Led",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "set-de-herramientas-con-lampara-led-10250",
+   "primaryCategory": "herramientas",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "set-de-herramientas-con-lampara-led-precio-bomba-10250"
+   ]
+  },
+  {
+   "sourceProductId": "7991",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "set-de-destornilladores-everest-precio-bomba-7991",
+     "id": "multiusos-set-de-destornilladores-everest-precio-b",
+     "name": "Set de Destornilladores Everest -precio Bomba",
+     "categoryId": "herramientas",
+     "gsc": null
+    },
+    {
+     "slug": "set-de-destornilladores-everest-7991",
+     "id": "set-de-destornilladores-everest-7991",
+     "name": "Set de Destornilladores Everest",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "set-de-destornilladores-everest-7991",
+   "primaryCategory": "herramientas",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "set-de-destornilladores-everest-precio-bomba-7991"
+   ]
+  },
+  {
+   "sourceProductId": "10677",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "molde-de-silicona-ice-face-precio-bomba-10677",
+     "id": "articulos-hogar-molde-de-silicona-ice-face-precio-",
+     "name": "Molde de Silicona Ice Face - Precio Bomba",
+     "categoryId": "hogar",
+     "gsc": null
+    },
+    {
+     "slug": "molde-de-silicona-ice-face-10677",
+     "id": "molde-de-silicona-ice-face-10677",
+     "name": "Molde de Silicona Ice Face",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "molde-de-silicona-ice-face-10677",
+   "primaryCategory": "hogar",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "molde-de-silicona-ice-face-precio-bomba-10677"
+   ]
+  },
+  {
+   "sourceProductId": "13202",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "bbq-grill-soccer-cook-nuevo-13202",
+     "id": "set-de-bbq-bbq-grill-soccer-cook-nuevo",
+     "name": "Bbq Grill Soccer Cook Nuevo",
+     "categoryId": "hogar",
+     "gsc": null
+    },
+    {
+     "slug": "bbq-grill-soccer-cook-13202",
+     "id": "bbq-grill-soccer-cook-13202",
+     "name": "Bbq Grill Soccer Cook",
+     "categoryId": "hogar",
+     "gsc": null
+    }
+   ],
+   "primary": "bbq-grill-soccer-cook-13202",
+   "primaryCategory": "hogar",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "bbq-grill-soccer-cook-nuevo-13202"
+   ]
+  },
+  {
+   "sourceProductId": "13334",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mini-herramientero-blazor-nuevo-13334",
+     "id": "linternas-llavero-mini-herramientero-blazor-nuevo",
+     "name": "Mini Herramientero Blazor Nuevo",
+     "categoryId": "herramientas",
+     "gsc": null
+    },
+    {
+     "slug": "mini-herramientero-blazor-13334",
+     "id": "mini-herramientero-blazor-13334",
+     "name": "Mini Herramientero Blazor",
+     "categoryId": "iluminacion",
+     "gsc": null
+    }
+   ],
+   "primary": "mini-herramientero-blazor-13334",
+   "primaryCategory": "iluminacion",
+   "secondaryCategoryIds": [
+    "herramientas"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mini-herramientero-blazor-nuevo-13334"
+   ]
+  },
+  {
+   "sourceProductId": "4727",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "memoria-usb-carabinero-precio-neto-4727",
+     "id": "metalicas-memoria-usb-carabinero-precio-neto",
+     "name": "Memoria Usb Carabinero Precio Neto",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "memoria-usb-carabinero-precio-neto-oferta-4727",
+     "id": "memoria-usb-carabinero-precio-neto-oferta-4727",
+     "name": "Memoria Usb Carabinero Precio Neto - Oferta",
+     "categoryId": "memorias-usb",
+     "gsc": null
+    }
+   ],
+   "primary": "memoria-usb-carabinero-precio-neto-4727",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "memorias-usb"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "memoria-usb-carabinero-precio-neto-oferta-4727"
+   ]
+  },
+  {
+   "sourceProductId": "5277",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "memoria-mini-usb-en-imitacion-cuero-precio-neto-5277",
+     "id": "metalicas-memoria-mini-usb-en-imitacion-cuero-prec",
+     "name": "Memoria Mini Usb en Imitacion Cuero Precio Neto",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "memoria-mini-usb-en-imitacion-cuero-precio-neto-oferta-5277",
+     "id": "memoria-mini-usb-en-imitacion-cuero-precio-neto-oferta-5277",
+     "name": "Memoria Mini Usb en Imitacion Cuero Precio Neto - Oferta",
+     "categoryId": "memorias-usb",
+     "gsc": null
+    }
+   ],
+   "primary": "memoria-mini-usb-en-imitacion-cuero-precio-neto-5277",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "memorias-usb"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "memoria-mini-usb-en-imitacion-cuero-precio-neto-oferta-5277"
+   ]
+  },
+  {
+   "sourceProductId": "7987",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "memoria-usb-braxton-precio-neto-7987",
+     "id": "metalicas-memoria-usb-braxton-precio-neto",
+     "name": "Memoria Usb Braxton Precio Neto",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "memoria-usb-braxton-precio-neto-oferta-7987",
+     "id": "memoria-usb-braxton-precio-neto-oferta-7987",
+     "name": "Memoria Usb Braxton Precio Neto - Oferta",
+     "categoryId": "memorias-usb",
+     "gsc": null
+    }
+   ],
+   "primary": "memoria-usb-braxton-precio-neto-7987",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "memorias-usb"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "memoria-usb-braxton-precio-neto-oferta-7987"
+   ]
+  },
+  {
+   "sourceProductId": "6051",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mini-libreta-duo-produccion-nacional-6051",
+     "id": "produccion-nacional-mini-libreta-duo-produccion-na",
+     "name": "Mini Libreta Duo - Producción Nacional",
+     "categoryId": "oficina",
+     "gsc": null
+    },
+    {
+     "slug": "mini-libreta-duo-produccion-nacional-ver-ref-bolian-6051",
+     "id": "mini-libreta-duo-produccion-nacional-ver-ref-bolian-6051",
+     "name": "Mini Libreta Duo - Producción Nacional (ver Ref Bolian)",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    }
+   ],
+   "primary": "mini-libreta-duo-produccion-nacional-6051",
+   "primaryCategory": "oficina",
+   "secondaryCategoryIds": [
+    "produccion-nacional"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mini-libreta-duo-produccion-nacional-ver-ref-bolian-6051"
+   ]
+  },
+  {
+   "sourceProductId": "9132",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "llavero-pito-con-destapador-precio-bomba-9132",
+     "id": "con-destapador-llavero-pito-con-destapador-precio-",
+     "name": "Llavero Pito Con Destapador - Precio Bomba",
+     "categoryId": "mugs",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "llavero-pito-con-destapador-9132",
+     "id": "llavero-pito-con-destapador-9132",
+     "name": "Llavero Pito Con Destapador",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "llavero-pito-con-destapador-9132",
+   "primaryCategory": "mugs",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "llavero-pito-con-destapador-precio-bomba-9132"
+   ]
+  },
+  {
+   "sourceProductId": "13366",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "pito-con-luz-vision-nuevo-13366",
+     "id": "con-luz-pito-con-luz-vision-nuevo",
+     "name": "Pito Con Luz Vision Nuevo",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "pito-con-luz-vision-13366",
+     "id": "pito-con-luz-vision-13366",
+     "name": "Pito Con Luz Vision",
+     "categoryId": "iluminacion",
+     "gsc": null
+    }
+   ],
+   "primary": "pito-con-luz-vision-13366",
+   "primaryCategory": "iluminacion",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "pito-con-luz-vision-nuevo-13366"
+   ]
+  },
+  {
+   "sourceProductId": "9103",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "bolsa-en-algodon-corcho-9103",
+     "id": "algodon-bolsa-en-algodon-corcho",
+     "name": "Bolsa en Algodón Corcho",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-corcho-135gr-9103",
+     "id": "bolsa-en-algodon-corcho-135gr-9103",
+     "name": "Bolsa en Algodón Corcho (135gr)",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-algodon-corcho-135gr-9103",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "ecologia"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-algodon-corcho-9103"
+   ]
+  },
+  {
+   "sourceProductId": "9725",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "sporty-bag-eco-yute-9725",
+     "id": "algodon-sporty-bag-eco-yute",
+     "name": "Sporty Bag Eco Yute",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "sporty-bag-eco-yute-280gr-9725",
+     "id": "sporty-bag-eco-yute-280gr-9725",
+     "name": "Sporty Bag Eco Yute (280gr)",
+     "categoryId": "deportes",
+     "gsc": null
+    }
+   ],
+   "primary": "sporty-bag-eco-yute-280gr-9725",
+   "primaryCategory": "deportes",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "sporty-bag-eco-yute-9725"
+   ]
+  },
+  {
+   "sourceProductId": "10422",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "bolsa-holt-eco-10422",
+     "id": "algodon-bolsa-holt-eco",
+     "name": "Bolsa Holt Eco",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-holt-eco-120gr-10422",
+     "id": "bolsa-holt-eco-120gr-10422",
+     "name": "Bolsa Holt Eco (120gr)",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-holt-eco-120gr-10422",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-holt-eco-10422"
+   ]
+  },
+  {
+   "sourceProductId": "10367",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "bolsa-en-algodon-shopper-10367",
+     "id": "algodon-bolsa-en-algodon-shopper",
+     "name": "Bolsa en Algodón Shopper",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-shopper-290gr-10367",
+     "id": "bolsa-en-algodon-shopper-290gr-10367",
+     "name": "Bolsa en Algodón Shopper (290gr)",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-algodon-shopper-290gr-10367",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-algodon-shopper-10367"
+   ]
+  },
+  {
+   "sourceProductId": "11039",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "sporty-bag-cotton-ii-11039",
+     "id": "algodon-sporty-bag-cotton-ii",
+     "name": "Sporty Bag Cotton ii",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "sporty-bag-cotton-180gr-ii-11039",
+     "id": "sporty-bag-cotton-180gr-ii-11039",
+     "name": "Sporty Bag Cotton (180gr) ii",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "sporty-bag-cotton-180gr-ii-11039",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "sporty-bag-cotton-ii-11039"
+   ]
+  },
+  {
+   "sourceProductId": "13500",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "cosmetiquera-terra-nuevo-13500",
+     "id": "algodon-cosmetiquera-terra-nuevo",
+     "name": "Cosmetiquera Terra Nuevo",
+     "categoryId": "maletines",
+     "gsc": null
+    },
+    {
+     "slug": "cosmetiquera-terra-13500",
+     "id": "cosmetiquera-terra-13500",
+     "name": "Cosmetiquera Terra",
+     "categoryId": "cuidado-personal",
+     "gsc": null
+    }
+   ],
+   "primary": "cosmetiquera-terra-13500",
+   "primaryCategory": "cuidado-personal",
+   "secondaryCategoryIds": [
+    "maletines"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "cosmetiquera-terra-nuevo-13500"
+   ]
+  },
+  {
+   "sourceProductId": "13253",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mini-bolsa-en-algodon-100gms-nuevo-13253",
+     "id": "algodon-mini-bolsa-en-algodon-100gms-nuevo",
+     "name": "Mini Bolsa en Algodón 100gms Nuevo",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "mini-bolsa-en-algodon-100gms-13253",
+     "id": "mini-bolsa-en-algodon-100gms-13253",
+     "name": "Mini Bolsa en Algodón 100gms",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "mini-bolsa-en-algodon-100gms-13253",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mini-bolsa-en-algodon-100gms-nuevo-13253"
+   ]
+  },
+  {
+   "sourceProductId": "10725",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "morral-backpack-elegant-precio-bomba-10725",
+     "id": "morral-backpack-morral-backpack-elegant-precio-bom",
+     "name": "Morral Backpack Elegant - Precio Bomba",
+     "categoryId": "maletines",
+     "gsc": null
+    },
+    {
+     "slug": "morral-backpack-elegant-10725",
+     "id": "morral-backpack-elegant-10725",
+     "name": "Morral Backpack Elegant",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "morral-backpack-elegant-10725",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "morral-backpack-elegant-precio-bomba-10725"
+   ]
+  },
+  {
+   "sourceProductId": "6926",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "trolley-morral-backpack-dilbert-precio-bomba-6926",
+     "id": "poliester-trolley-morral-backpack-dilbert-precio-b",
+     "name": "Trolley Morral Backpack Dilbert - Precio Bomba",
+     "categoryId": "maletines",
+     "gsc": null
+    },
+    {
+     "slug": "trolley-morral-backpack-dilbert-6926",
+     "id": "trolley-morral-backpack-dilbert-6926",
+     "name": "Trolley Morral Backpack Dilbert",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "trolley-morral-backpack-dilbert-6926",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "trolley-morral-backpack-dilbert-precio-bomba-6926"
+   ]
+  },
+  {
+   "sourceProductId": "13308",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "portadocumentos-vintra-nuevo-13308",
+     "id": "portapasaporte-portadocumentos-vintra-nuevo",
+     "name": "Portadocumentos Vintra Nuevo",
+     "categoryId": "variedades",
+     "gsc": null
+    },
+    {
+     "slug": "portadocumentos-vintra-13308",
+     "id": "portadocumentos-vintra-13308",
+     "name": "Portadocumentos Vintra",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "portadocumentos-vintra-13308",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "variedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "portadocumentos-vintra-nuevo-13308"
+   ]
+  },
+  {
+   "sourceProductId": "13362",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "portadocumentos-de-viajes-y-de-cables-neox-rpet-nuevo-13362",
+     "id": "portapasaporte-portadocumentos-de-viajes-y-de-cabl",
+     "name": "Portadocumentos de Viajes y de Cables Neox Rpet Nuevo",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "portadocumentos-de-viajes-y-de-cables-neox-rpet-13362",
+     "id": "portadocumentos-de-viajes-y-de-cables-neox-rpet-13362",
+     "name": "Portadocumentos de Viajes y de Cables Neox Rpet",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "portadocumentos-de-viajes-y-de-cables-neox-rpet-13362",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "tecnologia"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "portadocumentos-de-viajes-y-de-cables-neox-rpet-nuevo-13362"
+   ]
+  },
+  {
+   "sourceProductId": "6322",
+   "decision": "variante",
+   "tier": null,
+   "reason": "Medidas distintas en el nombre (525ml vs 500ml): no se fusiona sin SKU.",
+   "records": [
+    {
+     "slug": "botilito-en-pvc-curvy-525ml-produccion-nacional-6322",
+     "id": "botilitos-deportivos-botilito-en-pvc-curvy-525ml-p",
+     "name": "Botilito en Pvc Curvy 525ml - Producción Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-en-pvc-curvy-500ml-produccion-nacional-6322",
+     "id": "botilito-en-pvc-curvy-500ml-produccion-nacional-6322",
+     "name": "Botilito en Pvc Curvy 500ml - Producción Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "sourceProductId": "4439",
+   "decision": "variante",
+   "tier": null,
+   "reason": "Medidas distintas en el nombre (650ml vs 690ml): no se fusiona sin SKU.",
+   "records": [
+    {
+     "slug": "botilito-sport-titan-650-ml-produccion-nacional-4439",
+     "id": "botilitos-deportivos-botilito-sport-titan-650-ml-p",
+     "name": "Botilito Sport Titán - 650 ml - Produccion Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-sport-titan-690-ml-produccion-nacional-4439",
+     "id": "botilito-sport-titan-690-ml-produccion-nacional-4439",
+     "name": "Botilito Sport Titán - 690 ml - Produccion Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "sourceProductId": "3742",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "botilito-pvc-mercury-850ml-precio-bomba-3742",
+     "id": "botilitos-deportivos-botilito-pvc-mercury-850ml-pr",
+     "name": "Botilito Pvc Mercury - 850ml - Precio Bomba",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-pvc-mercury-850ml-3742",
+     "id": "botilito-pvc-mercury-850ml-3742",
+     "name": "Botilito Pvc Mercury - 850ml",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ],
+   "primary": "botilito-pvc-mercury-850ml-3742",
+   "primaryCategory": "tomatodos-botilitos",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "botilito-pvc-mercury-850ml-precio-bomba-3742"
+   ]
+  },
+  {
+   "sourceProductId": "5159",
+   "decision": "variante",
+   "tier": null,
+   "reason": "Medidas distintas en el nombre (550ml vs 590ml): no se fusiona sin SKU.",
+   "records": [
+    {
+     "slug": "botilito-mini-spring-550ml-5159",
+     "id": "botilitos-deportivos-botilito-mini-spring-550ml",
+     "name": "Botilito Mini Spring 550ml",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-mini-spring-590ml-tapa-importada-o-nacional-5159",
+     "id": "botilito-mini-spring-590ml-tapa-importada-o-nacional-5159",
+     "name": "Botilito Mini Spring 590ml (tapa Importada o Nacional)",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "sourceProductId": "6706",
+   "decision": "variante",
+   "tier": null,
+   "reason": "Medidas distintas en el nombre (610ml vs 600ml): no se fusiona sin SKU.",
+   "records": [
+    {
+     "slug": "botilito-supra-en-pet-610ml-produccion-nacional-6706",
+     "id": "botilitos-plasticos-botilito-supra-en-pet-610ml-pr",
+     "name": "Botilito Supra en Pet 610ml - Produccion Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-supra-en-pet-600ml-produccion-nacional-6706",
+     "id": "botilito-supra-en-pet-600ml-produccion-nacional-6706",
+     "name": "Botilito Supra en Pet 600ml - Produccion Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "sourceProductId": "5741",
+   "decision": "variante",
+   "tier": null,
+   "reason": "Medidas distintas en el nombre (650ml vs 760ml): no se fusiona sin SKU.",
+   "records": [
+    {
+     "slug": "botilito-en-pvc-helice-650ml-produccion-nacional-5741",
+     "id": "botilitos-plasticos-botilito-en-pvc-helice-650ml-p",
+     "name": "Botilito en Pvc Hélice 650ml - Producción Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-en-pvc-helice-760ml-produccion-nacional-5741",
+     "id": "botilito-en-pvc-helice-760ml-produccion-nacional-5741",
+     "name": "Botilito en Pvc Hélice 760ml - Producción Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "sourceProductId": "9699",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "mug-metalico-con-bamboo-500ml-9699",
+     "id": "mug-metalicos-mug-metalico-con-bamboo-500ml",
+     "name": "Mug Metálico Con Bamboo 500ml",
+     "categoryId": "mugs",
+     "gsc": null
+    },
+    {
+     "slug": "mug-eco-chic-bambu-disfruta-tu-cafe-con-estilo-sustentable-9699",
+     "id": "accesorios-auto-mug-eco-chic-bambu-disfruta-tu-cafe-con-estilo-sustentable",
+     "name": "Mug Eco-Chic Bambú: Disfruta tu café con estilo sustentable",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "mug-metalico-con-bamboo-500ml-9699",
+   "primaryCategory": "mugs",
+   "secondaryCategoryIds": [
+    "automovil"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mug-eco-chic-bambu-disfruta-tu-cafe-con-estilo-sustentable-9699"
+   ]
+  },
+  {
+   "sourceProductId": "9707",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "mug-metalico-warmer-450ml-9707",
+     "id": "mug-metalicos-mug-metalico-warmer-450ml",
+     "name": "Mug Metálico Warmer 450ml",
+     "categoryId": "mugs",
+     "gsc": null
+    },
+    {
+     "slug": "termo-viajero-calientito-tu-companero-ideal-9707",
+     "id": "accesorios-auto-termo-viajero-calientito-tu-companero-ideal",
+     "name": "Termo Viajero Calientito: Tu Compañero Ideal",
+     "categoryId": "termos-personalizados",
+     "gsc": null
+    }
+   ],
+   "primary": "mug-metalico-warmer-450ml-9707",
+   "primaryCategory": "mugs",
+   "secondaryCategoryIds": [
+    "termos-personalizados"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "termo-viajero-calientito-tu-companero-ideal-9707"
+   ]
+  },
+  {
+   "sourceProductId": "10688",
+   "decision": "variante",
+   "tier": null,
+   "reason": "Medidas distintas en el nombre (650ml vs 700ml): no se fusiona sin SKU.",
+   "records": [
+    {
+     "slug": "botilito-plastico-wonder-650ml-produccion-nacional-10688",
+     "id": "mug-sublimacion-botilito-plastico-wonder-650ml-pro",
+     "name": "Botilito Plástico Wonder-650ml-producción Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-plastico-wonder-700ml-produccion-nacional-10688",
+     "id": "botilito-plastico-wonder-700ml-produccion-nacional-10688",
+     "name": "Botilito Plástico Wonder-700ml-producción Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ]
+  },
+  {
+   "sourceProductId": "6865",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "paraguas-lancelot-27-oferta-6865",
+     "id": "normales-23-a-30-pulgadas-paraguas-lancelot-27-ofe",
+     "name": "Paraguas Lancelot 27\" Oferta",
+     "categoryId": "paraguas",
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-lancelot-27-6865",
+     "id": "paraguas-lancelot-27-6865",
+     "name": "Paraguas Lancelot 27",
+     "categoryId": "paraguas",
+     "gsc": null
+    }
+   ],
+   "primary": "paraguas-lancelot-27-6865",
+   "primaryCategory": "paraguas",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "paraguas-lancelot-27-oferta-6865"
+   ]
+  },
+  {
+   "sourceProductId": "6753",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "panos-humedos-antibacterial-60und-precio-bomba-6753",
+     "id": "pharma-panos-humedos-antibacterial-60und-precio-bo",
+     "name": "Paños Humedos Antibacterial 60und - Precio Bomba",
+     "categoryId": "cuidado-personal",
+     "gsc": null
+    },
+    {
+     "slug": "panos-humedos-antibacterial-60und-6753",
+     "id": "panos-humedos-antibacterial-60und-6753",
+     "name": "Paños Humedos Antibacterial 60und",
+     "categoryId": "precio-bomba",
+     "gsc": null
+    }
+   ],
+   "primary": "panos-humedos-antibacterial-60und-6753",
+   "primaryCategory": "cuidado-personal",
+   "secondaryCategoryIds": [
+    "precio-bomba"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "panos-humedos-antibacterial-60und-precio-bomba-6753"
+   ]
+  },
+  {
+   "sourceProductId": "13338",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "masajeador-hyper-eco-nuevo-13338",
+     "id": "masajeadores-masajeador-hyper-eco-nuevo",
+     "name": "Masajeador Hyper Eco Nuevo",
+     "categoryId": "cuidado-personal",
+     "gsc": null
+    },
+    {
+     "slug": "masajeador-hyper-eco-13338",
+     "id": "masajeador-hyper-eco-13338",
+     "name": "Masajeador Hyper Eco",
+     "categoryId": "cuidado-personal",
+     "gsc": null
+    }
+   ],
+   "primary": "masajeador-hyper-eco-13338",
+   "primaryCategory": "cuidado-personal",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "masajeador-hyper-eco-nuevo-13338"
+   ]
+  },
+  {
+   "sourceProductId": "13332",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "pastillero-radion-nuevo-13332",
+     "id": "pastilleros-pastillero-radion-nuevo",
+     "name": "Pastillero Radion Nuevo",
+     "categoryId": "cuidado-personal",
+     "gsc": null
+    },
+    {
+     "slug": "pastillero-radion-13332",
+     "id": "pastillero-radion-13332",
+     "name": "Pastillero Radion",
+     "categoryId": "cuidado-personal",
+     "gsc": null
+    }
+   ],
+   "primary": "pastillero-radion-13332",
+   "primaryCategory": "cuidado-personal",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "pastillero-radion-nuevo-13332"
+   ]
+  },
+  {
+   "sourceProductId": "9721",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "reloj-led-bamboo-oferta-9721",
+     "id": "relojes-9721",
+     "name": "Reloj Led Bamboo",
+     "categoryId": "relojes",
+     "gsc": null
+    },
+    {
+     "slug": "reloj-led-bamboo-9721",
+     "id": "reloj-led-bamboo-9721",
+     "name": "Reloj Led Bamboo",
+     "categoryId": "relojes",
+     "gsc": null
+    }
+   ],
+   "primary": "reloj-led-bamboo-9721",
+   "primaryCategory": "relojes",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "reloj-led-bamboo-oferta-9721"
+   ]
+  },
+  {
+   "sourceProductId": "13333",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "reloj-de-arena-doble-nuevo-13333",
+     "id": "mesa-y-escritorio-reloj-de-arena-doble-nuevo",
+     "name": "Reloj de Arena Doble Nuevo",
+     "categoryId": "oficina",
+     "gsc": null
+    },
+    {
+     "slug": "reloj-de-arena-doble-13333",
+     "id": "reloj-de-arena-doble-13333",
+     "name": "Reloj de Arena Doble",
+     "categoryId": "hogar",
+     "gsc": null
+    }
+   ],
+   "primary": "reloj-de-arena-doble-13333",
+   "primaryCategory": "hogar",
+   "secondaryCategoryIds": [
+    "oficina"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "reloj-de-arena-doble-nuevo-13333"
+   ]
+  },
+  {
+   "sourceProductId": "7557",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "soporte-magnetico-para-moviles-7557",
+     "id": "soporte-magnetico-para-moviles-7557",
+     "name": "Soporte Magnético Para Moviles",
+     "categoryId": "automovil",
+     "gsc": null
+    },
+    {
+     "slug": "iman-titan-soporte-magnetico-para-tu-celular-7557",
+     "id": "accesorios-auto-iman-titan-soporte-magnetico-para-tu-celular",
+     "name": "Imán Titán: Soporte Magnético para tu Celular",
+     "categoryId": "automovil",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ],
+   "primary": "soporte-magnetico-para-moviles-7557",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "iman-titan-soporte-magnetico-para-tu-celular-7557"
+   ]
+  },
+  {
+   "sourceProductId": "7518",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "soporte-para-movil-flexi-7518",
+     "id": "soporte-para-movil-flexi-7518",
+     "name": "Soporte Para Movil Flexi",
+     "categoryId": "automovil",
+     "gsc": null
+    },
+    {
+     "slug": "agarre-total-flexi-tu-copiloto-ideal-7518",
+     "id": "accesorios-auto-agarre-total-flexi-tu-copiloto-ideal",
+     "name": "Agarre Total Flexi: Tu copiloto ideal",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "soporte-para-movil-flexi-7518",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "agarre-total-flexi-tu-copiloto-ideal-7518"
+   ]
+  },
+  {
+   "sourceProductId": "9587",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "audifono-bluetooth-manos-libres-2-1-oferta-9587",
+     "id": "adaptadores-audifono-bluetooth-manos-libres-2-1-of",
+     "name": "Audifono Bluetooth Manos Libres 2-1 - Oferta",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "audifono-bluetooth-2-en-1-libertad-total-al-volante-9587",
+     "id": "accesorios-auto-audifono-bluetooth-2-en-1-libertad-total-al-volante",
+     "name": "Audífono Bluetooth 2-en-1: ¡Libertad Total al Volante!",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "audifono-bluetooth-2-en-1-libertad-total-al-volante-9587",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [
+    "tecnologia"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "audifono-bluetooth-manos-libres-2-1-oferta-9587"
+   ]
+  },
+  {
+   "sourceProductId": "7776",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "localizador-de-llaves-7776",
+     "id": "articulos-smartphone-tablet-y-computador-localizad",
+     "name": "Localizador de Llaves",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "no-pierdas-mas-tiempo-encuentra-tus-llaves-con-keyfind-7776",
+     "id": "accesorios-auto-no-pierdas-mas-tiempo-encuentra-tus-llaves-con-keyfind",
+     "name": "¡No Pierdas Más Tiempo! Encuentra tus Llaves con KeyFind",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "localizador-de-llaves-7776",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "automovil"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "no-pierdas-mas-tiempo-encuentra-tus-llaves-con-keyfind-7776"
+   ]
+  },
+  {
+   "sourceProductId": "9080",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "soporte-para-moviles-pilot-9080",
+     "id": "soporte-para-moviles-pilot-9080",
+     "name": "Soporte Para Moviles Pilot",
+     "categoryId": "automovil",
+     "gsc": null
+    },
+    {
+     "slug": "pilot-grip-tu-copiloto-perfecto-9080",
+     "id": "accesorios-auto-pilot-grip-tu-copiloto-perfecto",
+     "name": "Pilot Grip: Tu Copiloto Perfecto",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "soporte-para-moviles-pilot-9080",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "pilot-grip-tu-copiloto-perfecto-9080"
+   ]
+  },
+  {
+   "sourceProductId": "13320",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "soporte-para-celular-pop-it-nuevo-13320",
+     "id": "antiestres-soporte-para-celular-pop-it-nuevo",
+     "name": "Soporte Para Celular Pop it Nuevo",
+     "categoryId": "antiestres",
+     "gsc": null
+    },
+    {
+     "slug": "soporte-para-celular-pop-it-13320",
+     "id": "soporte-para-celular-pop-it-13320",
+     "name": "Soporte Para Celular Pop it",
+     "categoryId": "antiestres",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ],
+   "primary": "soporte-para-celular-pop-it-13320",
+   "primaryCategory": "antiestres",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "soporte-para-celular-pop-it-nuevo-13320"
+   ]
+  },
+  {
+   "sourceProductId": "9439",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un nombre solo añade especificación (peso/medida) o referencia.",
+   "records": [
+    {
+     "slug": "cuerpo-plastico-para-abanico-9439",
+     "id": "ventiladores-y-abanicos-cuerpo-plastico-para-abani",
+     "name": "Cuerpo Plastico Para Abanico",
+     "categoryId": "tecnologia",
+     "gsc": null
+    },
+    {
+     "slug": "cuerpo-plastico-para-abanico-tela-impresa-prod-nal-9439",
+     "id": "cuerpo-plastico-para-abanico-tela-impresa-prod-nal-9439",
+     "name": "Cuerpo Plastico Para Abanico (tela Impresa Prod Nal)",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    }
+   ],
+   "primary": "cuerpo-plastico-para-abanico-9439",
+   "primaryCategory": "tecnologia",
+   "secondaryCategoryIds": [
+    "produccion-nacional"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "cuerpo-plastico-para-abanico-tela-impresa-prod-nal-9439"
+   ]
+  },
+  {
+   "sourceProductId": "1442",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "escudo-solar-auto-frescura-y-proteccion-para-tu-viaje-1442",
+     "id": "accesorios-auto-escudo-solar-auto-frescura-y-proteccion-para-tu-viaje",
+     "name": "Escudo Solar Auto: Frescura y Protección para tu Viaje",
+     "categoryId": "automovil",
+     "gsc": null
+    },
+    {
+     "slug": "protector-solar-para-carro-1442",
+     "id": "protector-solar-para-carro-1442",
+     "name": "Protector Solar Para Carro",
+     "categoryId": "automovil",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 2
+     }
+    }
+   ],
+   "primary": "protector-solar-para-carro-1442",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "escudo-solar-auto-frescura-y-proteccion-para-tu-viaje-1442"
+   ]
+  },
+  {
+   "sourceProductId": "7410",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "turboclean-mini-el-aspirador-imbatible-para-tu-auto-7410",
+     "id": "accesorios-auto-turboclean-mini-el-aspirador-imbatible-para-tu-auto",
+     "name": "TurboClean Mini: El Aspirador Imbatible para Tu Auto",
+     "categoryId": "automovil",
+     "gsc": null
+    },
+    {
+     "slug": "aspiradora-para-carro-7410",
+     "id": "aspiradora-para-carro-7410",
+     "name": "Aspiradora Para Carro",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "aspiradora-para-carro-7410",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "turboclean-mini-el-aspirador-imbatible-para-tu-auto-7410"
+   ]
+  },
+  {
+   "sourceProductId": "9364",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "ecologica-vita-bolsa-reutilizable-hecha-en-mexico-9364",
+     "id": "accesorios-auto-ecologica-vita-bolsa-reutilizable-hecha-en-mexico",
+     "name": "Ecológica Vita: Bolsa Reutilizable Hecha en México",
+     "categoryId": "automovil",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "bolsa-en-cambrel-multiusos-vita-prod-nacional-9364",
+     "id": "bolsa-en-cambrel-multiusos-vita-prod-nacional-9364",
+     "name": "Bolsa en Cambrel Multiusos Vita - Prod Nacional",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-cambrel-multiusos-vita-prod-nacional-9364",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "ecologica-vita-bolsa-reutilizable-hecha-en-mexico-9364"
+   ]
+  },
+  {
+   "sourceProductId": "9333",
+   "decision": "mismo_producto",
+   "tier": "B",
+   "reason": "Misma imagen del proveedor; un registro tiene título comercial generado (con \":\" o \"¡\").",
+   "records": [
+    {
+     "slug": "descanso-tricolor-cojin-de-viaje-3-en-1-9333",
+     "id": "accesorios-auto-descanso-tricolor-cojin-de-viaje-3-en-1",
+     "name": "¡Descanso Tricolor! Cojín de Viaje 3 en 1",
+     "categoryId": "automovil",
+     "gsc": null
+    },
+    {
+     "slug": "cojin-de-viaje-triple-uso-produccion-nacional-9333",
+     "id": "cojin-de-viaje-triple-uso-produccion-nacional-9333",
+     "name": "Cojín de Viaje Triple Uso - Produccion Nacional",
+     "categoryId": "automovil",
+     "gsc": null
+    }
+   ],
+   "primary": "cojin-de-viaje-triple-uso-produccion-nacional-9333",
+   "primaryCategory": "automovil",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "descanso-tricolor-cojin-de-viaje-3-en-1-9333"
+   ]
+  },
+  {
+   "sourceProductId": "13569",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mug-metalico-arrow-600-ml-nuevomas-13569",
+     "id": "novedades-13569",
+     "name": "Mug Metálico Arrow 600 ml Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "mug-metalico-arrow-600-ml-nuevo-13569",
+     "id": "mug-metalico-arrow-600-ml-nuevo-13569",
+     "name": "Mug Metálico Arrow 600 ml Nuevo",
+     "categoryId": "mugs",
+     "gsc": null
+    }
+   ],
+   "primary": "mug-metalico-arrow-600-ml-nuevo-13569",
+   "primaryCategory": "mugs",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mug-metalico-arrow-600-ml-nuevomas-13569"
+   ]
+  },
+  {
+   "sourceProductId": "13570",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mug-metalico-gillan-500-ml-nuevomas-13570",
+     "id": "novedades-13570",
+     "name": "Mug Metálico Gillan 500 ml Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "mug-metalico-gillan-500-ml-nuevo-13570",
+     "id": "mug-metalico-gillan-500-ml-nuevo-13570",
+     "name": "Mug Metálico Gillan 500 ml Nuevo",
+     "categoryId": "mugs",
+     "gsc": null
+    }
+   ],
+   "primary": "mug-metalico-gillan-500-ml-nuevo-13570",
+   "primaryCategory": "mugs",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mug-metalico-gillan-500-ml-nuevomas-13570"
+   ]
+  },
+  {
+   "sourceProductId": "13539",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "resaltador-de-cera-seren-nuevomas-13539",
+     "id": "novedades-13539",
+     "name": "Resaltador de Cera Seren Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "resaltador-de-cera-seren-nuevo-13539",
+     "id": "resaltador-de-cera-seren-nuevo-13539",
+     "name": "Resaltador de Cera Seren Nuevo",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "resaltador-de-cera-seren-nuevo-13539",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "resaltador-de-cera-seren-nuevomas-13539"
+   ]
+  },
+  {
+   "sourceProductId": "13540",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "lapiz-infinito-gemini-nuevomas-13540",
+     "id": "novedades-13540",
+     "name": "Lápiz Infinito Gemini Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "lapiz-infinito-gemini-nuevo-13540",
+     "id": "lapiz-infinito-gemini-nuevo-13540",
+     "name": "Lápiz Infinito Gemini Nuevo",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "lapiz-infinito-gemini-nuevo-13540",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "lapiz-infinito-gemini-nuevomas-13540"
+   ]
+  },
+  {
+   "sourceProductId": "13553",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "bolsa-en-cambrel-soot-nuevomas-13553",
+     "id": "novedades-13553",
+     "name": "Bolsa en Cambrel Soot Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-cambrel-soot-nuevo-13553",
+     "id": "bolsa-en-cambrel-soot-nuevo-13553",
+     "name": "Bolsa en Cambrel Soot Nuevo",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-cambrel-soot-nuevo-13553",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-cambrel-soot-nuevomas-13553"
+   ]
+  },
+  {
+   "sourceProductId": "13554",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevomas-13554",
+     "id": "novedades-13554",
+     "name": "Bolsa en Algodón y Yute Nativ (300 Gm) Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevo-13554",
+     "id": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevo-13554",
+     "name": "Bolsa en Algodón y Yute Nativ (300 Gm) Nuevo",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-algodon-y-yute-nativ-300-gm-nuevo-13554",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-algodon-y-yute-nativ-300-gm-nuevomas-13554"
+   ]
+  },
+  {
+   "sourceProductId": "13555",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "bolsa-en-algodon-basic-300-gm-nuevomas-13555",
+     "id": "novedades-13555",
+     "name": "Bolsa en Algodón Basic (300 Gm) Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-en-algodon-basic-300-gm-nuevo-13555",
+     "id": "bolsa-en-algodon-basic-300-gm-nuevo-13555",
+     "name": "Bolsa en Algodón Basic (300 Gm) Nuevo",
+     "categoryId": "maletines",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-en-algodon-basic-300-gm-nuevo-13555",
+   "primaryCategory": "maletines",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-en-algodon-basic-300-gm-nuevomas-13555"
+   ]
+  },
+  {
+   "sourceProductId": "13556",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "planeador-semanal-week-nuevomas-13556",
+     "id": "novedades-13556",
+     "name": "Planeador Semanal Week Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "planeador-semanal-week-nuevo-13556",
+     "id": "planeador-semanal-week-nuevo-13556",
+     "name": "Planeador Semanal Week Nuevo",
+     "categoryId": "oficina",
+     "gsc": null
+    }
+   ],
+   "primary": "planeador-semanal-week-nuevo-13556",
+   "primaryCategory": "oficina",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "planeador-semanal-week-nuevomas-13556"
+   ]
+  },
+  {
+   "sourceProductId": "13559",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "mug-lume-350-ml-nuevomas-13559",
+     "id": "novedades-13559",
+     "name": "Mug Lume 350 ml Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "mug-lume-350-ml-nuevo-13559",
+     "id": "mug-lume-350-ml-nuevo-13559",
+     "name": "Mug Lume 350 ml Nuevo",
+     "categoryId": "mugs",
+     "gsc": null
+    }
+   ],
+   "primary": "mug-lume-350-ml-nuevo-13559",
+   "primaryCategory": "mugs",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "mug-lume-350-ml-nuevomas-13559"
+   ]
+  },
+  {
+   "sourceProductId": "13560",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "paraguas-balan-23-nuevomas-13560",
+     "id": "novedades-13560",
+     "name": "Paraguas Balan 23\" Nuevo",
+     "categoryId": "novedades",
+     "gsc": null
+    },
+    {
+     "slug": "paraguas-balan-23-13560",
+     "id": "paraguas-balan-23-13560",
+     "name": "Paraguas Balan 23",
+     "categoryId": "paraguas",
+     "gsc": null
+    }
+   ],
+   "primary": "paraguas-balan-23-13560",
+   "primaryCategory": "paraguas",
+   "secondaryCategoryIds": [
+    "novedades"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "paraguas-balan-23-nuevomas-13560"
+   ]
+  },
+  {
+   "sourceProductId": "10664",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-aldrich-metalizadomas-10664",
+     "id": "ecologia-10664",
+     "name": "Bolígrafo Aldrich Metalizado",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-aldrich-metalizado-10664",
+     "id": "boligrafo-aldrich-metalizado-10664",
+     "name": "Bolígrafo Aldrich Metalizado",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-aldrich-metalizado-10664",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "boligrafo-aldrich-metalizadomas-10664"
+   ]
+  },
+  {
+   "sourceProductId": "10663",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-aldrich-solidomas-10663",
+     "id": "ecologia-10663",
+     "name": "Bolígrafo Aldrich Sólido",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-aldrich-solido-10663",
+     "id": "boligrafo-aldrich-solido-10663",
+     "name": "Bolígrafo Aldrich Sólido",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-aldrich-solido-10663",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "boligrafo-aldrich-solidomas-10663"
+   ]
+  },
+  {
+   "sourceProductId": "10658",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-baniri-bamboomas-10658",
+     "id": "ecologia-10658",
+     "name": "Bolígrafo Baniri Bamboo",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-baniri-bamboo-10658",
+     "id": "boligrafo-baniri-bamboo-10658",
+     "name": "Bolígrafo Baniri Bamboo",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-baniri-bamboo-10658",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "ecologia"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "boligrafo-baniri-bamboomas-10658"
+   ]
+  },
+  {
+   "sourceProductId": "10666",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-helmetmas-10666",
+     "id": "ecologia-10666",
+     "name": "Bolígrafo Helmet",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-helmet-10666",
+     "id": "boligrafo-helmet-10666",
+     "name": "Bolígrafo Helmet",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-helmet-10666",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "boligrafo-helmetmas-10666"
+   ]
+  },
+  {
+   "sourceProductId": "10662",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-landonmas-10662",
+     "id": "ecologia-10662",
+     "name": "Bolígrafo Landon",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-landon-10662",
+     "id": "boligrafo-landon-10662",
+     "name": "Bolígrafo Landon",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-landon-10662",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "boligrafo-landonmas-10662"
+   ]
+  },
+  {
+   "sourceProductId": "10661",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-luanamas-10661",
+     "id": "ecologia-10661",
+     "name": "Bolígrafo Luana",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-luana-10661",
+     "id": "boligrafo-luana-10661",
+     "name": "Bolígrafo Luana",
+     "categoryId": "escritura",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    }
+   ],
+   "primary": "boligrafo-luana-10661",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "boligrafo-luanamas-10661"
+   ]
+  },
+  {
+   "sourceProductId": "10659",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "boligrafo-ziwei-bamboomas-10659",
+     "id": "ecologia-10659",
+     "name": "Bolígrafo Ziwei Bamboo",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "boligrafo-ziwei-bamboo-10659",
+     "id": "boligrafo-ziwei-bamboo-10659",
+     "name": "Bolígrafo Ziwei Bamboo",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "boligrafo-ziwei-bamboo-10659",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [
+    "ecologia"
+   ],
+   "droppedCategories": [],
+   "aliases": [
+    "boligrafo-ziwei-bamboomas-10659"
+   ]
+  },
+  {
+   "sourceProductId": "3010",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "cartoonmas-3010",
+     "id": "ecologia-3010",
+     "name": "Cartoon",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "cartoon-3010",
+     "id": "cartoon-3010",
+     "name": "Cartoon",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "cartoon-3010",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "cartoonmas-3010"
+   ]
+  },
+  {
+   "sourceProductId": "3690",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "woodymas-3690",
+     "id": "ecologia-3690",
+     "name": "Woody",
+     "categoryId": "ecologia",
+     "gsc": null
+    },
+    {
+     "slug": "woody-3690",
+     "id": "woody-3690",
+     "name": "Woody",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "woody-3690",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "woodymas-3690"
+   ]
+  },
+  {
+   "sourceProductId": "8231",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "ecologikmas-8231",
+     "id": "ecologia-8231",
+     "name": "Ecologik",
+     "categoryId": "ecologia",
+     "gsc": {
+      "clicks": 0,
+      "impressions": 1
+     }
+    },
+    {
+     "slug": "ecologik-8231",
+     "id": "ecologik-8231",
+     "name": "Ecologik",
+     "categoryId": "escritura",
+     "gsc": null
+    }
+   ],
+   "primary": "ecologik-8231",
+   "primaryCategory": "escritura",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [
+    "ecologia"
+   ],
+   "aliases": [
+    "ecologikmas-8231"
+   ]
+  },
+  {
+   "sourceProductId": "6463",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "bolsa-clear-trenza-con-ribete-produccion-nacionalmas-6463",
+     "id": "produccion-nacional-6463",
+     "name": "Bolsa Clear Trenza Con Ribete - Producción Nacional",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-clear-trenza-con-ribete-produccion-nacional-6463",
+     "id": "bolsa-clear-trenza-con-ribete-produccion-nacional-6463",
+     "name": "Bolsa Clear Trenza Con Ribete - Producción Nacional",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-clear-trenza-con-ribete-produccion-nacional-6463",
+   "primaryCategory": "produccion-nacional",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-clear-trenza-con-ribete-produccion-nacionalmas-6463"
+   ]
+  },
+  {
+   "sourceProductId": "6460",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "bolsa-clear-zuzy-con-ribete-produccion-nacionalmas-6460",
+     "id": "produccion-nacional-6460",
+     "name": "Bolsa Clear Zuzy Con Ribete - Produccion Nacional",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    },
+    {
+     "slug": "bolsa-clear-zuzy-con-ribete-produccion-nacional-6460",
+     "id": "bolsa-clear-zuzy-con-ribete-produccion-nacional-6460",
+     "name": "Bolsa Clear Zuzy Con Ribete - Produccion Nacional",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    }
+   ],
+   "primary": "bolsa-clear-zuzy-con-ribete-produccion-nacional-6460",
+   "primaryCategory": "produccion-nacional",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "bolsa-clear-zuzy-con-ribete-produccion-nacionalmas-6460"
+   ]
+  },
+  {
+   "sourceProductId": "4083",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "botilito-sport-650ml-produccion-nacionalmas-4083",
+     "id": "produccion-nacional-4083",
+     "name": "Botilito Sport 650ml - Produccion Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    },
+    {
+     "slug": "botilito-sport-650ml-produccion-nacional-4083",
+     "id": "botilito-sport-650ml-produccion-nacional-4083",
+     "name": "Botilito Sport 650ml - Produccion Nacional",
+     "categoryId": "tomatodos-botilitos",
+     "gsc": null
+    }
+   ],
+   "primary": "botilito-sport-650ml-produccion-nacional-4083",
+   "primaryCategory": "tomatodos-botilitos",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "botilito-sport-650ml-produccion-nacionalmas-4083"
+   ]
+  },
+  {
+   "sourceProductId": "10282",
+   "decision": "mismo_producto",
+   "tier": "A",
+   "reason": "Misma imagen del proveedor y mismo nombre sin etiquetas comerciales.",
+   "records": [
+    {
+     "slug": "soporte-para-moviles-strike-produccion-nacionalmas-10282",
+     "id": "produccion-nacional-10282",
+     "name": "Soporte Para Móviles Strike Producción Nacional",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    },
+    {
+     "slug": "soporte-para-moviles-strike-produccion-nacional-10282",
+     "id": "soporte-para-moviles-strike-produccion-nacional-10282",
+     "name": "Soporte Para Móviles Strike Producción Nacional",
+     "categoryId": "produccion-nacional",
+     "gsc": null
+    }
+   ],
+   "primary": "soporte-para-moviles-strike-produccion-nacional-10282",
+   "primaryCategory": "produccion-nacional",
+   "secondaryCategoryIds": [],
+   "droppedCategories": [],
+   "aliases": [
+    "soporte-para-moviles-strike-produccion-nacionalmas-10282"
+   ]
+  }
+ ]
+}
