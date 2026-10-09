@@ -1,12 +1,13 @@
 ---
+import { resolveSupplierImageUrl } from '@/lib/product-image';
 import Icon from '@/components/Icon.astro';
-import categories from '@data/categories.json';
-import products from '@data/products.json';
+import { categoryProductCount, categoriesByIds } from '@/lib/catalog';
+import { HOME_GRID_CATEGORY_IDS } from '@/data/merchandising';
 
-const items = (categories as any[]).slice(0, 12);
+const items = categoriesByIds(HOME_GRID_CATEGORY_IDS);
 const fallbackImage = '/images/products/_placeholder-ksp-co.jpg';
 function countFor(catId: string) {
-  return (products as any[]).filter((p) => p.categoryId === catId).length;
+  return categoryProductCount(catId);
 }
 ---
 
@@ -41,7 +42,7 @@ function countFor(catId: string) {
         >
           <div class="aspect-[4/3] w-full overflow-hidden bg-ks-navy-wash">
             <img
-              src={cat.image || fallbackImage}
+              src={cat.image ? resolveSupplierImageUrl(cat.image) : fallbackImage}
               alt={cat.name}
               loading="lazy"
               width="400"

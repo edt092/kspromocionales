@@ -1,5 +1,6 @@
 import posts from '@data/blog/posts.json';
 import { blogContent } from '@data/blog/content/index.js';
+import { resolveSupplierImageUrl } from '@/lib/product-image';
 
 export interface BlogPost {
   id: string;
@@ -20,14 +21,19 @@ export interface BlogPost {
   seo?: { metaTitle?: string; metaDescription?: string; keywords?: string };
 }
 
+// Las imágenes del proveedor se sirven desde su host final (ver resolveSupplierImageUrl).
+const withResolvedImage = (p: BlogPost): BlogPost => ({ ...p, image: resolveSupplierImageUrl(p.image) });
+
 export function getAllPosts(): BlogPost[] {
-  return [...(posts as BlogPost[])].sort((a, b) => (a.date < b.date ? 1 : -1));
+  return [...(posts as BlogPost[])].map(withResolvedImage).sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getPostBySlug(slug: string): BlogPost | undefined {
-  return (posts as BlogPost[]).find((p) => p.slug === slug);
+  const post = (posts as BlogPost[]).find((p) => p.slug === slug);
+  return post && withResolvedImage(post);
 }
 
 export function getPostContent(slug: string): string {
-  return (blogContent as Record<string, string>)[slug] ?? '';
+  const html = (blogContent as Record<string, string>)[slug] ?? '';
+  return html.replace(/https?:\/\/(?:www\.)?catalogospromocionales\.com\/images\//gi, (m) => resolveSupplierImageUrl(m));
 }

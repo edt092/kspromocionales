@@ -3,16 +3,23 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
-import { breadcrumbListSchema } from '@/lib/schema';
+import { breadcrumbListSchema, contactPageSchema } from '@/lib/schema';
 import categories from '@data/categories.json';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
 const categoryOptions = (categories as any[]).map((c) => c.name);
 
-const jsonLd = breadcrumbListSchema([
-  { name: 'Inicio', item: SITE.url },
-  { name: 'Contacto', item: `${SITE.url}/contacto/` },
-]);
+const jsonLd = [
+  contactPageSchema({
+    name: 'Contacto | KS Promocionales',
+    description: `Cotiza productos promocionales por WhatsApp al ${SITE.whatsappDisplay}. Operación online desde ${SITE.operatingBase}.`,
+    url: `${SITE.url}/contacto/`,
+  }),
+  breadcrumbListSchema([
+    { name: 'Inicio', item: SITE.url },
+    { name: 'Contacto', item: `${SITE.url}/contacto/` },
+  ]),
+];
 ---
 
 <BaseLayout

@@ -1,0 +1,4 @@
+# Capturas del QA móvil: pesadas y regenerables con
+#   python scripts/seo-improvement/mobile-qa.py http://localhost:4329 docs/seo-improvement/after/qa-movil
+# Las métricas (after/qa-movil/metricas.json) sí se versionan.
+after/qa-movil/*.png

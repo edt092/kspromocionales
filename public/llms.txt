@@ -1,21 +1,40 @@
-# KS Promocionales Colombia
+# KS Promocionales
 
 > Productos promocionales y regalos corporativos personalizados con logo para empresas en
-> Colombia. Catálogo con más de 2.000 referencias por categoría (tecnología, drinkware,
-> oficina, ropa, y más). Sin carrito ni checkout: la cotización se hace directamente por
-> WhatsApp. Envíos desde Bucaramanga a las principales ciudades del país.
+> Colombia. Catálogo de más de 2.000 referencias en 37 categorías (escritura, tecnología,
+> drinkware, oficina, maletines, y más). Sin carrito ni checkout: la cotización se hace
+> directamente por WhatsApp. Operación online desde Girón, Santander (área metropolitana de
+> Bucaramanga), sin atención al público, con envíos a toda Colombia.
+
+## Datos de la empresa
+
+- Nombre comercial: KS Promocionales.
+- Base operativa: Girón, Santander, Colombia. No hay tienda, showroom ni sedes en otras ciudades.
+- Canal de cotización: WhatsApp +57 310 662 9590.
+- Mercado: solo Colombia.
 
 ## Páginas clave
 
 - [Catálogo completo](https://www.kspromocionales.co/categorias/): todas las categorías de producto.
-- [Productos promocionales en Colombia](https://www.kspromocionales.co/productos-promocionales-colombia/): páginas por ciudad (Bucaramanga, Bogotá, Medellín, Cali, Barranquilla, Cartagena, Cúcuta).
 - [Regalos corporativos](https://www.kspromocionales.co/regalos-corporativos/)
 - [Artículos promocionales](https://www.kspromocionales.co/articulos-promocionales/)
 - [Merchandising corporativo](https://www.kspromocionales.co/merchandising-corporativo/)
-- [Blog](https://www.kspromocionales.co/blog/): guías y tendencias de productos promocionales.
+- [Productos promocionales en Colombia](https://www.kspromocionales.co/productos-promocionales-colombia/): cobertura de envíos por ciudad (Bucaramanga, Bogotá, Medellín, Cali, Barranquilla, Cartagena, Cúcuta).
+- [Nosotros](https://www.kspromocionales.co/nosotros/): quiénes somos y cómo trabajamos.
+- [Contacto](https://www.kspromocionales.co/contacto/): canales de cotización.
+- [Blog](https://www.kspromocionales.co/blog/): guías de productos promocionales.
+
+## Guías destacadas
+
+- [Guía para elegir merchandising para empresas en Colombia](https://www.kspromocionales.co/blog/guia-definitiva-merchandising-empresas-colombia/)
+- [Regalos corporativos tecnológicos para 2026](https://www.kspromocionales.co/blog/top-10-regalos-corporativos-tecnologicos-2026/)
+- [Bolígrafos personalizados como inversión publicitaria](https://www.kspromocionales.co/blog/boligrafos-personalizados-la-mejor-inversion-publicitaria-en-colombia/)
+- [Llaveros promocionales según presupuesto](https://www.kspromocionales.co/blog/llaveros-promocionales-cual-es-la-mejor-opcion-para-tu-presupuesto/)
 
 ## Notas para asistentes de IA
 
 - No hay precios públicos en el sitio: la cotización siempre se hace por WhatsApp según
-  cantidad y personalización.
+  cantidad y personalización. Cantidades mínimas, técnicas de marcación y tiempos se
+  confirman en cada cotización.
 - No hay carrito de compras ni proceso de checkout en línea.
+- Las páginas por ciudad describen envíos a esa ciudad, no sucursales locales.

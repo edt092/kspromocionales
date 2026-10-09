@@ -1,0 +1,27 @@
+
+SEO AUDIT — 2026-10-09T20:50:51.316Z
+================================================================
+Productos: 2097 | Categorías: 37 | Posts: 8 | Aliases 301: 88
+----------------------------------------------------------------
+Slugs duplicados: 0 | sin slug/nombre: 0 | categoría huérfana: 0
+sourceProductId compartido (variantes pendientes de SKU): 6
+Aliases: sigue existiendo 0 | destino inexistente 0 | cadenas 0
+Categorías vacías: 0 | productCount desactualizado: 0
+----------------------------------------------------------------
+Texto corrupto: 0
+Residuo Ecuador en keywords: 0 | metaTitle de blog cortado: 0
+----------------------------------------------------------------
+Indexabilidad: {"indexable":1650,"enriquecer":444,"noindex_sin_contenido":3}
+  Motivos: {"story_corta":353,"features_genericas":216,"shortDescription_plantilla":45,"sin_shortDescription":3,"sin_features":3,"sin_useCases":3,"sin_story":3,"sin_facts":3,"sin_features_ni_useCases":89}
+Campo description vacío (no se muestra en el cuerpo; no decide indexación): 1132
+----------------------------------------------------------------
+Imágenes: externas 2008 | locales OK 0 | locales inexistentes (placeholder) 89 | sin imagen 0
+seoTitle vacío 0 | >65 60 | duplicados 4 grupos
+seoDescription vacío 0 | >165 6 | <70 0 | duplicados 0 grupos
+================================================================
+✓ Sin errores de datos.
+Este script no modifica archivos ni aplica noindex.
+
+Reporte detallado (listas completas): reports/seo-audit-2026-10-09T20-50-51-316Z.json
+
+EXIT=0

@@ -6,10 +6,12 @@ import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
 import { cityWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema } from '@/lib/schema';
-import products from '@data/products.json';
+import IntentCrossLinks from '@/components/IntentCrossLinks.astro';
+import { curatedProducts } from '@/lib/catalog';
+import { HUBS } from '@/data/merchandising';
 
 const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
-const list = (products as any[]).slice(16, 24);
+const list = curatedProducts(HUBS.merchandising, 8);
 
 const breadcrumbJsonLd = breadcrumbListSchema([
   { name: 'Inicio', item: SITE.url },
@@ -32,7 +34,7 @@ const faqs = [
     <div class="container-ks relative z-10 max-w-3xl">
       <span class="section-label mb-4"><Icon name="layers" size={15} /> Merchandising Corporativo</span>
       <h1 class="text-4xl sm:text-5xl font-heading font-bold text-white mb-6 text-balance">
-        Tu marca, aplicada de forma consistente en todo tu equipo
+        Merchandising corporativo: tu marca aplicada en todo tu equipo
       </h1>
       <p class="text-white/75 text-lg mb-9">
         Diseña la vestimenta y los accesorios de tu equipo en minutos: te guiamos en la
@@ -63,4 +65,5 @@ const faqs = [
   </section>
 
   <FaqSection items={faqs} title="Preguntas frecuentes sobre merchandising corporativo" />
+  <IntentCrossLinks current="merchandising" />
 </BaseLayout>

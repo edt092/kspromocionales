@@ -7,6 +7,9 @@ type JsonLd = Record<string, unknown>;
  * propiedades verificables por el contenido visible de la página — ver SEO_AUDIT.md
  * y SEO_AUDIT_1.md para las reglas de qué NO se debe declarar (precios/stock sin
  * respaldo, LocalBusiness sin dirección real, brand no verificado, etc).
+ *
+ * Grafo de entidad (T11): Organization y WebSite tienen `@id` estables y el resto de
+ * bloques los referencian en vez de redeclarar la organización por nombre.
  */
 
 /**
@@ -16,6 +19,17 @@ type JsonLd = Record<string, unknown>;
  * Declarar Product sin esos campos genera el error "Debe especificarse offers, review o
  * aggregateRating" en Search Console. Las fichas de producto usan solo BreadcrumbList.
  */
+
+export const ORGANIZATION_ID = `${SITE.url}/#organization`;
+export const WEBSITE_ID = `${SITE.url}/#website`;
+const ROOT_URL = `${SITE.url}/`;
+
+const orgRef = { '@id': ORGANIZATION_ID };
+
+/** La raíz del sitio siempre con barra final, igual que su canonical. */
+function normalizeUrl(url: string): string {
+  return url === SITE.url ? ROOT_URL : url;
+}
 
 export interface BreadcrumbItem {
   name: string;
@@ -30,22 +44,34 @@ export function breadcrumbListSchema(items: BreadcrumbItem[]): JsonLd {
       '@type': 'ListItem',
       position: i + 1,
       name: it.name,
-      item: it.item,
+      item: normalizeUrl(it.item),
     })),
   };
 }
 
 /**
- * Organization para la home / entidad del sitio. No incluye foundingDate, sameAs, NIT
- * ni dirección: no hay evidencia verificable de esos datos en el repositorio.
+ * Organization: entidad del sitio. `name` es el nombre comercial visible ("KS Promocionales");
+ * no se declara `legalName` porque no hay evidencia de la razón social formal en el repositorio
+ * ("KS Promocionales Colombia" es una denominación de marca, no una razón social verificada).
+ * Tampoco foundingDate, sameAs, NIT ni dirección postal: no hay datos verificados.
+ * `address` solo con localidad/región/país de la base operativa real (sin calle, sin atención
+ * al público), coherente con el texto visible del sitio.
  */
 export function organizationSchema(): JsonLd {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE.legalName,
-    url: SITE.url,
-    logo: `${SITE.url}/logo-header.png`,
+    '@id': ORGANIZATION_ID,
+    name: SITE.name,
+    alternateName: SITE.legalName,
+    url: ROOT_URL,
+    logo: { '@type': 'ImageObject', url: `${SITE.url}/logo-header.png` },
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Girón',
+      addressRegion: 'Santander',
+      addressCountry: 'CO',
+    },
     areaServed: { '@type': 'Country', name: 'Colombia' },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -57,13 +83,16 @@ export function organizationSchema(): JsonLd {
   };
 }
 
-/** WebSite para la home. Sin SearchAction: el sitio no tiene búsqueda interna real. */
+/** WebSite. Sin SearchAction: el sitio no tiene búsqueda interna real. */
 export function websiteSchema(): JsonLd {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': WEBSITE_ID,
     name: SITE.name,
-    url: SITE.url,
+    url: ROOT_URL,
+    inLanguage: SITE.hreflang,
+    publisher: orgRef,
   };
 }
 
@@ -77,9 +106,44 @@ export function collectionPageSchema(input: CollectionPageInput): JsonLd {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
+    '@id': `${input.url}#webpage`,
     name: input.name,
     description: input.description,
     url: input.url,
+    isPartOf: { '@id': WEBSITE_ID },
+  };
+}
+
+export interface WebPageInput {
+  name: string;
+  description?: string;
+  url: string;
+}
+
+/** AboutPage / ContactPage: describen la página visible y apuntan a la organización. */
+export function aboutPageSchema(input: WebPageInput): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${input.url}#webpage`,
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: orgRef,
+  };
+}
+
+export function contactPageSchema(input: WebPageInput): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${input.url}#webpage`,
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    isPartOf: { '@id': WEBSITE_ID },
+    about: orgRef,
   };
 }
 
@@ -94,11 +158,14 @@ export interface ServiceSchemaInput {
 /**
  * Service para páginas de cobertura geográfica. Nunca LocalBusiness: no hay dirección
  * física verificable para ninguna ciudad en el repositorio (ver P0-2 en SEO_AUDIT.md).
+ * El `name` describe el servicio ("Productos promocionales para empresas en Bogotá"),
+ * no una supuesta sucursal ("KS Promocionales Bogotá").
  */
 export function serviceSchema(input: ServiceSchemaInput): JsonLd {
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${input.url}#service`,
     name: input.name,
     description: input.description,
     url: input.url,
@@ -108,7 +175,7 @@ export function serviceSchema(input: ServiceSchemaInput): JsonLd {
       name: input.areaServedCity,
       containedInPlace: { '@type': 'Country', name: 'Colombia' },
     },
-    provider: { '@type': 'Organization', name: SITE.legalName, url: SITE.url },
+    provider: orgRef,
   };
 }
 
@@ -132,12 +199,9 @@ export function blogPostingSchema(input: BlogPostingInput): JsonLd {
     datePublished: input.datePublished,
     dateModified: input.dateModified || input.datePublished,
     author: { '@type': 'Person', name: input.authorName },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE.legalName,
-      logo: { '@type': 'ImageObject', url: `${SITE.url}/logo-header.png` },
-    },
-    mainEntityOfPage: input.url,
+    publisher: orgRef,
+    isPartOf: { '@id': WEBSITE_ID },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': input.url },
   };
 }
 

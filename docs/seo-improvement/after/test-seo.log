@@ -1,0 +1,137 @@
+$ node --test "scripts/seo-improvement/tests/*.test.mjs"
+TAP version 13
+# Subtest: description vacía con contenido visible útil → indexable
+ok 1 - description vacía con contenido visible útil → indexable
+  ---
+  duration_ms: 4.108
+  ...
+# Subtest: features vacías pero story factual → indexable
+ok 2 - features vacías pero story factual → indexable
+  ---
+  duration_ms: 0.386
+  ...
+# Subtest: campos llenos de relleno → enriquecer, nunca noindex
+ok 3 - campos llenos de relleno → enriquecer, nunca noindex
+  ---
+  duration_ms: 0.9013
+  ...
+# Subtest: imagen placeholder con información útil → indexable (la imagen no decide)
+ok 4 - imagen placeholder con información útil → indexable (la imagen no decide)
+  ---
+  duration_ms: 0.4305
+  ...
+# Subtest: hechos verificados bastan como contenido visible
+ok 5 - hechos verificados bastan como contenido visible
+  ---
+  duration_ms: 0.6309
+  ...
+# Subtest: sin ningún contenido visible → noindex (description no cuenta)
+ok 6 - sin ningún contenido visible → noindex (description no cuenta)
+  ---
+  duration_ms: 0.5803
+  ...
+# Subtest: productos con clics en GSC siguen indexables
+ok 7 - productos con clics en GSC siguen indexables
+  ---
+  duration_ms: 143.4062
+  ...
+# Subtest: nivel A: misma imagen y nombre sin etiquetas → mismo producto
+ok 8 - nivel A: misma imagen y nombre sin etiquetas → mismo producto
+  ---
+  duration_ms: 2.9677
+  ...
+# Subtest: capacidades distintas → variante, no se fusiona
+ok 9 - capacidades distintas → variante, no se fusiona
+  ---
+  duration_ms: 2.5759
+  ...
+# Subtest: imágenes distintas → insuficiente
+ok 10 - imágenes distintas → insuficiente
+  ---
+  duration_ms: 0.9285
+  ...
+# Subtest: nivel B: título comercial generado frente a nombre descriptivo
+ok 11 - nivel B: título comercial generado frente a nombre descriptivo
+  ---
+  duration_ms: 1.2209
+  ...
+# Subtest: la URL primaria evita etiquetas comerciales en el slug y respeta clics de GSC
+ok 12 - la URL primaria evita etiquetas comerciales en el slug y respeta clics de GSC
+  ---
+  duration_ms: 0.5408
+  ...
+# Subtest: categorías: base como primaria, promocional como secundaria, ecología solo con material
+ok 13 - categorías: base como primaria, promocional como secundaria, ecología solo con material
+  ---
+  duration_ms: 3.788
+  ...
+# Subtest: normalizeName y measuresOf
+ok 14 - normalizeName y measuresOf
+  ---
+  duration_ms: 0.5812
+  ...
+# Subtest: aliases: destino existente, sin cadenas, el alias ya no es producto
+ok 15 - aliases: destino existente, sin cadenas, el alias ya no es producto
+  ---
+  duration_ms: 116.0919
+  ...
+# Subtest: cierra listas de ciudades rotas sin inventar la ciudad perdida
+ok 16 - cierra listas de ciudades rotas sin inventar la ciudad perdida
+  ---
+  duration_ms: 11.2437
+  ...
+# Subtest: elimina preposiciones sin complemento
+ok 17 - elimina preposiciones sin complemento
+  ---
+  duration_ms: 1.1466
+  ...
+# Subtest: rangos sin destino usan cobertura nacional real
+ok 18 - rangos sin destino usan cobertura nacional real
+  ---
+  duration_ms: 2.0974
+  ...
+# Subtest: gentilicios ecuatorianos
+ok 19 - gentilicios ecuatorianos
+  ---
+  duration_ms: 0.6852
+  ...
+# Subtest: quita la etiqueta de UI [más]
+ok 20 - quita la etiqueta de UI [más]
+  ---
+  duration_ms: 0.7034
+  ...
+# Subtest: protege palabras y textos legítimos
+ok 21 - protege palabras y textos legítimos
+  ---
+  duration_ms: 0.7315
+  ...
+# Subtest: es idempotente
+ok 22 - es idempotente
+  ---
+  duration_ms: 9.9912
+  ...
+# Subtest: keywords: deduplica segmentos
+ok 23 - keywords: deduplica segmentos
+  ---
+  duration_ms: 0.4586
+  ...
+# Subtest: blog: Medellíndad → Calidad solo como token completo
+ok 24 - blog: Medellíndad → Calidad solo como token completo
+  ---
+  duration_ms: 6.4323
+  ...
+# Subtest: repairProduct no toca id, slug, categoryId ni imágenes
+ok 25 - repairProduct no toca id, slug, categoryId ni imágenes
+  ---
+  duration_ms: 6.4187
+  ...
+1..25
+# tests 25
+# suites 0
+# pass 25
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 529.2957
+EXIT=0

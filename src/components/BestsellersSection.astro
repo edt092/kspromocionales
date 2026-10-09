@@ -1,11 +1,11 @@
 ---
 import Icon from '@/components/Icon.astro';
 import ProductCard from '@/components/ProductCard.astro';
-import products from '@data/products.json';
+import { curatedProducts } from '@/lib/catalog';
+import { HUBS } from '@/data/merchandising';
 
-const bestsellers = (products as any[]).filter((p) => p.bestseller).slice(0, 8);
-const fallback = (products as any[]).slice(0, 8);
-const list = bestsellers.length ? bestsellers : fallback;
+// Sin datos de ventas en el repositorio: muestra del catálogo, no "más vendidos" (T10).
+const list = curatedProducts(HUBS.home, 8);
 ---
 
 {list.length > 0 && (
@@ -14,10 +14,10 @@ const list = bestsellers.length ? bestsellers : fallback;
       <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
         <div class="max-w-xl">
           <span class="section-label text-ks-navy">
-            <Icon name="star" size={15} /> Los más pedidos
+            <Icon name="layers" size={15} /> Del catálogo
           </span>
           <h2 class="heading-underline text-3xl sm:text-4xl font-heading font-bold text-[#0A0A23] mt-3">
-            Bestsellers para empresas en Colombia
+            Una muestra de productos para empresas
           </h2>
         </div>
         <a href="/categorias/" class="btn-primary shrink-0">
