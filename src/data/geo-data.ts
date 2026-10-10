@@ -17,7 +17,7 @@ export const colombia: { ciudades: Ciudad[] } = {
       h1: 'Productos Promocionales en Bucaramanga con Tu Logo',
       intro: 'Operamos de forma online desde Girón, dentro del área metropolitana de Bucaramanga (junto a Floridablanca y Piedecuesta). No contamos con punto de atención al público: cada cotización se gestiona por WhatsApp o formulario.',
       seoTitle: 'Productos Promocionales Bucaramanga | Regalos Corporativos con Logo',
-      seoDescription: 'Artículos publicitarios y regalos corporativos personalizados, operación online desde Girón, área metropolitana de Bucaramanga. Cotiza por WhatsApp, sin cantidad mínima en varias líneas.',
+      seoDescription: 'Artículos publicitarios y regalos corporativos personalizados, operación online desde Girón, área metropolitana de Bucaramanga. Cotiza por WhatsApp.',
       caracteristicas: [
         'Base operativa en Girón, área metropolitana de Bucaramanga',
         'Operación 100% online, sin local de atención al público',
@@ -45,7 +45,7 @@ export const colombia: { ciudades: Ciudad[] } = {
       h1: 'Productos Promocionales en Medellín con Tu Logo',
       intro: 'Regalos corporativos y merchandising personalizado para empresas en Medellín y el Valle de Aburrá. Solicita tu cotización por WhatsApp.',
       seoTitle: 'Productos Promocionales Medellín | Regalos Corporativos con Logo',
-      seoDescription: 'Merchandising y artículos publicitarios personalizados en Medellín. Cotiza por WhatsApp, catálogo por categorías, sin cantidad mínima en varias líneas.',
+      seoDescription: 'Merchandising y artículos publicitarios personalizados en Medellín. Cotiza por WhatsApp, catálogo por categorías.',
       caracteristicas: [
         'Merchandising para lanzamientos y ferias empresariales',
         'Personalización con logo de tu empresa',

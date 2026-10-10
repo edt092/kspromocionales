@@ -1,0 +1,35 @@
+
+SEO AUDIT URLs — 2026-10-09T22:28:17.555Z
+============================================================
+Páginas HTML analizadas: 2181
+URLs en sitemap: 2174
+------------------------------------------------------------
+✓ sitemapIndexWrongHost: 0
+✓ sitemapWrongHost: 0
+✓ sitemapHttp: 0
+✓ sitemapNoTrailingSlash: 0
+✓ sitemapDuplicates: 0
+✓ sitemapGracias: 0
+✓ canonicalMissing: 0
+✓ canonicalMultiple: 0
+✓ canonicalWrongHost: 0
+✓ canonicalWrongProtocol: 0
+✓ canonicalNoTrailingSlash: 0
+✓ canonicalNotSelfReferential: 0
+✓ canonicalQueryString: 0
+✓ indexableNotInSitemap: 0
+✓ noindexInSitemap: 0
+✓ internalLinkWrongHost: 0
+✓ internalLinkHistoricSlug: 0
+✓ internalLinkNoTrailingSlash: 0
+✓ internalLinkToAlias: 0
+✓ redirectsFileMissing: 0
+✓ redirectTargetNotGenerated: 0
+✓ redirectSourceGenerated: 0
+✓ redirectSourceInSitemap: 0
+✓ jsonLdInvalid: 0
+✓ jsonLdDanglingId: 0
+✓ breadcrumbRootNoSlash: 0
+============================================================
+✓ Sin hallazgos estructurales.
+

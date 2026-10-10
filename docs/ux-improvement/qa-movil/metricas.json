@@ -1,0 +1,230 @@
+{
+  "home@390x844": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 281,
+      "w": 358,
+      "h": 151.1875,
+      "bottom": 432.1875
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 25,
+    "textNodesUnder12px": 0
+  },
+  "categoria@390x844": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 269,
+      "w": 358,
+      "h": 36,
+      "bottom": 305
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 33,
+    "textNodesUnder12px": 0
+  },
+  "ficha@390x844": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 513,
+      "w": 358,
+      "h": 30,
+      "bottom": 543
+    },
+    "h1AboveFold": true,
+    "cta": {
+      "x": 16,
+      "y": 677,
+      "w": 358,
+      "h": 48,
+      "bottom": 725
+    },
+    "ctaAboveFold": true,
+    "floatingOverlapsH1AtLoad": null,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 25,
+    "textNodesUnder12px": 0
+  },
+  "ficha-aldrich@390x844": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 513,
+      "w": 358,
+      "h": 30,
+      "bottom": 543
+    },
+    "h1AboveFold": true,
+    "cta": {
+      "x": 16,
+      "y": 703,
+      "w": 358,
+      "h": 48,
+      "bottom": 751
+    },
+    "ctaAboveFold": true,
+    "floatingOverlapsH1AtLoad": null,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 25,
+    "textNodesUnder12px": 0
+  },
+  "blog@390x844": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 313,
+      "w": 358,
+      "h": 187.5,
+      "bottom": 500.5
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 35,
+    "textNodesUnder12px": 0
+  },
+  "contacto@390x844": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 261,
+      "w": 358,
+      "h": 72,
+      "bottom": 333
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 25,
+    "textNodesUnder12px": 0
+  },
+  "home@360x740": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 281,
+      "w": 328,
+      "h": 188.984375,
+      "bottom": 469.984375
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 23,
+    "textNodesUnder12px": 0
+  },
+  "categoria@360x740": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 269,
+      "w": 328,
+      "h": 36,
+      "bottom": 305
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 29,
+    "textNodesUnder12px": 0
+  },
+  "ficha@360x740": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 513,
+      "w": 328,
+      "h": 60,
+      "bottom": 573
+    },
+    "h1AboveFold": true,
+    "cta": {
+      "x": 16,
+      "y": 733,
+      "w": 328,
+      "h": 48,
+      "bottom": 781
+    },
+    "ctaAboveFold": false,
+    "floatingOverlapsH1AtLoad": null,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 23,
+    "textNodesUnder12px": 0
+  },
+  "ficha-aldrich@360x740": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 513,
+      "w": 328,
+      "h": 30,
+      "bottom": 543
+    },
+    "h1AboveFold": true,
+    "cta": {
+      "x": 16,
+      "y": 703,
+      "w": 328,
+      "h": 48,
+      "bottom": 751
+    },
+    "ctaAboveFold": false,
+    "floatingOverlapsH1AtLoad": null,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 23,
+    "textNodesUnder12px": 0
+  },
+  "blog@360x740": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 313,
+      "w": 328,
+      "h": 187.5,
+      "bottom": 500.5
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 33,
+    "textNodesUnder12px": 0
+  },
+  "contacto@360x740": {
+    "overflowX": false,
+    "h1": {
+      "x": 16,
+      "y": 261,
+      "w": 328,
+      "h": 72,
+      "bottom": 333
+    },
+    "h1AboveFold": true,
+    "cta": null,
+    "ctaAboveFold": null,
+    "floatingOverlapsH1AtLoad": false,
+    "floatingOverlapsCtaAtLoad": null,
+    "tapTargetsUnder44": 22,
+    "textNodesUnder12px": 0
+  }
+}

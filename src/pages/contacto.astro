@@ -2,11 +2,11 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema, contactPageSchema } from '@/lib/schema';
 import categories from '@data/categories.json';
 
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 const categoryOptions = (categories as any[]).map((c) => c.name);
 
 const jsonLd = [
@@ -66,14 +66,15 @@ const jsonLd = [
     </div>
   </section>
 
-  <section class="py-16 lg:py-20 bg-ks-navy-ghost">
+  <section id="solicitud" class="py-16 lg:py-20 bg-ks-navy-ghost">
     <div class="container-ks max-w-2xl mx-auto">
       <div class="text-center mb-10">
         <h2 class="heading-underline text-2xl sm:text-3xl font-heading font-bold text-[#0A0A23] mb-4">
-          ¿Prefieres enviarnos un briefing por escrito?
+          ¿Prefieres enviarnos la solicitud por escrito?
         </h2>
         <p class="text-gray-600">
           Útil si tu área de compras necesita dejar la solicitud registrada. Te respondemos por correo o WhatsApp con la propuesta.
+          Los campos marcados con * son obligatorios.
         </p>
       </div>
 
@@ -84,56 +85,62 @@ const jsonLd = [
         data-netlify="true"
         netlify-honeypot="bot-field"
         class="card-surface p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-5"
+        data-quote-form
       >
+        <div class="sm:col-span-2 hidden rounded-lg border-2 border-red-700 bg-red-50 p-4 text-sm text-red-800" tabindex="-1" data-error-summary>
+          <p class="font-semibold mb-1">Revisa estos campos:</p>
+          <ul class="list-disc pl-5" data-error-list></ul>
+        </div>
         <input type="hidden" name="form-name" value="briefing-contacto" />
         <p class="hidden">
           <label>No llenar este campo: <input name="bot-field" /></label>
         </p>
 
         <div class="sm:col-span-1">
-          <label for="nombre" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Nombre</label>
-          <input id="nombre" name="nombre" type="text" required class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <label for="nombre" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Nombre *</label>
+          <input id="nombre" name="nombre" type="text" required autocomplete="name" aria-describedby="nombre-error" data-error-msg="Escribe tu nombre." class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
         </div>
         <div class="sm:col-span-1">
           <label for="empresa" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Empresa</label>
-          <input id="empresa" name="empresa" type="text" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <input id="empresa" name="empresa" type="text" autocomplete="organization" class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
         </div>
         <div class="sm:col-span-1">
-          <label for="correo" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Correo corporativo</label>
-          <input id="correo" name="correo" type="email" required class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <label for="correo" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Correo electrónico *</label>
+          <input id="correo" name="correo" type="email" required autocomplete="email" aria-describedby="correo-error" data-error-msg="Revisa tu correo. Debe tener un formato como nombre@empresa.com." class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
         </div>
         <div class="sm:col-span-1">
           <label for="telefono" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Teléfono <span class="text-gray-400 font-normal">(opcional)</span></label>
-          <input id="telefono" name="telefono" type="tel" autocomplete="tel" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <input id="telefono" name="telefono" type="tel" autocomplete="tel" class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
         </div>
         <div class="sm:col-span-1">
           <label for="categoria" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Producto o categoría</label>
-          <select id="categoria" name="categoria" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40 bg-white">
+          <select id="categoria" name="categoria" class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy bg-white">
             <option value="">Selecciona una categoría (opcional)</option>
             {categoryOptions.map((name) => <option value={name}>{name}</option>)}
             <option value="No estoy seguro">No estoy seguro / varias categorías</option>
           </select>
         </div>
         <div class="sm:col-span-1">
-          <label for="cantidad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Cantidad aproximada</label>
-          <input id="cantidad" name="cantidad" type="text" placeholder="Ej: 100, o 50-100" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <label for="cantidad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">¿Cuántas unidades necesitas?</label>
+          <input id="cantidad" name="cantidad" type="text" aria-describedby="cantidad-ayuda" placeholder="Ej.: 100, o entre 50 y 100" class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
+          <p id="cantidad-ayuda" class="text-xs text-gray-600 mt-1">Puedes indicar una cantidad aproximada o un rango.</p>
         </div>
         <div class="sm:col-span-1">
           <label for="ciudad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Ciudad o departamento de entrega</label>
-          <input id="ciudad" name="ciudad" type="text" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
         </div>
         <div class="sm:col-span-1">
           <label for="fecha" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Fecha estimada <span class="text-gray-400 font-normal">(opcional)</span></label>
-          <input id="fecha" name="fecha" type="date" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40" />
+          <input id="fecha" name="fecha" type="date" aria-describedby="fecha-error" data-error-msg="La fecha ya pasó. Elige una fecha a partir de hoy." class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy" />
         </div>
         <div class="sm:col-span-2">
-          <label for="mensaje" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Cuéntanos qué necesitas</label>
-          <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Detalles adicionales sobre tu producto, evento o marca" class="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ks-orange/40"></textarea>
+          <label for="mensaje" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Cuéntanos qué necesitas *</label>
+          <textarea id="mensaje" name="mensaje" rows="4" required aria-describedby="mensaje-error" data-error-msg="Cuéntanos brevemente qué producto o campaña necesitas." placeholder="Detalles adicionales sobre tu producto, evento o marca" class="w-full rounded-lg border border-gray-500 px-4 py-2.5 min-h-[44px] text-base focus:outline-none focus:ring-2 focus:ring-ks-navy focus:border-ks-navy"></textarea>
         </div>
 
         <div class="sm:col-span-2">
           <label for="privacidad" class="flex items-start gap-2.5 text-sm text-gray-600">
-            <input id="privacidad" name="privacidad" type="checkbox" required aria-required="true" class="mt-0.5 rounded border-gray-300 text-ks-navy focus:ring-ks-orange/40" />
+            <input id="privacidad" name="privacidad" type="checkbox" required aria-describedby="privacidad-error" data-error-msg="Para enviar la solicitud debes aceptar la política de privacidad." class="mt-0.5 rounded border-gray-300 text-ks-navy focus:ring-ks-navy" />
             <span>
               He leído y acepto la <a href="/politica-de-privacidad/" class="text-ks-navy font-medium hover:underline">política de privacidad</a>.
             </span>
@@ -141,11 +148,145 @@ const jsonLd = [
         </div>
 
         <div class="sm:col-span-2">
-          <button type="submit" class="btn-primary w-full sm:w-auto justify-center">
-            <Icon name="message-circle" size={18} /> Enviar briefing
+          <button type="submit" class="btn-primary w-full sm:w-auto justify-center" data-submit>
+            <Icon name="message-circle" size={18} /> <span data-submit-label>Enviar solicitud de cotización</span>
           </button>
+          <p class="text-sm mt-3 min-h-[1.25rem]" role="status" aria-live="polite" data-form-status></p>
         </div>
       </form>
+
+      <div class="hidden card-surface p-6 sm:p-8 text-center" tabindex="-1" data-form-success>
+        <h3 class="font-heading font-bold text-xl text-[#0A0A23] mb-2">Recibimos tu solicitud</h3>
+        <p class="text-gray-600">Te responderemos por correo o WhatsApp con la propuesta. Si es urgente, escríbenos también por WhatsApp.</p>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Formulario de solicitud (auditoría UX/UI, UX-05). Mejora progresiva sobre Netlify Forms:
+  // sin JS, el envío nativo sigue yendo a /gracias/. Con JS: validación con mensajes propios,
+  // resumen de errores enfocable, envío por fetch, datos conservados si falla, sin doble envío,
+  // y confirmación SOLO tras una respuesta correcta del servidor.
+  import { readQuote } from '@/scripts/quote-store';
+  import { quoteMessage } from '@/lib/whatsapp';
+  import { track } from '@/scripts/track';
+
+  const form = document.querySelector<HTMLFormElement>('[data-quote-form]');
+  if (form) {
+    form.noValidate = true;
+    const summary = form.querySelector<HTMLElement>('[data-error-summary]')!;
+    const errorList = form.querySelector<HTMLElement>('[data-error-list]')!;
+    const statusEl = form.querySelector<HTMLElement>('[data-form-status]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const label = form.querySelector<HTMLElement>('[data-submit-label]')!;
+    const success = document.querySelector<HTMLElement>('[data-form-success]')!;
+    const fecha = form.querySelector<HTMLInputElement>('#fecha');
+    const today = new Date();
+    const todayIso = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    if (fecha) fecha.min = todayIso;
+
+    // Prerrelleno desde "Mi cotización" (?desde=cotizacion).
+    const params = new URLSearchParams(location.search);
+    const quote = readQuote();
+    if (params.get('desde') === 'cotizacion' && quote.items.length) {
+      const mensaje = form.querySelector<HTMLTextAreaElement>('#mensaje')!;
+      if (!mensaje.value) mensaje.value = quoteMessage(quote.items.map((i) => ({ name: i.name, slug: i.slug, ref: i.ref, qty: i.qty })), {}).text;
+      const ciudad = form.querySelector<HTMLInputElement>('#ciudad');
+      if (ciudad && !ciudad.value && quote.city) ciudad.value = quote.city;
+      if (fecha && !fecha.value && quote.date) fecha.value = quote.date;
+    }
+
+    const fieldError = (el: HTMLInputElement | HTMLTextAreaElement): string | null => {
+      if (el.type === 'checkbox') return (el as HTMLInputElement).checked ? null : el.dataset.errorMsg!;
+      const v = el.value.trim();
+      if (el.required && !v) return el.dataset.errorMsg!;
+      if (el.type === 'email' && v && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return el.dataset.errorMsg!;
+      if (el.id === 'fecha' && v && v < todayIso) return el.dataset.errorMsg!;
+      return null;
+    };
+
+    function showError(el: HTMLElement, msg: string | null) {
+      const id = `${el.id}-error`;
+      let p = document.getElementById(id);
+      if (msg) {
+        if (!p) {
+          p = document.createElement('p');
+          p.id = id;
+          p.className = 'text-sm text-red-700 mt-1';
+          (el.closest('label') ?? el).insertAdjacentElement('afterend', p);
+        }
+        p.textContent = msg;
+        el.setAttribute('aria-invalid', 'true');
+      } else {
+        p?.remove();
+        el.removeAttribute('aria-invalid');
+      }
+    }
+
+    const validated = () => Array.from(form.querySelectorAll<HTMLInputElement>('[data-error-msg]'));
+
+    function validate(): boolean {
+      const errors: { el: HTMLElement; msg: string }[] = [];
+      for (const el of validated()) {
+        const msg = fieldError(el);
+        showError(el, msg);
+        if (msg) errors.push({ el, msg });
+      }
+      errorList.innerHTML = '';
+      for (const { el, msg } of errors) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = `#${el.id}`;
+        a.textContent = msg;
+        a.className = 'underline';
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          el.focus();
+        });
+        li.appendChild(a);
+        errorList.appendChild(li);
+      }
+      summary.classList.toggle('hidden', errors.length === 0);
+      if (errors.length) summary.focus();
+      return errors.length === 0;
+    }
+
+    // Si un campo con error se corrige, el mensaje se retira mientras se escribe o se marca.
+    // No se hace en `blur`: retirar el mensaje al perder el foco desplaza el botón de envío entre
+    // el mousedown y el mouseup y el clic se pierde (detectado en el QA con navegador).
+    for (const el of validated()) {
+      const recheck = () => {
+        if (el.hasAttribute('aria-invalid') && !fieldError(el)) showError(el, null);
+      };
+      el.addEventListener('input', recheck);
+      el.addEventListener('change', recheck);
+    }
+
+    let sending = false;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (sending || !validate()) return;
+      sending = true;
+      submit.disabled = true;
+      label.textContent = 'Enviando…';
+      statusEl.textContent = '';
+      try {
+        const body = new URLSearchParams(new FormData(form) as any).toString();
+        const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+        if (!res.ok) throw new Error(String(res.status));
+        track('quote_submitted', { channel: 'formulario', from_quote: params.get('desde') === 'cotizacion' });
+        form.classList.add('hidden');
+        success.classList.remove('hidden');
+        success.focus();
+      } catch {
+        statusEl.textContent = 'No pudimos enviar la solicitud. Tus datos siguen aquí. Inténtalo de nuevo o escríbenos por WhatsApp.';
+        statusEl.className = 'text-sm mt-3 min-h-[1.25rem] text-red-700';
+      } finally {
+        sending = false;
+        submit.disabled = false;
+        label.textContent = 'Enviar solicitud de cotización';
+      }
+    });
+  }
+</script>

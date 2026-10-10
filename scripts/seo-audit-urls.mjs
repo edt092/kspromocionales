@@ -262,7 +262,7 @@ function main() {
 
       let hrefPathname = null;
       if (href.startsWith('/')) {
-        hrefPathname = href;
+        hrefPathname = href.split(/[?#]/)[0]; // la barra final se evalúa sobre la ruta, sin query ni fragmento
       } else if (href.startsWith('http://') || href.startsWith('https://')) {
         try {
           const u = new URL(href);

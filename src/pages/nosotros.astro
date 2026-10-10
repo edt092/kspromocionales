@@ -2,10 +2,10 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema, aboutPageSchema } from '@/lib/schema';
 
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 
 const pageDescription = `KS Promocionales: productos publicitarios y regalos corporativos personalizados. Operación 100% online desde ${SITE.operatingBase}, con envíos a toda Colombia.`;
 const jsonLd = [

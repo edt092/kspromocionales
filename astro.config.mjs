@@ -16,7 +16,8 @@ const noindexProductPaths = new Set(
 
 // Páginas estáticas fuera de data/products.json que también usan robots="noindex, follow"
 // (ver BaseLayout). Deben quedar fuera del sitemap por la misma razón que los productos.
-const noindexStaticPaths = new Set(['/gracias/']);
+// /buscar/ y /mi-cotizacion/ (auditoría UX/UI) son herramientas, no páginas de aterrizaje.
+const noindexStaticPaths = new Set(['/gracias/', '/buscar/', '/mi-cotizacion/']);
 
 // T16: <lastmod> solo con una fecha editorial real. Los posts tienen datePublished/dateModified
 // mantenidos a mano; productos y categorías no tienen una fecha de cambio visible fiable

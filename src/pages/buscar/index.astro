@@ -1,0 +1,196 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+import { allCategories } from '@/lib/catalog';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
+
+// Búsqueda en todo el catálogo (auditoría UX/UI, UX-08). Página de resultados: noindex y fuera
+// del sitemap. Sin JS, el formulario sigue visible y se ofrecen las categorías como alternativa.
+const categories = [...allCategories].sort((a, b) => a.name.localeCompare(b.name, 'es'));
+const waUrl = generalWhatsappUrl();
+---
+
+<BaseLayout
+  title="Buscar en el catálogo | KS Promocionales"
+  description="Busca productos promocionales por nombre, tipo o referencia en todo el catálogo de KS Promocionales."
+  robots="noindex, follow"
+  pageType="busqueda"
+>
+  <section class="section-navy-deep relative pt-10 pb-12">
+    <div class="container-ks relative z-10 max-w-3xl">
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-6">Buscar en el catálogo</h1>
+      <form action="/buscar/" method="get" role="search" class="grid grid-cols-1 sm:grid-cols-[1fr,auto,auto] gap-3" data-search-form>
+        <div>
+          <label for="q" class="block text-sm text-white/80 mb-1.5">Producto, tipo o referencia</label>
+          <input
+            id="q"
+            name="q"
+            type="search"
+            autocomplete="off"
+            placeholder="Ej.: mug, lapicero, termo, 10663"
+            class="w-full rounded-lg border-0 px-4 py-3 text-base text-[#0A0A23] min-h-[48px]"
+          />
+        </div>
+        <div>
+          <label for="categoria" class="block text-sm text-white/80 mb-1.5">Categoría</label>
+          <select id="categoria" name="categoria" class="w-full rounded-lg border-0 px-4 py-3 text-base text-[#0A0A23] bg-white min-h-[48px]">
+            <option value="">Todas</option>
+            {categories.map((c) => <option value={c.slug}>{c.name}</option>)}
+          </select>
+        </div>
+        <div class="flex items-end">
+          <button type="submit" class="btn-primary w-full min-h-[48px]"><Icon name="search" size={18} /> Buscar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="py-10 lg:py-14">
+    <div class="container-ks">
+      <noscript>
+        <p class="text-gray-600 mb-6">La búsqueda necesita JavaScript. Puedes <a href="/categorias/" class="text-ks-navy font-semibold underline">explorar el catálogo por categoría</a>.</p>
+      </noscript>
+      <p class="text-sm text-gray-600 mb-6 min-h-[1.25rem]" role="status" aria-live="polite" data-search-status></p>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5" data-search-results></div>
+      <div class="text-center mt-10 hidden" data-search-more>
+        <button type="button" class="btn-secondary">Mostrar más resultados</button>
+      </div>
+      <div class="hidden max-w-xl" data-search-empty>
+        <h2 class="font-heading font-bold text-xl text-[#0A0A23] mb-3">No encontramos productos con esa búsqueda</h2>
+        <ul class="text-gray-600 space-y-2 mb-6 list-disc pl-5">
+          <li>Revisa la ortografía o usa una palabra más general (por ejemplo, «termo» en lugar del modelo).</li>
+          <li data-search-empty-category class="hidden">
+            <button type="button" class="text-ks-navy font-semibold underline min-h-[44px]" data-clear-category>Buscar en todas las categorías</button>
+          </li>
+        </ul>
+        <div class="flex flex-wrap gap-3">
+          <a href="/categorias/" class="btn-secondary">Ver catálogo por categorías</a>
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp" data-track-whatsapp="busqueda-sin-resultados">
+            <Icon name="message-circle" size={16} /> Consultar con un asesor
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { buildIndex, search, tokenize } from '@/lib/search-core.mjs';
+  import { track } from '@/scripts/track';
+
+  const PAGE = 24;
+  const form = document.querySelector<HTMLFormElement>('[data-search-form]')!;
+  const input = form.querySelector<HTMLInputElement>('#q')!;
+  const select = form.querySelector<HTMLSelectElement>('#categoria')!;
+  const status = document.querySelector<HTMLElement>('[data-search-status]')!;
+  const grid = document.querySelector<HTMLElement>('[data-search-results]')!;
+  const more = document.querySelector<HTMLElement>('[data-search-more]')!;
+  const empty = document.querySelector<HTMLElement>('[data-search-empty]')!;
+  const emptyCat = document.querySelector<HTMLElement>('[data-search-empty-category]')!;
+
+  let index: ReturnType<typeof buildIndex> | null = null;
+  let results: any[] = [];
+  let shown = 0;
+  let timer: number | undefined;
+
+  const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
+  function card(p: any): string {
+    return `<article class="card-product">
+      <a href="/productos/${encodeURIComponent(p.slug)}/" class="block aspect-product overflow-hidden bg-ks-navy-wash">
+        <img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" width="400" height="400" class="w-full h-full object-cover" />
+      </a>
+      <div class="p-4">
+        ${p.category ? `<p class="text-xs uppercase tracking-wide text-label-light font-semibold mb-1">${esc(p.category.name)}</p>` : ''}
+        <a href="/productos/${encodeURIComponent(p.slug)}/" class="font-heading font-bold text-[#0A0A23] leading-snug hover:text-ks-navy">${esc(p.name)}</a>
+        ${p.ref ? `<p class="text-xs text-gray-500 mt-1">Referencia ${esc(p.ref)}</p>` : ''}
+      </div>
+    </article>`;
+  }
+
+  function renderMore() {
+    grid.insertAdjacentHTML('beforeend', results.slice(shown, shown + PAGE).map(card).join(''));
+    shown = Math.min(shown + PAGE, results.length);
+    more.classList.toggle('hidden', shown >= results.length);
+  }
+
+  function run(push: boolean) {
+    if (!index) return;
+    const q = input.value.trim();
+    const catSlug = select.value;
+    const cat = index.categories.find((c) => c.slug === catSlug);
+    results = search(index, q, { categoryId: cat?.id });
+    grid.innerHTML = '';
+    shown = 0;
+    const hasQuery = q.length > 0 || !!cat;
+
+    const url = new URL(location.href);
+    url.searchParams.delete('q');
+    url.searchParams.delete('categoria');
+    if (q) url.searchParams.set('q', q);
+    if (catSlug) url.searchParams.set('categoria', catSlug);
+    history[push ? 'pushState' : 'replaceState'](null, '', url);
+
+    if (!hasQuery) {
+      status.textContent = 'Escribe qué buscas o elige una categoría.';
+      empty.classList.add('hidden');
+      more.classList.add('hidden');
+      return;
+    }
+    const where = cat ? ` en ${cat.name}` : '';
+    status.textContent = results.length
+      ? `${results.length} ${results.length === 1 ? 'producto' : 'productos'}${q ? ` para «${q}»` : ''}${where}.`
+      : `Sin resultados${q ? ` para «${q}»` : ''}${where}.`;
+    empty.classList.toggle('hidden', results.length > 0);
+    emptyCat.classList.toggle('hidden', !cat);
+    if (results.length) renderMore();
+    else more.classList.add('hidden');
+
+    if (push) {
+      const terms = tokenize(q);
+      track('catalog_search', {
+        result_count: results.length,
+        has_category: !!cat,
+        query_type: terms.length && terms.every((t) => /^\d+$/.test(t)) ? 'referencia' : 'texto',
+      });
+    }
+  }
+
+  function readUrl() {
+    const params = new URLSearchParams(location.search);
+    input.value = params.get('q') ?? '';
+    select.value = params.get('categoria') ?? '';
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    run(true);
+  });
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+    timer = window.setTimeout(() => run(false), 250);
+  });
+  select.addEventListener('change', () => run(true));
+  more.querySelector('button')!.addEventListener('click', renderMore);
+  document.querySelector('[data-clear-category]')?.addEventListener('click', () => {
+    select.value = '';
+    run(true);
+    input.focus();
+  });
+  window.addEventListener('popstate', () => {
+    readUrl();
+    run(false);
+  });
+
+  readUrl();
+  status.textContent = 'Cargando el catálogo…';
+  fetch('/buscar/indice.json')
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+    .then((data) => {
+      index = buildIndex(data);
+      run(false);
+    })
+    .catch(() => {
+      status.innerHTML = 'No pudimos cargar la búsqueda. <a href="/categorias/" class="underline font-semibold text-ks-navy">Explora el catálogo por categoría</a>.';
+    });
+</script>

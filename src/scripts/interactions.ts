@@ -76,9 +76,17 @@ function initBlueprintLines() {
   lines.forEach((line) => observer.observe(line));
 }
 
+// Tilt y efecto magnético solo con ratón y sin preferencia de movimiento reducido (UX-12):
+// en táctil no aportan y con movimiento reducido pueden marear.
+const allowPointerMotion = () =>
+  window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+  !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function initAll() {
-  initTiltCards();
-  initMagneticButtons();
+  if (allowPointerMotion()) {
+    initTiltCards();
+    initMagneticButtons();
+  }
   initBlueprintLines();
 }
 

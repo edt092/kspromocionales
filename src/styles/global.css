@@ -33,11 +33,28 @@
     --shadow-orange: 0 4px 14px rgba(245, 165, 32, 0.35);
     --shadow-orange-lg: 0 8px 28px rgba(245, 165, 32, 0.45);
 
+    /* Colores funcionales con contraste verificado (auditoría UX/UI, UX-02, WCAG 2.2):
+       navy sobre naranja 6,8:1 (4,9:1 en hover); blanco sobre verde WhatsApp 5,4:1;
+       ámbar oscuro para etiquetas sobre fondo claro 5,5:1. El naranja de marca se
+       mantiene en fondos y en texto sobre fondos oscuros (8,2:1). */
+    --action-fg: #0F2178;
+    --wa-bg: #0F7A3D;
+    --wa-bg-hover: #146C43;
+    --label-on-light: #9A5A00;
+
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
     --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   html { scroll-behavior: smooth; }
+
+  /* Enlace "Saltar al contenido" (UX-03): visible solo al recibir foco. */
+  .skip-link {
+    position: absolute; left: 1rem; top: -100px; z-index: 100;
+    padding: 0.75rem 1rem; background: #FFFFFF; color: #0F2178; font-weight: 700;
+    border-radius: 8px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+  .skip-link:focus { top: 1rem; }
 
   body {
     @apply antialiased bg-white;
@@ -57,9 +74,19 @@
   ::-webkit-scrollbar-thumb { background: #0F2178; border-radius: 99px; }
   ::-webkit-scrollbar-thumb:hover { background: #F5A520; }
 
+  /* Foco visible con contraste suficiente sobre fondos claros (navy) y oscuros (blanco).
+     Antes: naranja al 60% de opacidad, por debajo de 3:1 sobre blanco. */
   *:focus-visible {
-    outline: 2px solid rgba(245, 165, 32, 0.6);
-    outline-offset: 2px;
+    outline: 3px solid #0F2178;
+    outline-offset: 3px;
+  }
+  .section-navy :focus-visible,
+  .section-navy-deep :focus-visible,
+  .bg-midnight :focus-visible,
+  #site-header :focus-visible,
+  footer :focus-visible,
+  .mobile-drawer :focus-visible {
+    outline-color: #FFFFFF;
   }
 
   ::selection { background: rgba(245, 165, 32, 0.14); color: #0F2178; }
@@ -69,7 +96,9 @@
   .container-ks { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold tracking-wide bg-ks-orange text-white transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold tracking-wide bg-ks-orange transition-all duration-200;
+    color: var(--action-fg);
+    min-height: 44px;
     border-radius: var(--radius);
     box-shadow: var(--shadow-orange);
   }
@@ -77,24 +106,39 @@
   .btn-primary:active { transform: scale(0.98); }
 
   .btn-hero-primary {
-    @apply inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold bg-ks-orange text-white transition-all duration-200 whitespace-nowrap;
+    @apply inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base font-semibold bg-ks-orange transition-all duration-200;
+    color: var(--action-fg);
+    min-height: 44px;
     border-radius: var(--radius);
     box-shadow: 0 4px 20px rgba(245, 165, 32, 0.45);
   }
   .btn-hero-primary:hover { background-color: var(--ks-orange-dark); box-shadow: 0 8px 32px rgba(245, 165, 32, 0.55); transform: translateY(-2px); }
 
   .btn-hero-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold border transition-all duration-200 whitespace-nowrap text-white/90;
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-base font-semibold border transition-all duration-200 text-white/90;
+    min-height: 44px;
     border-color: rgba(255, 255, 255, 0.25);
     border-radius: var(--radius);
   }
   .btn-hero-ghost:hover { color: white; border-color: rgba(255, 255, 255, 0.6); background-color: rgba(255, 255, 255, 0.08); }
 
   .btn-whatsapp {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold tracking-wide bg-whatsapp-green text-white transition-all duration-200;
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold tracking-wide text-white transition-all duration-200;
+    background-color: var(--wa-bg);
+    min-height: 44px;
     border-radius: var(--radius);
   }
-  .btn-whatsapp:hover { background-color: #1EBD57; }
+  .btn-whatsapp:hover { background-color: var(--wa-bg-hover); }
+
+  /* Acción secundaria sobre fondo claro (p. ej. "Añadir a mi cotización"). */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-semibold tracking-wide bg-white border-2 transition-colors duration-200;
+    color: #0F2178;
+    border-color: #0F2178;
+    min-height: 44px;
+    border-radius: var(--radius);
+  }
+  .btn-secondary:hover { background-color: #0F2178; color: #FFFFFF; }
   .pulse-whatsapp { animation: pulseGreen 2.2s var(--ease) infinite; }
 
   .card-product {
@@ -128,9 +172,17 @@
   }
   .glass-card:hover { border-color: rgba(245, 165, 32, 0.25); box-shadow: 0 4px 24px rgba(245, 165, 32, 0.1); transform: translateY(-3px); }
 
+  /* Etiqueta: ámbar oscuro sobre fondo claro; naranja de marca sobre fondos oscuros. */
   .section-label {
-    @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em] text-ks-orange;
+    @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.12em];
+    color: var(--label-on-light);
   }
+  .section-navy .section-label,
+  .section-navy-deep .section-label,
+  .bg-midnight .section-label {
+    color: #F5A520;
+  }
+  .text-label-light { color: var(--label-on-light); }
 
   .heading-underline { @apply relative inline-block pb-3; }
   .heading-underline::after {
@@ -179,14 +231,16 @@
   .aspect-category { aspect-ratio: 4 / 3; }
 }
 
-/* Scroll reveal (usado por un pequeño IntersectionObserver en BaseLayout) */
-.reveal {
+/* Scroll reveal (usado por un pequeño IntersectionObserver en BaseLayout).
+   El estado oculto solo se aplica si JS está activo (clase .js en <html>, puesta por un
+   script inline en BaseLayout): sin JS o ante un error de script el contenido queda visible. */
+.js .reveal {
   opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
   transition-delay: var(--stagger, 0ms);
 }
-.reveal.visible { opacity: 1; transform: translateY(0); }
+.js .reveal.visible { opacity: 1; transform: translateY(0); }
 
 @keyframes pulseGreen {
   0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55); }
@@ -203,12 +257,21 @@
    (pulso infinito del CTA flotante) — ambas son animaciones que se disparan
    solas, no por interacción, así que se desactivan aquí sitio-wide. */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
+  html { scroll-behavior: auto; }
+  .js .reveal {
     opacity: 1;
     transform: none;
     transition: none;
   }
-  .pulse-whatsapp {
+  .pulse-whatsapp,
+  .text-gradient-orange {
     animation: none;
+  }
+  [data-tilt],
+  [data-magnetic],
+  .card-product:hover,
+  .category-card-v2:hover,
+  .glass-card:hover {
+    transform: none !important;
   }
 }

@@ -4,13 +4,13 @@ import Icon from '@/components/Icon.astro';
 import ProductCard from '@/components/ProductCard.astro';
 import FaqSection from '@/components/FaqSection.astro';
 import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 import { breadcrumbListSchema } from '@/lib/schema';
 import IntentCrossLinks from '@/components/IntentCrossLinks.astro';
 import { curatedProducts, categoriesByIds } from '@/lib/catalog';
 import { HUBS } from '@/data/merchandising';
 
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 const shown = curatedProducts(HUBS.articulos, 8);
 const topCategories = categoriesByIds(HUBS.articulos);
 

@@ -1,0 +1,157 @@
+[
+ {
+  "check": "Primer Tab enfoca 'Saltar al contenido'",
+  "ok": true,
+  "detail": "skip-link|Saltar al contenido"
+ },
+ {
+  "check": "Saltar al contenido mueve el foco a <main>",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Enter abre el desplegable (aria-expanded=true)",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Panel visible al abrir",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Escape cierra y devuelve el foco al botón",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Contraste CTA naranja (hero) ≥ 4.5",
+  "ok": true,
+  "detail": "6.82"
+ },
+ {
+  "check": "Contraste Botón WhatsApp ≥ 4.5",
+  "ok": true,
+  "detail": "5.42"
+ },
+ {
+  "check": "Contraste CTA del header ≥ 4.5",
+  "ok": true,
+  "detail": "4.93"
+ },
+ {
+  "check": "Drawer cerrado es inert",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Al abrir, foco en 'Cerrar menú' y aria-expanded=true",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Tab queda atrapado dentro del drawer",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Escape cierra y devuelve el foco al botón de menú",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Búsqueda 'lapicero' (sinónimo) devuelve resultados",
+  "ok": true,
+  "detail": "179 productos para «lapicero». (24 visibles)"
+ },
+ {
+  "check": "Búsqueda por referencia 10663 → Aldrich primero",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Cero resultados muestra estado vacío con alternativas",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Filtro de categoría conservado desde la URL",
+  "ok": true,
+  "detail": "8 productos para «termo» en Termos Personalizados."
+ },
+ {
+  "check": "WhatsApp de ficha incluye referencia y URL",
+  "ok": true,
+  "detail": "Hola, quiero solicitar una cotización. |  | Producto: Bolígrafo Aldrich Sólido | Referencia: 10663 | https://www.kspromocionales.co/productos/boligrafo-aldrich-"
+ },
+ {
+  "check": "Añadir anuncia confirmación",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Contador del header = 1",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Añadir de nuevo no duplica",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Mi cotización lista la referencia",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Mensaje de la lista incluye cantidad y ciudad",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Quitar muestra 'Deshacer'",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Deshacer recupera la referencia",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Formulario prerrellenado desde la cotización",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Errores: resumen visible y enfocado",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Campo inválido marcado aria-invalid",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Fallo de red: mensaje y datos conservados",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Éxito solo tras respuesta 200; incluye form-name",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Evento quote_submitted emitido sin datos personales",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "Sin JS el contenido .reveal es visible",
+  "ok": true,
+  "detail": "1"
+ }
+]
