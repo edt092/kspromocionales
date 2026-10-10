@@ -37,6 +37,11 @@ const jsonLd = [
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white max-w-2xl">
         Todas las categorías de productos promocionales
       </h1>
+      <form action="/buscar/" method="get" role="search" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl">
+        <label for="buscar-catalogo" class="sr-only">Buscar en el catálogo por producto o referencia</label>
+        <input id="buscar-catalogo" name="q" type="search" placeholder="Busca por producto o referencia (ej.: termo, lapicero)" class="flex-1 rounded-lg border-0 px-4 py-3 text-base text-[#0A0A23] min-h-[48px]" />
+        <button type="submit" class="btn-primary min-h-[48px]"><Icon name="search" size={18} /> Buscar</button>
+      </form>
     </div>
   </section>
 

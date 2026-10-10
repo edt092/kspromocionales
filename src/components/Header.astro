@@ -1,13 +1,13 @@
 ---
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 import { colombia } from '@/data/geo-data';
 import { categoriesByIds } from '@/lib/catalog';
 import { NAV_CATEGORY_IDS } from '@/data/merchandising';
 
 const featuredCategories = categoriesByIds(NAV_CATEGORY_IDS);
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 ---
 
 <header id="site-header" class="fixed top-0 inset-x-0 z-50 header-accent-line transition-colors duration-300">
@@ -24,15 +24,15 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
   <div id="header-main" class="bg-[#0F2178]/95 backdrop-blur-md border-b border-white/10 transition-all duration-300">
     <div class="container-ks flex items-center justify-between py-3">
       <a href="/" class="logo-hover flex items-center shrink-0" aria-label={SITE.name}>
-        <img src="/logo-header-white.png" alt={SITE.name} class="h-14 sm:h-16 w-auto" width="1010" height="195" />
+        <img src="/logo-header-white.png" alt={SITE.name} class="h-9 min-[400px]:h-11 sm:h-14 lg:h-16 w-auto" width="1010" height="195" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-1 text-sm font-medium text-white/90">
-        <div class="relative group">
-          <button class="flex items-center gap-1 px-3 py-2 hover:text-ks-orange-light transition-colors">
+        <div class="relative group" data-dropdown>
+          <button type="button" class="flex items-center gap-1 px-3 py-2 min-h-[44px] hover:text-ks-orange-light transition-colors" aria-expanded="false" aria-controls="menu-catalogo" data-dropdown-toggle>
             Catálogo <Icon name="chevron-down" size={14} />
           </button>
-          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div id="menu-catalogo" class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-[.open]:opacity-100 group-[.open]:visible transition-all duration-200">
             <div class="mega-menu-panel w-[560px] p-5 grid grid-cols-2 gap-1">
               {featuredCategories.map((cat: any) => (
                 <a href={`/categorias/${cat.slug}/`} class="mega-item flex items-center px-3 py-2.5 text-white/85 hover:text-white rounded-md text-sm">
@@ -46,11 +46,11 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
           </div>
         </div>
 
-        <div class="relative group">
-          <button class="flex items-center gap-1 px-3 py-2 hover:text-ks-orange-light transition-colors">
+        <div class="relative group" data-dropdown>
+          <button type="button" class="flex items-center gap-1 px-3 py-2 min-h-[44px] hover:text-ks-orange-light transition-colors" aria-expanded="false" aria-controls="menu-colombia" data-dropdown-toggle>
             Colombia <Icon name="chevron-down" size={14} />
           </button>
-          <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+          <div id="menu-colombia" class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-[.open]:opacity-100 group-[.open]:visible transition-all duration-200">
             <div class="mega-menu-panel w-64 p-3">
               {colombia.ciudades.map((c) => (
                 <a href={`/productos-promocionales-colombia/${c.slug}/`} class="mega-item flex items-center gap-2 px-3 py-2.5 text-white/85 hover:text-white rounded-md text-sm">
@@ -68,33 +68,42 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
         <a href="/contacto/" class="px-3 py-2 hover:text-ks-orange-light transition-colors">Contacto</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-header-cta items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold text-white">
-          <Icon name="message-circle" size={16} />
-          Cotizar Ahora
+      <div class="flex items-center gap-1 sm:gap-3">
+        <a href="/buscar/" class="inline-flex items-center justify-center w-11 h-11 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-colors" aria-label="Buscar en el catálogo">
+          <Icon name="search" size={20} />
         </a>
-        <button id="mobile-menu-btn" class="lg:hidden text-white p-2" aria-label="Abrir menú">
+        <a href="/mi-cotizacion/" class="relative inline-flex items-center justify-center w-11 h-11 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-colors" aria-label="Mi cotización" data-quote-link>
+          <Icon name="clipboard" size={20} />
+          <span class="absolute -top-0.5 -right-0.5 min-w-[20px] h-5 px-1 rounded-full bg-ks-orange text-[#0F2178] text-xs font-bold leading-5 text-center hidden" data-quote-count aria-hidden="true"></span>
+        </a>
+        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-header-cta items-center gap-2 px-5 py-2.5 min-h-[44px] rounded-lg text-sm font-semibold" data-track-whatsapp="header">
+          <Icon name="message-circle" size={16} />
+          Cotizar por WhatsApp
+        </a>
+        <button id="mobile-menu-btn" type="button" class="lg:hidden text-white inline-flex items-center justify-center w-11 h-11" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-drawer">
           <Icon name="menu" size={24} />
         </button>
       </div>
     </div>
   </div>
 
-  <div id="mobile-drawer" class="mobile-drawer fixed inset-y-0 right-0 w-80 max-w-[85vw] translate-x-full transition-transform duration-300 z-50 lg:hidden">
+  <div id="mobile-drawer" class="mobile-drawer fixed inset-y-0 right-0 w-80 max-w-[85vw] translate-x-full transition-transform duration-300 z-50 lg:hidden" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" inert>
     <div class="flex items-center justify-between p-5 border-b border-white/10">
-      <span class="text-white font-heading font-bold">Menú</span>
-      <button id="mobile-menu-close" class="text-white p-2" aria-label="Cerrar menú">
+      <span id="mobile-drawer-title" class="text-white font-heading font-bold">Menú</span>
+      <button id="mobile-menu-close" type="button" class="text-white inline-flex items-center justify-center w-11 h-11" aria-label="Cerrar menú">
         <Icon name="x" size={22} />
       </button>
     </div>
     <nav class="flex flex-col p-5 gap-1 text-white/90 text-sm font-medium overflow-y-auto">
+      <a href="/buscar/" class="px-3 py-3 hover:text-ks-orange-light">Buscar en el catálogo</a>
       <a href="/categorias/" class="px-3 py-3 hover:text-ks-orange-light">Catálogo completo</a>
+      <a href="/mi-cotizacion/" class="px-3 py-3 hover:text-ks-orange-light">Mi cotización</a>
       <a href="/productos-promocionales-colombia/" class="px-3 py-3 hover:text-ks-orange-light">Colombia — todas las ciudades</a>
       <a href="/regalos-corporativos/" class="px-3 py-3 hover:text-ks-orange-light">Regalos Corporativos</a>
       <a href="/blog/" class="px-3 py-3 hover:text-ks-orange-light">Blog</a>
       <a href="/nosotros/" class="px-3 py-3 hover:text-ks-orange-light">Nosotros</a>
       <a href="/contacto/" class="px-3 py-3 hover:text-ks-orange-light">Contacto</a>
-      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp mt-4 justify-center">
+      <a href={ctaUrl} target="_blank" rel="noopener noreferrer" class="btn-whatsapp mt-4 justify-center" data-track-whatsapp="menu-movil">
         <Icon name="message-circle" size={16} /> Cotizar por WhatsApp
       </a>
     </nav>
@@ -136,7 +145,9 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
   .mega-item:hover::before { transform: scaleY(1); }
 
   .btn-header-cta {
-    background: linear-gradient(135deg, #F5A520 0%, #D4641C 100%);
+    /* Texto navy: 4,9:1 en el extremo más oscuro del degradado (antes blanco, ~2:1). */
+    color: #0F2178;
+    background: linear-gradient(135deg, #F5A520 0%, #D48A0A 100%);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   .btn-header-cta:hover { transform: translateY(-1px); box-shadow: 0 0 28px rgba(245,165,32,0.55), 0 4px 20px rgba(245,165,32,0.3); }
@@ -160,22 +171,72 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // --- Desplegables de escritorio (patrón disclosure, UX-03) ---------------------------
+  const dropdowns = Array.from(document.querySelectorAll<HTMLElement>('[data-dropdown]'));
+  function setDropdown(dd: HTMLElement, open: boolean) {
+    dd.classList.toggle('open', open);
+    dd.querySelector('[data-dropdown-toggle]')?.setAttribute('aria-expanded', String(open));
+  }
+  for (const dd of dropdowns) {
+    const toggle = dd.querySelector<HTMLButtonElement>('[data-dropdown-toggle]');
+    toggle?.addEventListener('click', () => {
+      const open = !dd.classList.contains('open');
+      dropdowns.forEach((other) => other !== dd && setDropdown(other, false));
+      setDropdown(dd, open);
+    });
+    dd.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dd.classList.contains('open')) {
+        setDropdown(dd, false);
+        toggle?.focus();
+      }
+    });
+    dd.addEventListener('focusout', (e) => {
+      if (!dd.contains(e.relatedTarget as Node | null)) setDropdown(dd, false);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    for (const dd of dropdowns) if (!dd.contains(e.target as Node)) setDropdown(dd, false);
+  });
+
+  // --- Drawer móvil como diálogo modal (UX-03) -----------------------------------------
+  // Cerrado: `inert` lo saca del orden de tabulación y del árbol accesible. Abierto: foco
+  // al botón de cierre, Tab confinado al panel, Escape cierra y el foco vuelve al disparador.
   const drawer = document.getElementById('mobile-drawer');
   const backdrop = document.getElementById('mobile-backdrop');
   const openBtn = document.getElementById('mobile-menu-btn');
   const closeBtn = document.getElementById('mobile-menu-close');
+  const focusables = () =>
+    Array.from(drawer?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? []);
 
-  function openMenu() {
-    drawer?.classList.add('open');
-    backdrop?.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function setDrawer(open: boolean, restoreFocus = true) {
+    if (!drawer) return;
+    drawer.classList.toggle('open', open);
+    drawer.toggleAttribute('inert', !open);
+    backdrop?.classList.toggle('open', open);
+    openBtn?.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) closeBtn?.focus();
+    else if (restoreFocus) openBtn?.focus();
   }
-  function closeMenu() {
-    drawer?.classList.remove('open');
-    backdrop?.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  openBtn?.addEventListener('click', openMenu);
-  closeBtn?.addEventListener('click', closeMenu);
-  backdrop?.addEventListener('click', closeMenu);
+  openBtn?.addEventListener('click', () => setDrawer(true));
+  closeBtn?.addEventListener('click', () => setDrawer(false));
+  backdrop?.addEventListener('click', () => setDrawer(false));
+  drawer?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') return setDrawer(false);
+    if (e.key !== 'Tab') return;
+    const items = focusables();
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last?.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first?.focus();
+    }
+  });
+  // Si la ventana pasa a escritorio con el drawer abierto, se cierra sin mover el foco.
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (mq) => {
+    if (mq.matches && drawer?.classList.contains('open')) setDrawer(false, false);
+  });
 </script>

@@ -1,0 +1,183 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Icon from '@/components/Icon.astro';
+---
+
+<BaseLayout
+  title="Mi cotización | KS Promocionales"
+  description="Revisa las referencias que seleccionaste y envía tu solicitud de cotización por WhatsApp o por formulario."
+  robots="noindex, follow"
+  pageType="cotizacion"
+>
+  <section class="section-navy-deep relative pt-10 pb-10">
+    <div class="container-ks relative z-10 max-w-3xl">
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-3">Mi cotización</h1>
+      <p class="text-white/75">
+        Reúne las referencias que te interesan y envíanos una sola solicitud. La lista se guarda solo en este navegador
+        durante 30 días; no guardamos tus datos personales.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-10 lg:py-14">
+    <div class="container-ks max-w-3xl">
+      <noscript><p class="text-gray-600">Esta lista necesita JavaScript. Puedes cotizar cada producto directamente por WhatsApp desde su ficha.</p></noscript>
+      <p class="text-sm min-h-[1.25rem] mb-4 text-[#0A0A23]" role="status" aria-live="polite" data-status></p>
+
+      <div class="hidden" data-empty>
+        <p class="text-gray-600 mb-6">Aún no has añadido productos. En cada ficha encontrarás el botón «Añadir a mi cotización».</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/buscar/" class="btn-primary"><Icon name="search" size={16} /> Buscar productos</a>
+          <a href="/categorias/" class="btn-secondary">Ver catálogo</a>
+        </div>
+      </div>
+
+      <div class="hidden" data-filled>
+        <ul class="divide-y divide-gray-100 border border-gray-100 rounded-xl mb-8" data-list></ul>
+
+        <div class="grid sm:grid-cols-2 gap-5 mb-8">
+          <div>
+            <label for="ciudad" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Ciudad de entrega <span class="text-gray-500 font-normal">(opcional)</span></label>
+            <input id="ciudad" type="text" maxlength="80" autocomplete="address-level2" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 min-h-[44px]" />
+          </div>
+          <div>
+            <label for="fecha" class="block text-sm font-medium text-[#0A0A23] mb-1.5">Fecha en que lo necesitas <span class="text-gray-500 font-normal">(opcional)</span></label>
+            <input id="fecha" type="date" aria-describedby="fecha-ayuda" class="w-full rounded-lg border border-gray-300 px-4 py-2.5 min-h-[44px]" />
+            <p id="fecha-ayuda" class="text-xs text-gray-500 mt-1">Te confirmamos si el plazo es posible según producción y envío.</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 mb-3">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn-whatsapp justify-center" data-send-whatsapp data-track-whatsapp="mi-cotizacion" aria-describedby="nota-envio">
+            <Icon name="message-circle" size={18} /> Enviar por WhatsApp
+          </a>
+          <a href="/contacto/?desde=cotizacion#solicitud" class="btn-secondary justify-center">Enviar por formulario</a>
+          <button type="button" class="btn-secondary justify-center" data-copy><Icon name="copy" size={16} /> Copiar resumen</button>
+        </div>
+        <p id="nota-envio" class="text-sm text-gray-500 mb-6">
+          WhatsApp se abrirá con tu solicitud preparada; allí podrás revisarla y enviarla. Si prefieres que quede registrada por escrito, usa el formulario.
+        </p>
+        <p class="hidden text-sm text-[#9A5A00] mb-4" data-too-long>
+          Tu lista es larga para un solo mensaje de WhatsApp. Te recomendamos enviarla por formulario o copiar el resumen.
+        </p>
+        <button type="button" class="text-sm text-gray-600 underline min-h-[44px]" data-clear>Vaciar la lista</button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import { readQuote, updateItem, removeItem, restoreItem, setContext, clearQuote, type QuoteItem } from '@/scripts/quote-store';
+  import { quoteMessage, buildWhatsappUrl } from '@/lib/whatsapp';
+
+  const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
+  const list = $('[data-list]');
+  const status = $('[data-status]');
+  const city = $<HTMLInputElement>('#ciudad');
+  const date = $<HTMLInputElement>('#fecha');
+  const wa = $<HTMLAnchorElement>('[data-send-whatsapp]');
+  const today = new Date();
+  date.min = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+
+  const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
+  function message() {
+    const q = readQuote();
+    return quoteMessage(
+      q.items.map((i) => ({ name: i.name, slug: i.slug, ref: i.ref, qty: i.qty })),
+      { city: q.city, date: q.date }
+    );
+  }
+
+  function refreshSend() {
+    const m = message();
+    wa.href = buildWhatsappUrl(m.text);
+    $('[data-too-long]').classList.toggle('hidden', m.fits);
+  }
+
+  function render() {
+    const q = readQuote();
+    $('[data-empty]').classList.toggle('hidden', q.items.length > 0);
+    $('[data-filled]').classList.toggle('hidden', q.items.length === 0);
+    list.innerHTML = q.items
+      .map(
+        (i, idx) => `<li class="flex items-center gap-4 p-4" data-slug="${esc(i.slug)}">
+          ${i.image ? `<img src="${esc(i.image)}" alt="" width="64" height="64" class="w-16 h-16 rounded-lg object-cover bg-gray-50 shrink-0" />` : ''}
+          <div class="flex-1 min-w-0">
+            <a href="/productos/${encodeURIComponent(i.slug)}/" class="font-semibold text-[#0A0A23] hover:text-ks-navy">${esc(i.name)}</a>
+            ${i.ref ? `<p class="text-xs text-gray-500">Referencia ${esc(i.ref)}</p>` : ''}
+          </div>
+          <div class="w-28 shrink-0">
+            <label for="qty-${idx}" class="block text-xs text-gray-600 mb-1">Unidades</label>
+            <input id="qty-${idx}" type="number" inputmode="numeric" min="1" step="1" value="${i.qty ?? ''}" placeholder="Por definir" data-qty class="w-full rounded-lg border border-gray-300 px-3 py-2 min-h-[44px]" />
+          </div>
+          <button type="button" class="inline-flex items-center justify-center w-11 h-11 rounded-lg text-gray-600 hover:text-red-700 hover:bg-red-50" aria-label="Quitar ${esc(i.name)}" data-remove>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+          </button>
+        </li>`
+      )
+      .join('');
+    city.value = q.city;
+    date.value = q.date;
+    refreshSend();
+  }
+
+  list.addEventListener('change', (e) => {
+    const input = (e.target as HTMLElement).closest<HTMLInputElement>('[data-qty]');
+    if (!input) return;
+    const slug = input.closest<HTMLElement>('[data-slug]')!.dataset.slug!;
+    updateItem(slug, { qty: input.value as any });
+    refreshSend();
+  });
+
+  list.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('[data-remove]');
+    if (!btn) return;
+    const li = btn.closest<HTMLElement>('[data-slug]')!;
+    const idx = Array.from(list.children).indexOf(li);
+    const removed = removeItem(li.dataset.slug!) as QuoteItem;
+    render();
+    status.textContent = `Quitaste ${removed.name}. `;
+    const undo = document.createElement('button');
+    undo.type = 'button';
+    undo.textContent = 'Deshacer';
+    undo.className = 'underline font-semibold text-ks-navy min-h-[44px]';
+    undo.addEventListener('click', () => {
+      restoreItem(removed, idx);
+      render();
+      status.textContent = `Recuperaste ${removed.name}.`;
+    });
+    status.appendChild(undo);
+    undo.focus();
+  });
+
+  city.addEventListener('change', () => {
+    setContext({ city: city.value.trim() });
+    refreshSend();
+  });
+  date.addEventListener('change', () => {
+    if (date.value && date.value < date.min) {
+      status.textContent = 'La fecha ya pasó. Elige una fecha a partir de hoy.';
+      date.value = '';
+    }
+    setContext({ date: date.value });
+    refreshSend();
+  });
+
+  $('[data-copy]').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(message().text);
+      status.textContent = 'Copiamos el resumen. Pégalo en el canal que prefieras.';
+    } catch {
+      status.textContent = 'No pudimos copiar automáticamente. Usa «Enviar por formulario».';
+    }
+  });
+
+  $('[data-clear]').addEventListener('click', () => {
+    clearQuote();
+    render();
+    status.textContent = 'Vaciaste la lista.';
+  });
+
+  render();
+</script>

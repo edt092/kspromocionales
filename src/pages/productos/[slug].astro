@@ -20,7 +20,7 @@ const { product } = Astro.props;
 const category = primaryCategoryOf(product);
 const related = relatedProducts(product, 4);
 const image = getProductImage(product.images);
-const ctaUrl = productWhatsappUrl(product.name, product.whatsappMessage);
+const ctaUrl = productWhatsappUrl(product);
 const productUrl = `${SITE.url}/productos/${product.slug}/`;
 const indexability = evaluateProductIndexability(product as any);
 
@@ -53,6 +53,7 @@ const facts = Object.entries((product.facts ?? {}) as Record<string, string>).fi
   ogImage={image}
   robots={indexability.indexable ? undefined : 'noindex, follow'}
   jsonLd={jsonLd}
+  pageType="ficha"
 >
   {/* El header ocupa espacio en el flujo (Header.astro: .header-accent-line { position: relative }),
        así que aquí no hace falta compensar su altura; antes pt-28 dejaba ~110px vacíos en móvil. */}
@@ -85,14 +86,41 @@ const facts = Object.entries((product.facts ?? {}) as Record<string, string>).fi
             <Icon name="layers" size={14} /> {category.name}
           </a>
         )}
-        <h1 class="text-2xl sm:text-4xl font-heading font-bold text-[#0A0A23] mb-3 sm:mb-4 leading-tight">{product.name}</h1>
+        <h1 class="text-2xl sm:text-4xl font-heading font-bold text-[#0A0A23] mb-1 leading-tight">{product.name}</h1>
+        {product.sourceProductId && (
+          <p class="text-sm text-gray-500 mb-3 sm:mb-4">Referencia: <span class="font-medium text-gray-700">{product.sourceProductId}</span></p>
+        )}
         {product.shortDescription && <p class="text-base sm:text-lg text-gray-600 mb-5 sm:mb-8 leading-relaxed">{product.shortDescription}</p>}
 
-        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" data-primary-cta class="btn-whatsapp pulse-whatsapp w-full sm:w-auto justify-center mb-4 min-h-[48px]">
-          <Icon name="message-circle" size={18} /> Cotizar por WhatsApp
-        </a>
-        <p class="text-sm text-gray-500 mb-8 leading-relaxed">
-          Al cotizar te confirmamos cantidad mínima, técnica de marcación, colores disponibles y tiempo de producción.
+        <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-4">
+          <a
+            href={ctaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-primary-cta
+            data-track-whatsapp="ficha"
+            data-product-id={product.sourceProductId ?? product.slug}
+            aria-describedby="nota-whatsapp"
+            class="btn-whatsapp pulse-whatsapp w-full sm:w-auto justify-center min-h-[48px]"
+          >
+            <Icon name="message-circle" size={18} /> Cotizar por WhatsApp
+          </a>
+          <button
+            type="button"
+            class="btn-secondary w-full sm:w-auto justify-center min-h-[48px]"
+            data-add-to-quote
+            data-slug={product.slug}
+            data-name={product.name}
+            data-ref={product.sourceProductId ?? ''}
+            data-image={image}
+          >
+            <Icon name="plus" size={18} /> Añadir a mi cotización
+          </button>
+        </div>
+        <p class="text-sm min-h-[1.25rem] mb-2 text-[#0A0A23]" role="status" aria-live="polite" data-quote-status></p>
+        <p id="nota-whatsapp" class="text-sm text-gray-500 mb-8 leading-relaxed">
+          Abriremos WhatsApp con tu solicitud preparada (producto, referencia y enlace); allí podrás revisarla y enviarla.
+          Te confirmamos cantidad mínima, técnica de marcación, colores disponibles y tiempo de producción.
           Enviamos a toda Colombia desde {SITE.operatingBase.split(',')[0]} ({SITE.metroAreaLabel}).
         </p>
 
@@ -161,3 +189,52 @@ const facts = Object.entries((product.facts ?? {}) as Record<string, string>).fi
     </section>
   )}
 </BaseLayout>
+
+<script>
+  import { addItem, removeItem, readQuote } from '@/scripts/quote-store';
+  import { track } from '@/scripts/track';
+
+  const button = document.querySelector<HTMLButtonElement>('[data-add-to-quote]');
+  const status = document.querySelector<HTMLElement>('[data-quote-status]');
+
+  function render(message: string, actions: { label: string; href?: string; onClick?: () => void }[] = []) {
+    if (!status) return;
+    status.textContent = message + (actions.length ? ' ' : '');
+    for (const a of actions) {
+      const el = document.createElement(a.href ? 'a' : 'button');
+      el.textContent = a.label;
+      el.className = 'underline font-semibold text-ks-navy ml-1 min-h-[44px] inline-flex items-center';
+      if (a.href) (el as HTMLAnchorElement).href = a.href;
+      else {
+        (el as HTMLButtonElement).type = 'button';
+        el.addEventListener('click', a.onClick!);
+      }
+      status.appendChild(el);
+    }
+  }
+
+  button?.addEventListener('click', () => {
+    const d = button.dataset;
+    const result = addItem({ slug: d.slug!, name: d.name!, ref: d.ref || null, image: d.image || null, qty: null });
+    if (result === 'added') {
+      track('quote_item_added', { product_id: d.ref || d.slug, item_count: readQuote().items.length });
+      render(`Añadiste ${d.name} a tu cotización.`, [
+        { label: 'Ver mi cotización', href: '/mi-cotizacion/' },
+        {
+          label: 'Deshacer',
+          onClick: () => {
+            removeItem(d.slug!);
+            render(`Quitaste ${d.name} de tu cotización.`);
+            button.focus();
+          },
+        },
+      ]);
+    } else if (result === 'exists') {
+      render(`${d.name} ya está en tu cotización.`, [{ label: 'Editar cantidad', href: '/mi-cotizacion/' }]);
+    } else {
+      render('Tu cotización llegó al máximo de referencias. Envíala o quita alguna para añadir más.', [
+        { label: 'Ver mi cotización', href: '/mi-cotizacion/' },
+      ]);
+    }
+  });
+</script>

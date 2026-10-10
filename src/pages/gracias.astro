@@ -1,15 +1,14 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Icon from '@/components/Icon.astro';
-import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 ---
 
 <BaseLayout
-  title="Briefing recibido | KS Promocionales Colombia"
-  description="Recibimos tu briefing. Te respondemos por correo o WhatsApp con la propuesta."
+  title="Solicitud recibida | KS Promocionales Colombia"
+  description="Recibimos tu solicitud. Te respondemos por correo o WhatsApp con la propuesta."
   robots="noindex, follow"
 >
   <section class="section-navy-deep relative min-h-[70vh] flex items-center pt-24">
@@ -18,7 +17,7 @@ const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
         <Icon name="check-circle" size={32} class="text-ks-orange" />
       </div>
       <h1 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-4">
-        Recibimos tu briefing
+        Recibimos tu solicitud
       </h1>
       <p class="text-white/70 text-lg mb-9">
         Gracias por escribirnos. Revisamos tu solicitud y te respondemos por correo o WhatsApp con

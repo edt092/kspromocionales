@@ -11,6 +11,7 @@ interface Props {
     shortDescription?: string;
     categoria?: string;
     whatsappMessage?: string;
+    sourceProductId?: string;
     featured?: boolean;
     bestseller?: boolean;
   };
@@ -34,18 +35,20 @@ const image = getProductImage(product.images);
     {product.bestseller && <span class="badge-popular absolute top-3 left-3">Bestseller</span>}
   </a>
   <div class="p-4 flex flex-col flex-1">
-    {product.categoria && <p class="text-[11px] uppercase tracking-wide text-ks-orange font-semibold mb-1">{product.categoria}</p>}
+    {product.categoria && <p class="text-xs uppercase tracking-wide text-label-light font-semibold mb-1">{product.categoria}</p>}
     <a href={`/productos/${product.slug}/`} class="font-heading font-bold text-[#0A0A23] leading-snug mb-2 hover:text-ks-navy transition-colors line-clamp-2">
       {product.name}
     </a>
     {product.shortDescription && <p class="text-sm text-gray-500 line-clamp-2 mb-4">{product.shortDescription}</p>}
     <a
-      href={productWhatsappUrl(product.name, product.whatsappMessage)}
+      href={productWhatsappUrl(product)}
       target="_blank"
       rel="noopener noreferrer"
+      data-track-whatsapp="tarjeta"
+      data-product-id={product.sourceProductId ?? product.slug}
       class="mt-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-ks-navy border border-ks-navy/20 rounded-lg py-2.5 min-h-[44px] hover:bg-ks-navy hover:text-white transition-colors"
     >
-      <Icon name="message-circle" size={15} /> Cotizar
+      <Icon name="message-circle" size={15} /> Cotizar<span class="sr-only"> {product.name} por WhatsApp</span>
     </a>
   </div>
 </article>

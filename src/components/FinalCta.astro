@@ -1,9 +1,8 @@
 ---
 import Icon from '@/components/Icon.astro';
-import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 ---
 
 <section class="section-navy relative py-24 lg:py-28 overflow-hidden">

@@ -2,10 +2,10 @@
 import { getProductImage, getValidProductImages } from '@/lib/product-image';
 import Icon from '@/components/Icon.astro';
 import { SITE } from '@/lib/site';
-import { cityWhatsappUrl } from '@/lib/whatsapp';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 import products from '@data/products.json';
 
-const ctaUrl = cityWhatsappUrl(SITE.primaryCity);
+const ctaUrl = generalWhatsappUrl();
 
 // Cartelera de productos: una imagen por categoría primero (variedad visual),
 // luego se completa el cupo con el resto del catálogo. Selección determinista
@@ -45,8 +45,8 @@ curated.forEach((p, i) => showcaseColumns[i % SHOWCASE_COLS].push(p));
         <Icon name="sparkles" size={15} /> {SITE.primaryCity} y Colombia
       </span>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-[1.05] mb-6 text-balance">
-        Productos promocionales que tu marca
-        <span class="text-gradient-orange">sí se hace notar</span>
+        Productos promocionales para que tu marca
+        <span class="text-gradient-orange">se haga notar</span>
       </h1>
       <p class="text-lg text-white/70 max-w-xl mb-9 leading-relaxed">
         Artículos publicitarios y regalos corporativos personalizados con tu logo,

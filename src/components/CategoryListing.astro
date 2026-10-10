@@ -2,6 +2,7 @@
 import ProductCard from '@/components/ProductCard.astro';
 import Icon from '@/components/Icon.astro';
 import { CATEGORY_PAGE_SIZE } from '@/lib/pagination';
+import { generalWhatsappUrl } from '@/lib/whatsapp';
 
 interface Props {
   category: any;
@@ -71,7 +72,13 @@ const rangeEnd = Math.min(currentPage * CATEGORY_PAGE_SIZE, totalCount);
         ))}
       </div>
     ) : (
-      <p class="text-gray-500">Muy pronto sumaremos referencias a esta categoría. Escríbenos por WhatsApp y te ayudamos a encontrar la opción ideal.</p>
+      <div class="text-gray-600">
+        <p class="mb-4">Aún no hay productos en esta categoría.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/categorias/" class="btn-secondary">Explorar el catálogo</a>
+          <a href={generalWhatsappUrl()} target="_blank" rel="noopener noreferrer" class="btn-whatsapp" data-track-whatsapp="categoria-vacia">Consultar a un asesor</a>
+        </div>
+      </div>
     )}
 
     {totalPages > 1 && (

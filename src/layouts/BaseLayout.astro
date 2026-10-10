@@ -29,6 +29,8 @@ interface Props {
   /** Directiva robots explícita, p. ej. "noindex, follow". Ausente = comportamiento por defecto (indexable). */
   robots?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /** Tipo de página para los eventos del embudo (data-page-type en <body>). */
+  pageType?: string;
 }
 
 const {
@@ -40,6 +42,7 @@ const {
   article,
   robots,
   jsonLd,
+  pageType = 'contenido',
 } = Astro.props;
 
 const canonicalUrl = new URL(canonicalPath, SITE.url).toString();
@@ -53,6 +56,8 @@ const ogImageUrl = new URL(ogImage, SITE.url).toString();
 <html lang="es-CO">
   <head>
     <meta charset="UTF-8" />
+    <!-- Marca JS activo: solo entonces .reveal empieza oculto (contenido visible sin JS, UX-12). -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="icon" type="image/png" href="/favicon-src.png" />
     <!-- Imágenes de producto aún servidas por el proveedor (ver IMAGE_MIGRATION_STRATEGY.md) -->
@@ -86,9 +91,10 @@ const ogImageUrl = new URL(ogImage, SITE.url).toString();
       <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
     ))}
   </head>
-  <body class="antialiased bg-white">
+  <body class="antialiased bg-white" data-page-type={pageType}>
+    <a href="#contenido" class="skip-link">Saltar al contenido</a>
     <Header />
-    <main>
+    <main id="contenido" tabindex="-1" class="focus:outline-none">
       <slot />
     </main>
     <Footer />
@@ -111,6 +117,7 @@ const ogImageUrl = new URL(ogImage, SITE.url).toString();
     </script>
     <script>
       import '@/scripts/interactions';
+      import '@/scripts/site';
     </script>
   </body>
 </html>
