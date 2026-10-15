@@ -234,3 +234,42 @@ actualmente sin indexar) el detalle por URL: URL, última fecha de rastreo,
 canonical declarado, canonical elegido por Google, sitemap de referencia. Sin esos
 ejemplos no es posible confirmar si las 13 URLs no indexadas corresponden a
 comportamiento esperado (redirects/alternativas correctas) o a un problema real.
+
+---
+
+## 11. Seguimiento GSC 12 oct 2026 — 115 URLs "Página con redirección"
+
+Origen: `SEO-KSPROMOCIONALES.CO\ERRORES-INDEX-12-10-26\` (`Tabla.csv`, motivo
+"Página con redirección", sitemap "Todas las páginas conocidas"). Esta vez el export
+sí trae la lista por URL.
+
+**Diagnóstico (verificado en producción el 15 oct 2026):**
+
+- Las 115 URLs usan el host **sin `www`** (`https://kspromocionales.co/...`, y una
+  `http://kspromocionales.co/`). Son las URLs que Google conocía antes de la migración
+  a `www` del 3 ago 2026; la curva (10 → 115 entre jul y oct) es Google recorriendo
+  de nuevo esas URLs antiguas.
+- 115/115 responden 301 y terminan en **200** en `https://www.kspromocionales.co/...`.
+- 115/115 destinos: canonical autorreferente, sin `noindex`, presentes en
+  `sitemap-0.xml`. Cero referencias al host apex en el HTML, sitemap, robots o llms.txt.
+- Conclusión: **no es un error**; es el estado esperado de las URLs de origen de un
+  301. Google indexa el destino `www`, no la URL redirigida. No hay que "arreglar"
+  que esas 115 no se indexen.
+
+**Defecto real corregido:** 8 URLs hacían **2 saltos**:
+- 7 productos consolidados (alias de `data/product-aliases.json`): apex → `www` → slug primario.
+- `http://kspromocionales.co/` → `https://kspromocionales.co/` → `https://www.kspromocionales.co/`.
+
+`astro.config.mjs` ahora genera en `dist/_redirects`, antes de las reglas de ruta,
+reglas con host (`https://kspromocionales.co`, `http://kspromocionales.co`,
+`http://www.kspromocionales.co`) para cada alias y un catch-all por host, todos
+`301!` directo al destino final `https://www...`. Tras desplegar, comprobar con
+`curl -sIL` que esas 8 URLs llegan en 1 salto (si Netlify aplicara su redirección
+de dominio/HTTPS antes que `_redirects`, el comportamiento queda igual que antes, sin
+riesgo de bucle).
+
+**En Search Console:** no pulsar "Validar corrección" en este motivo (el 301 es
+correcto). Comprobar en su lugar que los destinos `www` figuran como indexados
+(Inspección de URL sobre algunos de ellos) y que el sitemap enviado es
+`https://www.kspromocionales.co/sitemap-index.xml`; retirar cualquier sitemap del
+host sin `www` si sigue enviado.
