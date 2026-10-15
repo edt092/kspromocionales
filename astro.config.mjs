@@ -30,12 +30,19 @@ const postLastmod = new Map(
 // dist/_redirects antes que las reglas de netlify.toml, así que estos 301 se evalúan antes
 // del catch-all 404. Netlify normaliza la barra final al comparar rutas.
 const aliases = readJson('./data/product-aliases.json');
+const SITE_ORIGIN = 'https://www.kspromocionales.co';
 const redirectsIntegration = {
   name: 'ks-product-alias-redirects',
   hooks: {
     'astro:build:done': ({ dir }) => {
+      // GSC 12-10-2026 ("Página con redirección"): las URLs antiguas sin www de un alias
+      // hacían dos saltos (apex → www → slug primario). Las reglas con host van primero
+      // para que apex y http:// lleguen al destino final 200 en un solo 301.
+      const legacyHosts = ['https://kspromocionales.co', 'http://kspromocionales.co', 'http://www.kspromocionales.co'];
       const lines = [
         '# Generado en build desde data/product-aliases.json (T04). No editar a mano.',
+        ...legacyHosts.flatMap((host) => aliases.map((a) => `${host}${a.from}  ${SITE_ORIGIN}${a.to}  301!`)),
+        ...legacyHosts.map((host) => `${host}/*  ${SITE_ORIGIN}/:splat  301!`),
         ...aliases.map((a) => `${a.from}  ${a.to}  301`),
         // /favicon.ico respondía 404; el favicon real es PNG (BaseLayout).
         '/favicon.ico  /favicon-src.png  301',
@@ -46,7 +53,7 @@ const redirectsIntegration = {
 };
 
 export default defineConfig({
-  site: 'https://www.kspromocionales.co',
+  site: SITE_ORIGIN,
   output: 'static',
   trailingSlash: 'always',
   integrations: [
